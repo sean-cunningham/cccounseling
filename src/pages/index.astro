@@ -1,0 +1,218 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const HERO_IMG =
+  "https://static.wixstatic.com/media/5ea397_a6fab48af623451487054d8fbe302ed5~mv2.jpg";
+const LAPTOP_IMG =
+  "https://static.wixstatic.com/media/11062b_4d4cc94a6ee04634abe5e3f340d27c6a~mv2.jpeg";
+
+const focusAreas = [
+  {
+    title: "Anxiety",
+    body: "Silence the persistent noise of worry to rediscover a grounded sense of daily peace.",
+  },
+  {
+    title: "Depression",
+    body: "Move through the heavy weight of sadness with professional guidance rooted in healing.",
+  },
+  {
+    title: "Relationships",
+    body: "Work through disagreements and build healthy patterns of communication and trust.",
+  },
+  {
+    title: "Stress & Burnout",
+    body: "Restore your vitality when professional and life demands begin to feel overwhelming.",
+  },
+  {
+    title: "Life Transitions",
+    body: "Step through major updates, from career shifts to moving, with stability and insight.",
+  },
+  {
+    title: "Trauma & PTSD",
+    body: "Process your past in a compassionate space dedicated to your wellness and inner safety.",
+  },
+] as const;
+---
+
+<BaseLayout title="Home | CC Counseling">
+  <main id="main">
+    <section class="relative isolate flex min-h-[min(78svh,52rem)] items-center overflow-hidden" aria-label="Intro">
+      <div class="absolute inset-0 -z-20">
+        <img
+          src={HERO_IMG}
+          alt=""
+          width="1920"
+          height="1080"
+          class="h-full w-full object-cover object-[center_22%]"
+          fetchpriority="high"
+        />
+      </div>
+      <div
+        class="absolute inset-0 -z-10 bg-gradient-to-r from-ink/88 via-ink/72 to-ink/45 sm:from-ink/85 sm:via-ink/55 sm:to-ink/25"
+        aria-hidden="true"
+      >
+      </div>
+      <div class="relative mx-auto w-full max-w-content px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
+        <div class="max-w-xl">
+          <p class="text-sm font-medium uppercase tracking-[0.2em] text-white/70">North Carolina telehealth</p>
+          <h1 class="mt-4 font-display text-4xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-[3.25rem]">
+            Therapy for meaningful, lasting change
+          </h1>
+          <p class="mt-6 text-lg leading-relaxed text-white/90 sm:text-xl">
+            Thoughtful, grounded therapy for individuals and couples across North Carolina, designed to help you better
+            understand yourself, navigate challenges with clarity, and create positive lasting change.
+          </p>
+          <div class="mt-10 flex flex-wrap gap-4">
+            <a
+              href="/contact-get-started"
+              class="inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-base font-semibold text-ink shadow-soft transition duration-200 ease-out hover:bg-mist hover:shadow-card"
+            >
+              Get Started
+            </a>
+            <a
+              href="/insurance-rates"
+              class="inline-flex items-center justify-center rounded-lg border border-white/35 bg-white/5 px-6 py-3 text-base font-medium text-white backdrop-blur-sm transition duration-200 ease-out hover:border-white/55 hover:bg-white/10"
+            >
+              Insurance &amp; Rates
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative py-20 sm:py-28" aria-labelledby="steps-heading">
+      <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" aria-hidden="true"></div>
+      <div class="mx-auto max-w-content px-4 sm:px-6 lg:px-8">
+        <h2 id="steps-heading" class="font-display text-3xl font-semibold tracking-tight text-ink sm:text-[2rem]">
+          Getting Started is Simple
+        </h2>
+        <p class="mt-4 max-w-2xl text-lg leading-relaxed text-muted">
+          Reaching out for therapy can feel like a lot. We keep the process clear, supportive, and straightforward from
+          the beginning.
+        </p>
+        <div class="mt-10 h-px w-24 bg-accent/60" aria-hidden="true"></div>
+        <div class="mt-12 grid gap-6 sm:grid-cols-3">
+          <article
+            class="group relative rounded-2xl border border-ink/[0.06] bg-white p-8 shadow-card transition duration-300 ease-out hover:-translate-y-0.5 hover:border-accent/15 hover:shadow-soft"
+          >
+            <span class="font-display text-sm font-semibold text-accent">01</span>
+            <h3 class="mt-3 font-display text-lg font-semibold text-ink">Start the Conversation</h3>
+            <p class="mt-3 text-sm leading-relaxed text-muted">
+              Tell us what brings you in, what kind of support you’re looking for, and any preferences you have for care.
+            </p>
+          </article>
+          <article
+            class="group relative rounded-2xl border border-ink/[0.06] bg-white p-8 shadow-card transition duration-300 ease-out hover:-translate-y-0.5 hover:border-accent/15 hover:shadow-soft"
+          >
+            <span class="font-display text-sm font-semibold text-accent">02</span>
+            <h3 class="mt-3 font-display text-lg font-semibold text-ink">Insurance and Matching</h3>
+            <p class="mt-3 text-sm leading-relaxed text-muted">
+              We’ll review your coverage and match you with a clinician whose approach and availability fit your needs.
+            </p>
+          </article>
+          <article
+            class="group relative rounded-2xl border border-ink/[0.06] bg-white p-8 shadow-card transition duration-300 ease-out hover:-translate-y-0.5 hover:border-accent/15 hover:shadow-soft"
+          >
+            <span class="font-display text-sm font-semibold text-accent">03</span>
+            <h3 class="mt-3 font-display text-lg font-semibold text-ink">Schedule your first session</h3>
+            <p class="mt-3 text-sm leading-relaxed text-muted">
+              Once you’re matched, we’ll help you get your first appointment on the calendar so you can begin with a clear
+              next step.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y border-ink/[0.06] bg-mist/50 py-20 sm:py-28" aria-labelledby="focus-heading">
+      <div class="mx-auto max-w-content px-4 sm:px-6 lg:px-8">
+        <h2 id="focus-heading" class="font-display text-3xl font-semibold tracking-tight text-ink sm:text-[2rem]">
+          Areas of Clinical Focus
+        </h2>
+        <p class="mt-4 max-w-3xl text-lg leading-relaxed text-muted">
+          We provide specialized care for a wide range of mental health concerns, supporting your journey with
+          high-quality clinical expertise and a human-centered approach.
+        </p>
+        <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {
+            focusAreas.map((item) => (
+              <article class="rounded-2xl border border-ink/[0.06] bg-white p-7 shadow-card transition duration-200 hover:border-accent/20">
+                <div class="h-0.5 w-10 rounded-full bg-accent/80" aria-hidden="true" />
+                <h3 class="mt-5 font-display text-lg font-semibold text-ink">{item.title}</h3>
+                <p class="mt-3 text-sm leading-relaxed text-muted">{item.body}</p>
+              </article>
+            ))
+          }
+        </div>
+        <p class="mt-12 max-w-3xl text-[0.9375rem] leading-relaxed text-muted">
+          We also support clients with many other challenges, including grief, self-esteem, anger, OCD, body image,
+          addiction, and more. If you’re not sure whether we’re the right fit, reach out and we’ll happily discuss how we
+          can help you create meaningful, lasting change.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-16 sm:py-20" aria-labelledby="insurance-heading">
+      <div
+        class="mx-auto grid max-w-content overflow-hidden rounded-2xl border border-ink/[0.06] bg-white shadow-soft lg:grid-cols-2"
+      >
+        <div class="flex flex-col justify-center px-6 py-12 sm:px-10 sm:py-14 lg:px-12 lg:py-16">
+          <h2 id="insurance-heading" class="font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+            Using Insurance for Therapy
+          </h2>
+          <p class="mt-5 text-[0.9375rem] leading-relaxed text-muted">
+            Navigating insurance shouldn’t be a barrier to healing. Our administrative team helps you understand the
+            specifics of your coverage and out-of-pocket costs before you even begin your first session, ensuring
+            transparency and ease from the very start.
+          </p>
+          <a
+            href="/insurance-rates"
+            class="mt-8 inline-flex w-fit items-center justify-center rounded-lg border-2 border-ink px-5 py-2.5 text-sm font-semibold text-ink transition duration-200 ease-out hover:bg-ink hover:text-white"
+          >
+            Explore Insurance &amp; Rates
+          </a>
+        </div>
+        <div class="relative min-h-[14rem] bg-mist lg:min-h-[20rem]">
+          <img
+            src={LAPTOP_IMG}
+            alt="Laptop on a desk representing telehealth therapy"
+            width="1200"
+            height="800"
+            class="absolute inset-0 h-full w-full object-cover"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-ink/20 to-transparent mix-blend-multiply lg:bg-gradient-to-l" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="relative overflow-hidden bg-accent py-16 text-white sm:py-20"
+      aria-labelledby="cta-title"
+    >
+      <div
+        class="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-white/10 blur-3xl"
+        aria-hidden="true"
+      >
+      </div>
+      <div
+        class="pointer-events-none absolute -bottom-32 -left-16 h-72 w-72 rounded-full bg-ink/20 blur-3xl"
+        aria-hidden="true"
+      >
+      </div>
+      <div class="relative mx-auto max-w-content px-4 text-center sm:px-6 lg:px-8">
+        <h2 id="cta-title" class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">Ready to get started?</h2>
+        <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/90 sm:text-lg">
+          Reach out today to begin. We’ll verify your benefits and match you with a clinician who fits your needs and
+          schedule across North Carolina.
+        </p>
+        <a
+          href="/contact-get-started"
+          class="mt-10 inline-flex items-center justify-center rounded-lg border-2 border-white bg-transparent px-8 py-3 text-base font-semibold text-white transition duration-200 ease-out hover:bg-white hover:text-accent"
+        >
+          Get Started
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

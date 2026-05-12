@@ -1,0 +1,22 @@
+---
+interface Props {
+  heading: string;
+  sub?: string;
+}
+
+const { heading, sub } = Astro.props;
+---
+
+<main id="main" class="border-b border-ink/5 bg-gradient-to-b from-mist/40 to-white py-16 sm:py-24">
+  <div class="mx-auto max-w-content px-4 sm:px-6 lg:px-8">
+    <h1 class="font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">{heading}</h1>
+    {
+      sub && (
+        <p class="mt-4 max-w-2xl text-lg leading-relaxed text-muted">{sub}</p>
+      )
+    }
+    <div class="mt-10 max-w-2xl space-y-5 text-[0.9375rem] leading-relaxed text-muted [&_a]:font-medium [&_a]:text-accent [&_a]:underline-offset-2 hover:[&_a]:underline">
+      <slot />
+    </div>
+  </div>
+</main>
