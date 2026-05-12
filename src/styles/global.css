@@ -8,6 +8,92 @@
   }
 
   body {
-    @apply font-sans text-ink bg-white text-base leading-relaxed;
+    @apply bg-cream font-sans text-base leading-relaxed text-ink;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display text-ink;
+  }
+
+  h1 {
+    @apply text-5xl font-semibold tracking-tight leading-[1.1] sm:text-6xl lg:text-7xl;
+  }
+
+  h2 {
+    @apply text-4xl font-semibold tracking-tight leading-[1.18] sm:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold leading-snug sm:text-3xl;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+
+  a {
+    @apply text-sageDark transition-colors duration-200 ease-out hover:text-clay;
+  }
+
+  a:focus-visible {
+    @apply rounded-sm outline-none ring-2 ring-sage ring-offset-2 ring-offset-cream;
+  }
+
+  ::selection {
+    @apply bg-sageSoft text-ink;
+  }
+
+  img {
+    @apply h-auto max-w-full;
+  }
+}
+
+@layer components {
+  /* Horizontal padding: 20px / 32px / 48px — use with vertical section rhythm */
+  .section-px {
+    @apply px-5 sm:px-8 lg:px-12;
+  }
+
+  .section-y {
+    @apply py-16 lg:py-28;
+  }
+
+  .section-cream {
+    @apply bg-cream;
+  }
+
+  .section-paper {
+    @apply bg-paper;
+  }
+
+  .section-sage-soft {
+    @apply bg-sageSoft;
+  }
+
+  .section-mist {
+    @apply bg-mist;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full border border-transparent bg-sageDark px-6 py-3 font-sans text-base font-bold text-paper no-underline shadow-card transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-[#355544] hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-cream active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-sand bg-paper px-6 py-3 font-sans text-base font-bold text-sageDark no-underline shadow-none transition duration-200 ease-out hover:-translate-y-0.5 hover:border-clay hover:bg-claySoft hover:shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-cream active:translate-y-0;
+  }
+
+  .card {
+    @apply rounded-[1.75rem] border border-sand bg-paper p-8 shadow-card transition duration-200 ease-out;
+  }
+
+  .card-interactive {
+    @apply card hover:-translate-y-1 hover:border-clay/40 hover:shadow-lift;
+  }
+
+  /* In-page text links (inherits hover clay; underline when helpful) */
+  .link-inline {
+    @apply font-medium text-sageDark underline decoration-sand underline-offset-[0.2em] transition hover:text-clay hover:decoration-clay;
   }
 }

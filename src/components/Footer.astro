@@ -2,9 +2,9 @@
 const year = new Date().getFullYear();
 ---
 
-<footer class="mt-auto border-t border-ink/8 bg-mist/40">
-  <div class="mx-auto max-w-content px-4 py-14 sm:px-6 lg:px-8">
-    <div class="h-px w-full bg-gradient-to-r from-transparent via-accent/25 to-transparent" aria-hidden="true"></div>
+<footer class="mt-auto border-t border-sand bg-cream">
+  <div class="section-px mx-auto max-w-site py-14">
+    <div class="h-px w-full bg-gradient-to-r from-transparent via-sage/20 to-transparent" aria-hidden="true"></div>
     <div class="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
       <div>
         <p class="font-display text-lg font-semibold text-ink">CC Counseling</p>
@@ -13,43 +13,59 @@ const year = new Date().getFullYear();
         </p>
       </div>
       <div>
-        <h3 class="text-xs font-semibold uppercase tracking-wider text-ink/70">Contact</h3>
+        <h3 class="font-sans text-xs font-semibold uppercase tracking-wider text-muted">Contact</h3>
         <p class="mt-3 text-sm leading-relaxed text-muted">
           Email:
-          <a class="text-accent underline-offset-2 hover:underline" href="mailto:hello@cccounselingnc.com"
-            >hello@cccounselingnc.com</a
+          <a
+            class="text-sm font-medium text-sageDark underline-offset-2 transition-colors hover:text-clay hover:underline"
+            href="mailto:hello@cccounselingnc.com">hello@cccounselingnc.com</a
           ><br />
           Phone:
-          <a class="text-accent underline-offset-2 hover:underline" href="tel:+19194571981">(919) 457-1981</a>
+          <a
+            class="text-sm font-medium text-sageDark underline-offset-2 transition-colors hover:text-clay hover:underline"
+            href="tel:+19194571981">(919) 457-1981</a
+          >
         </p>
       </div>
       <div>
-        <h3 class="text-xs font-semibold uppercase tracking-wider text-ink/70">Service area</h3>
+        <h3 class="font-sans text-xs font-semibold uppercase tracking-wider text-muted">Service area</h3>
         <p class="mt-3 text-sm leading-relaxed text-muted">
           Serving clients across North Carolina via telehealth.
         </p>
       </div>
       <div>
-        <h3 class="text-xs font-semibold uppercase tracking-wider text-ink/70">Quick links</h3>
+        <h3 class="font-sans text-xs font-semibold uppercase tracking-wider text-muted">Quick links</h3>
         <ul class="mt-3 space-y-2 text-sm">
-          <li><a class="text-muted underline-offset-2 hover:text-accent hover:underline" href="/">Home</a></li>
           <li>
-            <a class="text-muted underline-offset-2 hover:text-accent hover:underline" href="/insurance-rates"
-              >Insurance &amp; Rates</a
+            <a
+              class="text-sm text-muted underline-offset-2 transition-colors hover:text-clay hover:underline"
+              href="/">Home</a
             >
           </li>
-          <li><a class="text-muted underline-offset-2 hover:text-accent hover:underline" href="/faq-1">FAQ</a></li>
           <li>
-            <a class="text-muted underline-offset-2 hover:text-accent hover:underline" href="/contact-get-started"
-              >Get Started</a
+            <a
+              class="text-sm text-muted underline-offset-2 transition-colors hover:text-clay hover:underline"
+              href="/insurance-rates">Insurance &amp; Rates</a
+            >
+          </li>
+          <li>
+            <a
+              class="text-sm text-muted underline-offset-2 transition-colors hover:text-clay hover:underline"
+              href="/faq-1">FAQ</a
+            >
+          </li>
+          <li>
+            <a
+              class="text-sm text-muted underline-offset-2 transition-colors hover:text-clay hover:underline"
+              href="/contact-get-started">Get Started</a
             >
           </li>
         </ul>
       </div>
     </div>
-    <div class="mt-12 space-y-4 border-t border-ink/10 pt-8 text-center text-xs text-muted sm:text-left">
-      <p>&copy; {year} CC Counseling. All rights reserved.</p>
-      <p class="max-w-3xl leading-relaxed">
+    <div class="mt-12 space-y-4 border-t border-line pt-8 text-center text-xs text-muted sm:text-left">
+      <p class="text-ink">&copy; {year} CC Counseling. All rights reserved.</p>
+      <p class="max-w-3xl leading-relaxed text-muted">
         This site is not intended for emergencies. If you are in crisis or need immediate support, call or text 988,
         call 911, or go to the nearest emergency room.
       </p>
