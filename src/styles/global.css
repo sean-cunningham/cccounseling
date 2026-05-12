@@ -96,4 +96,27 @@
   .link-inline {
     @apply font-medium text-sageDark underline decoration-sand underline-offset-[0.2em] transition hover:text-clay hover:decoration-clay;
   }
+
+  /* Desktop Services flyout: hover + keyboard (.menu-open) */
+  @media (min-width: 1024px) {
+    .header-svc-flyout {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(6px);
+      pointer-events: none;
+      transition:
+        opacity 0.2s ease-out,
+        visibility 0.2s ease-out,
+        transform 0.2s ease-out;
+    }
+
+    .header-svc-wrap:hover .header-svc-flyout,
+    .header-svc-wrap.menu-open .header-svc-flyout,
+    .header-svc-wrap:focus-within .header-svc-flyout {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+  }
 }

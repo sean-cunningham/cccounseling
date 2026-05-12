@@ -8,9 +8,20 @@ interface Props {
 
 const { currentPath } = Astro.props;
 
-const nav = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services", children: [{ href: "/individual-therapy", label: "Individual Therapy" }] },
+const serviceItems = [
+  {
+    href: "/services/individual-therapy",
+    title: "Individual Therapy",
+    description: "Support for anxiety, stress, depression, life transitions, and personal growth.",
+  },
+  {
+    href: "/services/couples-therapy",
+    title: "Couples Therapy",
+    description: "Help for communication, disconnection, conflict, and rebuilding closeness.",
+  },
+] as const;
+
+const navRest = [
   { href: "/clinicians", label: "Our Clinicians" },
   { href: "/insurance-rates", label: "Insurance & Rates" },
   { href: "/faq-1", label: "FAQ" },
@@ -20,127 +31,233 @@ function isActive(href: string): boolean {
   if (href === "/") return currentPath === "/" || currentPath === "";
   return currentPath === href || currentPath.startsWith(href + "/");
 }
+
+const servicesActive = isActive("/services");
 ---
 
 <header
-  class="sticky top-0 z-[100] border-b border-sand bg-paper/90 shadow-sm backdrop-blur-md backdrop-saturate-150 transition-shadow duration-300 ease-out"
+  class="sticky top-0 z-[100] border-b border-sand/60 bg-paper/90 backdrop-blur-md backdrop-saturate-150"
 >
-  <input type="checkbox" id="nav-check" class="peer sr-only" aria-hidden="true" />
-  <div class="section-px mx-auto flex max-w-site items-center justify-between gap-6 py-3.5">
+  <div class="mx-auto flex min-h-[76px] max-w-site items-center justify-between gap-4 px-5 py-4 sm:px-6 lg:px-10">
     <a href="/" class="shrink-0 transition-opacity hover:opacity-90" aria-label="CC Counseling home">
-      <img src={LOGO} width="499" height="191" alt="CC Counseling" class="h-10 w-auto sm:h-11" />
+      <img src={LOGO} width="499" height="191" alt="CC Counseling" class="h-10 w-auto lg:h-12" />
     </a>
-    <label
-      for="nav-check"
-      class="flex cursor-pointer items-center justify-center rounded-lg p-2 text-ink hover:bg-sageSoft/80 lg:hidden"
-      aria-label="Toggle menu"
+
+    <button
+      type="button"
+      id="header-nav-toggle"
+      class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-sand bg-paper text-ink transition-colors hover:bg-sageSoft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-paper lg:hidden"
+      aria-controls="header-mobile-drawer"
+      aria-expanded="false"
+      aria-label="Open menu"
     >
-      <svg width="26" height="18" viewBox="0 0 200 200" aria-hidden="true" class="text-ink">
+      <svg width="22" height="16" viewBox="0 0 200 200" aria-hidden="true" class="text-ink">
         <path fill="currentColor" d="M156 64v6H44v-6h112z"></path>
         <path fill="currentColor" d="M156 97v6H44v-6h112z"></path>
         <path fill="currentColor" d="M156 130v6H44v-6h112z"></path>
       </svg>
-    </label>
-    <div class="hidden items-center gap-2 lg:flex lg:flex-1 lg:justify-end">
-      <nav class="flex flex-wrap items-center gap-0.5 pr-2" aria-label="Primary">
-        {
-          nav.map((item, i) => (
-            <>
-              {i > 0 && <span class="mx-0.5 h-3.5 w-px bg-line" aria-hidden="true" />}
-              {"children" in item && item.children ? (
-                <div class="group relative">
-                  <a
-                    href={item.href}
-                    class:list={[
-                      "inline-flex items-center gap-1 rounded-md px-2.5 py-1.5 text-[0.9375rem] font-medium text-ink no-underline transition-colors hover:bg-sageSoft/80 hover:text-sageDark",
-                      isActive(item.href) && "text-sageDark",
-                    ]}
-                  >
-                    {item.label}
-                    <span
-                      class="border-x-4 border-x-transparent border-t-[5px] border-t-ink/50 opacity-80"
-                      aria-hidden="true"
-                    />
-                  </a>
-                  <div
-                    class="invisible absolute left-0 top-full z-50 mt-1 min-w-[14rem] origin-top scale-95 rounded-xl border border-sand bg-paper py-1 opacity-0 shadow-nav transition-all duration-200 ease-out group-hover:visible group-hover:scale-100 group-hover:opacity-100"
-                    role="menu"
-                  >
-                    {item.children.map((c) => (
-                      <a
-                        href={c.href}
-                        class:list={[
-                          "block px-4 py-2.5 text-sm text-ink/90 no-underline transition-colors hover:bg-sageSoft hover:text-clay",
-                          isActive(c.href) && "bg-sageSoft/60 text-sageDark",
-                        ]}
-                        role="menuitem"
-                      >
-                        {c.label}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              ) : (
+    </button>
+
+    <div class="hidden items-center gap-8 lg:flex">
+      <nav class="flex flex-wrap items-center gap-7" aria-label="Primary">
+        <a
+          href="/"
+          aria-current={isActive("/") ? "page" : undefined}
+          class:list={[
+            "border-b-2 border-transparent pb-0.5 text-[0.95rem] font-medium no-underline transition-colors",
+            isActive("/") ? "text-sageDark border-sageDark" : "text-ink/80 hover:text-clay",
+          ]}
+        >
+          Home
+        </a>
+
+        <div class="header-svc-wrap relative flex items-center gap-1">
+          <a
+            href="/services"
+            aria-current={servicesActive ? "page" : undefined}
+            class:list={[
+              "border-b-2 border-transparent pb-0.5 text-[0.95rem] font-medium no-underline transition-colors",
+              servicesActive ? "text-sageDark border-sageDark" : "text-ink/80 hover:text-clay",
+            ]}
+          >
+            Services
+          </a>
+          <button
+            type="button"
+            id="header-svc-btn"
+            class="header-svc-btn -m-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-ink/70 transition-colors hover:bg-sageSoft hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-controls="header-svc-flyout"
+            aria-label="Services submenu"
+          >
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true" class="translate-y-px">
+              <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </button>
+          <div
+            id="header-svc-flyout"
+            class="header-svc-flyout absolute left-0 top-full z-50 mt-2 w-[min(20rem,calc(100vw-2rem))] origin-top rounded-2xl border border-sand/70 bg-paper p-3 shadow-soft"
+            role="menu"
+            aria-label="Services"
+          >
+            {
+              serviceItems.map((item) => (
                 <a
                   href={item.href}
-                  aria-current={isActive(item.href) ? "page" : undefined}
+                  role="menuitem"
                   class:list={[
-                    "rounded-md px-2.5 py-1.5 text-[0.9375rem] font-medium no-underline transition-colors hover:bg-sageSoft/80 hover:text-sageDark",
-                    isActive(item.href) ? "text-sageDark" : "text-ink",
+                    "group/svcitem mb-1 block rounded-xl px-3 py-2.5 no-underline transition-colors last:mb-0 hover:bg-sageSoft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-paper",
+                    isActive(item.href) && "bg-sageSoft/70",
                   ]}
                 >
-                  {item.label}
+                  <span class="block text-[0.95rem] font-semibold text-sageDark transition-colors group-hover/svcitem:text-clay">
+                    {item.title}
+                  </span>
+                  <span class="mt-0.5 block text-xs font-normal leading-snug text-muted">{item.description}</span>
                 </a>
-              )}
-            </>
-          ))
-        }
-      </nav>
-      <a href="/contact-get-started" class="btn-primary shrink-0 text-[0.9375rem]">Get Started</a>
-    </div>
-  </div>
-  <div
-    class="max-h-0 overflow-hidden border-t border-sand bg-paper transition-[max-height] duration-300 ease-out peer-checked:max-h-[28rem] lg:hidden"
-  >
-    <nav class="section-px flex flex-col gap-0.5 py-4" aria-label="Mobile">
-      {
-        nav.map((item) =>
-          "children" in item && item.children ? (
-            <div class="border-b border-line py-2 last:border-0">
-              <a href={item.href} class="font-medium text-ink no-underline hover:text-sageDark">
-                {item.label}
-              </a>
-              <div class="mt-2 flex flex-col gap-1 pl-3">
-                {item.children.map((c) => (
-                  <a href={c.href} class="text-sm text-muted no-underline hover:text-clay">
-                    {c.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-          ) : (
+              ))
+            }
+          </div>
+        </div>
+
+        {
+          navRest.map((item) => (
             <a
               href={item.href}
-              class="rounded-md py-2.5 font-medium text-ink no-underline hover:bg-sageSoft/50 hover:text-sageDark"
+              aria-current={isActive(item.href) ? "page" : undefined}
+              class:list={[
+                "border-b-2 border-transparent pb-0.5 text-[0.95rem] font-medium no-underline transition-colors",
+                isActive(item.href) ? "text-sageDark border-sageDark" : "text-ink/80 hover:text-clay",
+              ]}
             >
               {item.label}
             </a>
-          ),
-        )
+          ))
+        }
+      </nav>
+
+      <a
+        href="/contact-get-started"
+        class="inline-flex shrink-0 items-center justify-center rounded-full bg-sageDark px-6 py-2.5 text-[0.95rem] font-semibold text-paper no-underline shadow-soft transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-sage focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+      >
+        Get Started
+      </a>
+    </div>
+  </div>
+
+  <div
+    id="header-mobile-drawer"
+    class="hidden border-t border-sand/70 bg-paper lg:hidden"
+    role="dialog"
+    aria-label="Site navigation"
+  >
+    <nav class="flex flex-col px-5 py-2 sm:px-6" aria-label="Mobile">
+      <a
+        href="/"
+        class="border-b border-line/80 py-3 text-base font-medium text-ink no-underline transition-colors hover:text-sageDark"
+        aria-current={isActive("/") ? "page" : undefined}
+      >
+        Home
+      </a>
+      <div class="border-b border-line/80 py-3">
+        <a
+          href="/services"
+          class="text-base font-medium text-ink no-underline transition-colors hover:text-sageDark"
+          aria-current={servicesActive ? "page" : undefined}
+        >
+          Services
+        </a>
+        <div class="mt-2 flex flex-col gap-1 border-l border-sand/80 pl-4">
+          {
+            serviceItems.map((item) => (
+              <a
+                href={item.href}
+                class="rounded-lg py-2 pl-2 text-base font-medium text-ink/90 no-underline transition-colors hover:bg-sageSoft hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2"
+                aria-current={isActive(item.href) ? "page" : undefined}
+              >
+                {item.title}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+      {
+        navRest.map((item) => (
+          <a
+            href={item.href}
+            class="border-b border-line/80 py-3 text-base font-medium text-ink no-underline transition-colors hover:text-sageDark"
+            aria-current={isActive(item.href) ? "page" : undefined}
+          >
+            {item.label}
+          </a>
+        ))
       }
-      <a href="/contact-get-started" class="btn-primary mt-3 w-full text-center">Get Started</a>
+      <a
+        href="/contact-get-started"
+        class="mt-4 mb-4 inline-flex w-full items-center justify-center rounded-full bg-sageDark px-6 py-3 text-base font-semibold text-paper no-underline shadow-soft transition hover:bg-sage focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+      >
+        Get Started
+      </a>
     </nav>
   </div>
 </header>
 
 <script is:inline>
   (function () {
-    var peer = document.getElementById("nav-check");
-    if (!peer) return;
-    document.querySelectorAll('header nav[aria-label="Mobile"] a').forEach(function (a) {
-      a.addEventListener("click", function () {
-        peer.checked = false;
+    var toggle = document.getElementById("header-nav-toggle");
+    var drawer = document.getElementById("header-mobile-drawer");
+    var wrap = document.querySelector(".header-svc-wrap");
+    var btn = document.getElementById("header-svc-btn");
+    var flyout = document.getElementById("header-svc-flyout");
+
+    function setMobileOpen(open) {
+      if (!toggle || !drawer) return;
+      drawer.classList.toggle("hidden", !open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    }
+
+    if (toggle && drawer) {
+      toggle.addEventListener("click", function () {
+        var open = drawer.classList.contains("hidden");
+        setMobileOpen(open);
       });
-    });
+      drawer.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () {
+          setMobileOpen(false);
+        });
+      });
+    }
+
+    function setServicesOpen(open) {
+      if (!wrap || !btn || !flyout) return;
+      wrap.classList.toggle("menu-open", open);
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+
+    function closeServices() {
+      setServicesOpen(false);
+    }
+
+    if (btn && wrap && flyout) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var open = !wrap.classList.contains("menu-open");
+        setServicesOpen(open);
+      });
+      document.addEventListener("click", function (e) {
+        if (wrap && !wrap.contains(e.target)) closeServices();
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeServices();
+      });
+      flyout.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () {
+          closeServices();
+        });
+      });
+    }
   })();
 </script>
