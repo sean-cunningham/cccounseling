@@ -27,9 +27,11 @@ export default {
       },
       maxWidth: {
         site: "1200px",
-        wide: "1320px",
-        text: "680px",
-        narrow: "860px",
+        wide: "1360px",
+        text: "720px",
+        narrow: "900px",
+        /** Legacy / inner pages — prefer `site` or `wide` for new layout */
+        content: "980px",
       },
       boxShadow: {
         soft: "0 18px 45px rgba(38, 50, 56, 0.08)",
