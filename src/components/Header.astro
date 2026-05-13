@@ -99,27 +99,29 @@ const servicesActive = isActive("/services");
           </button>
           <div
             id="header-svc-flyout"
-            class="header-svc-flyout absolute left-0 top-full z-50 mt-2.5 min-w-[17.5rem] w-[min(22rem,calc(100vw-2rem))] max-w-[calc(100vw-2.5rem)] origin-top rounded-2xl border border-sand/70 bg-paper p-3.5 shadow-soft"
+            class="header-svc-flyout absolute left-0 top-full z-50 min-w-[17.5rem] w-[min(22rem,calc(100vw-2rem))] max-w-[calc(100vw-2.5rem)] origin-top pt-2.5"
             role="menu"
             aria-label="Services"
           >
-            {
-              serviceItems.map((item) => (
-                <a
-                  href={item.href}
-                  role="menuitem"
-                  class:list={[
-                    "group/svcitem mb-1.5 block rounded-xl px-3 py-3 no-underline transition-colors last:mb-0 hover:bg-sageSoft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-paper",
-                    isActive(item.href) && "bg-sageSoft/70",
-                  ]}
-                >
-                  <span class="block text-[0.95rem] font-semibold text-sageDark">
-                    {item.title}
-                  </span>
-                  <span class="mt-0.5 block text-xs font-normal leading-snug text-muted">{item.description}</span>
-                </a>
-              ))
-            }
+            <div class="rounded-2xl border border-sand/70 bg-paper p-3.5 shadow-soft">
+              {
+                serviceItems.map((item) => (
+                  <a
+                    href={item.href}
+                    role="menuitem"
+                    class:list={[
+                      "group/svcitem mb-1.5 block rounded-xl px-3 py-3 no-underline transition-colors last:mb-0 hover:bg-sageSoft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-paper",
+                      isActive(item.href) && "bg-sageSoft/70",
+                    ]}
+                  >
+                    <span class="block text-[0.95rem] font-semibold text-sageDark">
+                      {item.title}
+                    </span>
+                    <span class="mt-0.5 block text-xs font-normal leading-snug text-muted">{item.description}</span>
+                  </a>
+                ))
+              }
+            </div>
           </div>
         </div>
 

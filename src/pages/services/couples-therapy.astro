@@ -1,14 +1,272 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import PageShell from "@/components/PageShell.astro";
+
+const HERO_IMAGE = "/images/couples-therapy-hero.png";
+
+const faqItems = [
+  {
+    q: "Do we need to be married to start couples therapy?",
+    a: "No. Couples therapy is for partners in committed relationships, whether you are married, engaged, dating long-term, or navigating a new chapter together.",
+  },
+  {
+    q: "Is couples therapy online?",
+    a: "Yes. CC Counseling offers online couples therapy for partners across North Carolina, using a secure telehealth format that fits your schedules.",
+  },
+  {
+    q: "What if we want different things from therapy?",
+    a: "That is more common than people expect. Therapy can help you slow down, name what each of you is hoping for, and find workable next steps even when goals do not line up perfectly at first.",
+  },
+  {
+    q: "How do we get matched with a clinician?",
+    a: "When you reach out together, we review your relationship concerns, preferences, insurance details, and availability so you can begin with a clearer sense of clinician fit.",
+  },
+] as const;
 ---
 
-<BaseLayout title="Couples Therapy | CC Counseling" description="Couples therapy with CC Counseling — virtual sessions across North Carolina.">
-  <PageShell
-    heading="Couples Therapy"
-    sub="Placeholder page — add your couples therapy narrative, process, and FAQs when you are ready."
-  >
-    <p>When content is added here, describe how you work with couples and link to Get Started for scheduling.</p>
-    <p><a href="/contact-get-started">Get Started</a> · <a href="/services">Services</a> · <a href="/">Back to home</a></p>
-  </PageShell>
+<BaseLayout
+  title="Couples Therapy | CC Counseling"
+  description="Online couples therapy across North Carolina — communication, conflict, disconnection, trust, life transitions, and rebuilding closeness together."
+>
+  <main id="main">
+    <section class="bg-cream py-16 lg:py-24" aria-labelledby="couples-hero-heading">
+      <div class="mx-auto max-w-site px-5 sm:px-6 lg:px-10">
+        <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+          <div class="min-w-0">
+            <h1
+              id="couples-hero-heading"
+              class="mb-6 max-w-[720px] font-display text-5xl font-semibold leading-[1.05] tracking-tight text-ink md:text-6xl"
+            >
+              Couples therapy for when your relationship needs steadier ground.
+            </h1>
+            <p class="mb-8 max-w-[660px] text-lg leading-relaxed text-muted md:text-xl">
+              Online therapy for partners across North Carolina who want support with communication, conflict, disconnection,
+              trust, intimacy, life transitions, and rebuilding closeness together.
+            </p>
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
+              <a
+                href="/contact-get-started"
+                class="inline-flex items-center justify-center rounded-full bg-sageDark px-7 py-3.5 text-center text-base font-semibold text-paper no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-sage hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+              >
+                Start Therapy
+              </a>
+              <a
+                href="/insurance-rates"
+                class="text-center text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors duration-200 ease-out hover:text-clay hover:decoration-clay sm:text-left"
+              >
+                View Insurance &amp; Rates
+              </a>
+            </div>
+          </div>
+          <div class="min-w-0">
+            <img
+              src={HERO_IMAGE}
+              alt="A couple sits together on a sofa in a bright, modern room, holding hands in a calm, supportive moment."
+              width="1200"
+              height="1500"
+              class="aspect-[4/3] w-full rounded-[32px] border border-sand/70 object-cover shadow-[0_18px_45px_rgba(38,50,56,0.08)] lg:aspect-[4/5]"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-paper py-16 lg:py-24" aria-labelledby="when-help-heading">
+      <div class="mx-auto max-w-site px-5 sm:px-6 lg:px-10">
+        <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+          <div class="min-w-0">
+            <h2
+              id="when-help-heading"
+              class="mb-6 font-display text-4xl font-semibold leading-[1.12] tracking-tight text-ink md:text-5xl"
+            >
+              When couples therapy can help
+            </h2>
+            <p class="max-w-[460px] text-lg leading-relaxed text-muted">
+              Partners often begin when conversations feel stuck, resentment is building, or you both want a calmer way to
+              navigate conflict, distance, or a major change together.
+            </p>
+          </div>
+          <div class="min-w-0">
+            <article class="border-t border-sand/70 py-7">
+              <h3 class="mb-3 font-display text-2xl font-semibold text-ink">Communication and recurring conflict</h3>
+              <p class="text-base leading-relaxed text-muted md:text-lg">
+                Therapy can help you slow down heated cycles, name what is happening underneath the argument, and practice
+                ways of listening and responding that feel more respectful and clear.
+              </p>
+            </article>
+            <article class="border-t border-sand/70 py-7">
+              <h3 class="mb-3 font-display text-2xl font-semibold text-ink">Emotional distance and trust</h3>
+              <p class="text-base leading-relaxed text-muted md:text-lg">
+                Support when you feel more like roommates than partners, when trust has been strained, or when it is hard to
+                feel emotionally safe together.
+              </p>
+            </article>
+            <article class="border-t border-sand/70 py-7">
+              <h3 class="mb-3 font-display text-2xl font-semibold text-ink">Life stressors affecting the partnership</h3>
+              <p class="text-base leading-relaxed text-muted md:text-lg">
+                A steady place to process parenting stress, grief, career demands, moves, family pressure, or transitions that
+                are stretching the relationship.
+              </p>
+            </article>
+            <article class="border-t border-sand/70 py-7">
+              <h3 class="mb-3 font-display text-2xl font-semibold text-ink">Intimacy and partnership patterns</h3>
+              <p class="text-base leading-relaxed text-muted md:text-lg">
+                Therapy can help you talk about closeness, boundaries, roles, and expectations with more honesty and less
+                defensiveness.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-sageDark py-16 lg:py-24" aria-labelledby="clinical-band-heading">
+      <div class="mx-auto max-w-site px-5 sm:px-6 lg:px-10">
+        <h2
+          id="clinical-band-heading"
+          class="mb-8 max-w-[760px] font-display text-4xl font-semibold leading-[1.12] tracking-tight text-paper md:text-5xl"
+        >
+          Therapy that respects both of you.
+        </h2>
+        <p class="max-w-[820px] text-lg leading-relaxed text-paper/78 md:text-xl">
+          Couples therapy is not about choosing sides or deciding who is right. It is a structured space to understand patterns,
+          reduce unnecessary hurt, and build skills you can use long after the session ends.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-cream py-16 lg:py-24" aria-labelledby="what-therapy-heading">
+      <div class="mx-auto max-w-site px-5 sm:px-6 lg:px-10">
+        <h2
+          id="what-therapy-heading"
+          class="mb-12 font-display text-4xl font-semibold leading-[1.12] tracking-tight text-ink md:text-5xl"
+        >
+          What couples therapy can help you do
+        </h2>
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-10 lg:gap-16">
+          <div class="border-t border-sand/70 pt-6">
+            <h3 class="mb-3 font-display text-2xl font-semibold text-ink">Understand your cycle together</h3>
+            <p class="text-base leading-relaxed text-muted md:text-lg">
+              Notice the triggers, defenses, and protective moves that show up between you — and what each partner is often
+              trying to communicate underneath.
+            </p>
+          </div>
+          <div class="border-t border-sand/70 pt-6">
+            <h3 class="mb-3 font-display text-2xl font-semibold text-ink">Practice steadier conversations</h3>
+            <p class="text-base leading-relaxed text-muted md:text-lg">
+              Build tools for repair, boundaries, and difficult topics so disagreements feel less overwhelming and more
+              workable.
+            </p>
+          </div>
+          <div class="border-t border-sand/70 pt-6">
+            <h3 class="mb-3 font-display text-2xl font-semibold text-ink">Move forward with more clarity</h3>
+            <p class="text-base leading-relaxed text-muted md:text-lg">
+              Decide next steps that reflect your values, your relationship, and the kind of partnership you want to grow
+              toward.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-paper py-16 lg:py-24" aria-labelledby="what-to-expect-heading">
+      <div class="mx-auto max-w-site px-5 sm:px-6 lg:px-10">
+        <h2
+          id="what-to-expect-heading"
+          class="mb-6 font-display text-4xl font-semibold leading-[1.12] tracking-tight text-ink md:text-5xl"
+        >
+          What to expect
+        </h2>
+        <p class="mb-12 max-w-[720px] text-lg leading-relaxed text-muted md:text-xl">
+          We keep the first steps clear so you can understand fit, availability, and insurance before beginning care.
+        </p>
+        <div class="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-10">
+          <article class="border-t border-sand/70 pt-6">
+            <h3 class="mb-3 font-display text-xl font-semibold text-ink md:text-2xl">Start with a request</h3>
+            <p class="text-base leading-relaxed text-muted md:text-lg">
+              Tell us what you are navigating as a couple and any preferences that matter, including schedule, insurance, and
+              clinician fit.
+            </p>
+          </article>
+          <article class="border-t border-sand/70 pt-6">
+            <h3 class="mb-3 font-display text-xl font-semibold text-ink md:text-2xl">Review fit and availability</h3>
+            <p class="text-base leading-relaxed text-muted md:text-lg">
+              Our team helps determine whether we have a clinician whose focus areas and availability match your needs as a
+              couple.
+            </p>
+          </article>
+          <article class="border-t border-sand/70 pt-6">
+            <h3 class="mb-3 font-display text-xl font-semibold text-ink md:text-2xl">Begin couples therapy online</h3>
+            <p class="text-base leading-relaxed text-muted md:text-lg">
+              If it is a good fit, we help you schedule your first telehealth appointment and understand what to expect.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-cream py-16 lg:py-20" aria-labelledby="insurance-support-heading">
+      <div class="mx-auto max-w-site px-5 sm:px-6 lg:px-10">
+        <div class="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
+          <div class="min-w-0">
+            <h2
+              id="insurance-support-heading"
+              class="mb-6 font-display text-3xl font-semibold leading-[1.12] tracking-tight text-ink md:text-4xl"
+            >
+              Using insurance for couples therapy
+            </h2>
+            <p class="max-w-[560px] text-lg leading-relaxed text-muted md:text-xl">
+              Before your first session, our administrative team can help you understand your coverage, expected out-of-pocket
+              costs, and next steps.
+            </p>
+          </div>
+          <div class="flex min-w-0 items-start lg:justify-end lg:pt-1">
+            <a
+              href="/insurance-rates"
+              class="inline-flex items-center justify-center rounded-full bg-sageDark px-7 py-3.5 text-base font-semibold text-paper no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-sage hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+            >
+              Explore Insurance &amp; Rates
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-paper py-16 lg:py-24" aria-labelledby="faq-heading">
+      <div class="mx-auto max-w-[900px] px-5 sm:px-6 lg:px-10">
+        <h2 id="faq-heading" class="mb-10 font-display text-4xl font-semibold leading-[1.12] tracking-tight text-ink md:text-5xl">
+          Couples therapy questions
+        </h2>
+        <div class="border-b border-sand/70">
+          {
+            faqItems.map((item) => (
+              <details class="group border-t border-sand/70 py-5">
+                <summary class="cursor-pointer list-none rounded-sm text-lg font-semibold text-ink outline-none [&::-webkit-details-marker]:hidden focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-paper">
+                  {item.q}
+                </summary>
+                <p class="pt-3 text-base leading-relaxed text-muted">{item.a}</p>
+              </details>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-ink py-16 text-center lg:py-24" aria-labelledby="final-cta-heading">
+      <div class="mx-auto max-w-[860px] px-5 sm:px-6 lg:px-10">
+        <h2 id="final-cta-heading" class="font-display text-3xl font-semibold tracking-tight text-paper sm:text-4xl">
+          Ready to start couples therapy?
+        </h2>
+        <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-paper/75 sm:text-lg">
+          Reach out today and we’ll help you understand clinician fit, availability, and insurance before your first appointment.
+        </p>
+        <a
+          href="/contact-get-started"
+          class="mt-10 inline-flex items-center justify-center rounded-full bg-paper px-7 py-3.5 text-base font-semibold text-sageDark no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-sageSoft hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-paper focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+        >
+          Get Started
+        </a>
+      </div>
+    </section>
+  </main>
 </BaseLayout>
