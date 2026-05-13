@@ -1,0 +1,188 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const description =
+  "Answers about starting therapy, clinician fit, insurance and payment, and how sessions are held with CC Counseling in North Carolina.";
+
+type FaqItem = { q: string; a: string; aHtml?: boolean };
+
+const groups: { title: string; items: FaqItem[] }[] = [
+  {
+    title: "Getting started",
+    items: [
+      {
+        q: "How do I start therapy with CC Counseling?",
+        a: "You can start by submitting a request through our Get Started page. We’ll review what you are looking for, discuss fit and availability, and help you understand the next step before scheduling your first appointment.",
+      },
+      {
+        q: "Do I need to know exactly what I want to work on?",
+        a: "No. Many people begin therapy with a general sense that something feels off, overwhelming, or difficult to manage. Your therapist can help you clarify goals as the work develops.",
+      },
+      {
+        q: "How do you match clients with clinicians?",
+        a: "We consider your concerns, preferences, schedule, availability, and the clinician’s focus areas. The goal is to help you begin with a clearer sense of fit rather than leaving you to sort through everything alone.",
+      },
+    ],
+  },
+  {
+    title: "Services and fit",
+    items: [
+      {
+        q: "Do you offer individual therapy?",
+        a: "Yes. CC Counseling offers individual therapy for adults across North Carolina, primarily through telehealth. Individual therapy may be a good fit for anxiety, depression, stress, trauma, grief, life transitions, relationship patterns, self-esteem, and personal growth. Depending on scheduling and clinician availability, in-person sessions may sometimes be possible in the Cary and Raleigh area.",
+      },
+      {
+        q: "Do you offer couples therapy?",
+        a: "Yes. Couples therapy can help partners work through communication issues, recurring conflict, emotional distance, trust concerns, life transitions, and rebuilding connection. Most sessions are online; depending on scheduling and clinician availability, in-person sessions may sometimes be possible in the Cary and Raleigh area.",
+      },
+      {
+        q: "What if I’m not sure whether I need individual therapy or couples therapy?",
+        a: "That is common. If the concern feels mostly personal, individual therapy may be the right place to begin. If the concern is mainly happening between you and your partner, couples therapy may be a better fit. We can help you think through the best next step.",
+      },
+    ],
+  },
+  {
+    title: "Insurance and payment",
+    items: [
+      {
+        q: "Do you accept insurance?",
+        a: "Whether insurance can be used depends on the clinician you work with and the health plans that clinician participates in. Before you begin, we can help you understand whether your plan may apply and what your estimated costs could look like.",
+      },
+      {
+        q: "Will you verify my insurance benefits?",
+        a: "When you are matched with a clinician who participates with your plan, we help you understand benefits and expected out-of-pocket costs before the first session whenever possible.",
+      },
+      {
+        q: "What if my insurance is not accepted?",
+        a: "If your insurance does not apply to your care we will explain payment options and expected costs before you begin so you can make an informed decision.",
+      },
+      {
+        q: "Where can I find rates and insurance information?",
+        a: '<p>You can visit the <a href="/insurance-rates" class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-clay hover:decoration-clay">Insurance &amp; Rates</a> page for an overview. What applies to you still depends on the clinician you see and your plan. Ask when you reach out and we can help you think it through.</p>',
+        aHtml: true,
+      },
+    ],
+  },
+  {
+    title: "Sessions and format",
+    items: [
+      {
+        q: "How are therapy sessions usually held?",
+        a: "Most sessions take place online through a secure telehealth platform. Depending on scheduling and clinician availability, in-person sessions may be possible in the Cary and Raleigh area. We can talk through what fits when you reach out.",
+      },
+      {
+        q: "Can therapy be effective online?",
+        a: "Many clients find online therapy helpful, convenient, and easier to fit into their lives. Much of what makes therapy useful like rapport, consistency, and a setting that feels private matters whether you meet online or in person. Fit depends on your needs, preferences, and the type of support you are looking for.",
+      },
+      {
+        q: "Do I need to be in North Carolina?",
+        a: "Yes. Therapy services are available to clients located in North Carolina.",
+      },
+    ],
+  },
+  {
+    title: "Clinicians and care",
+    items: [
+      {
+        q: "Who will I work with?",
+        a: "We match you with a clinician who works with CC Counseling based on fit, focus area, schedule, and availability.",
+      },
+      {
+        q: "Are clinicians licensed?",
+        a: "Clinicians providing therapy through CC Counseling are expected to hold appropriate professional licensure or authorization to provide therapy services in North Carolina.",
+      },
+      {
+        q: "Can I choose my clinician?",
+        a: "You can share preferences when you reach out. Availability may vary, but we will do our best to consider fit, clinical needs, schedule, and preferences.",
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout title="FAQ | CC Counseling" {description}>
+  <main id="main">
+    <section class="bg-cream py-16 lg:py-24" aria-labelledby="faq-hero-heading">
+      <div class="mx-auto max-w-[900px] px-5 text-left sm:px-6 lg:px-10">
+        <h1
+          id="faq-hero-heading"
+          class="mb-6 font-display text-5xl leading-[1.05] tracking-tight text-ink md:text-6xl"
+        >
+          Frequently asked questions
+        </h1>
+        <p class="max-w-[760px] text-lg leading-relaxed text-muted md:text-xl">
+          Answers to common questions about starting therapy, finding the right fit, using insurance, and what to expect from
+          care — including how sessions are typically held.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-paper py-16 lg:py-24" aria-label="Questions by topic">
+      <div class="mx-auto max-w-[900px] px-5 sm:px-6 lg:px-10">
+        {
+          groups.map((group, groupIndex) => (
+            <section aria-labelledby={`faq-group-${groupIndex}-heading`}>
+              <h2
+                id={`faq-group-${groupIndex}-heading`}
+                class:list={[
+                  "mb-6 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl",
+                  groupIndex > 0 && "mt-14",
+                ]}
+              >
+                {group.title}
+              </h2>
+              <div>
+                {group.items.map((item) => (
+                  <details class="group border-t border-sand/70 py-5">
+                    <summary class="flex w-full cursor-pointer list-none items-start justify-between gap-6 text-left text-lg font-semibold leading-snug text-ink outline-none [&::-webkit-details-marker]:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay md:text-xl">
+                      <span class="min-w-0 flex-1">{item.q}</span>
+                      <span
+                        class="shrink-0 select-none tabular-nums text-muted group-open:hidden"
+                        aria-hidden="true"
+                      >
+                        +
+                      </span>
+                      <span
+                        class="hidden shrink-0 select-none tabular-nums text-muted group-open:inline"
+                        aria-hidden="true"
+                      >
+                        −
+                      </span>
+                    </summary>
+                    <div class="max-w-[760px] pt-4 text-base leading-relaxed text-muted md:text-lg">
+                      {item.aHtml ? (
+                        <div set:html={item.a} />
+                      ) : (
+                        <p>{item.a}</p>
+                      )}
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </section>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="bg-ink py-16 text-center lg:py-24" aria-labelledby="faq-final-cta-heading">
+      <div class="mx-auto max-w-[860px] px-5 sm:px-6 lg:px-10">
+        <h2
+          id="faq-final-cta-heading"
+          class="mb-5 font-display text-4xl leading-[1.12] tracking-tight text-paper md:text-5xl"
+        >
+          Still have questions?
+        </h2>
+        <p class="mb-8 text-lg leading-relaxed text-paper/76 md:text-xl">
+          Reach out and we’ll help you understand services, fit, availability, and next steps before beginning care.
+        </p>
+        <a
+          href="/contact-get-started"
+          class="inline-flex items-center justify-center rounded-full bg-paper px-7 py-3.5 font-semibold text-sageDark no-underline transition hover:-translate-y-0.5 hover:bg-sageSoft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-paper"
+        >
+          Get Started
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
