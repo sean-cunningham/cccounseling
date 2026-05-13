@@ -1,23 +1,251 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import PageShell from "@/components/PageShell.astro";
+
+const IMG_INDIVIDUAL = "/images/services-overview-individual.png";
+const IMG_COUPLES = "/images/services-overview-couples.png";
+
+const commonReasons = [
+  "Anxiety and overthinking",
+  "Depression and disconnection",
+  "Stress and burnout",
+  "Trauma and painful experiences",
+  "Life transitions and grief",
+  "Relationship concerns",
+] as const;
 ---
 
-<BaseLayout title="Services | CC Counseling" description="Services offered by CC Counseling across North Carolina.">
-  <PageShell
-    heading="Services"
-    sub="This section mirrors the Services area of the original site. Replace this text with your full services narrative when you are ready."
-  >
-    <p>
-      For now, you can continue from the home page narrative or pull copy directly from your live Wix site. Individual
-      therapy has its own page below.
-    </p>
-    <p>
-      <a href="/services/individual-therapy">Individual Therapy</a>
-      &nbsp;·&nbsp;
-      <a href="/services/couples-therapy">Couples Therapy</a>
-      &nbsp;·&nbsp;
-      <a href="/">Back to home</a>
-    </p>
-  </PageShell>
+<BaseLayout
+  title="Services | CC Counseling"
+  description="Online therapy for individuals and couples across North Carolina — individual and couples therapy with CC Counseling."
+>
+  <main id="main">
+    <section class="bg-cream py-16 lg:py-24" aria-labelledby="services-hero-heading">
+      <div class="mx-auto max-w-site px-5 sm:px-6 lg:px-10">
+        <div class="mx-auto max-w-[860px]">
+          <h1
+            id="services-hero-heading"
+            class="mb-6 font-display text-5xl font-semibold leading-[1.05] tracking-tight text-ink md:text-6xl"
+          >
+            Therapy services for individuals and couples.
+          </h1>
+          <p class="max-w-[760px] text-lg leading-relaxed text-muted md:text-xl">
+            CC Counseling provides online therapy for adults and couples across North Carolina, with thoughtful support for
+            anxiety, depression, stress, trauma, relationship concerns, life transitions, and personal growth.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-paper py-16 lg:py-24" aria-labelledby="pathways-heading">
+      <div class="mx-auto max-w-site px-5 sm:px-6 lg:px-10">
+        <h2
+          id="pathways-heading"
+          class="mb-12 max-w-[760px] font-display text-4xl font-semibold leading-[1.12] tracking-tight text-ink md:text-5xl"
+        >
+          Choose the support that fits where you are.
+        </h2>
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <article
+            class="overflow-hidden rounded-[32px] border border-sand/70 bg-cream shadow-[0_12px_32px_rgba(38,50,56,0.06)]"
+          >
+            <img
+              src={IMG_INDIVIDUAL}
+              alt="A woman tends to indoor plants by a sunlit window in a warm, calm home."
+              width="1200"
+              height="900"
+              class="aspect-[4/3] w-full object-cover"
+              loading="lazy"
+            />
+            <div class="p-6 lg:p-8">
+              <h3 class="mb-4 font-display text-3xl font-semibold leading-[1.08] tracking-tight text-ink md:text-4xl">
+                Individual Therapy
+              </h3>
+              <p class="mb-7 text-base leading-relaxed text-muted md:text-lg">
+                One-on-one therapy for adults who want support with anxiety, depression, stress, trauma, life transitions,
+                relationships, self-understanding, and personal growth.
+              </p>
+              <p class="mb-3 text-base font-semibold text-ink">May be a good fit if you want support with:</p>
+              <div class="border-t border-sand/60 py-3 text-base leading-relaxed text-muted">
+                anxiety, depression, or burnout
+              </div>
+              <div class="border-t border-sand/60 py-3 text-base leading-relaxed text-muted">
+                grief, trauma, or life transitions
+              </div>
+              <div class="border-t border-sand/60 py-3 text-base leading-relaxed text-muted">
+                patterns you want to understand and change
+              </div>
+              <a
+                href="/services/individual-therapy"
+                class="mt-6 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors duration-200 ease-out hover:text-clay hover:decoration-clay focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+              >
+                Learn about individual therapy
+              </a>
+            </div>
+          </article>
+
+          <article
+            class="overflow-hidden rounded-[32px] border border-sand/70 bg-cream shadow-[0_12px_32px_rgba(38,50,56,0.06)]"
+          >
+            <img
+              src={IMG_COUPLES}
+              alt="A couple stands together in a kitchen, sharing a quiet moment while pouring tea."
+              width="1200"
+              height="900"
+              class="aspect-[4/3] w-full object-cover"
+              loading="lazy"
+            />
+            <div class="p-6 lg:p-8">
+              <h3 class="mb-4 font-display text-3xl font-semibold leading-[1.08] tracking-tight text-ink md:text-4xl">
+                Couples Therapy
+              </h3>
+              <p class="mb-7 text-base leading-relaxed text-muted md:text-lg">
+                Therapy for partners who want help with communication, conflict, emotional distance, trust concerns, and
+                rebuilding connection.
+              </p>
+              <p class="mb-3 text-base font-semibold text-ink">May be a good fit if you want support with:</p>
+              <div class="border-t border-sand/60 py-3 text-base leading-relaxed text-muted">
+                recurring conflict or disconnection
+              </div>
+              <div class="border-t border-sand/60 py-3 text-base leading-relaxed text-muted">
+                communication and emotional closeness
+              </div>
+              <div class="border-t border-sand/60 py-3 text-base leading-relaxed text-muted">
+                rebuilding trust or navigating change together
+              </div>
+              <a
+                href="/services/couples-therapy"
+                class="mt-6 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors duration-200 ease-out hover:text-clay hover:decoration-clay focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+              >
+                Learn about couples therapy
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-cream py-16 lg:py-24" aria-labelledby="why-cc-heading">
+      <div class="mx-auto max-w-site px-5 sm:px-6 lg:px-10">
+        <div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+          <div class="min-w-0">
+            <h2
+              id="why-cc-heading"
+              class="font-display text-4xl font-semibold leading-[1.12] tracking-tight text-ink md:text-5xl"
+            >
+              Why CC Counseling
+            </h2>
+            <p class="mt-6 max-w-[460px] text-lg leading-relaxed text-muted">
+              Starting therapy is easier when the process feels clear, personal, and supported from the beginning.
+            </p>
+          </div>
+          <div class="min-w-0 text-left">
+            <div class="border-t border-sand/70 py-7">
+              <h3 class="mb-3 font-display text-2xl font-semibold leading-snug tracking-tight text-ink">
+                Thoughtful clinician matching
+              </h3>
+              <p class="max-w-[680px] text-base leading-relaxed text-muted md:text-lg">
+                We help review your needs, preferences, schedule, and goals so you can start with a clinician who is a better fit
+                for what you are looking for.
+              </p>
+            </div>
+            <div class="border-t border-sand/70 py-7">
+              <h3 class="mb-3 font-display text-2xl font-semibold leading-snug tracking-tight text-ink">
+                Support before the first appointment
+              </h3>
+              <p class="max-w-[680px] text-base leading-relaxed text-muted md:text-lg">
+                Our team helps you understand availability, insurance details, and expected out-of-pocket costs before beginning
+                care.
+              </p>
+            </div>
+            <div class="border-t border-sand/70 py-7">
+              <h3 class="mb-3 font-display text-2xl font-semibold leading-snug tracking-tight text-ink">
+                Therapy for individuals and couples
+              </h3>
+              <p class="max-w-[680px] text-base leading-relaxed text-muted md:text-lg">
+                You can begin with the type of support that fits your situation, whether the concern feels personal,
+                relational, or both.
+              </p>
+            </div>
+            <div class="border-t border-sand/70 py-7">
+              <h3 class="mb-3 font-display text-2xl font-semibold leading-snug tracking-tight text-ink">
+                Online care across North Carolina
+              </h3>
+              <p class="max-w-[680px] text-base leading-relaxed text-muted md:text-lg">
+                Sessions are offered through telehealth, giving clients across North Carolina a more accessible way to begin and
+                continue therapy.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-sageDark py-16 lg:py-24" aria-labelledby="common-reasons-heading">
+      <div class="mx-auto max-w-site px-5 sm:px-6 lg:px-10">
+        <h2
+          id="common-reasons-heading"
+          class="mb-6 max-w-[760px] font-display text-4xl font-semibold leading-[1.12] tracking-tight text-paper md:text-5xl"
+        >
+          Common reasons people reach out
+        </h2>
+        <p class="mb-14 max-w-[760px] text-lg leading-relaxed text-paper/76 md:text-xl">
+          Therapy can be helpful when something feels difficult to carry alone, hard to understand, or stuck in a pattern that
+          keeps repeating.
+        </p>
+        <div class="grid grid-cols-1 gap-0 lg:grid-cols-2 lg:gap-x-16">
+          {
+            commonReasons.map((label) => (
+              <div class="border-t border-paper/20 py-6 font-display text-2xl font-semibold leading-tight tracking-tight text-paper md:text-3xl">
+                {label}
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-paper py-16 lg:py-24" aria-labelledby="insurance-first-heading">
+      <div class="mx-auto max-w-site px-5 sm:px-6 lg:px-10">
+        <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div class="min-w-0">
+            <h2
+              id="insurance-first-heading"
+              class="mb-6 font-display text-4xl font-semibold leading-[1.12] tracking-tight text-ink md:text-5xl"
+            >
+              Starting with clarity
+            </h2>
+            <p class="max-w-[620px] text-lg leading-relaxed text-muted md:text-xl">
+              Before your first appointment, our team helps you understand clinician fit, availability, insurance details,
+              and expected out-of-pocket costs.
+            </p>
+          </div>
+          <div class="min-w-0">
+            <div class="border-t border-sand/70 py-5 text-lg font-semibold text-ink">Share what you are looking for</div>
+            <div class="border-t border-sand/70 py-5 text-lg font-semibold text-ink">Review fit, availability, and insurance</div>
+            <div class="border-t border-sand/70 py-5 text-lg font-semibold text-ink">Begin therapy with a clear next step</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-ink py-16 text-center lg:py-24" aria-labelledby="services-final-cta-heading">
+      <div class="mx-auto max-w-[860px] px-5 sm:px-6 lg:px-10">
+        <h2
+          id="services-final-cta-heading"
+          class="mb-5 font-display text-4xl font-semibold leading-[1.12] tracking-tight text-paper md:text-5xl"
+        >
+          Ready to find the right fit?
+        </h2>
+        <p class="mb-8 text-lg leading-relaxed text-paper/76 md:text-xl">
+          Reach out today and we’ll help you understand which service may be the best next step.
+        </p>
+        <a
+          href="/contact-get-started"
+          class="inline-flex items-center justify-center rounded-full bg-paper px-7 py-3.5 text-base font-semibold text-sageDark no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-sageSoft hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-paper focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+        >
+          Get Started
+        </a>
+      </div>
+    </section>
+  </main>
 </BaseLayout>
