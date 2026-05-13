@@ -36,7 +36,7 @@ const servicesActive = isActive("/services");
 ---
 
 <header
-  class="sticky top-0 z-[100] border-b border-sand/60 bg-paper/90 backdrop-blur-md backdrop-saturate-150"
+  class="sticky top-0 z-[100] border-b border-sand/60 bg-paper/90 backdrop-blur-md"
 >
   <div
     class="mx-auto flex min-h-[76px] w-full max-w-wide items-center justify-between gap-4 px-5 py-4 sm:px-6 lg:px-10 2xl:px-12"
@@ -67,7 +67,7 @@ const servicesActive = isActive("/services");
           aria-current={isActive("/") ? "page" : undefined}
           class:list={[
             "border-b-2 border-transparent pb-0.5 text-[0.95rem] font-medium no-underline transition-colors",
-            isActive("/") ? "text-sageDark border-sageDark" : "text-ink/80 hover:text-clay",
+            isActive("/") ? "text-sageDark border-sageDark" : "text-ink/80 hover:text-sageDark",
           ]}
         >
           Home
@@ -79,7 +79,7 @@ const servicesActive = isActive("/services");
             aria-current={servicesActive ? "page" : undefined}
             class:list={[
               "border-b-2 border-transparent pb-0.5 text-[0.95rem] font-medium no-underline transition-colors",
-              servicesActive ? "text-sageDark border-sageDark" : "text-ink/80 hover:text-clay",
+              servicesActive ? "text-sageDark border-sageDark" : "text-ink/80 hover:text-sageDark",
             ]}
           >
             Services
@@ -87,7 +87,7 @@ const servicesActive = isActive("/services");
           <button
             type="button"
             id="header-svc-btn"
-            class="header-svc-btn -m-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-ink/70 transition-colors hover:bg-sageSoft hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+            class="header-svc-btn -m-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-ink/70 transition-colors hover:bg-sageSoft hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
             aria-expanded="false"
             aria-haspopup="true"
             aria-controls="header-svc-flyout"
@@ -113,7 +113,7 @@ const servicesActive = isActive("/services");
                     isActive(item.href) && "bg-sageSoft/70",
                   ]}
                 >
-                  <span class="block text-[0.95rem] font-semibold text-sageDark transition-colors group-hover/svcitem:text-clay">
+                  <span class="block text-[0.95rem] font-semibold text-sageDark">
                     {item.title}
                   </span>
                   <span class="mt-0.5 block text-xs font-normal leading-snug text-muted">{item.description}</span>
@@ -130,7 +130,7 @@ const servicesActive = isActive("/services");
               aria-current={isActive(item.href) ? "page" : undefined}
               class:list={[
                 "border-b-2 border-transparent pb-0.5 text-[0.95rem] font-medium no-underline transition-colors",
-                isActive(item.href) ? "text-sageDark border-sageDark" : "text-ink/80 hover:text-clay",
+                isActive(item.href) ? "text-sageDark border-sageDark" : "text-ink/80 hover:text-sageDark",
               ]}
             >
               {item.label}
@@ -141,7 +141,7 @@ const servicesActive = isActive("/services");
 
       <a
         href="/contact-get-started"
-        class="inline-flex shrink-0 items-center justify-center rounded-full bg-sageDark px-6 py-2.5 text-[0.95rem] font-semibold text-paper no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-sage focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+        class="inline-flex shrink-0 items-center justify-center rounded-full bg-sageDark px-6 py-2.5 text-[0.95rem] font-semibold text-paper no-underline transition-colors duration-200 ease-out hover:bg-sage hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
       >
         Get Started
       </a>
@@ -160,7 +160,7 @@ const servicesActive = isActive("/services");
     >
       <a
         href="/"
-        class="border-b border-line/80 py-3 text-base font-medium text-ink no-underline transition-colors hover:text-clay"
+        class="border-b border-line/80 py-3 text-base font-medium text-ink no-underline transition-colors hover:text-sageDark"
         aria-current={isActive("/") ? "page" : undefined}
       >
         Home
@@ -168,7 +168,7 @@ const servicesActive = isActive("/services");
       <div class="border-b border-line/80 py-3">
         <a
           href="/services"
-          class="text-base font-medium text-ink no-underline transition-colors hover:text-clay"
+          class="text-base font-medium text-ink no-underline transition-colors hover:text-sageDark"
           aria-current={servicesActive ? "page" : undefined}
         >
           Services
@@ -178,7 +178,7 @@ const servicesActive = isActive("/services");
             serviceItems.map((item) => (
               <a
                 href={item.href}
-                class="rounded-lg py-2 pl-2 text-base font-medium text-ink/90 no-underline transition-colors hover:bg-sageSoft hover:text-clay focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2"
+                class="rounded-lg py-2 pl-2 text-base font-medium text-ink/90 no-underline transition-colors hover:bg-sageSoft hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2"
                 aria-current={isActive(item.href) ? "page" : undefined}
               >
                 {item.title}
@@ -191,7 +191,7 @@ const servicesActive = isActive("/services");
         navRest.map((item) => (
           <a
             href={item.href}
-            class="border-b border-line/80 py-3 text-base font-medium text-ink no-underline transition-colors hover:text-clay"
+            class="border-b border-line/80 py-3 text-base font-medium text-ink no-underline transition-colors hover:text-sageDark"
             aria-current={isActive(item.href) ? "page" : undefined}
           >
             {item.label}
@@ -200,7 +200,7 @@ const servicesActive = isActive("/services");
       }
       <a
         href="/contact-get-started"
-        class="mt-4 mb-4 inline-flex w-full items-center justify-center rounded-full bg-sageDark px-6 py-3 text-base font-semibold text-paper no-underline transition hover:bg-sage hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+        class="mt-4 mb-4 inline-flex w-full items-center justify-center rounded-full bg-sageDark px-6 py-3 text-base font-semibold text-paper no-underline transition-colors hover:bg-sage hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
       >
         Get Started
       </a>
