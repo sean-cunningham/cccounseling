@@ -2,25 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+:root,
+html[data-theme="warm"] {
+  --color-cream: 250 247 241;
+  --color-paper: 255 255 255;
+  --color-smoke: 244 246 242;
+  --color-ink: 34 48 51;
+  --color-muted: 95 111 107;
+  --color-sage: 95 127 106;
+  --color-sage-dark: 54 93 71;
+  --color-sage-soft: 229 238 231;
+  --color-clay: 169 101 77;
+  --color-clay-soft: 240 221 212;
+  --color-sand: 216 202 184;
+  --color-mist: 238 242 239;
+  --color-line: 207 196 183;
+}
+
+html[data-theme="cool"] {
+  --color-cream: 247 244 238;
+  --color-paper: 255 255 255;
+  --color-smoke: 238 243 242;
+  --color-ink: 31 45 48;
+  --color-muted: 82 100 102;
+  --color-sage: 78 113 101;
+  --color-sage-dark: 41 77 67;
+  --color-sage-soft: 221 234 231;
+  --color-clay: 155 106 88;
+  --color-clay-soft: 235 219 211;
+  --color-sand: 214 209 200;
+  --color-mist: 235 241 240;
+  --color-line: 199 204 200;
+}
+
 @layer base {
-  /*
-   * Warm fallbacks when JS is off. With JS, public/cc-theme.js sets the same tokens on <html style>.
-   */
   html {
     @apply scroll-smooth antialiased;
-    --color-cream: 253 252 250;
-    --color-paper: 255 255 255;
-    --color-smoke: 218 228 218;
-    --color-ink: 30 44 47;
-    --color-muted: 78 96 90;
-    --color-sage: 76 118 92;
-    --color-sage-dark: 38 78 58;
-    --color-sage-soft: 212 226 216;
-    --color-clay: 158 86 64;
-    --color-sand: 186 170 152;
-    --color-line: 172 158 144;
-    --color-mist: 222 230 224;
-    --color-clay-soft: 246 234 226;
   }
 
   body {

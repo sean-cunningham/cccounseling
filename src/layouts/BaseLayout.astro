@@ -23,6 +23,20 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 <html lang="en" class="font-sans">
   <head>
     <meta charset="utf-8" />
+    <script is:inline>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem("cc-theme");
+          if (savedTheme === "warm" || savedTheme === "cool") {
+            document.documentElement.dataset.theme = savedTheme;
+          } else {
+            document.documentElement.dataset.theme = "warm";
+          }
+        } catch {
+          document.documentElement.dataset.theme = "warm";
+        }
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
@@ -58,7 +72,5 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     </div>
     <Footer />
     <ThemeToggle />
-    <!-- Sync load after toggle markup: sets CSS vars on <html> and wires the button (see public/cc-theme.js). -->
-    <script is:inline src="/cc-theme.js"></script>
   </body>
 </html>
