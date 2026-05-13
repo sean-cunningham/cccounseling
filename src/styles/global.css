@@ -3,8 +3,24 @@
 @tailwind utilities;
 
 @layer base {
+  /*
+   * Warm fallbacks when JS is off. With JS, public/cc-theme.js sets the same tokens on <html style>.
+   */
   html {
     @apply scroll-smooth antialiased;
+    --color-cream: 253 252 250;
+    --color-paper: 255 255 255;
+    --color-smoke: 218 228 218;
+    --color-ink: 30 44 47;
+    --color-muted: 78 96 90;
+    --color-sage: 76 118 92;
+    --color-sage-dark: 38 78 58;
+    --color-sage-soft: 212 226 216;
+    --color-clay: 158 86 64;
+    --color-sand: 186 170 152;
+    --color-line: 172 158 144;
+    --color-mist: 222 230 224;
+    --color-clay-soft: 246 234 226;
   }
 
   body {
@@ -77,7 +93,7 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full border border-transparent bg-sageDark px-6 py-3 font-sans text-base font-bold text-paper no-underline shadow-card transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-[#355544] hover:text-paper hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-cream active:translate-y-0;
+    @apply inline-flex items-center justify-center rounded-full border border-transparent bg-sageDark px-6 py-3 font-sans text-base font-bold text-paper no-underline shadow-card transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-sage hover:text-paper hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-cream active:translate-y-0;
   }
 
   .btn-secondary {
