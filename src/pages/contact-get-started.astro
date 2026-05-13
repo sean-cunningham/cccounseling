@@ -1,17 +1,107 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import PageShell from "@/components/PageShell.astro";
+
+const description =
+  "Schedule a free consultation or contact CC Counseling with questions about fit, availability, insurance, and next steps.";
 ---
 
-<BaseLayout title="Get Started | CC Counseling" description="Contact CC Counseling to begin therapy in North Carolina.">
-  <PageShell
-    heading="Get Started"
-    sub="Embed your contact form or intake flow from the Wix contact page, or keep it simple with the details below."
-  >
-    <p>
-      Email <a href="mailto:hello@cccounselingnc.com">hello@cccounselingnc.com</a> or call
-      <a href="tel:+19194571981">(919) 457-1981</a>.
-    </p>
-    <p><a href="/">Back to home</a></p>
-  </PageShell>
+<BaseLayout title="Get Started | CC Counseling" {description}>
+  <main id="main">
+    <section class="bg-cream py-14 lg:py-20" aria-labelledby="get-started-hero-heading">
+      <div class="mx-auto max-w-[900px] px-5 text-left sm:px-6 lg:px-10">
+        <h1
+          id="get-started-hero-heading"
+          class="mb-6 font-display text-5xl leading-[1.05] tracking-tight text-ink md:text-6xl"
+        >
+          Start therapy with CC Counseling.
+        </h1>
+        <p class="max-w-[760px] text-lg leading-relaxed text-muted md:text-xl">
+          Schedule a free consultation or contact us with questions about fit, availability, insurance, or next steps.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-paper py-14 lg:py-20" aria-label="Schedule a consultation or ask a question">
+      <div class="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-10">
+        <div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+          <div
+            id="consultation-scheduling"
+            class="rounded-[32px] border border-sand/70 bg-cream p-6 shadow-[0_12px_32px_rgba(38,50,56,0.06)] lg:p-8"
+          >
+            <h2 class="mb-5 font-display text-4xl leading-[1.12] tracking-tight text-ink md:text-5xl">
+              Schedule a free consultation
+            </h2>
+            <p class="mb-8 max-w-[720px] text-lg leading-relaxed text-muted">
+              Choose this option if you are ready to schedule a brief fit call with a clinician. A consultation can help clarify fit
+              and next steps, but it is not a therapy session.
+            </p>
+            <!-- TODO: Insert the official SimplePractice appointment request widget for free consultations here. Do not use this for direct paid therapy scheduling unless operations and insurance/payment workflows are ready. -->
+            <div
+              class="flex min-h-[360px] items-center justify-center rounded-[24px] border border-dashed border-sand bg-paper p-6 text-center lg:p-8"
+            >
+              <div>
+                <p class="text-xl font-semibold text-ink">SimplePractice free consultation widget will be embedded here.</p>
+                <p class="mx-auto mt-3 max-w-[620px] text-base leading-relaxed text-muted">
+                  Replace this placeholder with the official SimplePractice appointment request widget for free consultations when
+                  ready.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            id="contact-questions"
+            class="rounded-[32px] border border-sand/70 bg-cream p-6 shadow-[0_12px_32px_rgba(38,50,56,0.06)] lg:p-8"
+          >
+            <h2 class="mb-5 font-display text-3xl leading-[1.12] tracking-tight text-ink md:text-4xl">Have a question first?</h2>
+            <p class="mb-8 text-base leading-relaxed text-muted md:text-lg">
+              If you have questions before scheduling, you can contact us and our team will follow up about services, availability,
+              and next steps.
+            </p>
+
+            <div class="border-t border-sand/70 py-4 text-base leading-relaxed text-muted">
+              <span class="mb-1 block font-semibold text-ink">Phone</span>
+              [Phone Number]
+            </div>
+            <div class="border-t border-sand/70 py-4 text-base leading-relaxed text-muted">
+              <span class="mb-1 block font-semibold text-ink">Email</span>
+              [Email Address]
+            </div>
+            <div class="border-t border-sand/70 py-4 text-base leading-relaxed text-muted">
+              <span class="mb-1 block font-semibold text-ink">Response time</span>
+              [Response Time]
+            </div>
+
+            <div
+              class="mt-6 rounded-[24px] border border-dashed border-sand bg-paper p-6 text-center"
+            >
+              <p class="font-semibold text-ink">Optional contact form widget</p>
+              <p class="mx-auto mt-2 max-w-[520px] text-sm leading-relaxed text-muted md:text-base">
+                A SimplePractice contact form, Google Form, or HIPAA-compliant form widget can be embedded here later.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-cream py-12 lg:py-16" aria-label="Privacy and emergency information">
+      <div class="mx-auto max-w-[900px] px-5 sm:px-6 lg:px-10">
+        <div class="border-t border-sand/70 py-6">
+          <h3 class="mb-3 text-xl font-semibold text-ink">Please do not include detailed clinical information</h3>
+          <p class="text-base leading-relaxed text-muted md:text-lg">
+            If you contact us through this page, please share only the basic information needed for follow-up. Do not include
+            detailed medical history, diagnosis information, trauma details, or urgent safety concerns.
+          </p>
+        </div>
+        <div class="border-t border-sand/70 py-6">
+          <h3 class="mb-3 text-xl font-semibold text-ink">This page is not for emergencies</h3>
+          <p class="text-base leading-relaxed text-muted md:text-lg">
+            This page is not monitored for emergencies. If you are in immediate danger or experiencing a mental health crisis, call
+            988 or 911 or go to the nearest emergency room.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
 </BaseLayout>
