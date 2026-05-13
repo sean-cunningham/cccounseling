@@ -6,33 +6,6 @@ const HERO_IMG =
   "https://static.wixstatic.com/media/5ea397_a6fab48af623451487054d8fbe302ed5~mv2.jpg";
 const LAPTOP_IMG =
   "https://static.wixstatic.com/media/11062b_4d4cc94a6ee04634abe5e3f340d27c6a~mv2.jpeg";
-
-const focusAreas = [
-  {
-    title: "Anxiety",
-    body: "Silence the persistent noise of worry to rediscover a grounded sense of daily peace.",
-  },
-  {
-    title: "Depression",
-    body: "Move through the heavy weight of sadness with professional guidance rooted in healing.",
-  },
-  {
-    title: "Relationships",
-    body: "Work through disagreements and build healthy patterns of communication and trust.",
-  },
-  {
-    title: "Stress & Burnout",
-    body: "Restore your vitality when professional and life demands begin to feel overwhelming.",
-  },
-  {
-    title: "Life Transitions",
-    body: "Step through major updates, from career shifts to moving, with stability and insight.",
-  },
-  {
-    title: "Trauma & PTSD",
-    body: "Process your past in a compassionate space dedicated to your wellness and inner safety.",
-  },
-] as const;
 ---
 
 <BaseLayout title="Home | CC Counseling">
@@ -163,30 +136,89 @@ const focusAreas = [
       </div>
     </section>
 
-    <section class="section-y border-y border-line bg-mist/60" aria-labelledby="focus-heading">
-      <div class="section-px mx-auto max-w-site">
-        <h2 id="focus-heading" class="font-display text-3xl font-semibold tracking-tight text-ink sm:text-[2rem]">
-          Areas of Clinical Focus
-        </h2>
-        <p class="mt-4 max-w-3xl text-lg leading-relaxed text-muted">
-          We provide specialized care for a wide range of mental health concerns, supporting your journey with
-          high-quality clinical expertise and a human-centered approach.
-        </p>
-        <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {
-            focusAreas.map((item) => (
-              <article class="rounded-[1.75rem] border border-sand bg-paper p-7 shadow-card transition duration-200 hover:-translate-y-1 hover:border-clay/35 hover:shadow-lift">
-                <div class="h-0.5 w-10 rounded-full bg-sage" aria-hidden="true" />
-                <h3 class="mt-5 font-display text-xl font-semibold leading-snug text-ink">{item.title}</h3>
-                <p class="mt-3 text-sm leading-relaxed text-muted">{item.body}</p>
-              </article>
-            ))
-          }
+    <section class="bg-sageSoft py-20 lg:py-28" aria-labelledby="focus-heading">
+      <div class="mx-auto max-w-site px-5 sm:px-6 lg:px-10">
+        <div class="mb-14 max-w-[860px] text-left">
+          <h2
+            id="focus-heading"
+            class="mb-6 font-display text-4xl font-semibold leading-[1.12] tracking-tight text-ink md:text-5xl"
+          >
+            Areas of clinical focus
+          </h2>
+          <p class="max-w-[760px] text-lg leading-relaxed text-muted md:text-xl">
+            We support adults and couples navigating anxiety, depression, relationship concerns, stress, trauma, and major
+            life transitions through thoughtful, evidence-informed therapy.
+          </p>
         </div>
-        <p class="mt-12 max-w-3xl text-[0.9375rem] leading-relaxed text-muted">
-          We also support clients with many other challenges, including grief, self-esteem, anger, OCD, body image,
-          addiction, and more. If you’re not sure whether we’re the right fit, reach out and we’ll happily discuss how we
-          can help you create meaningful, lasting change.
+        <div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-12 lg:gap-6">
+          <article
+            class="flex min-h-[250px] flex-col justify-between rounded-[32px] border border-sand/70 bg-paper p-8 text-left shadow-[0_12px_32px_rgba(38,50,56,0.05)] md:p-9 lg:col-span-7"
+          >
+            <h3 class="mb-5 font-display text-3xl font-semibold leading-[1.08] tracking-tight text-ink md:text-4xl">
+              Anxiety
+            </h3>
+            <p class="max-w-[520px] text-base leading-relaxed text-muted md:text-lg">
+              Support for worry, overthinking, panic, avoidance, and the constant sense that your mind will not slow down.
+            </p>
+          </article>
+          <article
+            class="flex min-h-[250px] flex-col justify-between rounded-[32px] border border-sand/70 bg-cream p-8 text-left shadow-[0_12px_32px_rgba(38,50,56,0.05)] md:p-9 lg:col-span-5"
+          >
+            <h3 class="mb-5 font-display text-3xl font-semibold leading-[1.08] tracking-tight text-ink md:text-4xl">
+              Depression
+            </h3>
+            <p class="max-w-[520px] text-base leading-relaxed text-muted md:text-lg">
+              Care for low mood, loss of motivation, emotional heaviness, isolation, and feeling disconnected from yourself
+              or others.
+            </p>
+          </article>
+          <article
+            class="flex min-h-[250px] flex-col justify-between rounded-[32px] border border-sand/70 bg-paper p-8 text-left shadow-[0_12px_32px_rgba(38,50,56,0.05)] md:p-9 lg:col-span-5"
+          >
+            <h3 class="mb-5 font-display text-3xl font-semibold leading-[1.08] tracking-tight text-ink md:text-4xl">
+              Relationships
+            </h3>
+            <p class="max-w-[520px] text-base leading-relaxed text-muted md:text-lg">
+              Therapy for communication patterns, conflict, disconnection, trust concerns, and the work of rebuilding
+              closeness.
+            </p>
+          </article>
+          <article
+            class="flex min-h-[250px] flex-col justify-between rounded-[32px] border border-sand/70 bg-cream p-8 text-left shadow-[0_12px_32px_rgba(38,50,56,0.05)] md:p-9 lg:col-span-7"
+          >
+            <h3 class="mb-5 font-display text-3xl font-semibold leading-[1.08] tracking-tight text-ink md:text-4xl">
+              Stress &amp; burnout
+            </h3>
+            <p class="max-w-[520px] text-base leading-relaxed text-muted md:text-lg">
+              Support for chronic pressure, emotional exhaustion, work stress, caregiving strain, and difficulty feeling
+              present in daily life.
+            </p>
+          </article>
+          <article
+            class="flex min-h-[250px] flex-col justify-between rounded-[32px] border border-sand/70 bg-paper p-8 text-left shadow-[0_12px_32px_rgba(38,50,56,0.05)] md:p-9 lg:col-span-6"
+          >
+            <h3 class="mb-5 font-display text-3xl font-semibold leading-[1.08] tracking-tight text-ink md:text-4xl">
+              Life transitions
+            </h3>
+            <p class="max-w-[520px] text-base leading-relaxed text-muted md:text-lg">
+              A steady place to process change, including career shifts, parenting, grief, moves, identity questions, and
+              new seasons of life.
+            </p>
+          </article>
+          <article
+            class="flex min-h-[250px] flex-col justify-between rounded-[32px] border border-sand/70 bg-cream p-8 text-left shadow-[0_12px_32px_rgba(38,50,56,0.05)] md:p-9 lg:col-span-6"
+          >
+            <h3 class="mb-5 font-display text-3xl font-semibold leading-[1.08] tracking-tight text-ink md:text-4xl">
+              Trauma &amp; PTSD
+            </h3>
+            <p class="max-w-[520px] text-base leading-relaxed text-muted md:text-lg">
+              Thoughtful support for painful experiences, nervous system overwhelm, emotional triggers, and patterns that
+              continue to affect daily life.
+            </p>
+          </article>
+        </div>
+        <p class="mt-10 max-w-[820px] text-base leading-relaxed text-muted md:text-lg">
+          We also support clients with grief, self-esteem, anger, OCD, body image concerns, addiction, and other challenges.
         </p>
       </div>
     </section>
