@@ -1,0 +1,91 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const pageTitle = "Good Faith Estimate | CC Counseling";
+const description =
+  "Information about your right to receive an estimate of expected charges before beginning care at CC Counseling.";
+---
+
+<BaseLayout title={pageTitle} {description}>
+  <main id="main">
+    <section class="bg-cream py-14 lg:py-20" aria-labelledby="gfe-hero-heading">
+      <div class="mx-auto max-w-[900px] px-5 text-left sm:px-6 lg:px-10">
+        <h1
+          id="gfe-hero-heading"
+          class="mb-6 font-display text-5xl leading-[1.05] tracking-tight text-ink md:text-6xl"
+        >
+          Good Faith Estimate
+        </h1>
+        <p class="max-w-[760px] text-lg leading-relaxed text-muted md:text-xl">
+          Information about your right to receive an estimate of expected charges before beginning care.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-paper py-14 lg:py-20" aria-label="Good Faith Estimate information">
+      <div class="mx-auto max-w-[900px] px-5 sm:px-6 lg:px-10">
+        <p class="mb-1 text-lg font-semibold leading-snug tracking-tight text-ink">GOOD FAITH ESTIMATE</p>
+        <p class="mb-8 text-lg leading-relaxed text-muted md:text-xl">
+          Information about your right to receive an estimate of expected charges before beginning care.
+        </p>
+
+        <p class="mb-3 text-base font-semibold text-ink md:text-lg">Important note:</p>
+        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
+          This page is for general information and is not a substitute for a personalized Good Faith Estimate. If you are uninsured
+          or choosing not to use insurance, you may request a Good Faith Estimate before scheduling services.
+        </p>
+
+        <h2 class="mb-4 mt-12 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl">
+          1. Your right to a Good Faith Estimate
+        </h2>
+        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
+          Under the No Surprises Act, health care providers are required to provide a Good Faith Estimate of expected charges to
+          individuals who are uninsured or who are choosing not to use insurance for scheduled health care services.
+        </p>
+        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
+          A Good Faith Estimate explains the expected cost of items or services that are reasonably expected for your care based on
+          information known at the time the estimate is created. The actual services or charges may differ if your needs change or
+          if additional services are requested.
+        </p>
+
+        <h2 class="mb-4 mt-12 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl">
+          2. When you may receive an estimate
+        </h2>
+        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
+          You may receive a Good Faith Estimate after scheduling services or upon request if you are uninsured or choosing not to use
+          insurance. The estimate is intended to help you understand expected costs before beginning care.
+        </p>
+
+        <h2 class="mb-4 mt-12 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl">
+          3. What the estimate may include
+        </h2>
+        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
+          A Good Faith Estimate may include expected charges for the primary service and other services that are reasonably expected as
+          part of your care. It may not include unexpected or unknown costs that arise later.
+        </p>
+
+        <h2 class="mb-4 mt-12 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl">4. Questions about costs</h2>
+        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
+          If you have questions about expected costs, payment options, or whether a Good Faith Estimate applies to your situation,
+          please contact CC Counseling before beginning services.
+        </p>
+
+        <h2 class="mb-4 mt-12 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl">
+          5. If your bill is higher than expected
+        </h2>
+        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
+          If you receive a bill that is substantially higher than your Good Faith Estimate, you may have rights under the federal
+          patient-provider dispute resolution process.
+        </p>
+        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
+          You can learn more about your rights under the No Surprises Act from the Centers for Medicare &amp; Medicaid Services at
+          <a
+            href="https://www.cms.gov/nosurprises"
+            class="text-sageDark underline underline-offset-4 transition-colors hover:text-clay"
+            >cms.gov/nosurprises</a
+          >.
+        </p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
