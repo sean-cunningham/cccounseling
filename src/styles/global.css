@@ -96,7 +96,7 @@
   }
 
   .card-interactive {
-    @apply card hover:-translate-y-1 hover:border-ink/22 hover:shadow-lift;
+    @apply card hover:-translate-y-1 hover:border-ink/25 hover:shadow-lift;
   }
 
   .link-inline {
