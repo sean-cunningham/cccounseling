@@ -1,8 +1,28 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { SITE_URL } from "@/constants/site";
 
 /** Editorial hero photography — local asset in /public/images */
 const HERO_IMAGE = "/images/individual-therapy-hero.png";
+
+const pageTitle = "Individual Therapy in North Carolina | CC Counseling";
+const pageDescription =
+  "Online individual therapy for adults seeking support with anxiety, depression, stress, trauma, life transitions, relationship patterns, and personal growth.";
+
+const orgId = `${SITE_URL}/#organization`;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${SITE_URL}/services/individual-therapy/#service`,
+  name: "Individual Therapy",
+  serviceType: "Individual therapy",
+  description:
+    "Online individual therapy for adults in North Carolina seeking support with anxiety, depression, stress, trauma, life transitions, relationship patterns, and personal growth.",
+  provider: { "@id": orgId },
+  areaServed: { "@type": "State", name: "North Carolina" },
+  url: `${SITE_URL}/services/individual-therapy/`,
+};
 
 const faqItems = [
   {
@@ -24,10 +44,7 @@ const faqItems = [
 ] as const;
 ---
 
-<BaseLayout
-  title="Individual Therapy in North Carolina | CC Counseling"
-  description="Online individual therapy for adults seeking support with anxiety, depression, stress, trauma, life transitions, relationship patterns, and personal growth."
->
+<BaseLayout title={pageTitle} description={pageDescription} structuredData={structuredData}>
   <main id="main">
     <section class="border-b border-line bg-smoke py-16 lg:py-24" aria-labelledby="individual-hero-heading">
       <div class="mx-auto max-w-site px-5 sm:px-6 lg:px-10">

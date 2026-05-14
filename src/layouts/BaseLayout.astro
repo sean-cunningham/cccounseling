@@ -4,12 +4,16 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import { SITE_NAME } from "@/constants/site";
 
+/** JSON-LD: single document, @graph object, or array of nodes (wrapped with @context + @graph). */
+export type StructuredDataProp = Record<string, unknown> | Record<string, unknown>[] | undefined;
+
 interface Props {
   title: string;
   description?: string;
   ogImage?: string;
   /** When true, asks search engines not to index (e.g. 404). */
   noindex?: boolean;
+  structuredData?: StructuredDataProp;
 }
 
 const {
@@ -17,6 +21,7 @@ const {
   description = "Thoughtful, grounded therapy for individuals and couples across North Carolina.",
   ogImage = "https://static.wixstatic.com/media/5ea397_a6fab48af623451487054d8fbe302ed5~mv2.jpg",
   noindex = false,
+  structuredData,
 } = Astro.props;
 
 const site = Astro.site ?? new URL("https://cccounseling.com");
@@ -25,6 +30,14 @@ const ogImageAbsolute =
   ogImage.startsWith("http://") || ogImage.startsWith("https://")
     ? ogImage
     : new URL(ogImage.startsWith("/") ? ogImage : `/${ogImage}`, site).href;
+
+let structuredDataJson: string | null = null;
+if (structuredData !== undefined && structuredData !== null) {
+  const payload = Array.isArray(structuredData)
+    ? { "@context": "https://schema.org", "@graph": structuredData }
+    : structuredData;
+  structuredDataJson = JSON.stringify(payload);
+}
 ---
 
 <!doctype html>
@@ -32,6 +45,7 @@ const ogImageAbsolute =
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
@@ -48,7 +62,6 @@ const ogImageAbsolute =
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageAbsolute} />
-    <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -60,6 +73,7 @@ const ogImageAbsolute =
       href="https://static.wixstatic.com/media/2e2a49_ab2e08c188f248779ab3728026123e34~mv2.png"
       type="image/png"
     />
+    {structuredDataJson && <script type="application/ld+json" set:html={structuredDataJson} />}
   </head>
   <body class="flex min-h-dvh flex-col bg-canvas">
     <a

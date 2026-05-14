@@ -1,17 +1,56 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { SITE_URL, SITE_NAME, PUBLIC_PHONE_E164, PUBLIC_EMAIL } from "@/constants/site";
 
 /** Original full-bleed hero image URL — replace in one place when updating photography. */
 const HERO_IMG =
   "https://static.wixstatic.com/media/5ea397_a6fab48af623451487054d8fbe302ed5~mv2.jpg";
 const LAPTOP_IMG =
   "https://static.wixstatic.com/media/11062b_4d4cc94a6ee04634abe5e3f340d27c6a~mv2.jpeg";
+
+const homeTitle = "Online Therapy in North Carolina | CC Counseling";
+const homeDescription =
+  "CC Counseling provides online therapy for adults and couples across North Carolina, with support for anxiety, depression, stress, trauma, relationships, and life transitions.";
+
+const orgId = `${SITE_URL}/#organization`;
+const websiteId = `${SITE_URL}/#website`;
+const webpageId = `${SITE_URL}/#webpage`;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalBusiness",
+      "@id": orgId,
+      name: SITE_NAME,
+      url: SITE_URL,
+      description: "Online therapy for adults and couples across North Carolina.",
+      areaServed: { "@type": "State", name: "North Carolina" },
+      medicalSpecialty: ["MentalHealth", "Psychotherapy"],
+      telephone: PUBLIC_PHONE_E164,
+      email: PUBLIC_EMAIL,
+    },
+    {
+      "@type": "WebSite",
+      "@id": websiteId,
+      url: SITE_URL,
+      name: SITE_NAME,
+      publisher: { "@id": orgId },
+    },
+    {
+      "@type": "WebPage",
+      "@id": webpageId,
+      url: SITE_URL,
+      name: homeTitle,
+      description: homeDescription,
+      isPartOf: { "@id": websiteId },
+      about: { "@id": orgId },
+    },
+  ],
+};
 ---
 
-<BaseLayout
-  title="Online Therapy in North Carolina | CC Counseling"
-  description="CC Counseling provides online therapy for adults and couples across North Carolina, with support for anxiety, depression, stress, trauma, relationships, and life transitions."
->
+<BaseLayout title={homeTitle} description={homeDescription} structuredData={structuredData}>
   <main id="main">
     <section class="relative isolate w-full min-h-[620px] overflow-x-hidden sm:min-h-[640px] lg:min-h-[720px]" aria-labelledby="hero-heading">
       <div class="absolute inset-0 z-0" aria-hidden="true">

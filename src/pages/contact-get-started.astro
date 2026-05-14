@@ -1,14 +1,30 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { SITE_URL } from "@/constants/site";
 
 const description =
   "Contact CC Counseling to schedule a free consultation or ask questions about therapy services, availability, insurance, rates, and next steps.";
 
 const contactLinkClass =
   "font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage";
+
+const pageTitle = "Contact CC Counseling | Start Therapy in North Carolina";
+const orgId = `${SITE_URL}/#organization`;
+const websiteId = `${SITE_URL}/#website`;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": `${SITE_URL}/contact-get-started/#webpage`,
+  url: `${SITE_URL}/contact-get-started/`,
+  name: pageTitle,
+  description,
+  isPartOf: { "@id": websiteId },
+  about: { "@id": orgId },
+};
 ---
 
-<BaseLayout title="Contact CC Counseling | Start Therapy in North Carolina" {description}>
+<BaseLayout title={pageTitle} {description} structuredData={structuredData}>
   <main id="main">
     <section
       class="bg-smoke border-b border-line py-16 lg:py-24"

@@ -6,6 +6,15 @@ const description =
 
 type FaqItem = { q: string; a: string; aHtml?: boolean };
 
+function faqAnswerPlain(htmlOrText: string): string {
+  return htmlOrText
+    .replace(/<[^>]*>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 const groups: { title: string; items: FaqItem[] }[] = [
   {
     title: "Getting started",
@@ -98,9 +107,26 @@ const groups: { title: string; items: FaqItem[] }[] = [
     ],
   },
 ];
+
+const faqMainEntity = groups.flatMap((group) =>
+  group.items.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.aHtml ? faqAnswerPlain(item.a) : item.a,
+    },
+  })),
+);
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqMainEntity,
+};
 ---
 
-<BaseLayout title="Frequently Asked Questions | CC Counseling" {description}>
+<BaseLayout title="Frequently Asked Questions | CC Counseling" {description} structuredData={structuredData}>
   <main id="main">
     <section class="border-b border-line bg-smoke py-16 lg:py-24" aria-labelledby="faq-hero-heading">
       <div class="mx-auto max-w-[900px] px-5 text-left sm:px-6 lg:px-10">
