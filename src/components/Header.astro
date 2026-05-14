@@ -1,6 +1,6 @@
 ---
-const LOGO =
-  "https://static.wixstatic.com/media/2e2a49_ab2e08c188f248779ab3728026123e34~mv2.png";
+/** Site logo (PNG with transparent background in /public/images). */
+const LOGO = "/images/logo.png";
 
 interface Props {
   currentPath: string;
@@ -41,8 +41,15 @@ const servicesActive = isActive("/services");
   <div
     class="mx-auto flex min-h-[76px] w-full max-w-wide items-center justify-between gap-4 px-5 py-4 sm:px-6 lg:px-10 2xl:px-12"
   >
-    <a href="/" class="shrink-0 transition-opacity hover:opacity-90" aria-label="CC Counseling home">
-      <img src={LOGO} width="499" height="191" alt="CC Counseling" class="h-10 w-auto lg:h-12" />
+    <a href="/" class="shrink-0 transition-opacity hover:opacity-90" aria-label="TrueBridge Therapy home">
+      <img
+        src={LOGO}
+        width="964"
+        height="478"
+        alt="TrueBridge Therapy"
+        class="h-12 w-auto max-w-[min(100%,320px)] lg:h-14"
+        decoding="async"
+      />
     </a>
 
     <button

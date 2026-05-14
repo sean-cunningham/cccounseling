@@ -1,9 +1,10 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { PUBLIC_EMAIL } from "@/constants/site";
 
-const pageTitle = "Notice of Privacy Practices | CC Counseling";
+const pageTitle = "Notice of Privacy Practices | TrueBridge";
 const description =
-  "Review CC Counseling’s Notice of Privacy Practices describing how health information may be used, disclosed, and accessed.";
+  "Review TrueBridge’s Notice of Privacy Practices describing how health information may be used, disclosed, and accessed.";
 ---
 
 <BaseLayout title={pageTitle} {description}>
@@ -35,7 +36,7 @@ const description =
           INFORMATION. PLEASE REVIEW IT CAREFULLY.
         </p>
         <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
-          This Notice of Privacy Practices (&ldquo;Notice&rdquo;) describes how CC Counseling (&ldquo;Practice,&rdquo;
+          This Notice of Privacy Practices (&ldquo;Notice&rdquo;) describes how TrueBridge (&ldquo;Practice,&rdquo;
           &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) may use and disclose your protected health information
           (&ldquo;PHI&rdquo;) and how you can access this information.
         </p>
@@ -181,9 +182,9 @@ const description =
           If you believe your privacy rights have been violated, you may file a complaint with:
         </p>
         <div class="mb-5 space-y-1 text-base leading-relaxed text-muted md:text-lg">
-          <p class="text-muted">CC Counseling</p>
-          <p class="text-muted">Privacy contact: CC Counseling (use the email or phone number below)</p>
-          <p class="text-muted">Email: hello@cccounselingnc.com</p>
+          <p class="text-muted">TrueBridge</p>
+          <p class="text-muted">Privacy contact: TrueBridge (use the email or phone number below)</p>
+          <p class="text-muted">Email: {PUBLIC_EMAIL}</p>
           <p class="text-muted">Phone: (919) 457-1981</p>
         </div>
         <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">

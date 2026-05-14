@@ -1,4 +1,6 @@
 ---
+import { PUBLIC_EMAIL } from "@/constants/site";
+
 const year = new Date().getFullYear();
 ---
 
@@ -7,7 +9,7 @@ const year = new Date().getFullYear();
     <div class="h-px w-full bg-gradient-to-r from-transparent via-paper/20 to-transparent" aria-hidden="true"></div>
     <div class="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-8">
       <div>
-        <p class="font-display text-lg font-semibold text-paper">CC Counseling</p>
+        <p class="font-display text-lg font-semibold text-paper">TrueBridge</p>
         <p class="mt-3 text-sm leading-relaxed">
           Thoughtful online therapy for adults and couples seeking steadier support, clearer next steps, and care that feels personal
           from the beginning.
@@ -19,7 +21,7 @@ const year = new Date().getFullYear();
           Email:
           <a
             class="text-sm font-medium underline-offset-2 transition-colors hover:text-mist hover:underline"
-            href="mailto:hello@cccounselingnc.com">hello@cccounselingnc.com</a
+            href={`mailto:${PUBLIC_EMAIL}`}>{PUBLIC_EMAIL}</a
           ><br />
           Phone:
           <a
@@ -95,7 +97,7 @@ const year = new Date().getFullYear();
       </div>
     </div>
     <div class="mt-12 space-y-4 border-t border-paper/25 pt-8 text-center text-xs sm:text-left">
-      <p class="text-paper">&copy; {year} CC Counseling. All rights reserved.</p>
+      <p class="text-paper">&copy; {year} TrueBridge. All rights reserved.</p>
       <p class="max-w-3xl leading-relaxed text-paper/92">
         This site is not intended for emergencies. If you are in crisis or need immediate support, call or text 988,
         call 911, or go to the nearest emergency room.
