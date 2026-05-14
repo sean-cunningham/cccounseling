@@ -34,7 +34,7 @@
   }
 
   a {
-    @apply text-sageDark underline-offset-4 transition-colors duration-200 ease-out hover:text-clay;
+    @apply text-sageDark underline decoration-sand underline-offset-4 transition-colors duration-200 ease-out hover:text-clay hover:decoration-clay;
   }
 
   a:focus-visible {
@@ -84,7 +84,7 @@
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-full border border-sand bg-paper px-6 py-3 font-sans text-base font-bold text-sageDark no-underline shadow-none transition duration-200 ease-out hover:-translate-y-0.5 hover:border-clay/50 hover:bg-smoke hover:text-sageDark hover:shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 active:translate-y-0;
+    @apply inline-flex items-center justify-center rounded-full border border-sand bg-paper px-6 py-3 font-sans text-base font-bold text-sageDark no-underline shadow-none transition duration-200 ease-out hover:-translate-y-0.5 hover:border-sage hover:bg-smoke hover:text-sageDark hover:shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 active:translate-y-0;
   }
 
   .btn-secondary:focus-visible {
@@ -92,11 +92,11 @@
   }
 
   .card {
-    @apply rounded-[1.75rem] border border-line bg-paper p-8 shadow-[0_12px_32px_rgba(20,28,26,0.06)] transition duration-200 ease-out;
+    @apply rounded-[1.75rem] border border-line bg-paper p-8 shadow-[0_12px_32px_rgba(31,42,48,0.06)] transition duration-200 ease-out;
   }
 
   .card-interactive {
-    @apply card hover:-translate-y-1 hover:border-clay/40 hover:shadow-lift;
+    @apply card hover:-translate-y-1 hover:border-sage/60 hover:shadow-lift;
   }
 
   .link-inline {

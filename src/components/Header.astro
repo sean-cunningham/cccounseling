@@ -67,7 +67,7 @@ const servicesActive = isActive("/services");
           aria-current={isActive("/") ? "page" : undefined}
           class:list={[
             "border-b-2 border-transparent pb-0.5 text-[0.95rem] font-medium no-underline transition-colors",
-            isActive("/") ? "border-b-2 border-clay pb-0.5 text-sageDark" : "border-b-2 border-transparent pb-0.5 text-ink/80 hover:text-clay",
+            isActive("/") ? "border-b-2 border-sage pb-0.5 text-sageDark" : "border-b-2 border-transparent pb-0.5 text-ink/80 hover:text-sage",
           ]}
         >
           Home
@@ -79,7 +79,7 @@ const servicesActive = isActive("/services");
             aria-current={servicesActive ? "page" : undefined}
             class:list={[
               "border-b-2 border-transparent pb-0.5 text-[0.95rem] font-medium no-underline transition-colors",
-              servicesActive ? "border-b-2 border-clay pb-0.5 text-sageDark" : "border-b-2 border-transparent pb-0.5 text-ink/80 hover:text-clay",
+              servicesActive ? "border-b-2 border-sage pb-0.5 text-sageDark" : "border-b-2 border-transparent pb-0.5 text-ink/80 hover:text-sage",
             ]}
           >
             Services
@@ -103,7 +103,7 @@ const servicesActive = isActive("/services");
             role="menu"
             aria-label="Services"
           >
-            <div class="rounded-2xl border border-line bg-paper p-3.5 shadow-[0_18px_45px_rgba(20,28,26,0.10)]">
+            <div class="rounded-2xl border border-line bg-paper p-3.5 shadow-[0_18px_45px_rgba(31,42,48,0.10)]">
               {
                 serviceItems.map((item) => (
                   <a
@@ -114,7 +114,7 @@ const servicesActive = isActive("/services");
                       isActive(item.href) && "bg-smoke",
                     ]}
                   >
-                    <span class="block text-[0.95rem] font-semibold text-sageDark transition-colors group-hover/svcitem:text-clay">
+                    <span class="block text-[0.95rem] font-semibold text-sageDark transition-colors group-hover/svcitem:text-sageDark">
                       {item.title}
                     </span>
                     <span class="mt-0.5 block text-xs font-normal leading-snug text-muted">{item.description}</span>
@@ -132,7 +132,7 @@ const servicesActive = isActive("/services");
               aria-current={isActive(item.href) ? "page" : undefined}
               class:list={[
                 "border-b-2 border-transparent pb-0.5 text-[0.95rem] font-medium no-underline transition-colors",
-                isActive(item.href) ? "border-b-2 border-clay pb-0.5 text-sageDark" : "border-b-2 border-transparent pb-0.5 text-ink/80 hover:text-clay",
+                isActive(item.href) ? "border-b-2 border-sage pb-0.5 text-sageDark" : "border-b-2 border-transparent pb-0.5 text-ink/80 hover:text-sage",
               ]}
             >
               {item.label}
@@ -162,7 +162,7 @@ const servicesActive = isActive("/services");
     >
       <a
         href="/"
-        class="border-b border-line py-3 text-base font-medium text-ink/80 no-underline transition-colors hover:text-clay"
+        class="border-b border-line py-3 text-base font-medium text-ink/80 no-underline transition-colors hover:text-sage"
         aria-current={isActive("/") ? "page" : undefined}
       >
         Home
@@ -170,7 +170,7 @@ const servicesActive = isActive("/services");
       <div class="border-b border-line py-3">
         <a
           href="/services"
-          class="text-base font-medium text-ink/80 no-underline transition-colors hover:text-clay"
+          class="text-base font-medium text-ink/80 no-underline transition-colors hover:text-sage"
           aria-current={servicesActive ? "page" : undefined}
         >
           Services
@@ -193,7 +193,7 @@ const servicesActive = isActive("/services");
         navRest.map((item) => (
           <a
             href={item.href}
-            class="border-b border-line py-3 text-base font-medium text-ink/80 no-underline transition-colors hover:text-clay"
+            class="border-b border-line py-3 text-base font-medium text-ink/80 no-underline transition-colors hover:text-sage"
             aria-current={isActive(item.href) ? "page" : undefined}
           >
             {item.label}
