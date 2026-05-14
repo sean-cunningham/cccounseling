@@ -102,7 +102,7 @@ const groups: { title: string; items: FaqItem[] }[] = [
 
 <BaseLayout title="FAQ | CC Counseling" {description}>
   <main id="main">
-    <section class="bg-canvas py-16 lg:py-24" aria-labelledby="faq-hero-heading">
+    <section class="border-b border-line bg-smoke py-16 lg:py-24" aria-labelledby="faq-hero-heading">
       <div class="mx-auto max-w-[900px] px-5 text-left sm:px-6 lg:px-10">
         <h1
           id="faq-hero-heading"
@@ -117,7 +117,7 @@ const groups: { title: string; items: FaqItem[] }[] = [
       </div>
     </section>
 
-    <section class="bg-paper py-16 lg:py-24" aria-label="Questions by topic">
+    <section class="border-t border-line bg-paper py-16 lg:py-24" aria-label="Questions by topic">
       <div class="mx-auto max-w-[900px] px-5 sm:px-6 lg:px-10">
         {
           groups.map((group, groupIndex) => (
@@ -165,7 +165,7 @@ const groups: { title: string; items: FaqItem[] }[] = [
       </div>
     </section>
 
-    <section class="bg-sageDeep py-16 text-center lg:py-24" aria-labelledby="faq-final-cta-heading">
+    <section class="relative border-t border-paper/15 bg-sageDeep py-16 text-center lg:py-24" aria-labelledby="faq-final-cta-heading">
       <div class="mx-auto max-w-[860px] px-5 sm:px-6 lg:px-10">
         <h2
           id="faq-final-cta-heading"

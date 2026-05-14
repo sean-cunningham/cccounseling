@@ -67,7 +67,7 @@ const servicesActive = isActive("/services");
           aria-current={isActive("/") ? "page" : undefined}
           class:list={[
             "border-b-2 border-transparent pb-0.5 text-[0.95rem] font-medium no-underline transition-colors",
-            isActive("/") ? "border-b-2 border-sage pb-0.5 text-sageDark" : "border-b-2 border-transparent pb-0.5 text-ink/80 hover:text-sage",
+            isActive("/") ? "border-b-2 border-sageDark pb-0.5 text-sageDark" : "border-b-2 border-transparent pb-0.5 text-ink/80 hover:text-sageDark",
           ]}
         >
           Home
@@ -79,7 +79,7 @@ const servicesActive = isActive("/services");
             aria-current={servicesActive ? "page" : undefined}
             class:list={[
               "border-b-2 border-transparent pb-0.5 text-[0.95rem] font-medium no-underline transition-colors",
-              servicesActive ? "border-b-2 border-sage pb-0.5 text-sageDark" : "border-b-2 border-transparent pb-0.5 text-ink/80 hover:text-sage",
+              servicesActive ? "border-b-2 border-sageDark pb-0.5 text-sageDark" : "border-b-2 border-transparent pb-0.5 text-ink/80 hover:text-sageDark",
             ]}
           >
             Services
@@ -132,7 +132,7 @@ const servicesActive = isActive("/services");
               aria-current={isActive(item.href) ? "page" : undefined}
               class:list={[
                 "border-b-2 border-transparent pb-0.5 text-[0.95rem] font-medium no-underline transition-colors",
-                isActive(item.href) ? "border-b-2 border-sage pb-0.5 text-sageDark" : "border-b-2 border-transparent pb-0.5 text-ink/80 hover:text-sage",
+                isActive(item.href) ? "border-b-2 border-sageDark pb-0.5 text-sageDark" : "border-b-2 border-transparent pb-0.5 text-ink/80 hover:text-sageDark",
               ]}
             >
               {item.label}
@@ -143,7 +143,7 @@ const servicesActive = isActive("/services");
 
       <a
         href="/contact-get-started"
-        class="inline-flex shrink-0 items-center justify-center rounded-full bg-sageDark px-6 py-2.5 text-[0.95rem] font-semibold text-paper no-underline transition-colors duration-200 ease-out hover:bg-sage hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+        class="inline-flex shrink-0 items-center justify-center rounded-full bg-sageDark px-6 py-2.5 text-[0.95rem] font-semibold text-paper no-underline transition duration-200 ease-out hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
       >
         Get Started
       </a>
@@ -162,7 +162,7 @@ const servicesActive = isActive("/services");
     >
       <a
         href="/"
-        class="border-b border-line py-3 text-base font-medium text-ink/80 no-underline transition-colors hover:text-sage"
+        class="border-b border-line py-3 text-base font-medium text-ink/80 no-underline transition-colors hover:text-sageDark"
         aria-current={isActive("/") ? "page" : undefined}
       >
         Home
@@ -170,7 +170,7 @@ const servicesActive = isActive("/services");
       <div class="border-b border-line py-3">
         <a
           href="/services"
-          class="text-base font-medium text-ink/80 no-underline transition-colors hover:text-sage"
+          class="text-base font-medium text-ink/80 no-underline transition-colors hover:text-sageDark"
           aria-current={servicesActive ? "page" : undefined}
         >
           Services
@@ -193,7 +193,7 @@ const servicesActive = isActive("/services");
         navRest.map((item) => (
           <a
             href={item.href}
-            class="border-b border-line py-3 text-base font-medium text-ink/80 no-underline transition-colors hover:text-sage"
+            class="border-b border-line py-3 text-base font-medium text-ink/80 no-underline transition-colors hover:text-sageDark"
             aria-current={isActive(item.href) ? "page" : undefined}
           >
             {item.label}
@@ -202,7 +202,7 @@ const servicesActive = isActive("/services");
       }
       <a
         href="/contact-get-started"
-        class="mt-4 mb-4 inline-flex w-full items-center justify-center rounded-full bg-sageDark px-6 py-3 text-base font-semibold text-paper no-underline transition-colors hover:bg-sage hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+        class="mt-4 mb-4 inline-flex w-full items-center justify-center rounded-full bg-sageDark px-6 py-3 text-base font-semibold text-paper no-underline transition duration-200 ease-out hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
       >
         Get Started
       </a>
