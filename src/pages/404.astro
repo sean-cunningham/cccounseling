@@ -1,0 +1,37 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const pageTitle = "Page not found | CC Counseling";
+const description = "The page you are looking for could not be found.";
+---
+
+<BaseLayout title={pageTitle} {description}>
+  <main id="main" class="flex min-h-[70vh] items-center bg-canvas py-16 lg:py-24">
+    <div class="mx-auto w-full max-w-[900px] px-5 sm:px-6 lg:px-10">
+      <h1 class="mb-6 font-display text-5xl leading-[1.05] tracking-tight text-ink md:text-6xl">Page not found</h1>
+      <p class="mb-8 max-w-[680px] text-lg leading-relaxed text-muted md:text-xl">
+        The page you’re looking for may have moved, or the link may no longer be available.
+      </p>
+      <div class="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
+        <a
+          href="/"
+          class="inline-flex w-fit items-center justify-center rounded-full bg-sageDark px-7 py-3.5 text-base font-semibold text-paper no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-sage hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
+        >
+          Return home
+        </a>
+        <a
+          href="/contact-get-started"
+          class="w-fit font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-clay hover:decoration-clay"
+        >
+          Contact us
+        </a>
+        <a
+          href="/services"
+          class="w-fit font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-clay hover:decoration-clay"
+        >
+          View services
+        </a>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
