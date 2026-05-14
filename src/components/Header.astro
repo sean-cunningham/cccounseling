@@ -36,7 +36,7 @@ const servicesActive = isActive("/services");
 ---
 
 <header
-  class="sticky top-0 z-[100] border-b border-sand/60 bg-paper/90 backdrop-blur-md"
+  class="sticky top-0 z-[100] border-b border-line bg-paper/92 backdrop-blur-md"
 >
   <div
     class="mx-auto flex min-h-[76px] w-full max-w-wide items-center justify-between gap-4 px-5 py-4 sm:px-6 lg:px-10 2xl:px-12"
@@ -48,7 +48,7 @@ const servicesActive = isActive("/services");
     <button
       type="button"
       id="header-nav-toggle"
-      class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-sand bg-paper text-ink transition-colors hover:bg-sageSoft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-paper lg:ml-auto lg:hidden"
+      class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-line bg-paper text-ink transition-colors hover:bg-smoke focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper lg:ml-auto lg:hidden"
       aria-controls="header-mobile-drawer"
       aria-expanded="false"
       aria-label="Open menu"
@@ -67,7 +67,7 @@ const servicesActive = isActive("/services");
           aria-current={isActive("/") ? "page" : undefined}
           class:list={[
             "border-b-2 border-transparent pb-0.5 text-[0.95rem] font-medium no-underline transition-colors",
-            isActive("/") ? "text-sageDark border-sageDark" : "text-ink/80 hover:text-sageDark",
+            isActive("/") ? "border-b-2 border-clay pb-0.5 text-sageDark" : "border-b-2 border-transparent pb-0.5 text-ink/80 hover:text-clay",
           ]}
         >
           Home
@@ -79,7 +79,7 @@ const servicesActive = isActive("/services");
             aria-current={servicesActive ? "page" : undefined}
             class:list={[
               "border-b-2 border-transparent pb-0.5 text-[0.95rem] font-medium no-underline transition-colors",
-              servicesActive ? "text-sageDark border-sageDark" : "text-ink/80 hover:text-sageDark",
+              servicesActive ? "border-b-2 border-clay pb-0.5 text-sageDark" : "border-b-2 border-transparent pb-0.5 text-ink/80 hover:text-clay",
             ]}
           >
             Services
@@ -87,7 +87,7 @@ const servicesActive = isActive("/services");
           <button
             type="button"
             id="header-svc-btn"
-            class="header-svc-btn -m-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-ink/70 transition-colors hover:bg-sageSoft hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+            class="header-svc-btn -m-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-ink/70 transition-colors hover:bg-smoke hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
             aria-expanded="false"
             aria-haspopup="true"
             aria-controls="header-svc-flyout"
@@ -103,18 +103,18 @@ const servicesActive = isActive("/services");
             role="menu"
             aria-label="Services"
           >
-            <div class="rounded-2xl border border-sand/70 bg-paper p-3.5 shadow-soft">
+            <div class="rounded-2xl border border-line bg-paper p-3.5 shadow-[0_18px_45px_rgba(20,28,26,0.10)]">
               {
                 serviceItems.map((item) => (
                   <a
                     href={item.href}
                     role="menuitem"
                     class:list={[
-                      "group/svcitem mb-1.5 block rounded-xl px-3 py-3 no-underline transition-colors last:mb-0 hover:bg-sageSoft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-paper",
-                      isActive(item.href) && "bg-sageSoft/70",
+                      "group/svcitem mb-1.5 block rounded-xl px-3 py-3 no-underline transition-colors last:mb-0 hover:bg-smoke focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper",
+                      isActive(item.href) && "bg-smoke",
                     ]}
                   >
-                    <span class="block text-[0.95rem] font-semibold text-sageDark">
+                    <span class="block text-[0.95rem] font-semibold text-sageDark transition-colors group-hover/svcitem:text-clay">
                       {item.title}
                     </span>
                     <span class="mt-0.5 block text-xs font-normal leading-snug text-muted">{item.description}</span>
@@ -132,7 +132,7 @@ const servicesActive = isActive("/services");
               aria-current={isActive(item.href) ? "page" : undefined}
               class:list={[
                 "border-b-2 border-transparent pb-0.5 text-[0.95rem] font-medium no-underline transition-colors",
-                isActive(item.href) ? "text-sageDark border-sageDark" : "text-ink/80 hover:text-sageDark",
+                isActive(item.href) ? "border-b-2 border-clay pb-0.5 text-sageDark" : "border-b-2 border-transparent pb-0.5 text-ink/80 hover:text-clay",
               ]}
             >
               {item.label}
@@ -143,7 +143,7 @@ const servicesActive = isActive("/services");
 
       <a
         href="/contact-get-started"
-        class="inline-flex shrink-0 items-center justify-center rounded-full bg-sageDark px-6 py-2.5 text-[0.95rem] font-semibold text-paper no-underline transition-colors duration-200 ease-out hover:bg-sage hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+        class="inline-flex shrink-0 items-center justify-center rounded-full bg-sageDark px-6 py-2.5 text-[0.95rem] font-semibold text-paper no-underline transition-colors duration-200 ease-out hover:bg-sage hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
       >
         Get Started
       </a>
@@ -152,7 +152,7 @@ const servicesActive = isActive("/services");
 
   <div
     id="header-mobile-drawer"
-    class="hidden border-t border-sand/70 bg-paper lg:hidden"
+    class="hidden border-t border-line bg-paper lg:hidden"
     role="dialog"
     aria-label="Site navigation"
   >
@@ -162,25 +162,25 @@ const servicesActive = isActive("/services");
     >
       <a
         href="/"
-        class="border-b border-line/80 py-3 text-base font-medium text-ink no-underline transition-colors hover:text-sageDark"
+        class="border-b border-line py-3 text-base font-medium text-ink/80 no-underline transition-colors hover:text-clay"
         aria-current={isActive("/") ? "page" : undefined}
       >
         Home
       </a>
-      <div class="border-b border-line/80 py-3">
+      <div class="border-b border-line py-3">
         <a
           href="/services"
-          class="text-base font-medium text-ink no-underline transition-colors hover:text-sageDark"
+          class="text-base font-medium text-ink/80 no-underline transition-colors hover:text-clay"
           aria-current={servicesActive ? "page" : undefined}
         >
           Services
         </a>
-        <div class="mt-2 flex flex-col gap-1 border-l border-sand/80 pl-4">
+        <div class="mt-2 flex flex-col gap-1 border-l border-line pl-4">
           {
             serviceItems.map((item) => (
               <a
                 href={item.href}
-                class="rounded-lg py-2 pl-2 text-base font-medium text-ink/90 no-underline transition-colors hover:bg-sageSoft hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2"
+                class="rounded-lg py-2 pl-2 text-base font-medium text-ink/90 no-underline transition-colors hover:bg-smoke hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2"
                 aria-current={isActive(item.href) ? "page" : undefined}
               >
                 {item.title}
@@ -193,7 +193,7 @@ const servicesActive = isActive("/services");
         navRest.map((item) => (
           <a
             href={item.href}
-            class="border-b border-line/80 py-3 text-base font-medium text-ink no-underline transition-colors hover:text-sageDark"
+            class="border-b border-line py-3 text-base font-medium text-ink/80 no-underline transition-colors hover:text-clay"
             aria-current={isActive(item.href) ? "page" : undefined}
           >
             {item.label}
@@ -202,7 +202,7 @@ const servicesActive = isActive("/services");
       }
       <a
         href="/contact-get-started"
-        class="mt-4 mb-4 inline-flex w-full items-center justify-center rounded-full bg-sageDark px-6 py-3 text-base font-semibold text-paper no-underline transition-colors hover:bg-sage hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+        class="mt-4 mb-4 inline-flex w-full items-center justify-center rounded-full bg-sageDark px-6 py-3 text-base font-semibold text-paper no-underline transition-colors hover:bg-sage hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
       >
         Get Started
       </a>

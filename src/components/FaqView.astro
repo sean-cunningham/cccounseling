@@ -102,7 +102,7 @@ const groups: { title: string; items: FaqItem[] }[] = [
 
 <BaseLayout title="FAQ | CC Counseling" {description}>
   <main id="main">
-    <section class="bg-paper py-16 lg:py-24" aria-labelledby="faq-hero-heading">
+    <section class="bg-canvas py-16 lg:py-24" aria-labelledby="faq-hero-heading">
       <div class="mx-auto max-w-[900px] px-5 text-left sm:px-6 lg:px-10">
         <h1
           id="faq-hero-heading"
@@ -117,7 +117,7 @@ const groups: { title: string; items: FaqItem[] }[] = [
       </div>
     </section>
 
-    <section class="bg-smoke py-16 lg:py-24" aria-label="Questions by topic">
+    <section class="bg-paper py-16 lg:py-24" aria-label="Questions by topic">
       <div class="mx-auto max-w-[900px] px-5 sm:px-6 lg:px-10">
         {
           groups.map((group, groupIndex) => (
@@ -133,17 +133,17 @@ const groups: { title: string; items: FaqItem[] }[] = [
               </h2>
               <div>
                 {group.items.map((item) => (
-                  <details class="group border-t border-sand/70 py-5">
+                  <details class="group border-t border-line py-5">
                     <summary class="flex w-full cursor-pointer list-none items-start justify-between gap-6 text-left text-lg font-semibold leading-snug text-ink outline-none [&::-webkit-details-marker]:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay md:text-xl">
                       <span class="min-w-0 flex-1">{item.q}</span>
                       <span
-                        class="shrink-0 select-none tabular-nums text-muted group-open:hidden"
+                        class="shrink-0 select-none tabular-nums text-sageDark group-open:hidden"
                         aria-hidden="true"
                       >
                         +
                       </span>
                       <span
-                        class="hidden shrink-0 select-none tabular-nums text-muted group-open:inline"
+                        class="hidden shrink-0 select-none tabular-nums text-sageDark group-open:inline"
                         aria-hidden="true"
                       >
                         −
@@ -165,7 +165,7 @@ const groups: { title: string; items: FaqItem[] }[] = [
       </div>
     </section>
 
-    <section class="bg-ink py-16 text-center lg:py-24" aria-labelledby="faq-final-cta-heading">
+    <section class="bg-sageDeep py-16 text-center lg:py-24" aria-labelledby="faq-final-cta-heading">
       <div class="mx-auto max-w-[860px] px-5 sm:px-6 lg:px-10">
         <h2
           id="faq-final-cta-heading"
@@ -173,12 +173,12 @@ const groups: { title: string; items: FaqItem[] }[] = [
         >
           Still have questions?
         </h2>
-        <p class="mb-8 text-lg leading-relaxed text-paper/76 md:text-xl">
+        <p class="mb-8 text-lg leading-relaxed text-paper/86 md:text-xl">
           Reach out and we’ll help you understand services, fit, availability, and next steps before beginning care.
         </p>
         <a
           href="/contact-get-started"
-          class="inline-flex items-center justify-center rounded-full bg-paper px-7 py-3.5 font-semibold text-sageDark no-underline transition hover:-translate-y-0.5 hover:bg-sageSoft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-paper"
+          class="inline-flex items-center justify-center rounded-full bg-paper px-7 py-3.5 font-semibold text-sageDark no-underline transition hover:-translate-y-0.5 hover:bg-smoke focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-sageDeep"
         >
           Get Started
         </a>

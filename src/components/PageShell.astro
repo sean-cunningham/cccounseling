@@ -7,7 +7,7 @@ interface Props {
 const { heading, sub } = Astro.props;
 ---
 
-<main id="main" class="border-b border-line/70 bg-smoke py-16 sm:py-24">
+<main id="main" class="border-b border-line bg-paper py-16 sm:py-24">
   <div class="section-px mx-auto max-w-site">
     <h1 class="font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">{heading}</h1>
     {
@@ -16,7 +16,7 @@ const { heading, sub } = Astro.props;
       )
     }
     <div
-      class="mt-10 max-w-2xl space-y-5 text-[0.9375rem] leading-relaxed text-muted [&_a]:font-medium [&_a]:text-sageDark [&_a]:underline-offset-2 [&_a]:transition-colors hover:[&_a]:text-sage hover:[&_a]:underline"
+      class="mt-10 max-w-2xl space-y-5 text-[0.9375rem] leading-relaxed text-muted [&_a]:font-medium [&_a]:text-sageDark [&_a]:underline [&_a]:decoration-sand [&_a]:underline-offset-4 [&_a]:transition-colors hover:[&_a]:text-clay hover:[&_a]:decoration-clay"
     >
       <slot />
     </div>

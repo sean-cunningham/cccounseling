@@ -11,7 +11,7 @@ const contactLinkClass =
 <BaseLayout title="Get Started | CC Counseling" {description}>
   <main id="main">
     <section
-      class="bg-smoke py-16 lg:py-24"
+      class="bg-canvas py-16 lg:py-24"
       aria-labelledby="contact-heading"
     >
       <div class="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-10">
@@ -28,15 +28,15 @@ const contactLinkClass =
               steps.
             </p>
 
-            <div class="rounded-[28px] border border-sand/70 bg-paper p-6 shadow-card">
-              <h2 class="mb-5 font-display text-2xl leading-tight tracking-tight text-sageDark md:text-3xl">
+            <div class="rounded-[28px] border border-line bg-paper p-6 shadow-[0_12px_32px_rgba(20,28,26,0.06)]">
+              <h2 class="mb-5 font-display text-2xl leading-tight tracking-tight text-ink md:text-3xl">
                 Prefer to call or email?
               </h2>
-              <div class="border-t border-sand/50 py-4">
+              <div class="border-t border-line py-4">
                 <span class="mb-1 block font-semibold text-ink">Phone</span>
                 <a href="tel:+19194571981" class={contactLinkClass}>(919) 457-1981</a>
               </div>
-              <div class="border-t border-sand/50 py-4">
+              <div class="border-t border-line py-4">
                 <span class="mb-1 block font-semibold text-ink">Email</span>
                 <a href="mailto:hello@cccounselingnc.com" class={contactLinkClass}>hello@cccounselingnc.com</a>
               </div>
@@ -47,12 +47,12 @@ const contactLinkClass =
             <h2 class="mb-5 font-display text-4xl leading-[1.12] tracking-tight text-paper md:text-5xl">
               Choose your next step
             </h2>
-            <p class="mb-8 max-w-[620px] text-lg leading-relaxed text-paper/80">
+            <p class="mb-8 max-w-[620px] text-lg leading-relaxed text-paper/88">
               You can send a message first if you have questions, or schedule a free consultation when you are ready to speak with a
               clinician.
             </p>
 
-            <div class="mb-5 rounded-[28px] border border-sand/70 bg-paper p-6 shadow-card">
+            <div class="mb-5 rounded-[28px] border border-line bg-paper p-6 shadow-[0_12px_32px_rgba(20,28,26,0.06)]">
               <h3 class="mb-3 font-display text-2xl leading-snug tracking-tight text-ink">Send a message</h3>
               <p class="mb-5 text-base leading-relaxed text-muted">
                 Use this if you have questions about services, availability, insurance, payment, or whether individual or couples therapy
@@ -61,13 +61,13 @@ const contactLinkClass =
               <button
                 type="button"
                 data-open-modal="send"
-                class="inline-flex items-center justify-center rounded-full bg-sageDark px-6 py-3 font-semibold text-paper transition hover:-translate-y-0.5 hover:bg-sage focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay"
+                class="inline-flex items-center justify-center rounded-full bg-sageDark px-6 py-3 font-semibold text-paper transition hover:-translate-y-0.5 hover:bg-sage focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
               >
                 Send Message
               </button>
             </div>
 
-            <div class="rounded-[28px] border border-sand/70 bg-paper p-6 shadow-card">
+            <div class="rounded-[28px] border border-line bg-paper p-6 shadow-[0_12px_32px_rgba(20,28,26,0.06)]">
               <h3 class="mb-3 font-display text-2xl leading-snug tracking-tight text-ink">Schedule a free consultation</h3>
               <p class="mb-5 text-base leading-relaxed text-muted">
                 Request a brief fit call with a clinician. This is not a therapy session, but it can help clarify fit and next steps.
@@ -75,7 +75,7 @@ const contactLinkClass =
               <button
                 type="button"
                 data-open-modal="schedule"
-                class="inline-flex items-center justify-center rounded-full border-2 border-sage/40 bg-paper px-6 py-3 font-semibold text-sageDark transition hover:-translate-y-0.5 hover:border-clay/60 hover:bg-sageSoft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay"
+                class="inline-flex items-center justify-center rounded-full border border-line bg-paper px-6 py-3 font-semibold text-sageDark transition hover:-translate-y-0.5 hover:border-clay/50 hover:bg-smoke focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
               >
                 Schedule Consultation
               </button>
@@ -85,9 +85,9 @@ const contactLinkClass =
       </div>
     </section>
 
-    <section class="bg-sageDark py-8 lg:py-9" aria-label="Privacy and emergency information">
+    <section class="border-t border-line bg-paper py-8 lg:py-9" aria-label="Privacy and emergency information">
       <div class="mx-auto max-w-[900px] px-5 sm:px-6 lg:px-10">
-        <p class="border-t border-paper/20 pt-6 text-sm leading-relaxed text-paper/75 md:text-base">
+        <p class="pt-6 text-sm leading-relaxed text-muted md:text-base">
           Please do not include detailed clinical information, diagnosis information, trauma details, or urgent safety concerns in a
           general email or voicemail. This page is not monitored for emergencies. If you are in immediate danger or experiencing a
           mental health crisis, call 988 or 911 or go to the nearest emergency room.
@@ -112,13 +112,13 @@ const contactLinkClass =
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-send-title"
-      class="relative z-10 mx-auto max-h-[calc(100vh-48px)] w-full max-w-[720px] overflow-y-auto rounded-[32px] border border-sand/70 bg-paper p-6 shadow-[0_24px_70px_rgba(20,30,24,0.28)] lg:p-8"
+      class="relative z-10 mx-auto max-h-[calc(100vh-48px)] w-full max-w-[720px] overflow-y-auto rounded-[32px] border border-line bg-paper p-6 shadow-[0_24px_70px_rgba(20,30,24,0.28)] lg:p-8"
       tabindex="-1"
     >
       <!-- TODO: Replace this placeholder with the official CC Counseling SimplePractice contact form widget or another approved secure contact form before launch. -->
       <button
         type="button"
-        class="absolute right-4 top-4 rounded-full border border-sand/70 bg-paper px-4 py-2 text-sm font-semibold text-ink transition hover:bg-sageSoft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay lg:right-6 lg:top-6"
+        class="absolute right-4 top-4 rounded-full border border-line bg-smoke px-4 py-2 text-sm font-semibold text-ink transition hover:bg-mist focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay lg:right-6 lg:top-6"
         data-modal-close="send"
       >
         Close
@@ -153,13 +153,13 @@ const contactLinkClass =
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-schedule-title"
-      class="relative z-10 mx-auto max-h-[calc(100vh-48px)] w-full max-w-[720px] overflow-y-auto rounded-[32px] border border-sand/70 bg-paper p-6 shadow-[0_24px_70px_rgba(20,30,24,0.28)] lg:p-8"
+      class="relative z-10 mx-auto max-h-[calc(100vh-48px)] w-full max-w-[720px] overflow-y-auto rounded-[32px] border border-line bg-paper p-6 shadow-[0_24px_70px_rgba(20,30,24,0.28)] lg:p-8"
       tabindex="-1"
     >
       <!-- TODO: Replace this placeholder with the official CC Counseling SimplePractice appointment request widget for free consultations before launch. -->
       <button
         type="button"
-        class="absolute right-4 top-4 rounded-full border border-sand/70 bg-paper px-4 py-2 text-sm font-semibold text-ink transition hover:bg-sageSoft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay lg:right-6 lg:top-6"
+        class="absolute right-4 top-4 rounded-full border border-line bg-smoke px-4 py-2 text-sm font-semibold text-ink transition hover:bg-mist focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay lg:right-6 lg:top-6"
         data-modal-close="schedule"
       >
         Close
