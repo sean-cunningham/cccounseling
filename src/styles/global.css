@@ -8,7 +8,8 @@
   }
 
   body {
-    @apply bg-cream font-sans text-base leading-relaxed text-ink;
+    @apply font-sans text-base leading-relaxed text-ink;
+    background-color: theme("colors.canvas");
   }
 
   h1,
@@ -38,7 +39,8 @@
   }
 
   a:focus-visible {
-    @apply rounded-sm outline-none ring-2 ring-sage ring-offset-2 ring-offset-cream;
+    @apply rounded-sm outline-none ring-2 ring-sage ring-offset-2;
+    --tw-ring-offset-color: theme("colors.canvas");
   }
 
   ::selection {
@@ -61,7 +63,7 @@
   }
 
   .section-cream {
-    @apply bg-cream;
+    background-color: theme("colors.canvas");
   }
 
   .section-paper {
@@ -77,11 +79,19 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full border border-transparent bg-sageDark px-6 py-3 font-sans text-base font-bold text-paper no-underline shadow-card transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-sage hover:text-paper hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-cream active:translate-y-0;
+    @apply inline-flex items-center justify-center rounded-full border border-transparent bg-sageDark px-6 py-3 font-sans text-base font-bold text-paper no-underline shadow-card transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-sage hover:text-paper hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 active:translate-y-0;
+  }
+
+  .btn-primary:focus-visible {
+    --tw-ring-offset-color: theme("colors.canvas");
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-full border border-sand bg-paper px-6 py-3 font-sans text-base font-bold text-sageDark no-underline shadow-none transition duration-200 ease-out hover:-translate-y-0.5 hover:border-sage/50 hover:bg-sageSoft hover:text-sageDark hover:shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-cream active:translate-y-0;
+    @apply inline-flex items-center justify-center rounded-full border border-sand bg-paper px-6 py-3 font-sans text-base font-bold text-sageDark no-underline shadow-none transition duration-200 ease-out hover:-translate-y-0.5 hover:border-sage/50 hover:bg-sageSoft hover:text-sageDark hover:shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 active:translate-y-0;
+  }
+
+  .btn-secondary:focus-visible {
+    --tw-ring-offset-color: theme("colors.canvas");
   }
 
   .card {

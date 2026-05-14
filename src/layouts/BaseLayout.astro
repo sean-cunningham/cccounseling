@@ -25,7 +25,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#294D43" />
+    <meta name="theme-color" content="#1A3D32" />
     <link rel="canonical" href={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -45,10 +45,10 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
       type="image/png"
     />
   </head>
-  <body class="flex min-h-dvh flex-col bg-cream">
+  <body class="flex min-h-dvh flex-col bg-canvas">
     <a
       href="#main"
-      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[200] focus:rounded-md focus:bg-paper focus:px-4 focus:py-2 focus:text-ink focus:shadow-soft focus:outline-none focus:ring-2 focus:ring-sage focus:ring-offset-2 focus:ring-offset-cream"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[200] focus:rounded-md focus:bg-paper focus:px-4 focus:py-2 focus:text-ink focus:shadow-soft focus:outline-none focus:ring-2 focus:ring-sage focus:ring-offset-2 focus:ring-offset-canvas"
       >Skip to main content</a
     >
     <Header currentPath={Astro.url.pathname} />
