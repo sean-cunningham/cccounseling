@@ -9,7 +9,7 @@
 
   body {
     @apply font-sans text-base leading-relaxed text-ink;
-    background-color: theme("colors.canvas");
+    background-color: theme("colors.cream");
   }
 
   h1,
@@ -40,7 +40,7 @@
 
   a:focus-visible {
     @apply rounded-sm outline-none ring-2 ring-sage ring-offset-2;
-    --tw-ring-offset-color: theme("colors.canvas");
+    --tw-ring-offset-color: theme("colors.cream");
   }
 
   ::selection {
@@ -63,7 +63,7 @@
   }
 
   .section-cream {
-    background-color: theme("colors.canvas");
+    background-color: theme("colors.cream");
   }
 
   .section-paper {
@@ -83,7 +83,7 @@
   }
 
   .btn-primary:focus-visible {
-    --tw-ring-offset-color: theme("colors.canvas");
+    --tw-ring-offset-color: theme("colors.cream");
   }
 
   .btn-secondary {
@@ -91,7 +91,7 @@
   }
 
   .btn-secondary:focus-visible {
-    --tw-ring-offset-color: theme("colors.canvas");
+    --tw-ring-offset-color: theme("colors.cream");
   }
 
   .card {
