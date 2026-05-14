@@ -34,7 +34,7 @@
   }
 
   a {
-    @apply text-sageDark underline decoration-sand underline-offset-4 transition-colors duration-200 ease-out hover:text-clay hover:decoration-clay;
+    @apply text-sageDark underline decoration-sand underline-offset-4 transition-colors duration-200 ease-out hover:text-sage hover:decoration-sage;
   }
 
   a:focus-visible {
@@ -100,7 +100,24 @@
   }
 
   .link-inline {
-    @apply font-medium text-sageDark underline decoration-sand underline-offset-4 transition hover:text-clay hover:decoration-clay;
+    @apply font-medium text-sageDark underline decoration-sand underline-offset-4 transition hover:text-sage hover:decoration-sage;
+  }
+
+  /* Footer is dark; base `a { text-sageDark }` and body `text-ink` must not apply here. */
+  footer {
+    @apply text-paper/95;
+  }
+
+  footer h3 {
+    @apply text-paper font-sans text-xs font-semibold uppercase tracking-wider;
+  }
+
+  footer a {
+    @apply font-medium text-paper no-underline decoration-transparent underline-offset-2 transition-colors hover:text-mist hover:underline hover:decoration-mist;
+  }
+
+  footer a:focus-visible {
+    @apply rounded-sm outline-none ring-2 ring-clay ring-offset-2 ring-offset-sageDark;
   }
 
   @media (min-width: 1024px) {

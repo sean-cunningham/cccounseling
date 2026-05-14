@@ -36,7 +36,7 @@ const servicesActive = isActive("/services");
 ---
 
 <header
-  class="sticky top-0 z-[100] border-b border-line bg-paper/92 backdrop-blur-md"
+  class="sticky top-0 z-[100] border-b border-line bg-paper backdrop-blur-md"
 >
   <div
     class="mx-auto flex min-h-[76px] w-full max-w-wide items-center justify-between gap-4 px-5 py-4 sm:px-6 lg:px-10 2xl:px-12"
@@ -103,21 +103,23 @@ const servicesActive = isActive("/services");
             role="menu"
             aria-label="Services"
           >
-            <div class="rounded-2xl border border-line bg-paper p-3.5 shadow-[0_18px_45px_rgba(31,42,48,0.10)]">
+            <div class="rounded-2xl border border-line bg-smoke p-3.5 shadow-[0_18px_45px_rgba(31,42,48,0.10)]">
               {
                 serviceItems.map((item) => (
                   <a
                     href={item.href}
                     role="menuitem"
                     class:list={[
-                      "group/svcitem mb-1.5 block rounded-xl px-3 py-3 no-underline transition-colors last:mb-0 hover:bg-smoke focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper",
-                      isActive(item.href) && "bg-smoke",
+                      "group/svcitem mb-1.5 block rounded-xl border border-transparent px-3 py-3 no-underline transition-all duration-200 ease-out last:mb-0 hover:-translate-y-0.5 hover:border-line hover:bg-paper hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-smoke",
+                      isActive(item.href) && "border-line bg-paper shadow-sm",
                     ]}
                   >
-                    <span class="block text-[0.95rem] font-semibold text-sageDark transition-colors group-hover/svcitem:text-sageDark">
+                    <span class="block text-[0.95rem] font-semibold text-sageDark transition-colors duration-200 group-hover/svcitem:text-ink">
                       {item.title}
                     </span>
-                    <span class="mt-0.5 block text-xs font-normal leading-snug text-muted">{item.description}</span>
+                    <span class="mt-0.5 block text-xs font-normal leading-snug text-muted transition-colors duration-200 group-hover/svcitem:text-ink/75">
+                      {item.description}
+                    </span>
                   </a>
                 ))
               }
