@@ -1,11 +1,12 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
-const pageTitle = "Page not found | CC Counseling";
-const description = "The page you are looking for could not be found.";
+const pageTitle = "Page Not Found | CC Counseling";
+const description =
+  "The page you are looking for may have moved or may no longer be available.";
 ---
 
-<BaseLayout title={pageTitle} {description}>
+<BaseLayout title={pageTitle} {description} noindex>
   <main id="main" class="flex min-h-[70vh] items-center bg-canvas py-16 lg:py-24">
     <div class="mx-auto w-full max-w-[900px] px-5 sm:px-6 lg:px-10">
       <h1 class="mb-6 font-display text-5xl leading-[1.05] tracking-tight text-ink md:text-6xl">Page not found</h1>
