@@ -1,4 +1,4 @@
-import { execFileSync } from "node:child_process";
+import { spawnSync } from "node:child_process";
 
 const distributionId = process.env.CLOUDFRONT_DISTRIBUTION_ID?.trim();
 
@@ -11,22 +11,28 @@ if (!distributionId) {
   process.exit(1);
 }
 
-const npmCmd = process.platform === "win32" ? "npm.cmd" : "npm";
-
-function runStep(label, file, args) {
+function runStep(label, command) {
   console.log(`\n▶ ${label}...\n`);
-  execFileSync(file, args, { stdio: "inherit" });
+  const result = spawnSync(command, {
+    stdio: "inherit",
+    shell: true,
+  });
+
+  if (result.error) {
+    console.error(result.error.message);
+    process.exit(1);
+  }
+
+  if (result.status !== 0) {
+    process.exit(result.status ?? 1);
+  }
 }
 
-runStep("Building the site", npmCmd, ["run", "build"]);
-runStep("Syncing dist/ to S3", "aws", ["s3", "sync", "dist/", "s3://truebridgetherapy.com", "--delete"]);
-runStep("Creating CloudFront invalidation", "aws", [
-  "cloudfront",
-  "create-invalidation",
-  "--distribution-id",
-  distributionId,
-  "--paths",
-  "/*",
-]);
+runStep("Building the site", "npm run build");
+runStep("Syncing dist/ to S3", "aws s3 sync dist/ s3://truebridgetherapy.com --delete");
+runStep(
+  "Invalidating CloudFront",
+  `aws cloudfront create-invalidation --distribution-id ${distributionId} --paths "/*"`,
+);
 
 console.log("\n✓ Production deploy steps completed.\n");
