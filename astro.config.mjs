@@ -9,4 +9,7 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
   ],
+  vite: {
+    envPrefix: ["PUBLIC_", "NEXT_PUBLIC_"],
+  },
 });

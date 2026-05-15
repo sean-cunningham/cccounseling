@@ -26,6 +26,8 @@ const {
 
 const site = Astro.site ?? new URL("https://cccounseling.com");
 const canonical = new URL(Astro.url.pathname, site);
+const gaMeasurementId = import.meta.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim() ?? "";
+const gaEnabled = Boolean(gaMeasurementId);
 const ogImageAbsolute =
   ogImage.startsWith("http://") || ogImage.startsWith("https://")
     ? ogImage
@@ -71,6 +73,23 @@ if (structuredData !== undefined && structuredData !== null) {
     <link rel="icon" href="/images/favicon.png" type="image/png" sizes="any" />
     <link rel="apple-touch-icon" href="/images/favicon.png" />
     {structuredDataJson && <script type="application/ld+json" set:html={structuredDataJson} />}
+    {
+      gaEnabled && (
+        <>
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}></script>
+          <script is:inline define:vars={{ gaMeasurementId }}>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", gaMeasurementId, {
+              send_page_view: true,
+            });
+          </script>
+        </>
+      )
+    }
   </head>
   <body class="flex min-h-dvh flex-col bg-canvas">
     <a
@@ -83,5 +102,44 @@ if (structuredData !== undefined && structuredData !== null) {
       <slot />
     </div>
     <Footer />
+    {
+      gaEnabled && (
+        <script is:inline>
+          (function () {
+            document.addEventListener(
+              "click",
+              function (e) {
+                var t = e.target;
+                if (!t || !t.closest) return;
+                var el = t.closest("a[href]");
+                if (!el) return;
+                var href = el.getAttribute("href");
+                if (!href) return;
+                if (href.indexOf("tel:") === 0) {
+                  gtag("event", "phone_click");
+                  return;
+                }
+                if (href.indexOf("mailto:") === 0) {
+                  gtag("event", "email_click");
+                  return;
+                }
+                try {
+                  var u = new URL(href, window.location.origin);
+                  if (
+                    u.pathname === "/contact-get-started" ||
+                    u.pathname.indexOf("/contact-get-started/") === 0
+                  ) {
+                    gtag("event", "get_started_click");
+                  }
+                } catch (err) {
+                  void err;
+                }
+              },
+              true,
+            );
+          })();
+        </script>
+      )
+    }
   </body>
 </html>
