@@ -9,5 +9,6 @@ export const SITE_URL = "https://cccounseling.com" as const;
 export const SITE_NAME = "TrueBridge" as const;
 
 /** Public contact values (same as site footer). Used in JSON-LD where appropriate. */
-export const PUBLIC_PHONE_E164 = "+19194571981" as const;
+export const PUBLIC_PHONE_E164 = "+19842076172" as const;
+export const PUBLIC_PHONE_DISPLAY = "984-207-6172" as const;
 export const PUBLIC_EMAIL = "info@truebridgetherapy.com" as const;

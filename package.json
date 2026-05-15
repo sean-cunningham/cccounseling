@@ -7,7 +7,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "deploy:prod": "node scripts/deploy-prod.mjs"
+    "deploy:prod": "node scripts/deploy-prod.mjs",
+    "build:coming-soon": "node scripts/build-coming-soon.mjs",
+    "deploy:coming-soon": "node scripts/deploy-coming-soon.mjs"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.4",

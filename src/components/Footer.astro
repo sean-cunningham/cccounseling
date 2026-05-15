@@ -1,5 +1,5 @@
 ---
-import { PUBLIC_EMAIL } from "@/constants/site";
+import { PUBLIC_EMAIL, PUBLIC_PHONE_DISPLAY, PUBLIC_PHONE_E164 } from "@/constants/site";
 
 const year = new Date().getFullYear();
 ---
@@ -26,7 +26,7 @@ const year = new Date().getFullYear();
           Phone:
           <a
             class="text-sm font-medium underline-offset-2 transition-colors hover:text-mist hover:underline"
-            href="tel:+19194571981">(919) 457-1981</a
+            href={`tel:${PUBLIC_PHONE_E164}`}>{PUBLIC_PHONE_DISPLAY}</a
           >
         </p>
       </div>

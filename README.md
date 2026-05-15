@@ -28,3 +28,35 @@ CLOUDFRONT_DISTRIBUTION_ID="YOUR_DISTRIBUTION_ID" npm run deploy:prod
 ```
 
 Replace `YOUR_DISTRIBUTION_ID` with your real CloudFront distribution ID when you run deploy locally or in CI. Do not commit real AWS credentials, access keys, secrets, or distribution IDs to the repository.
+
+## Temporary Coming Soon Production Deploy
+
+Use this when **truebridgetherapy.com** should show a simple “Coming Soon” page on AWS production while the full Astro site stays available on Vercel for review.
+
+The `deploy:coming-soon` script:
+
+1. Builds static files into `dist-coming-soon/` (not the main `dist/` Astro output).
+2. Syncs `dist-coming-soon/` to `s3://truebridgetherapy.com` with `--delete`, so old production files are removed from the bucket.
+3. Creates a CloudFront invalidation for `/*`.
+
+This does **not** change the full Astro site source or Vercel deployment. Known route paths (for example `/services`, `/faq`, `/contact-get-started`) each get the same coming-soon `index.html` so direct URLs do not serve old full-site content.
+
+**PowerShell**
+
+```powershell
+$env:CLOUDFRONT_DISTRIBUTION_ID="YOUR_DISTRIBUTION_ID"; npm run deploy:coming-soon
+```
+
+**macOS / Linux**
+
+```bash
+CLOUDFRONT_DISTRIBUTION_ID="YOUR_DISTRIBUTION_ID" npm run deploy:coming-soon
+```
+
+To build the coming-soon output locally without deploying:
+
+```bash
+npm run build:coming-soon
+```
+
+When you are ready to launch the full site on production, use `npm run deploy:prod` instead (after reviewing on Vercel).

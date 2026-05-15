@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { PUBLIC_EMAIL } from "@/constants/site";
+import { PUBLIC_EMAIL, PUBLIC_PHONE_DISPLAY } from "@/constants/site";
 
 const pageTitle = "Notice of Privacy Practices | TrueBridge";
 const description =
@@ -185,7 +185,7 @@ const description =
           <p class="text-muted">TrueBridge</p>
           <p class="text-muted">Privacy contact: TrueBridge (use the email or phone number below)</p>
           <p class="text-muted">Email: {PUBLIC_EMAIL}</p>
-          <p class="text-muted">Phone: (919) 457-1981</p>
+          <p class="text-muted">Phone: {PUBLIC_PHONE_DISPLAY}</p>
         </div>
         <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
           You may also file a complaint with the U.S. Department of Health and Human Services. We will not retaliate against you for
