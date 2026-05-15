@@ -13,18 +13,18 @@ Static Astro site.
 
 1. A page passes the `noindex` prop (e.g. 404), or  
 2. **`PUBLIC_NOINDEX=true`** at build time (any host), or  
-3. The build runs **on Vercel** (`VERCEL=1`) and **`PUBLIC_NOINDEX` is not explicitly `false`**.
+3. The build runs **on Vercel** (detected via `VERCEL=1` or `VERCEL_ENV`), unless you set **`PUBLIC_ALLOW_VERCEL_INDEXING=true`** on that Vercel project.
 
-So the full marketing site on **Vercel** (preview *and* production Vercel deploys, e.g. `*.vercel.app`) stays **noindex** by default while **`truebridgetherapy.com`** may still show the S3 coming-soon page. **AWS / local** builds are unaffected (no `VERCEL` env) and stay indexable unless you set `PUBLIC_NOINDEX=true`.
+Vercel **no longer** uses `PUBLIC_NOINDEX=false` to allow indexing — that value is only “don’t force noindex everywhere” and is safe in `.env` / `.env.example`. **Do not** rely on unset `VERCEL` locally: local and AWS builds stay indexable unless `PUBLIC_NOINDEX=true`.
 
-To **allow indexing** on a Vercel deployment (unusual), set **`PUBLIC_NOINDEX=false`** in that project’s Vercel environment variables.
+To **allow indexing** on a Vercel deployment (rare), set **`PUBLIC_ALLOW_VERCEL_INDEXING=true`** in Vercel’s environment variables.
 
-| Build | Typical `PUBLIC_NOINDEX` | Result |
-|-------|--------------------------|--------|
-| **Local / AWS CI** (`npm run build` / `deploy:prod`) | `false` or unset | Indexable (except pages with `noindex` prop) |
-| **Vercel** | unset | **noindex** (default) |
-| **Vercel** | `false` | Indexable on that deploy |
-| **Any host** | `true` | **noindex** |
+| Build | Result |
+|-------|--------|
+| **Local / AWS CI** | Indexable unless `PUBLIC_NOINDEX=true` or page `noindex` |
+| **Vercel** (preview & production host) | **noindex** by default |
+| **Vercel** + `PUBLIC_ALLOW_VERCEL_INDEXING=true` | Indexable on that deploy |
+| **Any host** + `PUBLIC_NOINDEX=true` | **noindex** |
 
 See `.env.example`.
 

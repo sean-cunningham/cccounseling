@@ -28,9 +28,16 @@ const site = Astro.site ?? new URL("https://truebridgetherapy.com");
 const canonical = new URL(Astro.url.pathname, site);
 const gaMeasurementId = import.meta.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim() ?? "";
 const gaEnabled = Boolean(gaMeasurementId);
-/** Vercel builds default to noindex so *.vercel.app / preview URLs stay out of Google while production domain may be coming-soon elsewhere. Set PUBLIC_NOINDEX=false on Vercel to opt into indexing that deploy. */
-const onVercel = process.env.VERCEL === "1";
-const vercelDefaultNoindex = onVercel && import.meta.env.PUBLIC_NOINDEX !== "false";
+/**
+ * Full-site deploys on Vercel default to noindex (preview + production *.vercel.app)
+ * while the public domain may be coming-soon on AWS.
+ * Opt out with PUBLIC_ALLOW_VERCEL_INDEXING=true on Vercel only (rare).
+ */
+const onVercel =
+  process.env.VERCEL === "1" ||
+  (typeof process.env.VERCEL_ENV === "string" && process.env.VERCEL_ENV.length > 0);
+const allowIndexOnVercel = import.meta.env.PUBLIC_ALLOW_VERCEL_INDEXING === "true";
+const vercelDefaultNoindex = onVercel && !allowIndexOnVercel;
 const noindexRobots =
   noindex || import.meta.env.PUBLIC_NOINDEX === "true" || vercelDefaultNoindex;
 const ogImageAbsolute =
