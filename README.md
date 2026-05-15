@@ -2,6 +2,32 @@
 
 Static Astro site.
 
+## SEO (sitemap & robots)
+
+- **Domain:** `astro.config.mjs` sets `site: "https://truebridgetherapy.com"` and includes `@astrojs/sitemap`, which writes `sitemap-index.xml` (and shards like `sitemap-0.xml`) into `dist/` on `npm run build`.
+- **robots.txt:** `public/robots.txt` is copied to `dist/robots.txt` and references `https://truebridgetherapy.com/sitemap-index.xml`.
+
+## Preview `noindex` (PUBLIC_NOINDEX & Vercel)
+
+`BaseLayout.astro` emits `<meta name="robots" content="noindex, nofollow">` when:
+
+1. A page passes the `noindex` prop (e.g. 404), or  
+2. **`PUBLIC_NOINDEX=true`** at build time (any host), or  
+3. The build runs **on Vercel** (`VERCEL=1`) and **`PUBLIC_NOINDEX` is not explicitly `false`**.
+
+So the full marketing site on **Vercel** (preview *and* production Vercel deploys, e.g. `*.vercel.app`) stays **noindex** by default while **`truebridgetherapy.com`** may still show the S3 coming-soon page. **AWS / local** builds are unaffected (no `VERCEL` env) and stay indexable unless you set `PUBLIC_NOINDEX=true`.
+
+To **allow indexing** on a Vercel deployment (unusual), set **`PUBLIC_NOINDEX=false`** in that project’s Vercel environment variables.
+
+| Build | Typical `PUBLIC_NOINDEX` | Result |
+|-------|--------------------------|--------|
+| **Local / AWS CI** (`npm run build` / `deploy:prod`) | `false` or unset | Indexable (except pages with `noindex` prop) |
+| **Vercel** | unset | **noindex** (default) |
+| **Vercel** | `false` | Indexable on that deploy |
+| **Any host** | `true` | **noindex** |
+
+See `.env.example`.
+
 ## Production deploy to AWS
 
 The `deploy:prod` script builds the Astro site, syncs `dist/` to `s3://truebridgetherapy.com` (with `--delete` so removed files are removed from the bucket), and creates a CloudFront cache invalidation for `/*`.

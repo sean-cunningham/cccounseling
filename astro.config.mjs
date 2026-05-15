@@ -1,13 +1,14 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
-import { SITE_URL } from "./src/constants/site.ts";
+import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: SITE_URL,
+  site: "https://truebridgetherapy.com",
   integrations: [
     tailwind({
       applyBaseStyles: false,
     }),
+    sitemap(),
   ],
   vite: {
     envPrefix: ["PUBLIC_", "NEXT_PUBLIC_"],
