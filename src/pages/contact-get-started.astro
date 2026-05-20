@@ -12,6 +12,9 @@ const pageTitle = "Contact TrueBridge | Start Therapy in North Carolina";
 const orgId = `${SITE_URL}/#organization`;
 const websiteId = `${SITE_URL}/#website`;
 
+const iframeSrc =
+  "/widgets/intake-form.html?practice=truebridge&theme=truebridge&mode=formOnly";
+
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
@@ -31,8 +34,8 @@ const structuredData = {
       aria-labelledby="contact-heading"
     >
       <div class="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-10">
-        <div class="grid grid-cols-1 items-start gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          <div>
+        <div class="flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-12 xl:gap-16">
+          <div class="w-full shrink-0 lg:w-[40%] lg:max-w-[480px]">
             <h1
               id="contact-heading"
               class="mb-6 font-display text-5xl leading-[1.05] tracking-tight text-ink md:text-6xl"
@@ -58,26 +61,14 @@ const structuredData = {
             </div>
           </div>
 
-          <div class="rounded-[36px] bg-sageDark p-6 text-paper shadow-lift lg:p-8">
-            <h2 class="mb-4 font-display text-4xl leading-[1.12] tracking-tight text-paper md:text-5xl">
-              Contact us today
-            </h2>
-            <p class="mb-6 max-w-[620px] text-lg leading-relaxed text-paper/90">
-              Share a few details and our team will follow up with next steps.
-            </p>
-
+          <div class="w-full min-w-0 lg:w-[55%] lg:flex-1 lg:max-w-[660px]">
             <iframe
               id="tb-intake-iframe"
-              src="/widgets/intake-form-truebridge.html"
-              title="Contact TrueBridge — appointment request form"
+              src={iframeSrc}
+              title="Request an appointment"
               class="block w-full border-0"
-              style="min-height: 360px; height: 360px;"
+              style="width: 100%; min-height: 760px; height: 760px; border: 0; display: block;"
               loading="lazy"></iframe>
-
-            <p class="mt-5 text-sm leading-relaxed text-paper/85">
-              Please do not include detailed clinical information, diagnosis information, trauma details, or urgent safety concerns in
-              the form.
-            </p>
           </div>
         </div>
       </div>
@@ -99,8 +90,8 @@ const structuredData = {
       var iframe = document.getElementById("tb-intake-iframe");
       if (!iframe) return;
 
-      var minHeight = 320;
-      var maxHeight = 1200;
+      var minHeight = 520;
+      var maxHeight = 1400;
 
       function setHeight(px) {
         var h = Math.max(minHeight, Math.min(maxHeight, Math.ceil(px)));
