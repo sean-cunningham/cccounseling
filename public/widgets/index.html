@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intake form — local previews</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 2.5rem 1.5rem;
+        font-family: system-ui, sans-serif;
+        background: #f1f5f9;
+        color: #1e293b;
+      }
+      main {
+        max-width: 42rem;
+        margin: 0 auto;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      h2 {
+        font-size: 1rem;
+        margin: 2rem 0 0.75rem;
+        color: #334155;
+      }
+      p,
+      .note {
+        color: #64748b;
+        font-size: 0.9375rem;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      li + li {
+        margin-top: 0.75rem;
+      }
+      a {
+        display: block;
+        padding: 1rem 1.25rem;
+        background: #fff;
+        border: 1px solid #cbd5e1;
+        border-radius: 10px;
+        color: #1e3a5f;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      a span {
+        display: block;
+        font-weight: 400;
+        font-size: 0.875rem;
+        color: #64748b;
+        margin-top: 0.25rem;
+      }
+      .warn {
+        background: #fffbeb;
+        border: 1px solid #fcd34d;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        margin-bottom: 1.25rem;
+        font-size: 0.875rem;
+      }
+      code {
+        font-size: 0.85em;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Hosted intake form previews</h1>
+      <p class="warn">
+        Run <code>npm run preview:local</code> from <code>public-widget</code>,
+        then open the links below. That command builds and serves the
+        <code>dist/</code> folder on port <strong>5175</strong>. Do not use
+        <code>npm run dev</code> for these URLs (different port and layout).
+      </p>
+
+      <h2>Iframe embed (production approach)</h2>
+      <p>
+        Squarespace pages embed an <strong>iframe</strong> pointing at our hosted
+        form HTML. The links below mimic that: a fake parent page, or the iframe
+        document alone.
+      </p>
+      <ul>
+        <li>
+          <a href="./preview-carolina.html">
+            Carolina — parent page + iframe
+            <span>Like a Squarespace page wrapping the form</span>
+          </a>
+        </li>
+        <li>
+          <a href="./preview-truebridge.html">
+            TrueBridge — parent page + iframe
+            <span>Like a Squarespace page wrapping the form</span>
+          </a>
+        </li>
+        <li>
+          <a href="./widgets/intake-form-carolina.html">
+            Iframe document only — Carolina
+            <span>This URL goes in the iframe <code>src</code> (practice baked in)</span>
+          </a>
+        </li>
+        <li>
+          <a href="./widgets/intake-form-truebridge.html">
+            Iframe document only — TrueBridge
+            <span>This URL goes in the iframe <code>src</code></span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="./widgets/intake-form.html?practice=carolinatherapysolutions&amp;theme=carolina"
+          >
+            Iframe document — query params
+            <span>Production-style: one HTML file + <code>?practice=</code></span>
+          </a>
+        </li>
+      </ul>
+
+      <h2>Legacy same-page script (not iframe)</h2>
+      <p class="note">
+        Optional older embed: a <code>&lt;script src="tb-intake-widget.js"&gt;</code>
+        mounts the form directly on the parent page (no iframe). Use
+        <code>npm run dev</code> and open <code>dev.html</code> on port
+        <strong>5174</strong> to try that — not what we ship to Squarespace.
+      </p>
+      <ul>
+        <li>
+          <a href="http://localhost:5174/dev.html">
+            dev.html — same-page widget (Vite dev only)
+            <span>Requires <code>npm run dev</code> in another terminal</span>
+          </a>
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>

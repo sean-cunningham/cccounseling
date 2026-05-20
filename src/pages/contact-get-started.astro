@@ -40,8 +40,7 @@ const structuredData = {
               Contact us today
             </h1>
             <p class="mb-10 max-w-[620px] text-lg leading-relaxed text-muted md:text-xl">
-              Send us a message, schedule a free consultation, or contact us with questions about fit, availability, insurance, or next
-              steps.
+              Reach out with questions about fit, availability, insurance, or next steps—or use the secure form to request an appointment.
             </p>
 
             <div class="rounded-[28px] border border-line bg-paper p-6 shadow-[0_12px_32px_rgba(31,42,48,0.06)]">
@@ -60,42 +59,25 @@ const structuredData = {
           </div>
 
           <div class="rounded-[36px] bg-sageDark p-6 text-paper shadow-lift lg:p-8">
-            <h2 class="mb-5 font-display text-4xl leading-[1.12] tracking-tight text-paper md:text-5xl">
-              Choose your next step
+            <h2 class="mb-4 font-display text-4xl leading-[1.12] tracking-tight text-paper md:text-5xl">
+              Request an Appointment
             </h2>
-            <p class="mb-8 max-w-[620px] text-lg leading-relaxed text-paper/90">
-              You can send a message first if you have questions, or schedule a free consultation when you are ready to speak with a
-              clinician.
+            <p class="mb-6 max-w-[620px] text-lg leading-relaxed text-paper/90">
+              Share a few details and our team will follow up with next steps.
             </p>
 
-            <div class="mb-5 rounded-[28px] border border-line bg-paper p-6 shadow-[0_12px_32px_rgba(31,42,48,0.06)]">
-              <h3 class="mb-3 font-display text-2xl leading-snug tracking-tight text-ink">Send a message</h3>
-              <p class="mb-5 text-base leading-relaxed text-muted">
-                Use this if you have questions about services, availability, insurance, payment, or whether individual or couples therapy
-                is the right fit.
-              </p>
-              <button
-                type="button"
-                data-open-modal="send"
-                class="inline-flex items-center justify-center rounded-full bg-sageDark px-7 py-3.5 text-base font-semibold text-paper transition hover:-translate-y-0.5 hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
-              >
-                Send Message
-              </button>
-            </div>
+            <iframe
+              id="tb-intake-iframe"
+              src="/widgets/intake-form-truebridge.html"
+              title="Request an appointment"
+              class="block w-full border-0"
+              style="min-height: 360px; height: 360px;"
+              loading="lazy"></iframe>
 
-            <div class="rounded-[28px] border border-line bg-paper p-6 shadow-[0_12px_32px_rgba(31,42,48,0.06)]">
-              <h3 class="mb-3 font-display text-2xl leading-snug tracking-tight text-ink">Schedule a free consultation</h3>
-              <p class="mb-5 text-base leading-relaxed text-muted">
-                Request a brief fit call with a clinician. This is not a therapy session, but it can help clarify fit and next steps.
-              </p>
-              <button
-                type="button"
-                data-open-modal="schedule"
-                class="inline-flex items-center justify-center rounded-full border border-line bg-paper px-7 py-3.5 text-base font-semibold text-sageDark transition hover:-translate-y-0.5 hover:border-ink/30 hover:bg-smoke hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
-              >
-                Schedule Consultation
-              </button>
-            </div>
+            <p class="mt-5 text-sm leading-relaxed text-paper/85">
+              Please do not include detailed clinical information, diagnosis information, trauma details, or urgent safety concerns in
+              the form.
+            </p>
           </div>
         </div>
       </div>
@@ -112,154 +94,28 @@ const structuredData = {
     </section>
   </main>
 
-  <!-- Send message modal -->
-  <div
-    id="modal-overlay-send"
-    class="fixed inset-0 z-50 hidden items-center justify-center p-6"
-    aria-hidden="true"
-  >
-    <button
-      type="button"
-      class="absolute inset-0 bg-ink/60 backdrop-blur-sm"
-      aria-label="Close dialog"
-      data-modal-backdrop="send"
-    ></button>
-    <div
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="modal-send-title"
-      class="relative z-10 mx-auto max-h-[calc(100vh-48px)] w-full max-w-[720px] overflow-y-auto rounded-[32px] border border-line bg-paper p-6 shadow-[0_24px_70px_rgba(31,42,48,0.22)] lg:p-8"
-      tabindex="-1"
-    >
-      <!-- TODO: Replace this placeholder with the official TrueBridge SimplePractice contact form widget or another approved secure contact form before launch. -->
-      <button
-        type="button"
-        class="absolute right-4 top-4 rounded-full border border-line bg-smoke px-4 py-2 text-sm font-semibold text-ink transition hover:bg-mist focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay lg:right-6 lg:top-6"
-        data-modal-close="send"
-      >
-        Close
-      </button>
-      <h2 id="modal-send-title" class="mb-4 pr-20 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl">
-        Send a message
-      </h2>
-      <p class="mb-4 text-base leading-relaxed text-muted md:text-lg">
-        This space will connect to our secure contact form before launch. For now, please call or email us using the contact information
-        on this page.
-      </p>
-      <p class="text-sm leading-relaxed text-muted md:text-base">
-        Please do not include detailed clinical information, diagnosis information, trauma details, or urgent safety concerns in a
-        general email or voicemail.
-      </p>
-    </div>
-  </div>
-
-  <!-- Schedule consultation modal -->
-  <div
-    id="modal-overlay-schedule"
-    class="fixed inset-0 z-50 hidden items-center justify-center p-6"
-    aria-hidden="true"
-  >
-    <button
-      type="button"
-      class="absolute inset-0 bg-ink/60 backdrop-blur-sm"
-      aria-label="Close dialog"
-      data-modal-backdrop="schedule"
-    ></button>
-    <div
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="modal-schedule-title"
-      class="relative z-10 mx-auto max-h-[calc(100vh-48px)] w-full max-w-[720px] overflow-y-auto rounded-[32px] border border-line bg-paper p-6 shadow-[0_24px_70px_rgba(31,42,48,0.22)] lg:p-8"
-      tabindex="-1"
-    >
-      <!-- TODO: Replace this placeholder with the official TrueBridge SimplePractice appointment request widget for free consultations before launch. -->
-      <button
-        type="button"
-        class="absolute right-4 top-4 rounded-full border border-line bg-smoke px-4 py-2 text-sm font-semibold text-ink transition hover:bg-mist focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay lg:right-6 lg:top-6"
-        data-modal-close="schedule"
-      >
-        Close
-      </button>
-      <h2 id="modal-schedule-title" class="mb-4 pr-20 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl">
-        Schedule a free consultation
-      </h2>
-      <p class="mb-4 text-base leading-relaxed text-muted md:text-lg">
-        This space will connect to our secure consultation scheduling system before launch. A consultation is a brief fit call with a
-        clinician and is not a therapy session.
-      </p>
-      <p class="text-sm leading-relaxed text-muted md:text-base">
-        The scheduling flow should be configured for free consultation appointments only, not direct paid therapy sessions, unless
-        operations and insurance/payment workflows are ready.
-      </p>
-    </div>
-  </div>
-
   <script is:inline>
     (function () {
-      var active = null;
-      var previousFocus = null;
+      var iframe = document.getElementById("tb-intake-iframe");
+      if (!iframe) return;
 
-      var overlays = {
-        send: document.getElementById("modal-overlay-send"),
-        schedule: document.getElementById("modal-overlay-schedule"),
-      };
+      var minHeight = 320;
+      var maxHeight = 1200;
 
-      function openModal(which, opener) {
-        if (active === which) return;
-        if (active) closeModal();
-        previousFocus = opener || null;
-        var overlay = overlays[which];
-        if (!overlay) return;
-        active = which;
-        overlay.classList.remove("hidden");
-        overlay.classList.add("flex");
-        overlay.setAttribute("aria-hidden", "false");
-        document.body.style.overflow = "hidden";
-        var closeBtn = overlay.querySelector("[data-modal-close]");
-        if (closeBtn) closeBtn.focus();
+      function setHeight(px) {
+        var h = Math.max(minHeight, Math.min(maxHeight, Math.ceil(px)));
+        iframe.style.height = h + "px";
+        iframe.style.minHeight = h + "px";
       }
 
-      function closeModal() {
-        if (!active) return;
-        var overlay = overlays[active];
-        if (overlay) {
-          overlay.classList.add("hidden");
-          overlay.classList.remove("flex");
-          overlay.setAttribute("aria-hidden", "true");
+      window.addEventListener("message", function (event) {
+        if (!event.data || event.data.source !== "tb-intake-form" || event.data.type !== "resize") {
+          return;
         }
-        document.body.style.overflow = "";
-        if (previousFocus && typeof previousFocus.focus === "function") {
-          previousFocus.focus();
+        if (typeof event.data.height !== "number" || event.data.height < 1) {
+          return;
         }
-        active = null;
-        previousFocus = null;
-      }
-
-      document.querySelectorAll("[data-open-modal]").forEach(function (btn) {
-        btn.addEventListener("click", function () {
-          var which = btn.getAttribute("data-open-modal");
-          if (which === "send" || which === "schedule") openModal(which, btn);
-        });
-      });
-
-      document.querySelectorAll("[data-modal-close]").forEach(function (btn) {
-        btn.addEventListener("click", function (e) {
-          e.stopPropagation();
-          closeModal();
-        });
-      });
-
-      document.querySelectorAll("[data-modal-backdrop]").forEach(function (btn) {
-        btn.addEventListener("click", function () {
-          closeModal();
-        });
-      });
-
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape" && active) {
-          e.preventDefault();
-          closeModal();
-        }
+        setHeight(event.data.height);
       });
     })();
   </script>
