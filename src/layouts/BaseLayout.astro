@@ -62,7 +62,7 @@ if (structuredData !== undefined && structuredData !== null) {
     <title>{title}</title>
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
-    {noindexRobots && <meta name="robots" content="noindex, nofollow" />}
+    <meta name="robots" content={noindexRobots ? "noindex, nofollow" : "index, follow"} />
     <meta name="theme-color" content="#1F2A30" />
     <link rel="canonical" href={canonical} />
     <meta property="og:site_name" content={SITE_NAME} />
