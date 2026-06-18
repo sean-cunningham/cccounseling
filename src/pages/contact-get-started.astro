@@ -105,14 +105,6 @@ const structuredData = {
           return;
         }
 
-        if (event.data.type === "submit_success" && typeof window.gtag === "function") {
-          window.gtag("event", "intake_form_submit", {
-            practice: event.data.practice,
-            form_location: "contact_get_started",
-          });
-          return;
-        }
-
         if (event.data.type === "resize") {
           if (typeof event.data.height !== "number" || event.data.height < 1) {
             return;
