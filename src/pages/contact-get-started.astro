@@ -90,6 +90,7 @@ const structuredData = {
       var iframe = document.getElementById("tb-intake-iframe");
       if (!iframe) return;
 
+      var trustedOrigin = new URL(iframe.getAttribute("src"), window.location.href).origin;
       var minHeight = 520;
       var maxHeight = 1400;
 
@@ -100,13 +101,24 @@ const structuredData = {
       }
 
       window.addEventListener("message", function (event) {
-        if (!event.data || event.data.source !== "tb-intake-form" || event.data.type !== "resize") {
+        if (event.origin !== trustedOrigin || !event.data || event.data.source !== "tb-intake-form") {
           return;
         }
-        if (typeof event.data.height !== "number" || event.data.height < 1) {
+
+        if (event.data.type === "submit_success" && typeof window.gtag === "function") {
+          window.gtag("event", "intake_form_submit", {
+            practice: event.data.practice,
+            form_location: "contact_get_started",
+          });
           return;
         }
-        setHeight(event.data.height);
+
+        if (event.data.type === "resize") {
+          if (typeof event.data.height !== "number" || event.data.height < 1) {
+            return;
+          }
+          setHeight(event.data.height);
+        }
       });
     })();
   </script>
