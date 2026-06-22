@@ -12,7 +12,7 @@ const ROUTE_INDEX_PATHS = [
   "services/index.html",
   "services/individual-therapy/index.html",
   "services/couples-therapy/index.html",
-  "our-clinicians/index.html",
+  "clinicians/index.html",
   "insurance-rates/index.html",
   "faq/index.html",
   "contact-get-started/index.html",
