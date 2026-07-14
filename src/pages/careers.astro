@@ -35,25 +35,39 @@ const applyMailto = `mailto:${PUBLIC_EMAIL}?subject=${encodeURIComponent("Clinic
 <BaseLayout title={pageTitle} description={pageDescription} structuredData={structuredData}>
   <main id="main">
     <section class="border-b border-line bg-smoke py-16 lg:py-24" aria-labelledby="careers-hero-heading">
-      <div class="mx-auto max-w-[900px] px-5 text-left sm:px-6 lg:px-10">
-        <p class="mb-4 text-sm font-semibold uppercase tracking-wider text-clay">We're hiring</p>
-        <h1
-          id="careers-hero-heading"
-          class="mb-6 font-display text-5xl leading-[1.05] tracking-tight text-ink md:text-6xl"
-        >
-          Practice therapy the way you trained to.
-        </h1>
-        <p class="max-w-[760px] text-lg leading-relaxed text-muted md:text-xl">
-          TrueBridge is a growing therapy practice serving adults and couples across North Carolina, primarily through
-          telehealth. We're looking for licensed clinicians who want well-matched clients, steady support, and less
-          administrative weight.
-        </p>
-        <a
-          href={applyMailto}
-          class="mt-8 inline-flex items-center justify-center rounded-full bg-sageDark px-7 py-3.5 text-base font-semibold text-paper no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-smoke"
-        >
-          Introduce Yourself
-        </a>
+      <div class="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-10">
+        <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+          <div class="min-w-0 text-left">
+            <p class="mb-4 text-sm font-semibold uppercase tracking-wider text-clay">We're hiring</p>
+            <h1
+              id="careers-hero-heading"
+              class="mb-6 font-display text-5xl leading-[1.05] tracking-tight text-ink md:text-6xl"
+            >
+              Practice therapy the way you trained to.
+            </h1>
+            <p class="max-w-[660px] text-lg leading-relaxed text-muted md:text-xl">
+              TrueBridge is a growing therapy practice serving adults and couples across North Carolina, primarily through
+              telehealth. We're looking for licensed clinicians who want well-matched clients, steady support, and less
+              administrative weight.
+            </p>
+            <a
+              href={applyMailto}
+              class="mt-8 inline-flex items-center justify-center rounded-full bg-sageDark px-7 py-3.5 text-base font-semibold text-paper no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-smoke"
+            >
+              Introduce Yourself
+            </a>
+          </div>
+          <div class="min-w-0">
+            <img
+              src="/images/careers-hero.jpg"
+              alt="A therapist smiles warmly at her laptop in a bright, plant-filled home office during a telehealth session."
+              width="1400"
+              height="933"
+              class="h-[280px] w-full rounded-[32px] border border-line object-cover shadow-[0_12px_32px_rgba(31,42,48,0.06)] sm:h-[320px] md:h-[380px] lg:h-[420px]"
+              loading="eager"
+            />
+          </div>
+        </div>
       </div>
     </section>
 

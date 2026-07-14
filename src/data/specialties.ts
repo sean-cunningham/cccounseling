@@ -28,6 +28,9 @@ export interface Specialty {
   metaDescription: string;
   heroHeading: string;
   heroIntro: string;
+  /** Hero photo path under /public (3:4 portrait orientation). */
+  heroImage: string;
+  heroImageAlt: string;
   signsHeading: string;
   signsIntro: string;
   signs: SpecialtySection[];
@@ -52,6 +55,9 @@ export const SPECIALTIES: Specialty[] = [
     heroHeading: "Anxiety therapy for a mind that will not slow down.",
     heroIntro:
       "Therapy for adults across North Carolina who are tired of constant worry, overthinking, panic, and the pressure to stay in control of everything. Most sessions are online through secure telehealth.",
+    heroImage: "/images/anxiety-therapy-hero.jpg",
+    heroImageAlt:
+      "A woman stands by a bright window holding a warm mug with both hands, eyes closed, taking a slow, calming breath.",
     signsHeading: "What anxiety can look like",
     signsIntro:
       "Anxiety is more than feeling nervous. It often shows up in the body, in sleep, in relationships, and in the decisions you avoid making.",
@@ -124,6 +130,9 @@ export const SPECIALTIES: Specialty[] = [
     heroHeading: "Depression therapy for when everything feels heavier than it should.",
     heroIntro:
       "Therapy for adults across North Carolina living with low mood, lost motivation, emotional numbness, and disconnection from the people and things that used to matter. Most sessions are online through secure telehealth.",
+    heroImage: "/images/depression-therapy-hero.jpg",
+    heroImageAlt:
+      "A man gently opens linen curtains as warm morning light fills a quiet, calm room.",
     signsHeading: "What depression can look like",
     signsIntro:
       "Depression is not always sadness. It often looks like exhaustion, irritability, going through the motions, or quietly withdrawing from your own life.",
@@ -196,6 +205,9 @@ export const SPECIALTIES: Specialty[] = [
     heroHeading: "Trauma therapy that moves at a pace you can trust.",
     heroIntro:
       "Therapy for adults across North Carolina carrying painful experiences that still shape daily life through triggers, hypervigilance, numbness, or relationship patterns. Most sessions are online through secure telehealth.",
+    heroImage: "/images/trauma-therapy-hero.jpg",
+    heroImageAlt:
+      "A woman wrapped in a soft knit blanket sits in an armchair by a window, looking out with a calm, grounded expression.",
     signsHeading: "How trauma can keep showing up",
     signsIntro:
       "Trauma is not only about what happened. It is also about how your mind and body adapted, and how those adaptations continue long after the events themselves.",
@@ -268,6 +280,9 @@ export const SPECIALTIES: Specialty[] = [
     heroHeading: "Therapy for stress and burnout, before running on empty becomes normal.",
     heroIntro:
       "Therapy for adults across North Carolina dealing with chronic pressure, work stress, caregiving strain, and the exhaustion of holding everything together. Most sessions are online through secure telehealth.",
+    heroImage: "/images/stress-burnout-therapy-hero.jpg",
+    heroImageAlt:
+      "A man rests on a porch step with his eyes closed and a closed laptop beside him, shoulders relaxed among green trees.",
     signsHeading: "What chronic stress and burnout can look like",
     signsIntro:
       "Burnout rarely arrives all at once. It builds through months of over-functioning, until rest stops helping and things that used to feel manageable no longer do.",
@@ -339,6 +354,9 @@ export const SPECIALTIES: Specialty[] = [
     heroHeading: "Therapy for grief and the seasons that change everything.",
     heroIntro:
       "Therapy for adults across North Carolina navigating loss, divorce, career change, parenthood, retirement, moves, and other transitions that reshape daily life and identity. Most sessions are online through secure telehealth.",
+    heroImage: "/images/grief-life-transitions-therapy-hero.jpg",
+    heroImageAlt:
+      "An older woman walks slowly along a quiet tree-lined path in soft golden light, looking peacefully toward the trees.",
     signsHeading: "When grief and change are hard to carry",
     signsIntro:
       "Loss and major transitions affect more than mood. They can unsettle identity, routines, relationships, and your sense of what comes next.",
