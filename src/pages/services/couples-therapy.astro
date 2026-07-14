@@ -1,8 +1,29 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import CtaBand from "@/components/patterns/CtaBand.astro";
+import RecognitionGrid from "@/components/patterns/RecognitionGrid.astro";
 import { SITE_URL } from "@/constants/site";
 
-const HERO_IMAGE = "/images/couples-therapy-hero.png";
+const HERO_IMAGE = "/images/couples-therapy-hero.jpg";
+
+const helpItems = [
+  {
+    title: "Communication and recurring conflict",
+    body: "Therapy can help you slow down heated cycles, name what is happening underneath the argument, and practice ways of listening and responding that feel more respectful and clear.",
+  },
+  {
+    title: "Emotional distance and trust",
+    body: "Support when you feel more like roommates than partners, when trust has been strained, or when it is hard to feel emotionally safe together.",
+  },
+  {
+    title: "Life stressors affecting the partnership",
+    body: "A steady place to process parenting stress, grief, career demands, moves, family pressure, or transitions that are stretching the relationship.",
+  },
+  {
+    title: "Intimacy and partnership patterns",
+    body: "Therapy can help you talk about closeness, boundaries, roles, and expectations with more honesty and less defensiveness.",
+  },
+] as const;
 
 const pageTitle = "Couples Therapy in North Carolina | TrueBridge";
 const pageDescription =
@@ -75,7 +96,7 @@ const structuredData = [
           <div class="min-w-0">
             <h1
               id="couples-hero-heading"
-              class="mb-6 max-w-[720px] font-display text-5xl font-semibold leading-[1.05] tracking-tight text-ink md:text-6xl"
+              class="mb-6 max-w-[720px] font-display text-4xl font-semibold leading-[1.08] tracking-tight text-ink md:text-6xl md:leading-[1.05]"
             >
               Couples therapy for when your relationship needs steadier ground.
             </h1>
@@ -98,6 +119,10 @@ const structuredData = [
                 View Insurance &amp; Rates
               </a>
             </div>
+            <p class="mt-4 max-w-[660px] text-sm leading-relaxed text-muted">
+              Good to know: most insurance plans don't cover couples therapy as its own service, so sessions are usually
+              private-pay — we'll explain your options and real costs before you begin. The first consultation is free.
+            </p>
           </div>
           <div class="min-w-0">
             <img
@@ -105,7 +130,7 @@ const structuredData = [
               alt="A couple sits together on a sofa in a bright, modern room, holding hands in a calm, supportive moment."
               width="1200"
               height="1500"
-              class="h-[300px] w-full max-h-[500px] rounded-[32px] border border-line object-cover shadow-[0_12px_32px_rgba(31,42,48,0.06)] sm:h-[320px] md:h-[420px] lg:h-[460px]"
+              class="h-[220px] w-full max-h-[500px] rounded-[32px] border border-line object-cover shadow-[0_12px_32px_rgba(31,42,48,0.06)] sm:h-[320px] md:h-[420px] lg:h-[460px]"
               loading="eager"
             />
           </div>
@@ -113,54 +138,12 @@ const structuredData = [
       </div>
     </section>
 
-    <section class="border-t border-line bg-paper py-14 lg:py-20" aria-labelledby="when-help-heading">
-      <div class="mx-auto max-w-[1100px] px-5 sm:px-6 lg:px-10">
-        <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-          <div class="min-w-0">
-            <h2
-              id="when-help-heading"
-              class="mb-6 font-display text-4xl font-semibold leading-[1.12] tracking-tight text-ink md:text-5xl"
-            >
-              When couples therapy can help
-            </h2>
-            <p class="text-lg leading-relaxed text-muted">
-              Partners often begin when conversations feel stuck, resentment is building, or you both want a calmer way to
-              navigate conflict, distance, or a major change together.
-            </p>
-          </div>
-          <div class="min-w-0">
-            <article class="border-t border-line py-7">
-              <h3 class="mb-3 font-display text-2xl font-semibold text-ink">Communication and recurring conflict</h3>
-              <p class="text-base leading-relaxed text-muted md:text-lg">
-                Therapy can help you slow down heated cycles, name what is happening underneath the argument, and practice
-                ways of listening and responding that feel more respectful and clear.
-              </p>
-            </article>
-            <article class="border-t border-line py-7">
-              <h3 class="mb-3 font-display text-2xl font-semibold text-ink">Emotional distance and trust</h3>
-              <p class="text-base leading-relaxed text-muted md:text-lg">
-                Support when you feel more like roommates than partners, when trust has been strained, or when it is hard to
-                feel emotionally safe together.
-              </p>
-            </article>
-            <article class="border-t border-line py-7">
-              <h3 class="mb-3 font-display text-2xl font-semibold text-ink">Life stressors affecting the partnership</h3>
-              <p class="text-base leading-relaxed text-muted md:text-lg">
-                A steady place to process parenting stress, grief, career demands, moves, family pressure, or transitions that
-                are stretching the relationship.
-              </p>
-            </article>
-            <article class="border-t border-line py-7">
-              <h3 class="mb-3 font-display text-2xl font-semibold text-ink">Intimacy and partnership patterns</h3>
-              <p class="text-base leading-relaxed text-muted md:text-lg">
-                Therapy can help you talk about closeness, boundaries, roles, and expectations with more honesty and less
-                defensiveness.
-              </p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
+    <RecognitionGrid
+      heading="When couples therapy can help"
+      headingId="when-help-heading"
+      intro="Partners often begin when conversations feel stuck, resentment is building, or you both want a calmer way to navigate conflict, distance, or a major change together."
+      items={helpItems}
+    />
 
     <section class="border-t border-line bg-sageDark py-14 text-paper lg:py-20" aria-labelledby="clinical-band-heading">
       <div class="mx-auto max-w-[1100px] px-5 sm:px-6 lg:px-10">
@@ -207,43 +190,6 @@ const structuredData = [
               toward.
             </p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="border-t border-line bg-paper py-14 lg:py-20" aria-labelledby="what-to-expect-heading">
-      <div class="mx-auto max-w-[1100px] px-5 sm:px-6 lg:px-10">
-        <h2
-          id="what-to-expect-heading"
-          class="mb-6 font-display text-4xl font-semibold leading-[1.12] tracking-tight text-ink md:text-5xl"
-        >
-          What to expect
-        </h2>
-        <p class="mb-12 text-lg leading-relaxed text-muted md:text-xl">
-          We keep the first steps clear so you can understand fit, availability, and how insurance may apply before beginning care.
-        </p>
-        <div class="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-10">
-          <article class="border-t border-line pt-6">
-            <h3 class="mb-3 font-display text-xl font-semibold text-ink md:text-2xl">Start with a request</h3>
-            <p class="text-base leading-relaxed text-muted md:text-lg">
-              Tell us what you are navigating as a couple and any preferences that matter, including schedule, insurance, and
-              clinician fit.
-            </p>
-          </article>
-          <article class="border-t border-line pt-6">
-            <h3 class="mb-3 font-display text-xl font-semibold text-ink md:text-2xl">Review fit and availability</h3>
-            <p class="text-base leading-relaxed text-muted md:text-lg">
-              Our team helps determine whether we have a clinician whose focus areas and availability match your needs as a
-              couple.
-            </p>
-          </article>
-          <article class="border-t border-line pt-6">
-            <h3 class="mb-3 font-display text-xl font-semibold text-ink md:text-2xl">Begin couples therapy</h3>
-            <p class="text-base leading-relaxed text-muted md:text-lg">
-              If it is a good fit, we help you schedule your first appointment and understand what to expect. Most sessions begin
-              online through telehealth; in-person may be discussed when scheduling and location allow.
-            </p>
-          </article>
         </div>
       </div>
     </section>
@@ -297,22 +243,11 @@ const structuredData = [
       </div>
     </section>
 
-    <section class="relative border-t border-paper/15 bg-sageDeep py-14 text-center text-paper lg:py-20" aria-labelledby="final-cta-heading">
-      <div class="mx-auto max-w-[760px] px-5 sm:px-6 lg:px-10">
-        <h2 id="final-cta-heading" class="font-display text-3xl font-semibold tracking-tight text-paper sm:text-4xl">
-          Ready to start couples therapy?
-        </h2>
-        <p class="mx-auto mt-5 text-base leading-relaxed text-paper/90 sm:text-lg">
-          Reach out today and we’ll help you understand clinician fit, availability, and how insurance may apply before your
-          first appointment.
-        </p>
-        <a
-          href="/contact-get-started"
-          class="mt-10 inline-flex items-center justify-center rounded-full bg-paper px-7 py-3.5 text-base font-semibold text-sageDark no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-smoke hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-sageDeep"
-        >
-          Get Started
-        </a>
-      </div>
-    </section>
+    <CtaBand
+      heading="Ready to start couples therapy?"
+      headingId="final-cta-heading"
+      body="Reach out together and we'll help you understand clinician fit, availability, and exactly what sessions would cost before your first appointment."
+      showPath
+    />
   </main>
 </BaseLayout>

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { SITE_URL, SITE_NAME, PUBLIC_PHONE_E164, PUBLIC_EMAIL } from "@/constants/site";
+import CtaBand from "@/components/patterns/CtaBand.astro";
+import { FREE_CONSULT_LINE, SITE_URL, SITE_NAME, PUBLIC_PHONE_E164, PUBLIC_EMAIL } from "@/constants/site";
 
 /** Full-bleed hero image — replace in one place when updating photography. */
 const HERO_IMG = "/images/home-hero.jpg";
@@ -146,6 +147,7 @@ const focusAreas = [
               View Insurance &amp; Rates
             </a>
           </div>
+          <p class="mt-4 text-sm text-paper/90 [text-shadow:0_1px_2px_rgba(31,42,48,0.26)]">{FREE_CONSULT_LINE}</p>
         </div>
       </div>
     </section>
@@ -206,7 +208,7 @@ const focusAreas = [
 
     <section class="border-t border-line bg-sageDark py-20 text-paper lg:py-28" aria-labelledby="focus-heading">
       <div class="mx-auto max-w-site px-5 sm:px-6 lg:px-10">
-        <div class="mb-16 max-w-[860px] text-left">
+        <div class="mb-10 max-w-[860px] text-left">
           <h2
             id="focus-heading"
             class="mb-6 font-display text-4xl leading-[1.12] tracking-tight text-paper md:text-5xl"
@@ -218,21 +220,19 @@ const focusAreas = [
             life transitions through thoughtful, evidence-informed therapy.
           </p>
         </div>
-        <div class="grid grid-cols-1 gap-y-0 md:grid-cols-2 md:gap-x-16 md:gap-y-0">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           {
             focusAreas.map((area) => (
-              <div class="border-t border-paper/25 py-8 text-left">
-                <h3 class="mb-4 font-display text-3xl leading-[1.08] tracking-tight text-paper md:text-4xl">
+              <a
+                href={area.href}
+                class="group block rounded-[24px] border border-paper/20 bg-paper/10 p-6 text-left no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:border-paper/40 hover:bg-paper/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-sageDark"
+              >
+                <span class="flex items-baseline justify-between gap-3 font-display text-xl font-semibold leading-snug tracking-tight text-paper">
                   {area.title}
-                </h3>
-                <p class="max-w-[500px] text-base leading-relaxed text-paper/90 md:text-lg">{area.description}</p>
-                <a
-                  href={area.href}
-                  class="mt-4 inline-flex text-base font-semibold text-paper underline decoration-sage underline-offset-4 transition-colors hover:decoration-mist"
-                >
-                  {area.linkLabel}
-                </a>
-              </div>
+                  <span aria-hidden="true" class="text-lg transition-transform group-hover:translate-x-1">→</span>
+                </span>
+                <span class="mt-2 block text-sm leading-relaxed text-paper/85">{area.description}</span>
+              </a>
             ))
           }
         </div>
@@ -253,9 +253,9 @@ const focusAreas = [
               Using insurance for therapy
             </h2>
             <p class="mb-8 max-w-[620px] text-lg leading-relaxed text-muted md:text-xl">
-              Navigating insurance shouldn’t be a barrier to beginning therapy. When you reach out, we can help you understand
-              whether your plan may apply based on the clinician you work with, along with expected out-of-pocket costs before
-              your first session, so you can start with more clarity and fewer surprises.
+              Cost shouldn't be a mystery. TrueBridge is completing insurance credentialing, and participation varies by
+              clinician — so when you reach out, we'll tell you plainly what your plan can and can't cover, and exactly what
+              your out-of-pocket cost would be, before your first session. No surprises, starting with a free consultation.
             </p>
             <a
               href="/insurance-rates"
@@ -278,22 +278,10 @@ const focusAreas = [
       </div>
     </section>
 
-    <section class="relative border-t border-paper/15 bg-sageDeep py-16 text-paper sm:py-20" aria-labelledby="cta-title">
-      <div class="section-px relative mx-auto max-w-site text-center">
-        <h2 id="cta-title" class="font-display text-3xl font-semibold tracking-tight text-paper sm:text-4xl">
-          Ready to get started?
-        </h2>
-        <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-paper/90 sm:text-lg">
-          Reach out today to begin. We can help you understand how insurance may apply with your clinician match, then connect
-          you with someone who fits your needs and schedule across North Carolina.
-        </p>
-        <a
-          href="/contact-get-started"
-          class="no-underline mt-10 inline-flex items-center justify-center rounded-full border-0 bg-paper px-7 py-3.5 text-base font-semibold text-sageDark transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-smoke hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-sageDeep"
-        >
-          Get Started
-        </a>
-      </div>
-    </section>
+    <CtaBand
+      heading="Ready to get started?"
+      headingId="cta-title"
+      body="Reach out today to begin. We'll help you understand how insurance may apply with your clinician match, then connect you with someone who fits your needs and schedule across North Carolina."
+    />
   </main>
 </BaseLayout>

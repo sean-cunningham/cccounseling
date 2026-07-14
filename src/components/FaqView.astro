@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import CtaBand from "@/components/patterns/CtaBand.astro";
 
 const description =
   "Find answers to common questions about starting therapy, individual therapy, couples therapy, insurance, online care, and clinician matching.";
@@ -21,7 +22,8 @@ const groups: { title: string; items: FaqItem[] }[] = [
     items: [
       {
         q: "How do I start therapy with TrueBridge?",
-        a: "You can start by submitting a request through our Get Started page. We’ll review what you are looking for, discuss fit and availability, and help you understand the next step before scheduling your first appointment.",
+        a: '<p>You can start by submitting a request through our <a href="/contact-get-started" class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage">Get Started</a> page — the first consultation is free. We’ll review what you are looking for, discuss fit and availability, and help you understand the next step before scheduling your first appointment.</p>',
+        aHtml: true,
       },
       {
         q: "Do I need to know exactly what I want to work on?",
@@ -38,11 +40,13 @@ const groups: { title: string; items: FaqItem[] }[] = [
     items: [
       {
         q: "Do you offer individual therapy?",
-        a: "Yes. TrueBridge offers individual therapy for adults across North Carolina, primarily through telehealth. Individual therapy may be a good fit for anxiety, depression, stress, trauma, grief, life transitions, relationship patterns, self-esteem, and personal growth. Depending on scheduling and clinician availability, in-person sessions may sometimes be possible in the Cary and Raleigh area.",
+        a: '<p>Yes. TrueBridge offers <a href="/services/individual-therapy" class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage">individual therapy</a> for adults across North Carolina, primarily through telehealth. Individual therapy may be a good fit for anxiety, depression, stress, trauma, grief, life transitions, relationship patterns, self-esteem, and personal growth. Depending on scheduling and clinician availability, in-person sessions may sometimes be possible in the Cary and Raleigh area.</p>',
+        aHtml: true,
       },
       {
         q: "Do you offer couples therapy?",
-        a: "Yes. Couples therapy can help partners work through communication issues, recurring conflict, emotional distance, trust concerns, life transitions, and rebuilding connection. Most sessions are online; depending on scheduling and clinician availability, in-person sessions may sometimes be possible in the Cary and Raleigh area.",
+        a: '<p>Yes. <a href="/services/couples-therapy" class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage">Couples therapy</a> can help partners work through communication issues, recurring conflict, emotional distance, trust concerns, life transitions, and rebuilding connection. Most sessions are online. One honest note: most insurance plans do not cover couples therapy as its own service, so sessions are usually private-pay — we’ll explain your options and costs before you begin.</p>',
+        aHtml: true,
       },
       {
         q: "What if I’m not sure whether I need individual therapy or couples therapy?",
@@ -55,7 +59,8 @@ const groups: { title: string; items: FaqItem[] }[] = [
     items: [
       {
         q: "Do you accept insurance?",
-        a: "Whether insurance can be used depends on the clinician you work with and the health plans that clinician participates in. Before you begin, we can help you understand whether your plan may apply and what your estimated costs could look like.",
+        a: '<p>Whether insurance can be used depends on the clinician you work with and the health plans that clinician participates in. Before you begin, we can help you understand whether your plan may apply and what your estimated costs could look like — see <a href="/insurance-rates" class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage">Insurance &amp; Rates</a> for details.</p>',
+        aHtml: true,
       },
       {
         q: "Will you verify my insurance benefits?",
@@ -94,7 +99,8 @@ const groups: { title: string; items: FaqItem[] }[] = [
     items: [
       {
         q: "Who will I work with?",
-        a: "We match you with a clinician who works with TrueBridge based on fit, focus area, schedule, and availability.",
+        a: '<p>We match you with a clinician who works with TrueBridge based on fit, focus area, schedule, and availability. You can meet the team on our <a href="/clinicians" class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage">Clinicians</a> page.</p>',
+        aHtml: true,
       },
       {
         q: "Are clinicians licensed?",
@@ -191,24 +197,10 @@ const structuredData = {
       </div>
     </section>
 
-    <section class="relative border-t border-paper/15 bg-sageDeep py-16 text-center text-paper lg:py-24" aria-labelledby="faq-final-cta-heading">
-      <div class="mx-auto max-w-[860px] px-5 sm:px-6 lg:px-10">
-        <h2
-          id="faq-final-cta-heading"
-          class="mb-5 font-display text-4xl leading-[1.12] tracking-tight md:text-5xl"
-        >
-          Still have questions?
-        </h2>
-        <p class="mb-8 text-lg leading-relaxed text-paper/90 md:text-xl">
-          Reach out and we’ll help you understand services, fit, availability, and next steps before beginning care.
-        </p>
-        <a
-          href="/contact-get-started"
-          class="inline-flex items-center justify-center rounded-full bg-paper px-7 py-3.5 text-base font-semibold text-sageDark no-underline transition hover:-translate-y-0.5 hover:bg-smoke hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-sageDeep"
-        >
-          Get Started
-        </a>
-      </div>
-    </section>
+    <CtaBand
+      heading="Still have questions?"
+      headingId="faq-final-cta-heading"
+      body="Reach out and we'll help you understand services, fit, availability, and next steps before beginning care."
+    />
   </main>
 </BaseLayout>

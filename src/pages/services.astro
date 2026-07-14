@@ -1,14 +1,35 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { SITE_URL } from "@/constants/site";
+import CtaBand from "@/components/patterns/CtaBand.astro";
+import RecognitionGrid from "@/components/patterns/RecognitionGrid.astro";
+import { FREE_CONSULT_LINE, SITE_URL } from "@/constants/site";
 import { SPECIALTIES } from "@/data/specialties";
 
-const IMG_INDIVIDUAL = "/images/services-overview-individual.png";
-const IMG_COUPLES = "/images/services-overview-couples.png";
+const IMG_INDIVIDUAL = "/images/services-overview-individual.jpg";
+const IMG_COUPLES = "/images/services-overview-couples.jpg";
 
 const servicesTitle = "Therapy Services in North Carolina | TrueBridge";
 const servicesDescription =
-  "Explore individual therapy and couples therapy services through TrueBridge, with online care for adults and couples across North Carolina.";
+  "Explore individual therapy, specialty areas of focus, and couples therapy through TrueBridge, with online care for adults across North Carolina.";
+
+const whyItems = [
+  {
+    title: "Thoughtful clinician matching",
+    body: "We help review your needs, preferences, schedule, and goals so you can start with a clinician who is a better fit for what you are looking for.",
+  },
+  {
+    title: "Support before the first appointment",
+    body: "Our team helps you understand availability, how insurance may apply with your clinician match, and expected out-of-pocket costs before beginning care.",
+  },
+  {
+    title: "Care that fits your situation",
+    body: "You can begin with the type of support that fits, whether the concern feels personal, relational, or both.",
+  },
+  {
+    title: "Flexible care across North Carolina",
+    body: "Most sessions are through telehealth, with select in-person options in the Cary and Raleigh area when scheduling and clinician availability allow.",
+  },
+] as const;
 
 const orgId = `${SITE_URL}/#organization`;
 const websiteId = `${SITE_URL}/#website`;
@@ -70,16 +91,31 @@ const focusAreas = [
         <div class="mx-auto max-w-[860px]">
           <h1
             id="services-hero-heading"
-            class="mb-6 font-display text-5xl font-semibold leading-[1.05] tracking-tight text-ink md:text-6xl"
+            class="mb-6 font-display text-4xl font-semibold leading-[1.08] tracking-tight text-ink md:text-6xl md:leading-[1.05]"
           >
-            Therapy services for individuals and couples.
+            Therapy services built around you.
           </h1>
           <p class="max-w-[760px] text-lg leading-relaxed text-muted md:text-xl">
-            TrueBridge provides therapy for adults and couples across North Carolina, primarily through telehealth, with
-            thoughtful support for anxiety, depression, stress, trauma, relationship concerns, life transitions, and personal
-            growth. In the Cary and Raleigh area, in-person may sometimes be possible when scheduling and clinician availability
-            allow.
+            TrueBridge provides therapy for adults across North Carolina, primarily through telehealth, with thoughtful
+            support for anxiety, depression, stress, trauma, grief, relationship concerns, life transitions, and personal
+            growth. In the Cary and Raleigh area, in-person may sometimes be possible when scheduling and clinician
+            availability allow.
           </p>
+          <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
+            <a
+              href="/contact-get-started"
+              class="inline-flex w-fit items-center justify-center rounded-full bg-sageDark px-7 py-3.5 text-center text-base font-semibold text-paper no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+            >
+              Start Therapy
+            </a>
+            <a
+              href="/insurance-rates"
+              class="text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
+            >
+              View Insurance &amp; Rates
+            </a>
+          </div>
+          <p class="mt-4 text-sm text-muted">{FREE_CONSULT_LINE}</p>
         </div>
       </div>
     </section>
@@ -92,42 +128,44 @@ const focusAreas = [
         >
           Choose the support that fits where you are.
         </h2>
-        <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <article
-            class="overflow-hidden rounded-[32px] border border-line bg-paper shadow-[0_12px_32px_rgba(31,42,48,0.06)]"
+            class="overflow-hidden rounded-[32px] border border-line bg-paper shadow-[0_12px_32px_rgba(31,42,48,0.06)] lg:col-span-2"
           >
-            <img
-              src={IMG_INDIVIDUAL}
-              alt="A woman tends to indoor plants by a sunlit window in a warm, calm home."
-              width="1200"
-              height="900"
-              class="aspect-[4/3] w-full object-cover"
-              loading="lazy"
-            />
-            <div class="p-6 lg:p-8">
-              <h3 class="mb-4 font-display text-3xl font-semibold leading-[1.08] tracking-tight text-ink md:text-4xl">
-                Individual Therapy
-              </h3>
-              <p class="mb-7 text-base leading-relaxed text-muted md:text-lg">
-                One-on-one therapy for adults who want support with anxiety, depression, stress, trauma, life transitions,
-                relationships, self-understanding, and personal growth.
-              </p>
-              <p class="mb-3 text-base font-semibold text-ink">May be a good fit if you want support with:</p>
-              <div class="border-t border-line py-3 text-base leading-relaxed text-muted">
-                anxiety, depression, or burnout
+            <div class="grid grid-cols-1 md:grid-cols-2">
+              <img
+                src={IMG_INDIVIDUAL}
+                alt="A woman tends to indoor plants by a sunlit window in a warm, calm home."
+                width="1200"
+                height="900"
+                class="aspect-[4/3] w-full object-cover md:h-full md:aspect-auto"
+                loading="lazy"
+              />
+              <div class="p-6 lg:p-8">
+                <h3 class="mb-4 font-display text-3xl font-semibold leading-[1.08] tracking-tight text-ink md:text-4xl">
+                  Individual Therapy
+                </h3>
+                <p class="mb-6 text-base leading-relaxed text-muted md:text-lg">
+                  One-on-one therapy for adults who want support with anxiety, depression, stress, trauma, life transitions,
+                  relationships, self-understanding, and personal growth.
+                </p>
+                <p class="mb-3 text-base font-semibold text-ink">May be a good fit if you want support with:</p>
+                <div class="border-t border-line py-3 text-base leading-relaxed text-muted">
+                  anxiety, depression, or burnout
+                </div>
+                <div class="border-t border-line py-3 text-base leading-relaxed text-muted">
+                  grief, trauma, or life transitions
+                </div>
+                <div class="border-t border-line py-3 text-base leading-relaxed text-muted">
+                  patterns you want to understand and change
+                </div>
+                <a
+                  href="/services/individual-therapy"
+                  class="mt-6 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors duration-200 ease-out hover:text-sage hover:decoration-sage focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+                >
+                  Learn about individual therapy
+                </a>
               </div>
-              <div class="border-t border-line py-3 text-base leading-relaxed text-muted">
-                grief, trauma, or life transitions
-              </div>
-              <div class="border-t border-line py-3 text-base leading-relaxed text-muted">
-                patterns you want to understand and change
-              </div>
-              <a
-                href="/services/individual-therapy"
-                class="mt-6 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors duration-200 ease-out hover:text-sage hover:decoration-sage focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
-              >
-                Learn about individual therapy
-              </a>
             </div>
           </article>
 
@@ -139,95 +177,46 @@ const focusAreas = [
               alt="A couple stands together in a kitchen, sharing a quiet moment while pouring tea."
               width="1200"
               height="900"
-              class="aspect-[4/3] w-full object-cover"
+              class="aspect-[16/9] w-full object-cover"
               loading="lazy"
             />
             <div class="p-6 lg:p-8">
-              <h3 class="mb-4 font-display text-3xl font-semibold leading-[1.08] tracking-tight text-ink md:text-4xl">
+              <h3 class="mb-4 font-display text-2xl font-semibold leading-[1.08] tracking-tight text-ink md:text-3xl">
                 Couples Therapy
               </h3>
-              <p class="mb-7 text-base leading-relaxed text-muted md:text-lg">
+              <p class="mb-5 text-base leading-relaxed text-muted">
                 Therapy for partners who want help with communication, conflict, emotional distance, trust concerns, and
                 rebuilding connection.
               </p>
-              <p class="mb-3 text-base font-semibold text-ink">May be a good fit if you want support with:</p>
-              <div class="border-t border-line py-3 text-base leading-relaxed text-muted">
-                recurring conflict or disconnection
-              </div>
-              <div class="border-t border-line py-3 text-base leading-relaxed text-muted">
-                communication and emotional closeness
-              </div>
-              <div class="border-t border-line py-3 text-base leading-relaxed text-muted">
-                rebuilding trust or navigating change together
-              </div>
+              <p class="mb-5 text-sm leading-relaxed text-muted">
+                Usually private-pay — most insurance plans don't cover couples work, and we'll explain your options before
+                you begin.
+              </p>
               <a
                 href="/services/couples-therapy"
-                class="mt-6 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors duration-200 ease-out hover:text-sage hover:decoration-sage focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+                class="inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors duration-200 ease-out hover:text-sage hover:decoration-sage focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
               >
                 Learn about couples therapy
               </a>
             </div>
           </article>
         </div>
+        <p class="mt-10 text-base leading-relaxed text-muted md:text-lg">
+          Not sure which is the right place to begin? <a
+            href="/contact-get-started"
+            class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
+            >Reach out</a
+          > and we'll help you sort it out — the first consultation is free.
+        </p>
       </div>
     </section>
 
-    <section class="border-t border-line bg-mist py-16 lg:py-24" aria-labelledby="why-cc-heading">
-      <div class="mx-auto max-w-site px-5 sm:px-6 lg:px-10">
-        <div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-          <div class="min-w-0">
-            <h2
-              id="why-cc-heading"
-              class="font-display text-4xl font-semibold leading-[1.12] tracking-tight text-ink md:text-5xl"
-            >
-              Why TrueBridge
-            </h2>
-            <p class="mt-6 max-w-[460px] text-lg leading-relaxed text-muted">
-              Starting therapy is easier when the process feels clear, personal, and supported from the beginning.
-            </p>
-          </div>
-          <div class="min-w-0 text-left">
-            <div class="border-t border-line py-7">
-              <h3 class="mb-3 font-display text-2xl font-semibold leading-snug tracking-tight text-ink">
-                Thoughtful clinician matching
-              </h3>
-              <p class="max-w-[680px] text-base leading-relaxed text-muted md:text-lg">
-                We help review your needs, preferences, schedule, and goals so you can start with a clinician who is a better fit
-                for what you are looking for.
-              </p>
-            </div>
-            <div class="border-t border-line py-7">
-              <h3 class="mb-3 font-display text-2xl font-semibold leading-snug tracking-tight text-ink">
-                Support before the first appointment
-              </h3>
-              <p class="max-w-[680px] text-base leading-relaxed text-muted md:text-lg">
-                Our team helps you understand availability, how insurance may apply with your clinician match, and expected
-                out-of-pocket costs before beginning care.
-              </p>
-            </div>
-            <div class="border-t border-line py-7">
-              <h3 class="mb-3 font-display text-2xl font-semibold leading-snug tracking-tight text-ink">
-                Therapy for individuals and couples
-              </h3>
-              <p class="max-w-[680px] text-base leading-relaxed text-muted md:text-lg">
-                You can begin with the type of support that fits your situation, whether the concern feels personal,
-                relational, or both.
-              </p>
-            </div>
-            <div class="border-t border-line py-7">
-              <h3 class="mb-3 font-display text-2xl font-semibold leading-snug tracking-tight text-ink">
-                Flexible care across North Carolina
-              </h3>
-              <p class="max-w-[680px] text-base leading-relaxed text-muted md:text-lg">
-                Most sessions are offered through telehealth, giving clients across North Carolina an accessible way to begin and
-                continue therapy. Depending on scheduling and clinician availability, in-person sessions may sometimes be
-                possible in the Cary and Raleigh area.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <RecognitionGrid
+      heading="Why TrueBridge"
+      headingId="why-cc-heading"
+      intro="Starting therapy is easier when the process feels clear, personal, and supported from the beginning."
+      items={whyItems}
+    />
 
     <section class="border-t border-line bg-sageDark py-16 text-paper lg:py-24" aria-labelledby="common-reasons-heading">
       <div class="mx-auto max-w-site px-5 sm:px-6 lg:px-10">
@@ -260,48 +249,11 @@ const focusAreas = [
       </div>
     </section>
 
-    <section class="border-t border-line bg-paper py-16 lg:py-24" aria-labelledby="insurance-first-heading">
-      <div class="mx-auto max-w-site px-5 sm:px-6 lg:px-10">
-        <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <div class="min-w-0">
-            <h2
-              id="insurance-first-heading"
-              class="mb-6 font-display text-4xl font-semibold leading-[1.12] tracking-tight text-ink md:text-5xl"
-            >
-              Starting with clarity
-            </h2>
-            <p class="max-w-[620px] text-lg leading-relaxed text-muted md:text-xl">
-              Tell us what you’re looking for, and we’ll help you understand the best next step — whether that is individual
-              therapy, couples therapy, or a different direction.
-            </p>
-          </div>
-          <div class="min-w-0">
-            <div class="border-t border-line py-5 text-lg font-semibold text-ink">Share what you are looking for</div>
-            <div class="border-t border-line py-5 text-lg font-semibold text-ink">Review fit, availability, and insurance</div>
-            <div class="border-t border-line py-5 text-lg font-semibold text-ink">Begin therapy with a clear next step</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="border-t border-line bg-sageDeep py-16 text-center text-paper lg:py-24" aria-labelledby="services-final-cta-heading">
-      <div class="mx-auto max-w-[860px] px-5 sm:px-6 lg:px-10">
-        <h2
-          id="services-final-cta-heading"
-          class="mb-5 font-display text-4xl font-semibold leading-[1.12] tracking-tight md:text-5xl"
-        >
-          Ready to find the right fit?
-        </h2>
-        <p class="mb-8 text-lg leading-relaxed text-paper/90 md:text-xl">
-          Reach out today and we’ll help you understand which service may be the best next step.
-        </p>
-        <a
-          href="/contact-get-started"
-          class="inline-flex items-center justify-center rounded-full bg-paper px-7 py-3.5 text-base font-semibold text-sageDark no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-smoke hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-sageDeep"
-        >
-          Contact Us
-        </a>
-      </div>
-    </section>
+    <CtaBand
+      heading="Ready to find the right fit?"
+      headingId="services-final-cta-heading"
+      body="Reach out today and we'll help you understand which service may be the best next step."
+      showPath
+    />
   </main>
 </BaseLayout>

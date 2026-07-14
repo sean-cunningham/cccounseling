@@ -1,9 +1,50 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { SITE_URL } from "@/constants/site";
+import CtaBand from "@/components/patterns/CtaBand.astro";
+import RecognitionGrid from "@/components/patterns/RecognitionGrid.astro";
+import { FREE_CONSULT_LINE, SITE_URL } from "@/constants/site";
 
 /** Editorial hero photography — local asset in /public/images */
-const HERO_IMAGE = "/images/individual-therapy-hero.png";
+const HERO_IMAGE = "/images/individual-therapy-hero.jpg";
+
+const helpItems = [
+  {
+    title: "Anxiety and overthinking",
+    body: "Therapy can help you understand worry, panic, avoidance, racing thoughts, and the pressure to stay constantly in control.",
+    href: "/services/anxiety-therapy",
+    linkLabel: "Explore anxiety therapy",
+  },
+  {
+    title: "Depression and disconnection",
+    body: "Support for low motivation, emotional heaviness, isolation, numbness, and feeling distant from yourself or the people around you.",
+    href: "/services/depression-therapy",
+    linkLabel: "Explore depression therapy",
+  },
+  {
+    title: "Stress and burnout",
+    body: "A steady place to process chronic pressure, work stress, caregiving strain, and the exhaustion of holding everything together.",
+    href: "/services/stress-burnout-therapy",
+    linkLabel: "Explore stress & burnout therapy",
+  },
+  {
+    title: "Grief and life transitions",
+    body: "Support through loss, major changes, parenting stress, career shifts, and seasons that feel difficult to navigate.",
+    href: "/services/grief-life-transitions-therapy",
+    linkLabel: "Explore grief & life transitions therapy",
+  },
+  {
+    title: "Trauma and painful experiences",
+    body: "Therapy can help you work with triggers, nervous system overwhelm, painful memories, and patterns that continue to affect daily life.",
+    href: "/services/trauma-therapy",
+    linkLabel: "Explore trauma therapy",
+  },
+  {
+    title: "Perinatal and postpartum seasons",
+    body: "Care for women navigating perinatal and infant loss, infertility, postpartum changes, and hormonal and identity shifts.",
+    href: "/services/perinatal-postpartum-therapy",
+    linkLabel: "Explore perinatal & postpartum therapy",
+  },
+] as const;
 
 const pageTitle = "Individual Therapy in North Carolina | TrueBridge";
 const pageDescription =
@@ -72,7 +113,7 @@ const structuredData = [
           <div class="min-w-0">
             <h1
               id="individual-hero-heading"
-              class="mb-6 max-w-[720px] font-display text-5xl font-semibold leading-[1.05] tracking-tight text-ink md:text-6xl"
+              class="mb-6 max-w-[720px] font-display text-4xl font-semibold leading-[1.08] tracking-tight text-ink md:text-6xl md:leading-[1.05]"
             >
               Individual therapy for when life feels heavier than it should.
             </h1>
@@ -94,6 +135,7 @@ const structuredData = [
                 View Insurance &amp; Rates
               </a>
             </div>
+            <p class="mt-4 text-sm text-muted">{FREE_CONSULT_LINE}</p>
           </div>
           <div class="min-w-0">
             <img
@@ -101,7 +143,7 @@ const structuredData = [
               alt="A woman sits at a wooden desk with a notebook, looking thoughtfully toward a bright window in a calm, plant-filled room."
               width="1200"
               height="1500"
-              class="h-[300px] w-full max-h-[500px] rounded-[32px] border border-line object-cover shadow-[0_12px_32px_rgba(31,42,48,0.06)] sm:h-[320px] md:h-[420px] lg:h-[460px]"
+              class="h-[220px] w-full max-h-[500px] rounded-[32px] border border-line object-cover shadow-[0_12px_32px_rgba(31,42,48,0.06)] sm:h-[320px] md:h-[420px] lg:h-[460px]"
               loading="eager"
             />
           </div>
@@ -109,126 +151,13 @@ const structuredData = [
       </div>
     </section>
 
-    <section class="border-t border-line bg-paper py-14 lg:py-20" aria-labelledby="when-help-heading">
-      <div class="mx-auto max-w-[1100px] px-5 sm:px-6 lg:px-10">
-        <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-          <div class="min-w-0">
-            <h2
-              id="when-help-heading"
-              class="mb-6 font-display text-4xl font-semibold leading-[1.12] tracking-tight text-ink md:text-5xl"
-            >
-              When individual therapy can help
-            </h2>
-            <p class="text-lg leading-relaxed text-muted">
-              People often begin therapy when they are tired of carrying things alone, repeating the same patterns, or feeling
-              like they should be able to push through but cannot.
-            </p>
-          </div>
-          <div class="min-w-0">
-            <article class="border-t border-line py-7">
-              <h3 class="mb-3 font-display text-2xl font-semibold text-ink">
-                <a
-                  href="/services/anxiety-therapy"
-                  class="no-underline transition-colors hover:text-sageDark hover:underline hover:decoration-sand hover:underline-offset-4"
-                >
-                  Anxiety and overthinking
-                </a>
-              </h3>
-              <p class="text-base leading-relaxed text-muted md:text-lg">
-                Therapy can help you understand worry, panic, avoidance, racing thoughts, and the pressure to stay constantly
-                in control.
-              </p>
-              <a
-                href="/services/anxiety-therapy"
-                class="mt-3 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
-              >
-                Explore anxiety therapy
-              </a>
-            </article>
-            <article class="border-t border-line py-7">
-              <h3 class="mb-3 font-display text-2xl font-semibold text-ink">
-                <a
-                  href="/services/depression-therapy"
-                  class="no-underline transition-colors hover:text-sageDark hover:underline hover:decoration-sand hover:underline-offset-4"
-                >
-                  Depression and disconnection
-                </a>
-              </h3>
-              <p class="text-base leading-relaxed text-muted md:text-lg">
-                Support for low motivation, emotional heaviness, isolation, numbness, and feeling distant from yourself or the
-                people around you.
-              </p>
-              <a
-                href="/services/depression-therapy"
-                class="mt-3 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
-              >
-                Explore depression therapy
-              </a>
-            </article>
-            <article class="border-t border-line py-7">
-              <h3 class="mb-3 font-display text-2xl font-semibold text-ink">
-                <a
-                  href="/services/stress-burnout-therapy"
-                  class="no-underline transition-colors hover:text-sageDark hover:underline hover:decoration-sand hover:underline-offset-4"
-                >
-                  Stress and burnout
-                </a>
-              </h3>
-              <p class="text-base leading-relaxed text-muted md:text-lg">
-                A steady place to process chronic pressure, work stress, caregiving strain, and the exhaustion of holding
-                everything together.
-              </p>
-              <a
-                href="/services/stress-burnout-therapy"
-                class="mt-3 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
-              >
-                Explore stress &amp; burnout therapy
-              </a>
-            </article>
-            <article class="border-t border-line py-7">
-              <h3 class="mb-3 font-display text-2xl font-semibold text-ink">
-                <a
-                  href="/services/grief-life-transitions-therapy"
-                  class="no-underline transition-colors hover:text-sageDark hover:underline hover:decoration-sand hover:underline-offset-4"
-                >
-                  Grief and life transitions
-                </a>
-              </h3>
-              <p class="text-base leading-relaxed text-muted md:text-lg">
-                Support through loss, major changes, parenting stress, career shifts, and seasons that feel difficult to
-                navigate.
-              </p>
-              <a
-                href="/services/grief-life-transitions-therapy"
-                class="mt-3 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
-              >
-                Explore grief &amp; life transitions therapy
-              </a>
-            </article>
-            <article class="border-t border-line py-7">
-              <h3 class="mb-3 font-display text-2xl font-semibold text-ink">
-                <a
-                  href="/services/trauma-therapy"
-                  class="no-underline transition-colors hover:text-sageDark hover:underline hover:decoration-sand hover:underline-offset-4"
-                >
-                  Trauma and painful experiences
-                </a>
-              </h3>
-              <p class="text-base leading-relaxed text-muted md:text-lg">
-                Therapy can help you work with triggers, nervous system overwhelm, painful memories, and patterns that continue
-                to affect daily life.
-              </p>
-              <a
-                href="/services/trauma-therapy"
-                class="mt-3 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
-              >
-                Explore trauma therapy
-              </a>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
+    <RecognitionGrid
+      heading="When individual therapy can help"
+      headingId="when-help-heading"
+      intro="People often begin therapy when they are tired of carrying things alone, repeating the same patterns, or feeling like they should be able to push through but cannot."
+      items={helpItems}
+      columns={3}
+    />
 
     <section class="border-t border-line bg-sageDark py-14 text-paper lg:py-20" aria-labelledby="clinical-band-heading">
       <div class="mx-auto max-w-[1100px] px-5 sm:px-6 lg:px-10">
@@ -272,41 +201,6 @@ const structuredData = [
               Make choices that better reflect your values, needs, relationships, and the kind of life you want to build.
             </p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="border-t border-line bg-paper py-14 lg:py-20" aria-labelledby="what-to-expect-heading">
-      <div class="mx-auto max-w-[1100px] px-5 sm:px-6 lg:px-10">
-        <h2
-          id="what-to-expect-heading"
-          class="mb-6 font-display text-4xl font-semibold leading-[1.12] tracking-tight text-ink md:text-5xl"
-        >
-          What to expect
-        </h2>
-        <p class="mb-12 text-lg leading-relaxed text-muted md:text-xl">
-          We keep the first steps clear so you can understand fit, availability, and how insurance may apply before beginning care.
-        </p>
-        <div class="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-10">
-          <article class="border-t border-line pt-6">
-            <h3 class="mb-3 font-display text-xl font-semibold text-ink md:text-2xl">Start with a request</h3>
-            <p class="text-base leading-relaxed text-muted md:text-lg">
-              Tell us what you are looking for and any preferences that matter, including schedule, insurance, and clinician fit.
-            </p>
-          </article>
-          <article class="border-t border-line pt-6">
-            <h3 class="mb-3 font-display text-xl font-semibold text-ink md:text-2xl">Review fit and availability</h3>
-            <p class="text-base leading-relaxed text-muted md:text-lg">
-              Our team helps determine whether we have a clinician whose focus areas and availability match your needs.
-            </p>
-          </article>
-          <article class="border-t border-line pt-6">
-            <h3 class="mb-3 font-display text-xl font-semibold text-ink md:text-2xl">Begin therapy</h3>
-            <p class="text-base leading-relaxed text-muted md:text-lg">
-              If it is a good fit, we help you schedule your first appointment and understand what to expect. Most sessions begin
-              online through telehealth; in-person may be discussed when scheduling and location allow.
-            </p>
-          </article>
         </div>
       </div>
     </section>
@@ -358,22 +252,11 @@ const structuredData = [
       </div>
     </section>
 
-    <section class="relative border-t border-paper/15 bg-sageDeep py-14 text-center text-paper lg:py-20" aria-labelledby="final-cta-heading">
-      <div class="mx-auto max-w-[760px] px-5 sm:px-6 lg:px-10">
-        <h2 id="final-cta-heading" class="font-display text-3xl font-semibold tracking-tight text-paper sm:text-4xl">
-          Ready to start individual therapy?
-        </h2>
-        <p class="mx-auto mt-5 text-base leading-relaxed text-paper/90 sm:text-lg">
-          Reach out today and we’ll help you understand clinician fit, availability, and how insurance may apply before your
-          first appointment.
-        </p>
-        <a
-          href="/contact-get-started"
-          class="mt-10 inline-flex items-center justify-center rounded-full bg-paper px-7 py-3.5 text-base font-semibold text-sageDark no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-smoke hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-sageDeep"
-        >
-          Get Started
-        </a>
-      </div>
-    </section>
+    <CtaBand
+      heading="Ready to start individual therapy?"
+      headingId="final-cta-heading"
+      body="Reach out today and we'll help you understand clinician fit, availability, and how insurance may apply before your first appointment."
+      showPath
+    />
   </main>
 </BaseLayout>
