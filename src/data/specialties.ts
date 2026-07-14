@@ -344,6 +344,81 @@ export const SPECIALTIES: Specialty[] = [
     ],
   },
   {
+    slug: "perinatal-postpartum-therapy",
+    shortLabel: "Perinatal & postpartum",
+    name: "Perinatal & Postpartum Therapy",
+    serviceType: "Perinatal and postpartum therapy",
+    pageTitle: "Perinatal & Postpartum Therapy in North Carolina | TrueBridge",
+    metaDescription:
+      "Online therapy for women in North Carolina navigating perinatal and infant loss, infertility, postpartum anxiety and depression, and the hormonal and identity shifts of motherhood.",
+    heroHeading: "Therapy for the seasons of womanhood no one prepares you for.",
+    heroIntro:
+      "Support for women across North Carolina moving through perinatal and infant loss, infertility, postpartum changes, and the hormonal and identity shifts that can leave you feeling unlike yourself. Most sessions are online through secure telehealth.",
+    heroImage: "/images/perinatal-postpartum-therapy-hero.jpg",
+    heroImageAlt:
+      "A woman sits on a window seat in soft light with a hand resting gently over her heart, looking out the window with a tender, hopeful expression.",
+    signsHeading: "What this season can hold",
+    signsIntro:
+      "These experiences are common, deeply personal, and often invisible to the people around you. You do not have to carry them quietly to be strong.",
+    signs: [
+      {
+        title: "Perinatal and infant loss",
+        body: "Grief after miscarriage, stillbirth, or the death of an infant — a loss that reshapes everything, even when the world around you moves on too quickly.",
+      },
+      {
+        title: "Infertility and the trying season",
+        body: "The monthly cycle of hope and grief, the strain on your relationship and identity, and the exhaustion of decisions no one else can see.",
+      },
+      {
+        title: "Postpartum anxiety, depression, and rage",
+        body: "Feeling anxious, flat, tearful, irritable, or unlike yourself after birth — including thoughts and feelings that are hard to say out loud.",
+      },
+      {
+        title: "Hormonal and identity shifts",
+        body: "The changes of pregnancy, postpartum, and perimenopause can unsettle mood, energy, and identity, leaving you wondering where you went.",
+      },
+    ],
+    bandHeading: "You are not failing. You are carrying something enormous.",
+    bandBody:
+      "So much of this is endured silently — in bathrooms, in waiting rooms, in the middle of the night. Therapy offers a place where the whole story is welcome: the grief and the guilt, the anger and the ambivalence, the love and the loss, all at once.",
+    helpHeading: "What this therapy can help you do",
+    helpIntro:
+      "Our clinicians who focus on women's mental health work gently and specifically with these seasons of life.",
+    helps: [
+      {
+        title: "Grieve without a timeline",
+        body: "Make room for loss that others may not recognize, at your own pace, with someone who understands perinatal grief specifically.",
+      },
+      {
+        title: "Steady the postpartum season",
+        body: "Understand what is hormonal, what is circumstantial, and what needs care, and build real support for mood, sleep, and overwhelm.",
+      },
+      {
+        title: "Come back to yourself",
+        body: "Work through the identity shifts of motherhood, infertility, or hormonal change, and reconnect with who you are now.",
+      },
+    ],
+    faqHeading: "Perinatal and postpartum therapy questions",
+    faqs: [
+      {
+        q: "Do I need a diagnosis of postpartum depression to start?",
+        a: "No. You do not need a diagnosis, and you do not need to be in crisis. If this season feels heavier, lonelier, or more confusing than you expected, that is reason enough to reach out.",
+      },
+      {
+        q: "Can I start therapy while pregnant or while trying to conceive?",
+        a: "Yes. Many women begin therapy during pregnancy, while navigating infertility, or while deciding what comes next. Support before a crisis often makes the hardest moments more bearable.",
+      },
+      {
+        q: "Is this kind of therapy covered by insurance?",
+        a: "Individual therapy for concerns like postpartum depression, anxiety, and grief is generally eligible for insurance coverage where your clinician is in-network. We help you verify your benefits and understand expected costs before your first session.",
+      },
+      {
+        q: "My loss was early, or a long time ago. Does it still count?",
+        a: "Yes. Grief from miscarriage and infant loss does not follow a schedule and is not measured by how far along you were. If it still weighs on you, it deserves care, whether it happened last month or years ago.",
+      },
+    ],
+  },
+  {
     slug: "grief-life-transitions-therapy",
     shortLabel: "Grief & life transitions",
     name: "Grief & Life Transitions Therapy",
