@@ -8,7 +8,7 @@ const LAPTOP_IMG = "/images/online-therapy-laptop.jpg";
 
 const homeTitle = "Online Therapy in North Carolina | TrueBridge";
 const homeDescription =
-  "TrueBridge provides online therapy for adults and couples across North Carolina, with support for anxiety, depression, stress, trauma, relationships, and life transitions.";
+  "TrueBridge provides online therapy for adults across North Carolina, with support for anxiety, depression, stress, trauma, grief, relationships, and life transitions.";
 
 const orgId = `${SITE_URL}/#organization`;
 const websiteId = `${SITE_URL}/#website`;
@@ -22,7 +22,7 @@ const structuredData = {
       "@id": orgId,
       name: SITE_NAME,
       url: SITE_URL,
-      description: "Online therapy for adults and couples across North Carolina.",
+      description: "Online therapy for adults across North Carolina.",
       areaServed: { "@type": "State", name: "North Carolina" },
       medicalSpecialty: ["MentalHealth", "Psychotherapy"],
       telephone: PUBLIC_PHONE_E164,
@@ -84,6 +84,13 @@ const focusAreas = [
     linkLabel: "Explore grief & life transitions therapy",
   },
   {
+    href: "/services/perinatal-postpartum-therapy",
+    title: "Perinatal & postpartum",
+    description:
+      "Support for women through perinatal and infant loss, infertility, postpartum changes, and the hormonal and identity shifts of motherhood.",
+    linkLabel: "Explore perinatal & postpartum therapy",
+  },
+  {
     href: "/services/trauma-therapy",
     title: "Trauma & PTSD",
     description:
@@ -122,7 +129,7 @@ const focusAreas = [
             Therapy for meaningful, lasting change
           </h1>
           <p class="mb-8 max-w-[600px] text-lg leading-relaxed text-paper [text-shadow:0_1px_2px_rgba(31,42,48,0.26),0_0_16px_rgba(31,42,48,0.14)] md:text-xl">
-            Thoughtful, grounded therapy for individuals and couples across North Carolina, designed to help you better understand
+            Thoughtful, grounded therapy for adults across North Carolina, designed to help you better understand
             yourself, navigate challenges with clarity, and create positive lasting change.
           </p>
           <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
@@ -207,7 +214,7 @@ const focusAreas = [
             Areas of clinical focus
           </h2>
           <p class="max-w-[760px] text-lg leading-relaxed text-paper/90 md:text-xl">
-            We support adults and couples navigating anxiety, depression, relationship concerns, stress, trauma, and major
+            We support adults navigating anxiety, depression, relationship concerns, stress, trauma, and major
             life transitions through thoughtful, evidence-informed therapy.
           </p>
         </div>
