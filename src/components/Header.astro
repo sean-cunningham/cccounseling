@@ -21,6 +21,14 @@ const serviceItems = [
   },
 ] as const;
 
+const focusItems = [
+  { href: "/services/anxiety-therapy", label: "Anxiety" },
+  { href: "/services/depression-therapy", label: "Depression" },
+  { href: "/services/trauma-therapy", label: "Trauma & PTSD" },
+  { href: "/services/stress-burnout-therapy", label: "Stress & Burnout" },
+  { href: "/services/grief-life-transitions-therapy", label: "Grief & Life Transitions" },
+] as const;
+
 const navRest = [
   { href: "/clinicians", label: "Our Clinicians" },
   { href: "/insurance-rates", label: "Insurance & Rates" },
@@ -130,6 +138,23 @@ const servicesActive = isActive("/services");
                   </a>
                 ))
               }
+              <p class="mb-1 mt-3 border-t border-line px-3 pt-3 text-[0.7rem] font-semibold uppercase tracking-wider text-muted">
+                Areas of focus
+              </p>
+              {
+                focusItems.map((item) => (
+                  <a
+                    href={item.href}
+                    role="menuitem"
+                    class:list={[
+                      "block rounded-lg px-3 py-1.5 text-[0.9rem] font-medium text-ink/85 no-underline transition-colors hover:bg-paper hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-smoke",
+                      isActive(item.href) && "bg-paper text-sageDark",
+                    ]}
+                  >
+                    {item.label}
+                  </a>
+                ))
+              }
             </div>
           </div>
         </div>
@@ -193,6 +218,17 @@ const servicesActive = isActive("/services");
                 aria-current={isActive(item.href) ? "page" : undefined}
               >
                 {item.title}
+              </a>
+            ))
+          }
+          {
+            focusItems.map((item) => (
+              <a
+                href={item.href}
+                class="rounded-lg py-1.5 pl-2 text-sm font-medium text-ink/75 no-underline transition-colors hover:bg-smoke hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2"
+                aria-current={isActive(item.href) ? "page" : undefined}
+              >
+                {item.label}
               </a>
             ))
           }
