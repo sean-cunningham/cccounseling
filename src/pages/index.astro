@@ -2,11 +2,9 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { SITE_URL, SITE_NAME, PUBLIC_PHONE_E164, PUBLIC_EMAIL } from "@/constants/site";
 
-/** Original full-bleed hero image URL — replace in one place when updating photography. */
-const HERO_IMG =
-  "https://static.wixstatic.com/media/5ea397_a6fab48af623451487054d8fbe302ed5~mv2.jpg";
-const LAPTOP_IMG =
-  "https://static.wixstatic.com/media/11062b_4d4cc94a6ee04634abe5e3f340d27c6a~mv2.jpeg";
+/** Full-bleed hero image — replace in one place when updating photography. */
+const HERO_IMG = "/images/home-hero.jpg";
+const LAPTOP_IMG = "/images/online-therapy-laptop.jpg";
 
 const homeTitle = "Online Therapy in North Carolina | TrueBridge";
 const homeDescription =
@@ -48,6 +46,51 @@ const structuredData = {
     },
   ],
 };
+
+const focusAreas = [
+  {
+    href: "/services/anxiety-therapy",
+    title: "Anxiety",
+    description:
+      "Support for worry, overthinking, panic, avoidance, and the constant sense that your mind will not slow down.",
+    linkLabel: "Explore anxiety therapy",
+  },
+  {
+    href: "/services/depression-therapy",
+    title: "Depression",
+    description:
+      "Care for low mood, loss of motivation, emotional heaviness, isolation, and feeling disconnected from yourself or others.",
+    linkLabel: "Explore depression therapy",
+  },
+  {
+    href: "/services/couples-therapy",
+    title: "Relationships",
+    description:
+      "Therapy for communication patterns, conflict, disconnection, trust concerns, and the work of rebuilding closeness.",
+    linkLabel: "Explore couples therapy",
+  },
+  {
+    href: "/services/stress-burnout-therapy",
+    title: "Stress & burnout",
+    description:
+      "Support for chronic pressure, emotional exhaustion, work stress, caregiving strain, and difficulty feeling present in daily life.",
+    linkLabel: "Explore stress & burnout therapy",
+  },
+  {
+    href: "/services/grief-life-transitions-therapy",
+    title: "Life transitions",
+    description:
+      "A steady place to process change, including career shifts, parenting, grief, moves, identity questions, and new seasons of life.",
+    linkLabel: "Explore grief & life transitions therapy",
+  },
+  {
+    href: "/services/trauma-therapy",
+    title: "Trauma & PTSD",
+    description:
+      "Thoughtful support for painful experiences, nervous system overwhelm, emotional triggers, and patterns that continue to affect daily life.",
+    linkLabel: "Explore trauma therapy",
+  },
+] as const;
 ---
 
 <BaseLayout title={homeTitle} description={homeDescription} structuredData={structuredData}>
@@ -169,58 +212,22 @@ const structuredData = {
           </p>
         </div>
         <div class="grid grid-cols-1 gap-y-0 md:grid-cols-2 md:gap-x-16 md:gap-y-0">
-          <div class="border-t border-paper/25 py-8 text-left">
-            <h3 class="mb-4 font-display text-3xl leading-[1.08] tracking-tight text-paper md:text-4xl">
-              Anxiety
-            </h3>
-            <p class="max-w-[500px] text-base leading-relaxed text-paper/90 md:text-lg">
-              Support for worry, overthinking, panic, avoidance, and the constant sense that your mind will not slow down.
-            </p>
-          </div>
-          <div class="border-t border-paper/25 py-8 text-left">
-            <h3 class="mb-4 font-display text-3xl leading-[1.08] tracking-tight text-paper md:text-4xl">
-              Depression
-            </h3>
-            <p class="max-w-[500px] text-base leading-relaxed text-paper/90 md:text-lg">
-              Care for low mood, loss of motivation, emotional heaviness, isolation, and feeling disconnected from yourself
-              or others.
-            </p>
-          </div>
-          <div class="border-t border-paper/25 py-8 text-left">
-            <h3 class="mb-4 font-display text-3xl leading-[1.08] tracking-tight text-paper md:text-4xl">
-              Relationships
-            </h3>
-            <p class="max-w-[500px] text-base leading-relaxed text-paper/90 md:text-lg">
-              Therapy for communication patterns, conflict, disconnection, trust concerns, and the work of rebuilding closeness.
-            </p>
-          </div>
-          <div class="border-t border-paper/25 py-8 text-left">
-            <h3 class="mb-4 font-display text-3xl leading-[1.08] tracking-tight text-paper md:text-4xl">
-              Stress &amp; burnout
-            </h3>
-            <p class="max-w-[500px] text-base leading-relaxed text-paper/90 md:text-lg">
-              Support for chronic pressure, emotional exhaustion, work stress, caregiving strain, and difficulty feeling present
-              in daily life.
-            </p>
-          </div>
-          <div class="border-t border-paper/25 py-8 text-left">
-            <h3 class="mb-4 font-display text-3xl leading-[1.08] tracking-tight text-paper md:text-4xl">
-              Life transitions
-            </h3>
-            <p class="max-w-[500px] text-base leading-relaxed text-paper/90 md:text-lg">
-              A steady place to process change, including career shifts, parenting, grief, moves, identity questions, and new
-              seasons of life.
-            </p>
-          </div>
-          <div class="border-t border-paper/25 py-8 text-left">
-            <h3 class="mb-4 font-display text-3xl leading-[1.08] tracking-tight text-paper md:text-4xl">
-              Trauma &amp; PTSD
-            </h3>
-            <p class="max-w-[500px] text-base leading-relaxed text-paper/90 md:text-lg">
-              Thoughtful support for painful experiences, nervous system overwhelm, emotional triggers, and patterns that continue
-              to affect daily life.
-            </p>
-          </div>
+          {
+            focusAreas.map((area) => (
+              <div class="border-t border-paper/25 py-8 text-left">
+                <h3 class="mb-4 font-display text-3xl leading-[1.08] tracking-tight text-paper md:text-4xl">
+                  {area.title}
+                </h3>
+                <p class="max-w-[500px] text-base leading-relaxed text-paper/90 md:text-lg">{area.description}</p>
+                <a
+                  href={area.href}
+                  class="mt-4 inline-flex text-base font-semibold text-paper underline decoration-sage underline-offset-4 transition-colors hover:decoration-mist"
+                >
+                  {area.linkLabel}
+                </a>
+              </div>
+            ))
+          }
         </div>
         <p class="mt-10 max-w-[820px] border-t border-paper/25 pt-8 text-base leading-relaxed text-paper/90 md:text-lg">
           We also support clients with grief, self-esteem, anger, OCD, body image concerns, addiction, and other challenges.
