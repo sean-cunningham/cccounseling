@@ -121,83 +121,54 @@ const structuredData = [
           to receive. Profiles are added here as the team expands. When you reach out, we can talk through who is accepting clients,
           scheduling options, and whether TrueBridge feels like the right next step.
         </p>
-        <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <div class="mx-auto max-w-[880px] space-y-14 lg:space-y-16">
           {
-            CLINICIANS.map((clinician) => (
+            CLINICIANS.map((clinician, index) => (
               <article
                 id={clinician.slug}
-                class="rounded-[36px] border border-line bg-paper p-6 text-left shadow-[0_12px_32px_rgba(31,42,48,0.06)] lg:p-8"
+                class:list={["text-left", index > 0 && "border-t border-line pt-14 lg:pt-16"]}
               >
                 {clinician.isPlaceholder && (
-                  <p class="mb-5 inline-flex rounded-full border border-clay/30 bg-claySoft px-3 py-1 text-xs font-semibold uppercase tracking-wider text-clay">
+                  <p class="mb-7 inline-flex rounded-full border border-clay/30 bg-claySoft px-3 py-1 text-xs font-semibold uppercase tracking-wider text-clay">
                     Sample profile — real clinician profiles coming soon
                   </p>
                 )}
-                <div class="flex items-start gap-5">
+                <div class="flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-10 lg:gap-12">
                   {clinician.photo ? (
                     <img
                       src={clinician.photo}
                       alt={`${clinician.name}, ${clinician.credentials}`}
-                      width="112"
-                      height="112"
-                      class="h-24 w-24 shrink-0 rounded-full border border-line object-cover lg:h-28 lg:w-28"
+                      width="208"
+                      height="208"
+                      class="h-40 w-40 shrink-0 rounded-full border border-line object-cover sm:h-44 sm:w-44 lg:h-52 lg:w-52"
                       loading="lazy"
                     />
                   ) : (
                     <div
-                      class="flex h-24 w-24 shrink-0 items-center justify-center rounded-full border border-line bg-smoke font-display text-3xl font-semibold text-sageDark lg:h-28 lg:w-28"
+                      class="flex h-40 w-40 shrink-0 items-center justify-center rounded-full border border-line bg-mist font-display text-5xl font-semibold text-sageDark sm:h-44 sm:w-44 lg:h-52 lg:w-52"
                       aria-hidden="true"
                     >
                       {initials(clinician.name)}
                     </div>
                   )}
-                  <div class="min-w-0 pt-1">
-                    <h3 class="font-display text-2xl font-semibold leading-snug text-ink lg:text-3xl">
+                  <div class="min-w-0">
+                    <h3 class="font-display text-3xl leading-snug tracking-tight text-ink lg:text-4xl">
                       {clinician.name}, {clinician.credentials}
                     </h3>
-                    <p class="mt-1 text-base text-muted">{clinician.title}</p>
-                    <p
-                      class:list={[
-                        "mt-2 inline-flex items-center gap-2 text-sm font-semibold",
-                        clinician.acceptingClients ? "text-sageDark" : "text-muted",
-                      ]}
+                    <p class="mt-2 text-base text-muted md:text-lg">{clinician.title}</p>
+                    <div class="mt-6 space-y-4">
+                      {clinician.bio.map((paragraph) => (
+                        <p class="text-base leading-relaxed text-muted md:text-lg">{paragraph}</p>
+                      ))}
+                    </div>
+                    <a
+                      href="/contact-get-started"
+                      class="mt-7 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
                     >
-                      <span
-                        class:list={[
-                          "h-2 w-2 rounded-full",
-                          clinician.acceptingClients ? "bg-sageDark" : "bg-sand",
-                        ]}
-                        aria-hidden="true"
-                      />
-                      {clinician.acceptingClients ? "Accepting new clients" : "Not currently accepting new clients"}
-                    </p>
+                      Ask about working with {clinician.isPlaceholder ? "our clinicians" : clinician.name.split(" ")[0]}
+                    </a>
                   </div>
                 </div>
-                <div class="mt-6 border-t border-line pt-5">
-                  <p class="mb-2 text-sm font-semibold uppercase tracking-wider text-muted">Services</p>
-                  <p class="text-base leading-relaxed text-ink">{clinician.services.join(" · ")}</p>
-                </div>
-                <div class="mt-5">
-                  <p class="mb-2 text-sm font-semibold uppercase tracking-wider text-muted">Focus areas</p>
-                  <ul class="flex flex-wrap gap-2">
-                    {clinician.specialties.map((specialty) => (
-                      <li class="rounded-full border border-line bg-smoke px-3.5 py-1.5 text-sm font-medium text-ink">
-                        {specialty}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div class="mt-5 space-y-3">
-                  {clinician.bio.map((paragraph) => (
-                    <p class="text-base leading-relaxed text-muted">{paragraph}</p>
-                  ))}
-                </div>
-                <a
-                  href="/contact-get-started"
-                  class="mt-6 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
-                >
-                  Ask about working with our clinicians
-                </a>
               </article>
             ))
           }

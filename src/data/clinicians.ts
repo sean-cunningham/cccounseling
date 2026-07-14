@@ -25,13 +25,18 @@ export interface Clinician {
   title: string;
   /** Optional headshot path under /public. Falls back to an initials avatar. */
   photo?: string;
-  /** Services offered, e.g. ["Individual therapy", "Couples therapy"] */
-  services: string[];
-  /** Clinical focus areas shown as tags */
+  /**
+   * Clinical focus areas. Not shown on the page — used only in the page's
+   * Person JSON-LD (`knowsAbout`) so search engines understand each
+   * clinician's specialties.
+   */
   specialties: string[];
-  /** Short bio paragraphs */
+  /**
+   * Bio paragraphs. This is the heart of the profile — write it warm and
+   * personal (who they are, how therapy with them feels, who they love
+   * working with) rather than a list of credentials.
+   */
   bio: string[];
-  acceptingClients: boolean;
   /** True for demo/sample entries; excluded from JSON-LD, badged on the page. */
   isPlaceholder?: boolean;
 }
@@ -42,13 +47,11 @@ export const CLINICIANS: Clinician[] = [
     name: "Clinician Name",
     credentials: "LCMHC",
     title: "Licensed Clinical Mental Health Counselor",
-    services: ["Individual therapy", "Couples therapy"],
     specialties: ["Anxiety", "Depression", "Trauma & PTSD", "Life transitions"],
     bio: [
-      "This is a sample profile showing how clinician bios will appear as our team grows. Each profile will describe the clinician's background, therapy style, and the clients they most often support.",
-      "Real profiles will include licensure details, focus areas, and current availability so you can get a sense of fit before reaching out.",
+      "This is a sample profile showing how clinician bios will appear as our team grows. Each bio is written in the clinician's own voice — who they are, how they approach the work, and the kinds of people they most often walk alongside.",
+      "Real profiles will give you a genuine sense of the person behind the credentials, so you can tell whether it feels like the right fit before you ever reach out.",
     ],
-    acceptingClients: true,
     isPlaceholder: true,
   },
 ];
