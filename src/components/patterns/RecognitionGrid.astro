@@ -1,0 +1,76 @@
+---
+/**
+ * Recognition Grid — full-width heading + a scannable grid of compact cards.
+ * Replaces the heading-left / bordered-rows-right template for peer lists
+ * (signs sections, "why us" lists, focus areas). See .cursor/rules/design.md.
+ */
+interface Item {
+  title: string;
+  body: string;
+  href?: string;
+  linkLabel?: string;
+}
+
+interface Props {
+  heading: string;
+  headingId: string;
+  intro?: string;
+  items: readonly Item[] | Item[];
+  /** "light" = paper section with smoke cards; "dark" = sageDark section. */
+  tone?: "light" | "dark";
+  columns?: 2 | 3;
+  class?: string;
+}
+
+const { heading, headingId, intro, items, tone = "light", columns = 2, class: className } = Astro.props;
+
+const sectionClass =
+  tone === "dark" ? "border-t border-line bg-sageDark py-14 text-paper lg:py-20" : "border-t border-line bg-paper py-14 lg:py-20";
+const headingClass =
+  tone === "dark"
+    ? "mb-3 text-center font-display text-4xl font-semibold leading-[1.12] tracking-tight text-paper md:text-5xl"
+    : "mb-3 text-center font-display text-4xl font-semibold leading-[1.12] tracking-tight text-ink md:text-5xl";
+const introClass =
+  tone === "dark"
+    ? "mx-auto mb-10 max-w-[640px] text-center text-lg leading-relaxed text-paper/90"
+    : "mx-auto mb-10 max-w-[640px] text-center text-lg leading-relaxed text-muted";
+const cardClass =
+  tone === "dark"
+    ? "rounded-[24px] border border-paper/20 bg-paper/10 p-6"
+    : "rounded-[24px] border border-line bg-smoke p-6";
+const cardTitleClass =
+  tone === "dark"
+    ? "mb-2 font-display text-xl font-semibold leading-snug text-paper"
+    : "mb-2 font-display text-xl font-semibold leading-snug text-ink";
+const cardBodyClass =
+  tone === "dark" ? "text-base leading-relaxed text-paper/85" : "text-base leading-relaxed text-muted";
+const cardLinkClass =
+  tone === "dark"
+    ? "mt-3 inline-flex text-base font-semibold text-paper underline decoration-sage underline-offset-4 transition-colors hover:decoration-mist"
+    : "mt-3 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage";
+const gridClass =
+  columns === 3 ? "grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-5" : "grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-5";
+---
+
+<section class:list={[sectionClass, className]} aria-labelledby={headingId}>
+  <div class="mx-auto max-w-[1100px] px-5 sm:px-6 lg:px-10">
+    <h2 id={headingId} class={headingClass}>{heading}</h2>
+    {intro && <p class={introClass}>{intro}</p>}
+    <div class={gridClass}>
+      {
+        items.map((item) => (
+          <div class={cardClass}>
+            <h3 class={cardTitleClass}>{item.title}</h3>
+            <p class={cardBodyClass}>{item.body}</p>
+            {item.href && item.linkLabel && (
+              <a href={item.href} class={cardLinkClass}>
+                {item.linkLabel}
+              </a>
+            )}
+          </div>
+        ))
+      }
+    </div>
+    <slot />
+  </div>
+</section>

@@ -12,3 +12,9 @@ export const SITE_NAME = "TrueBridge" as const;
 export const PUBLIC_PHONE_E164 = "+19842076172" as const;
 export const PUBLIC_PHONE_DISPLAY = "984-207-6172" as const;
 export const PUBLIC_EMAIL = "info@truebridgetherapy.com" as const;
+
+/** Friction-removing line shown near primary CTAs (fact source: /insurance-rates). */
+export const FREE_CONSULT_LINE = "The first consultation is free." as const;
+
+/** Compact trust line for closing CTA bands. */
+export const TRUST_LINE = "Licensed clinicians · North Carolina · Telehealth" as const;
