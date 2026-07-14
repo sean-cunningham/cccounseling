@@ -45,96 +45,24 @@ const structuredData = [
 
 <BaseLayout title="Our Clinicians | TrueBridge" {description} structuredData={structuredData}>
   <main id="main">
-    <section class="border-b border-line bg-smoke py-16 lg:py-24" aria-labelledby="clinicians-hero-heading">
-      <div class="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-10">
-        <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-          <div class="min-w-0 text-left">
-            <h1
-              id="clinicians-hero-heading"
-              class="mb-6 font-display text-5xl leading-[1.05] tracking-tight text-ink md:text-6xl"
-            >
-              Our clinicians
-            </h1>
-            <p class="max-w-[660px] text-lg leading-relaxed text-muted md:text-xl">
-              Finding the right therapist matters. TrueBridge helps clients connect with clinicians based on fit, focus area,
-              availability, and the kind of support they are looking for.
-            </p>
-          </div>
-          <div class="min-w-0">
-            <img
-              src="/images/clinicians-connection.jpg"
-              alt="Two people talk warmly over tea at a sunlit kitchen table, one listening attentively as the other speaks."
-              width="1400"
-              height="933"
-              class="h-[280px] w-full rounded-[32px] border border-line object-cover shadow-[0_12px_32px_rgba(31,42,48,0.06)] sm:h-[320px] md:h-[380px] lg:h-[420px]"
-              loading="eager"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="border-t border-line bg-paper py-16 lg:py-24" aria-labelledby="clinician-fit-heading">
-      <div class="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-10">
-        <div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-          <div>
-            <h2
-              id="clinician-fit-heading"
-              class="font-display text-4xl leading-[1.12] tracking-tight text-ink md:text-5xl"
-            >
-              Therapy works best when the fit feels right.
-            </h2>
-            <p class="mt-6 max-w-[480px] text-lg leading-relaxed text-muted">
-              The right fit is not just about credentials. It also includes communication style, clinical focus, scheduling, and whether
-              you feel understood enough to begin the work.
-            </p>
-          </div>
-          <div>
-            <div class="border-t border-line py-7">
-              <h3 class="mb-3 font-display text-2xl leading-snug tracking-tight text-ink">Clinical focus</h3>
-              <p class="max-w-[680px] text-base leading-relaxed text-muted md:text-lg">
-                We consider whether a clinician’s areas of focus align with what you are looking for, including individual therapy,
-                couples therapy, anxiety, depression, stress, trauma, relationship concerns, and life transitions.
-              </p>
-            </div>
-            <div class="border-t border-line py-7">
-              <h3 class="mb-3 font-display text-2xl leading-snug tracking-tight text-ink">Style and approach</h3>
-              <p class="max-w-[680px] text-base leading-relaxed text-muted md:text-lg">
-                Some clients want a therapist who is more reflective and exploratory. Others want more structure, feedback, and practical
-                tools. Fit includes how therapy feels in the room.
-              </p>
-            </div>
-            <div class="border-t border-line py-7">
-              <h3 class="mb-3 font-display text-2xl leading-snug tracking-tight text-ink">Availability</h3>
-              <p class="max-w-[680px] text-base leading-relaxed text-muted md:text-lg">
-                Scheduling matters. We consider clinician availability and your preferences so the first step feels realistic and
-                sustainable.
-              </p>
-            </div>
-            <div class="border-t border-line py-7">
-              <h3 class="mb-3 font-display text-2xl leading-snug tracking-tight text-ink">Service type</h3>
-              <p class="max-w-[680px] text-base leading-relaxed text-muted md:text-lg">
-                We help determine whether individual therapy, couples therapy, or another path is the better place to begin.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="border-t border-line bg-smoke py-16 lg:py-24" aria-labelledby="profiles-heading">
-      <div class="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-10">
-        <h2
-          id="profiles-heading"
-          class="mb-6 max-w-[760px] font-display text-4xl leading-[1.12] tracking-tight text-ink md:text-5xl"
+    <section class="border-b border-line bg-smoke py-14 lg:py-20" aria-labelledby="clinicians-hero-heading">
+      <div class="mx-auto max-w-[900px] px-5 text-left sm:px-6 lg:px-10">
+        <h1
+          id="clinicians-hero-heading"
+          class="mb-6 font-display text-5xl leading-[1.05] tracking-tight text-ink md:text-6xl"
         >
-          A clinical team built with care
-        </h2>
-        <p class="mb-12 max-w-[760px] text-lg leading-relaxed text-muted md:text-xl">
-          TrueBridge is growing intentionally, adding clinicians whose training, style, and availability align with the care we want clients
-          to receive. Profiles are added here as the team expands. When you reach out, we can talk through who is accepting clients,
-          scheduling options, and whether TrueBridge feels like the right next step.
+          Our clinicians
+        </h1>
+        <p class="max-w-[760px] text-lg leading-relaxed text-muted md:text-xl">
+          Finding the right therapist matters. TrueBridge helps clients connect with clinicians based on fit, focus area,
+          availability, and the kind of support they are looking for.
         </p>
+      </div>
+    </section>
+
+    <section class="border-t border-line bg-paper py-14 lg:py-20" aria-labelledby="profiles-heading">
+      <div class="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-10">
+        <h2 id="profiles-heading" class="sr-only">Clinician profiles</h2>
         <div class="mx-auto max-w-[880px] space-y-14 lg:space-y-16">
           {
             CLINICIANS.map((clinician, index) => (
@@ -187,6 +115,48 @@ const structuredData = [
             ))
           }
         </div>
+        <p class="mx-auto mt-14 max-w-[880px] text-left text-base leading-relaxed text-muted lg:mt-16">
+          TrueBridge is growing intentionally, and new clinician profiles are added here as the team expands. Every
+          clinician who provides therapy through TrueBridge holds appropriate professional licensure or authorization to
+          practice in North Carolina, and before care begins we make sure you know who you will be working with, what
+          service is being provided, and what scheduling and payment look like.
+        </p>
+      </div>
+    </section>
+
+    <section class="border-t border-line bg-sageDark py-16 text-paper lg:py-24" aria-labelledby="matching-heading">
+      <div class="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-10">
+        <h2
+          id="matching-heading"
+          class="mb-6 max-w-[760px] font-display text-4xl leading-[1.12] tracking-tight text-paper md:text-5xl"
+        >
+          How matching works
+        </h2>
+        <p class="mb-14 max-w-[760px] text-lg leading-relaxed text-paper/90 md:text-xl">
+          You do not have to sort through clinician fit alone. The right fit is more than credentials — it includes
+          clinical focus, communication style, scheduling, and whether you feel understood enough to begin the work. When
+          you reach out, we help clarify what you are looking for and identify the best available next step.
+        </p>
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div class="border-t border-paper/25 pt-6">
+            <h3 class="mb-3 font-display text-2xl leading-snug text-paper">Tell us what you need</h3>
+            <p class="text-base leading-relaxed text-paper/90 md:text-lg">
+              Share what brings you to therapy, whether you are looking for individual or couples therapy, and any preferences that matter.
+            </p>
+          </div>
+          <div class="border-t border-paper/25 pt-6">
+            <h3 class="mb-3 font-display text-2xl leading-snug text-paper">We review fit</h3>
+            <p class="text-base leading-relaxed text-paper/90 md:text-lg">
+              We consider availability, focus area, style, scheduling, and whether a clinician may be a good match.
+            </p>
+          </div>
+          <div class="border-t border-paper/25 pt-6">
+            <h3 class="mb-3 font-display text-2xl leading-snug text-paper">Begin with clarity</h3>
+            <p class="text-base leading-relaxed text-paper/90 md:text-lg">
+              If there is a good fit, we help you understand next steps before beginning care.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -215,60 +185,6 @@ const structuredData = [
             </a>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="border-t border-line bg-sageDark py-16 text-paper lg:py-24" aria-labelledby="matching-heading">
-      <div class="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-10">
-        <h2
-          id="matching-heading"
-          class="mb-6 max-w-[760px] font-display text-4xl leading-[1.12] tracking-tight text-paper md:text-5xl"
-        >
-          How matching works
-        </h2>
-        <p class="mb-14 max-w-[760px] text-lg leading-relaxed text-paper/90 md:text-xl">
-          You do not have to sort through clinician fit alone. When you reach out, we help clarify what you are looking for and identify
-          the best available next step.
-        </p>
-        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
-          <div class="border-t border-paper/25 pt-6">
-            <h3 class="mb-3 font-display text-2xl leading-snug text-paper">Tell us what you need</h3>
-            <p class="text-base leading-relaxed text-paper/90 md:text-lg">
-              Share what brings you to therapy, whether you are looking for individual or couples therapy, and any preferences that matter.
-            </p>
-          </div>
-          <div class="border-t border-paper/25 pt-6">
-            <h3 class="mb-3 font-display text-2xl leading-snug text-paper">We review fit</h3>
-            <p class="text-base leading-relaxed text-paper/90 md:text-lg">
-              We consider availability, focus area, scheduling, service type, and whether a clinician may be a good match.
-            </p>
-          </div>
-          <div class="border-t border-paper/25 pt-6">
-            <h3 class="mb-3 font-display text-2xl leading-snug text-paper">Begin with clarity</h3>
-            <p class="text-base leading-relaxed text-paper/90 md:text-lg">
-              If there is a good fit, we help you understand next steps before beginning care.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="border-t border-line bg-mist py-14 lg:py-20" aria-labelledby="licensure-heading">
-      <div class="mx-auto max-w-[900px] px-5 sm:px-6 lg:px-10">
-        <h2
-          id="licensure-heading"
-          class="mb-5 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl"
-        >
-          About clinicians who work with TrueBridge
-        </h2>
-        <p class="text-base leading-relaxed text-muted md:text-lg">
-          Clinicians who provide therapy through TrueBridge are part of our clinical team and are expected to hold appropriate professional
-          licensure or authorization to provide therapy services in North Carolina.
-        </p>
-        <p class="mt-5 text-base leading-relaxed text-muted md:text-lg">
-          Before beginning care, we help clients understand who they will be working with, what service is being provided, and the next
-          steps for scheduling and payment.
-        </p>
       </div>
     </section>
 

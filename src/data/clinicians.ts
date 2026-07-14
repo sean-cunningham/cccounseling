@@ -43,16 +43,24 @@ export interface Clinician {
 
 export const CLINICIANS: Clinician[] = [
   {
-    slug: "sample-clinician",
-    name: "Clinician Name",
-    credentials: "LCMHC",
-    title: "Licensed Clinical Mental Health Counselor",
-    specialties: ["Anxiety", "Depression", "Trauma & PTSD", "Life transitions"],
-    bio: [
-      "This is a sample profile showing how clinician bios will appear as our team grows. Each bio is written in the clinician's own voice — who they are, how they approach the work, and the kinds of people they most often walk alongside.",
-      "Real profiles will give you a genuine sense of the person behind the credentials, so you can tell whether it feels like the right fit before you ever reach out.",
+    slug: "jade-spielman",
+    name: "Jade Spielman",
+    credentials: "LMFT",
+    title: "Licensed Marriage and Family Therapist",
+    // TODO: add headshot to /public/images/clinicians/jade-spielman.jpg and
+    // replace this adapted bio with Jade's final copy when it arrives.
+    specialties: [
+      "Grief and loss",
+      "Perinatal and infant loss",
+      "Infertility",
+      "Postpartum transitions",
+      "Hormonal and identity shifts",
+      "Relationship concerns",
     ],
-    isPlaceholder: true,
+    bio: [
+      "Jade specializes in supporting women through grief, perinatal and infant loss, infertility, and postpartum transitions — as well as the hormonal and identity shifts that can leave us feeling unlike ourselves.",
+      "As a licensed marriage and family therapist, she brings a warm, relational lens to individual work, holding space for the losses and changes that so often go unseen while helping you find your footing in what comes next.",
+    ],
   },
 ];
 
