@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { SITE_URL } from "@/constants/site";
+import { SPECIALTIES } from "@/data/specialties";
 
 const IMG_INDIVIDUAL = "/images/services-overview-individual.png";
 const IMG_COUPLES = "/images/services-overview-couples.png";
@@ -24,16 +25,41 @@ const structuredData = {
   hasPart: [
     { "@id": `${SITE_URL}/services/individual-therapy/#service` },
     { "@id": `${SITE_URL}/services/couples-therapy/#service` },
+    ...SPECIALTIES.map((s) => ({ "@id": `${SITE_URL}/services/${s.slug}/#service` })),
   ],
 };
 
-const commonReasons = [
-  "Anxiety and overthinking",
-  "Depression and disconnection",
-  "Stress and burnout",
-  "Trauma and painful experiences",
-  "Life transitions and grief",
-  "Relationship concerns",
+const focusAreas = [
+  {
+    href: "/services/anxiety-therapy",
+    title: "Anxiety and overthinking",
+    description: "Support for worry, panic, avoidance, and a mind that will not slow down.",
+  },
+  {
+    href: "/services/depression-therapy",
+    title: "Depression and disconnection",
+    description: "Care for low mood, lost motivation, emotional heaviness, and isolation.",
+  },
+  {
+    href: "/services/stress-burnout-therapy",
+    title: "Stress and burnout",
+    description: "Help with chronic pressure, work stress, caregiving strain, and exhaustion.",
+  },
+  {
+    href: "/services/trauma-therapy",
+    title: "Trauma and painful experiences",
+    description: "Paced support for PTSD, triggers, and experiences that still shape daily life.",
+  },
+  {
+    href: "/services/grief-life-transitions-therapy",
+    title: "Grief and life transitions",
+    description: "Steady support after loss and through divorce, career change, and new seasons.",
+  },
+  {
+    href: "/services/couples-therapy",
+    title: "Relationship concerns",
+    description: "Help for communication, conflict, trust, and rebuilding closeness together.",
+  },
 ] as const;
 ---
 
@@ -213,14 +239,21 @@ const commonReasons = [
         </h2>
         <p class="mb-14 max-w-[760px] text-lg leading-relaxed text-paper/90 md:text-xl">
           Therapy can be helpful when something feels difficult to carry alone, hard to understand, or stuck in a pattern that
-          keeps repeating.
+          keeps repeating. Explore how we support each area of focus.
         </p>
         <div class="grid grid-cols-1 gap-0 lg:grid-cols-2 lg:gap-x-16">
           {
-            commonReasons.map((label) => (
-              <div class="border-t border-paper/25 py-6 font-display text-2xl font-semibold leading-tight tracking-tight text-paper md:text-3xl">
-                {label}
-              </div>
+            focusAreas.map((area) => (
+              <a
+                href={area.href}
+                class="group block border-t border-paper/25 py-6 no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-sageDark"
+              >
+                <span class="flex items-baseline justify-between gap-4 font-display text-2xl font-semibold leading-tight tracking-tight text-paper transition-colors group-hover:text-mist md:text-3xl">
+                  {area.title}
+                  <span aria-hidden="true" class="text-xl transition-transform group-hover:translate-x-1">→</span>
+                </span>
+                <span class="mt-2 block max-w-[520px] text-base leading-relaxed text-paper/80">{area.description}</span>
+              </a>
             ))
           }
         </div>

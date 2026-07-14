@@ -1,11 +1,49 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { SITE_URL } from "@/constants/site";
+import { CLINICIANS, PUBLISHED_CLINICIANS } from "@/data/clinicians";
 
 const description =
-  "Learn how TrueBridge helps clients connect with clinicians based on fit, focus area, availability, and the type of support they are looking for.";
+  "Meet the licensed therapists at TrueBridge and learn how we match clients with clinicians based on fit, focus area, availability, and the type of support they are looking for.";
+
+const pageUrl = `${SITE_URL}/clinicians/`;
+const orgId = `${SITE_URL}/#organization`;
+
+function initials(name: string): string {
+  return name
+    .split(/\s+/)
+    .map((part) => part[0])
+    .filter(Boolean)
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+}
+
+const structuredData = [
+  {
+    "@type": "CollectionPage",
+    "@id": `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: "Our Clinicians | TrueBridge",
+    description,
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    about: { "@id": orgId },
+  },
+  // Only real (non-placeholder) clinicians are exposed to search engines.
+  ...PUBLISHED_CLINICIANS.map((c) => ({
+    "@type": "Person",
+    "@id": `${pageUrl}#${c.slug}`,
+    name: `${c.name}, ${c.credentials}`,
+    jobTitle: c.title,
+    worksFor: { "@id": orgId },
+    knowsAbout: c.specialties,
+    ...(c.photo ? { image: new URL(c.photo, SITE_URL).href } : {}),
+    url: `${pageUrl}#${c.slug}`,
+  })),
+];
 ---
 
-<BaseLayout title="Our Clinicians | TrueBridge" {description}>
+<BaseLayout title="Our Clinicians | TrueBridge" {description} structuredData={structuredData}>
   <main id="main">
     <section class="border-b border-line bg-smoke py-16 lg:py-24" aria-labelledby="clinicians-hero-heading">
       <div class="mx-auto max-w-[900px] px-5 text-left sm:px-6 lg:px-10">
@@ -80,33 +118,116 @@ const description =
         </h2>
         <p class="mb-12 max-w-[760px] text-lg leading-relaxed text-muted md:text-xl">
           TrueBridge is growing intentionally, adding clinicians whose training, style, and availability align with the care we want clients
-          to receive. As the team expands, this page will help you understand who is available and how we match clients with the right fit.
+          to receive. Profiles are added here as the team expands. When you reach out, we can talk through who is accepting clients,
+          scheduling options, and whether TrueBridge feels like the right next step.
         </p>
-        <div
-          class="rounded-[36px] border border-line bg-paper p-6 shadow-[0_12px_32px_rgba(31,42,48,0.06)] lg:p-8"
-        >
-          <div class="grid grid-cols-1 gap-8 text-left md:grid-cols-3">
-            <div class="border-t border-line pt-6">
-              <h3 class="mb-3 font-display text-2xl leading-snug text-ink">Thoughtful growth</h3>
-              <p class="text-base leading-relaxed text-muted">
-                We add clinicians deliberately, with attention to licensure, clinical focus, and how each provider's work supports the
-                practice as a whole.
-              </p>
-            </div>
-            <div class="border-t border-line pt-6">
-              <h3 class="mb-3 font-display text-2xl leading-snug text-ink">Clear fit</h3>
-              <p class="text-base leading-relaxed text-muted">
-                As profiles are added, they will make it easier to understand each clinician's focus areas, therapy style, and the clients
-                they commonly support.
-              </p>
-            </div>
-            <div class="border-t border-line pt-6">
-              <h3 class="mb-3 font-display text-2xl leading-snug text-ink">Current availability</h3>
-              <p class="text-base leading-relaxed text-muted">
-                When you reach out, we can talk through who is accepting clients, scheduling options, and whether TrueBridge feels like the
-                right next step.
-              </p>
-            </div>
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          {
+            CLINICIANS.map((clinician) => (
+              <article
+                id={clinician.slug}
+                class="rounded-[36px] border border-line bg-paper p-6 text-left shadow-[0_12px_32px_rgba(31,42,48,0.06)] lg:p-8"
+              >
+                {clinician.isPlaceholder && (
+                  <p class="mb-5 inline-flex rounded-full border border-clay/30 bg-claySoft px-3 py-1 text-xs font-semibold uppercase tracking-wider text-clay">
+                    Sample profile — real clinician profiles coming soon
+                  </p>
+                )}
+                <div class="flex items-start gap-5">
+                  {clinician.photo ? (
+                    <img
+                      src={clinician.photo}
+                      alt={`${clinician.name}, ${clinician.credentials}`}
+                      width="112"
+                      height="112"
+                      class="h-24 w-24 shrink-0 rounded-full border border-line object-cover lg:h-28 lg:w-28"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div
+                      class="flex h-24 w-24 shrink-0 items-center justify-center rounded-full border border-line bg-smoke font-display text-3xl font-semibold text-sageDark lg:h-28 lg:w-28"
+                      aria-hidden="true"
+                    >
+                      {initials(clinician.name)}
+                    </div>
+                  )}
+                  <div class="min-w-0 pt-1">
+                    <h3 class="font-display text-2xl font-semibold leading-snug text-ink lg:text-3xl">
+                      {clinician.name}, {clinician.credentials}
+                    </h3>
+                    <p class="mt-1 text-base text-muted">{clinician.title}</p>
+                    <p
+                      class:list={[
+                        "mt-2 inline-flex items-center gap-2 text-sm font-semibold",
+                        clinician.acceptingClients ? "text-sageDark" : "text-muted",
+                      ]}
+                    >
+                      <span
+                        class:list={[
+                          "h-2 w-2 rounded-full",
+                          clinician.acceptingClients ? "bg-sageDark" : "bg-sand",
+                        ]}
+                        aria-hidden="true"
+                      />
+                      {clinician.acceptingClients ? "Accepting new clients" : "Not currently accepting new clients"}
+                    </p>
+                  </div>
+                </div>
+                <div class="mt-6 border-t border-line pt-5">
+                  <p class="mb-2 text-sm font-semibold uppercase tracking-wider text-muted">Services</p>
+                  <p class="text-base leading-relaxed text-ink">{clinician.services.join(" · ")}</p>
+                </div>
+                <div class="mt-5">
+                  <p class="mb-2 text-sm font-semibold uppercase tracking-wider text-muted">Focus areas</p>
+                  <ul class="flex flex-wrap gap-2">
+                    {clinician.specialties.map((specialty) => (
+                      <li class="rounded-full border border-line bg-smoke px-3.5 py-1.5 text-sm font-medium text-ink">
+                        {specialty}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div class="mt-5 space-y-3">
+                  {clinician.bio.map((paragraph) => (
+                    <p class="text-base leading-relaxed text-muted">{paragraph}</p>
+                  ))}
+                </div>
+                <a
+                  href="/contact-get-started"
+                  class="mt-6 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
+                >
+                  Ask about working with our clinicians
+                </a>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-line bg-claySoft/60 py-14 lg:py-20" aria-labelledby="hiring-heading">
+      <div class="mx-auto max-w-[1100px] px-5 sm:px-6 lg:px-10">
+        <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
+          <div class="min-w-0">
+            <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-clay">We're hiring</p>
+            <h2
+              id="hiring-heading"
+              class="mb-5 font-display text-3xl font-semibold leading-[1.12] tracking-tight text-ink md:text-4xl"
+            >
+              Are you a licensed therapist in North Carolina?
+            </h2>
+            <p class="max-w-[640px] text-lg leading-relaxed text-muted">
+              TrueBridge is growing, and we're looking for licensed clinicians who care about thoughtful, well-matched
+              client work. We handle matching, scheduling support, and administrative overhead so you can focus on care.
+            </p>
+          </div>
+          <div class="flex min-w-0 items-start lg:justify-end">
+            <a
+              href="/careers"
+              class="inline-flex items-center justify-center rounded-full bg-sageDark px-7 py-3.5 text-base font-semibold text-paper no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-claySoft"
+            >
+              Learn about joining us
+            </a>
           </div>
         </div>
       </div>

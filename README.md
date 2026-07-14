@@ -2,6 +2,18 @@
 
 Static Astro site.
 
+## Dev / prod workflow
+
+Production (`truebridgetherapy.com`) is served from AWS S3 + CloudFront and **only changes when someone deliberately deploys** — merging to `main` does not touch it. Vercel builds every branch automatically and serves as staging (noindex by default, see below).
+
+The flow:
+
+1. Work on a feature branch and open a PR. Vercel builds a preview URL for the branch.
+2. Merge to `main` after review. Vercel's main deployment updates — this is the staging copy of what production will become.
+3. When ready, deploy `main` to production either:
+   - **From GitHub (recommended):** Actions tab → "Deploy production (manual)" → Run workflow → type `deploy`. This always builds committed `main`. Requires the AWS secrets listed in `.github/workflows/deploy-prod.yml` to be configured once.
+   - **Locally:** `npm run deploy:prod` (see "Production deploy to AWS" below). Make sure your checkout is on an up-to-date `main` with no local edits, since this ships whatever is on your machine.
+
 ## SEO (sitemap & robots)
 
 - **Domain:** `astro.config.mjs` sets `site: "https://truebridgetherapy.com"` and includes `@astrojs/sitemap`, which writes `sitemap-index.xml` (and shards like `sitemap-0.xml`) into `dist/` on `npm run build`.

@@ -1,0 +1,30 @@
+# TrueBridge Therapy
+
+> TrueBridge is a therapy practice serving adults and couples across North Carolina, primarily through secure telehealth, with select in-person availability in the Cary and Raleigh area. The practice matches clients with licensed clinicians based on clinical focus, therapy style, scheduling, and insurance fit, and helps clients understand expected costs before care begins.
+
+Key facts:
+- Services: individual therapy and couples therapy for adults (18+)
+- Focus areas: anxiety, depression, trauma and PTSD, stress and burnout, grief and life transitions, relationship concerns
+- Location: North Carolina, USA (telehealth statewide; some in-person options in Cary and Raleigh)
+- Insurance: varies by clinician; the practice helps verify benefits and expected out-of-pocket costs before the first session
+- Contact: info@truebridgetherapy.com | 984-207-6172
+- Not for emergencies: in a crisis, call or text 988, call 911, or go to the nearest emergency room
+
+## Services
+
+- [Therapy Services Overview](https://truebridgetherapy.com/services/): All services and areas of focus
+- [Individual Therapy](https://truebridgetherapy.com/services/individual-therapy/): One-on-one therapy for adults
+- [Couples Therapy](https://truebridgetherapy.com/services/couples-therapy/): Therapy for partners
+- [Anxiety Therapy](https://truebridgetherapy.com/services/anxiety-therapy/): Worry, overthinking, panic, avoidance
+- [Depression Therapy](https://truebridgetherapy.com/services/depression-therapy/): Low mood, lost motivation, disconnection
+- [Trauma Therapy](https://truebridgetherapy.com/services/trauma-therapy/): PTSD, triggers, painful past experiences
+- [Stress & Burnout Therapy](https://truebridgetherapy.com/services/stress-burnout-therapy/): Chronic pressure, work stress, exhaustion
+- [Grief & Life Transitions Therapy](https://truebridgetherapy.com/services/grief-life-transitions-therapy/): Loss, divorce, career change, new life seasons
+
+## Practice
+
+- [Our Clinicians](https://truebridgetherapy.com/clinicians/): Clinician profiles and how matching works
+- [Insurance & Rates](https://truebridgetherapy.com/insurance-rates/): Coverage, verification, and payment options
+- [FAQ](https://truebridgetherapy.com/faq/): Common questions about starting therapy, sessions, and payment
+- [Get Started](https://truebridgetherapy.com/contact-get-started/): How to request an appointment
+- [Careers](https://truebridgetherapy.com/careers/): Openings for licensed therapists in North Carolina

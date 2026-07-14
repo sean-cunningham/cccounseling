@@ -1,0 +1,157 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { SITE_URL, PUBLIC_EMAIL } from "@/constants/site";
+
+const pageTitle = "Therapist Careers | Join TrueBridge in North Carolina";
+const pageDescription =
+  "TrueBridge is hiring licensed therapists in North Carolina. Join a growing telehealth practice with thoughtful client matching, scheduling support, and low administrative overhead.";
+
+const pageUrl = `${SITE_URL}/careers/`;
+const orgId = `${SITE_URL}/#organization`;
+
+const structuredData = [
+  {
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: pageTitle,
+    description: pageDescription,
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    about: { "@id": orgId },
+  },
+  {
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+      { "@type": "ListItem", position: 2, name: "Careers", item: pageUrl },
+    ],
+  },
+];
+
+const applyMailto = `mailto:${PUBLIC_EMAIL}?subject=${encodeURIComponent("Clinician application")}`;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} structuredData={structuredData}>
+  <main id="main">
+    <section class="border-b border-line bg-smoke py-16 lg:py-24" aria-labelledby="careers-hero-heading">
+      <div class="mx-auto max-w-[900px] px-5 text-left sm:px-6 lg:px-10">
+        <p class="mb-4 text-sm font-semibold uppercase tracking-wider text-clay">We're hiring</p>
+        <h1
+          id="careers-hero-heading"
+          class="mb-6 font-display text-5xl leading-[1.05] tracking-tight text-ink md:text-6xl"
+        >
+          Practice therapy the way you trained to.
+        </h1>
+        <p class="max-w-[760px] text-lg leading-relaxed text-muted md:text-xl">
+          TrueBridge is a growing therapy practice serving adults and couples across North Carolina, primarily through
+          telehealth. We're looking for licensed clinicians who want well-matched clients, steady support, and less
+          administrative weight.
+        </p>
+        <a
+          href={applyMailto}
+          class="mt-8 inline-flex items-center justify-center rounded-full bg-sageDark px-7 py-3.5 text-base font-semibold text-paper no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-smoke"
+        >
+          Introduce Yourself
+        </a>
+      </div>
+    </section>
+
+    <section class="border-t border-line bg-paper py-16 lg:py-24" aria-labelledby="careers-why-heading">
+      <div class="mx-auto max-w-[1100px] px-5 sm:px-6 lg:px-10">
+        <h2
+          id="careers-why-heading"
+          class="mb-12 max-w-[760px] font-display text-4xl font-semibold leading-[1.12] tracking-tight text-ink md:text-5xl"
+        >
+          Why clinicians work with TrueBridge
+        </h2>
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-10 lg:gap-16">
+          <div class="border-t border-line pt-6">
+            <h3 class="mb-3 font-display text-2xl font-semibold text-ink">Well-matched clients</h3>
+            <p class="text-base leading-relaxed text-muted md:text-lg">
+              We match clients to clinicians based on clinical focus, style, and availability, so your caseload fits the
+              work you do best.
+            </p>
+          </div>
+          <div class="border-t border-line pt-6">
+            <h3 class="mb-3 font-display text-2xl font-semibold text-ink">Less administrative weight</h3>
+            <p class="text-base leading-relaxed text-muted md:text-lg">
+              Intake, scheduling support, and payment conversations are handled with care before clients reach you, so
+              sessions can stay about the clinical work.
+            </p>
+          </div>
+          <div class="border-t border-line pt-6">
+            <h3 class="mb-3 font-display text-2xl font-semibold text-ink">Flexible, telehealth-first</h3>
+            <p class="text-base leading-relaxed text-muted md:text-lg">
+              Most sessions are online, with schedules built around your availability. In-person options in the Cary and
+              Raleigh area may be possible as the practice grows.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-line bg-mist py-16 lg:py-24" aria-labelledby="careers-looking-heading">
+      <div class="mx-auto max-w-[1100px] px-5 sm:px-6 lg:px-10">
+        <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+          <div class="min-w-0">
+            <h2
+              id="careers-looking-heading"
+              class="mb-6 font-display text-4xl font-semibold leading-[1.12] tracking-tight text-ink md:text-5xl"
+            >
+              Who we're looking for
+            </h2>
+            <p class="text-lg leading-relaxed text-muted">
+              We grow deliberately, adding clinicians whose training and style align with the care we want clients to
+              receive.
+            </p>
+          </div>
+          <div class="min-w-0">
+            <div class="border-t border-line py-7">
+              <h3 class="mb-3 font-display text-2xl font-semibold text-ink">North Carolina licensure</h3>
+              <p class="text-base leading-relaxed text-muted md:text-lg">
+                Licensed clinicians authorized to provide therapy in North Carolina, such as LCMHC, LCSW, LMFT, or
+                licensed psychologists.
+              </p>
+            </div>
+            <div class="border-t border-line py-7">
+              <h3 class="mb-3 font-display text-2xl font-semibold text-ink">Experience with our focus areas</h3>
+              <p class="text-base leading-relaxed text-muted md:text-lg">
+                Individual or couples work with anxiety, depression, trauma, stress and burnout, grief, life transitions,
+                and relationship concerns.
+              </p>
+            </div>
+            <div class="border-t border-line py-7">
+              <h3 class="mb-3 font-display text-2xl font-semibold text-ink">Comfort with telehealth</h3>
+              <p class="text-base leading-relaxed text-muted md:text-lg">
+                Confidence delivering engaged, effective therapy through a secure online platform.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative border-t border-paper/15 bg-sageDeep py-16 text-center text-paper lg:py-24" aria-labelledby="careers-cta-heading">
+      <div class="mx-auto max-w-[860px] px-5 sm:px-6 lg:px-10">
+        <h2 id="careers-cta-heading" class="mb-5 font-display text-4xl leading-[1.12] tracking-tight md:text-5xl">
+          Interested in joining TrueBridge?
+        </h2>
+        <p class="mb-8 text-lg leading-relaxed text-paper/90 md:text-xl">
+          Email us at
+          <a href={applyMailto} class="font-semibold text-paper underline decoration-sage underline-offset-4 hover:decoration-mist"
+            >{PUBLIC_EMAIL}</a
+          >
+          with a short introduction, your licensure, and the clinical work you enjoy most. We'll follow up to talk about
+          fit and current openings.
+        </p>
+        <a
+          href={applyMailto}
+          class="inline-flex items-center justify-center rounded-full bg-paper px-7 py-3.5 text-base font-semibold text-sageDark no-underline transition hover:-translate-y-0.5 hover:bg-smoke hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-sageDeep"
+        >
+          Email Us About Joining
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
