@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import CtaBand from "@/components/patterns/CtaBand.astro";
-import { FREE_CONSULT_LINE, SITE_URL, SITE_NAME, PUBLIC_PHONE_E164, PUBLIC_EMAIL } from "@/constants/site";
+import { SITE_URL, SITE_NAME, PUBLIC_PHONE_E164, PUBLIC_EMAIL } from "@/constants/site";
 
 /** Full-bleed hero image — replace in one place when updating photography. */
 const HERO_IMG = "/images/home-hero.jpg";
@@ -147,7 +147,6 @@ const focusAreas = [
               View Insurance &amp; Rates
             </a>
           </div>
-          <p class="mt-4 text-sm text-paper/90 [text-shadow:0_1px_2px_rgba(31,42,48,0.26)]">{FREE_CONSULT_LINE}</p>
         </div>
       </div>
     </section>
@@ -220,7 +219,7 @@ const focusAreas = [
             life transitions through thoughtful, evidence-informed therapy.
           </p>
         </div>
-        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
           {
             focusAreas.map((area) => (
               <a
@@ -235,6 +234,18 @@ const focusAreas = [
               </a>
             ))
           }
+          <a
+            href="/services"
+            class="group flex flex-col justify-between rounded-[24px] border border-dashed border-paper/40 p-6 text-left no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:border-paper/70 hover:bg-paper/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-sageDark"
+          >
+            <span class="flex items-baseline justify-between gap-3 font-display text-xl font-semibold leading-snug tracking-tight text-paper">
+              Something else?
+              <span aria-hidden="true" class="text-lg transition-transform group-hover:translate-x-1">→</span>
+            </span>
+            <span class="mt-2 block text-sm leading-relaxed text-paper/85">
+              Explore everything we help with, or just reach out and ask.
+            </span>
+          </a>
         </div>
         <p class="mt-10 max-w-[820px] border-t border-paper/25 pt-8 text-base leading-relaxed text-paper/90 md:text-lg">
           We also support clients with grief, self-esteem, anger, OCD, body image concerns, addiction, and other challenges.
@@ -254,8 +265,8 @@ const focusAreas = [
             </h2>
             <p class="mb-8 max-w-[620px] text-lg leading-relaxed text-muted md:text-xl">
               Cost shouldn't be a mystery. TrueBridge is completing insurance credentialing, and participation varies by
-              clinician — so when you reach out, we'll tell you plainly what your plan can and can't cover, and exactly what
-              your out-of-pocket cost would be, before your first session. No surprises, starting with a free consultation.
+              clinician. When you reach out, we'll tell you plainly what your plan can and can't cover, and exactly what
+              your out-of-pocket cost would be, before your first session.
             </p>
             <a
               href="/insurance-rates"
