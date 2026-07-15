@@ -363,7 +363,7 @@ export const SPECIALTIES: Specialty[] = [
     signs: [
       {
         title: "Perinatal and infant loss",
-        body: "Grief after miscarriage, stillbirth, or the death of an infant — a loss that reshapes everything, even when the world around you moves on too quickly.",
+        body: "Grief after miscarriage, stillbirth, or the death of an infant. This kind of loss reshapes everything, even when the world around you moves on too quickly.",
       },
       {
         title: "Infertility and the trying season",
@@ -371,7 +371,7 @@ export const SPECIALTIES: Specialty[] = [
       },
       {
         title: "Postpartum anxiety, depression, and rage",
-        body: "Feeling anxious, flat, tearful, irritable, or unlike yourself after birth — including thoughts and feelings that are hard to say out loud.",
+        body: "Feeling anxious, flat, tearful, irritable, or unlike yourself after birth, including thoughts and feelings that are hard to say out loud.",
       },
       {
         title: "Hormonal and identity shifts",
@@ -380,7 +380,7 @@ export const SPECIALTIES: Specialty[] = [
     ],
     bandHeading: "You are not failing. You are carrying something enormous.",
     bandBody:
-      "So much of this is endured silently — in bathrooms, in waiting rooms, in the middle of the night. Therapy offers a place where the whole story is welcome: the grief and the guilt, the anger and the ambivalence, the love and the loss, all at once.",
+      "So much of this is endured silently, in bathrooms and waiting rooms and the middle of the night. Therapy offers a place where the whole story is welcome: the grief and the guilt, the anger and the love, all at once.",
     helpHeading: "What this therapy can help you do",
     helpIntro:
       "Our clinicians who focus on women's mental health work gently and specifically with these seasons of life.",
