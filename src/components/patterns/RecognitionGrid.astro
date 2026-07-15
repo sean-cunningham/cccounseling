@@ -1,8 +1,8 @@
 ---
 /**
- * Recognition Grid — full-width heading + a scannable grid of compact cards.
- * Replaces the heading-left / bordered-rows-right template for peer lists
- * (signs sections, "why us" lists, focus areas). See .cursor/rules/design.md.
+ * Recognition Grid — heading + a scannable two-or-three column list.
+ * Editorial style: open items separated by hairline rules, no boxed cards,
+ * so content sits directly on the page. See .cursor/rules/design.md.
  */
 interface Item {
   title: string;
@@ -16,7 +16,7 @@ interface Props {
   headingId: string;
   intro?: string;
   items: readonly Item[] | Item[];
-  /** "light" = paper section with smoke cards; "dark" = sageDark section. */
+  /** "light" = paper section; "dark" = sageDark section. */
   tone?: "light" | "dark";
   columns?: 2 | 3;
   class?: string;
@@ -28,28 +28,27 @@ const sectionClass =
   tone === "dark" ? "border-t border-line bg-sageDark py-14 text-paper lg:py-20" : "border-t border-line bg-paper py-14 lg:py-20";
 const headingClass =
   tone === "dark"
-    ? "mb-3 text-center font-display text-4xl font-semibold leading-[1.12] tracking-tight text-paper md:text-5xl"
-    : "mb-3 text-center font-display text-4xl font-semibold leading-[1.12] tracking-tight text-ink md:text-5xl";
+    ? "mb-4 max-w-[760px] font-display text-4xl font-semibold leading-[1.12] tracking-tight text-paper md:text-5xl"
+    : "mb-4 max-w-[760px] font-display text-4xl font-semibold leading-[1.12] tracking-tight text-ink md:text-5xl";
 const introClass =
   tone === "dark"
-    ? "mx-auto mb-10 max-w-[640px] text-center text-lg leading-relaxed text-paper/90"
-    : "mx-auto mb-10 max-w-[640px] text-center text-lg leading-relaxed text-muted";
-const cardClass =
-  tone === "dark"
-    ? "rounded-[24px] border border-paper/20 bg-paper/10 p-6"
-    : "rounded-[24px] border border-line bg-smoke p-6";
-const cardTitleClass =
+    ? "mb-10 max-w-[680px] text-lg leading-relaxed text-paper/90"
+    : "mb-10 max-w-[680px] text-lg leading-relaxed text-muted";
+const itemClass = tone === "dark" ? "border-t border-paper/25 pt-5 pb-2" : "border-t border-line pt-5 pb-2";
+const itemTitleClass =
   tone === "dark"
     ? "mb-2 font-display text-xl font-semibold leading-snug text-paper"
     : "mb-2 font-display text-xl font-semibold leading-snug text-ink";
-const cardBodyClass =
+const itemBodyClass =
   tone === "dark" ? "text-base leading-relaxed text-paper/85" : "text-base leading-relaxed text-muted";
-const cardLinkClass =
+const itemLinkClass =
   tone === "dark"
     ? "mt-3 inline-flex text-base font-semibold text-paper underline decoration-sage underline-offset-4 transition-colors hover:decoration-mist"
     : "mt-3 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage";
 const gridClass =
-  columns === 3 ? "grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-5" : "grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-5";
+  columns === 3
+    ? "grid grid-cols-1 gap-x-10 gap-y-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-14"
+    : "grid grid-cols-1 gap-x-10 gap-y-6 md:grid-cols-2 lg:gap-x-14";
 ---
 
 <section class:list={[sectionClass, className]} aria-labelledby={headingId}>
@@ -59,11 +58,11 @@ const gridClass =
     <div class={gridClass}>
       {
         items.map((item) => (
-          <div class={cardClass}>
-            <h3 class={cardTitleClass}>{item.title}</h3>
-            <p class={cardBodyClass}>{item.body}</p>
+          <div class={itemClass}>
+            <h3 class={itemTitleClass}>{item.title}</h3>
+            <p class={itemBodyClass}>{item.body}</p>
             {item.href && item.linkLabel && (
-              <a href={item.href} class={cardLinkClass}>
+              <a href={item.href} class={itemLinkClass}>
                 {item.linkLabel}
               </a>
             )}
