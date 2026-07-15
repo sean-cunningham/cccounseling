@@ -73,7 +73,7 @@ const structuredData = [
               >
                 {clinician.isPlaceholder && (
                   <p class="mb-7 inline-flex rounded-full border border-clay/30 bg-claySoft px-3 py-1 text-xs font-semibold uppercase tracking-wider text-clay">
-                    Sample profile — real clinician profiles coming soon
+                    Sample profile. Real clinician profiles coming soon
                   </p>
                 )}
                 <div class="flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-10 lg:gap-12">
@@ -96,20 +96,34 @@ const structuredData = [
                   )}
                   <div class="min-w-0">
                     <h3 class="font-display text-3xl leading-snug tracking-tight text-ink lg:text-4xl">
-                      {clinician.name}, {clinician.credentials}
+                      {clinician.isPlaceholder ? (
+                        <>{clinician.name}, {clinician.credentials}</>
+                      ) : (
+                        <a
+                          href={`/clinicians/${clinician.slug}`}
+                          class="no-underline transition-colors hover:text-sageDark"
+                        >
+                          {clinician.name}, {clinician.credentials}
+                        </a>
+                      )}
                     </h3>
                     <p class="mt-2 text-base text-muted md:text-lg">{clinician.title}</p>
-                    <div class="mt-6 space-y-4">
-                      {clinician.bio.map((paragraph) => (
-                        <p class="text-base leading-relaxed text-muted md:text-lg">{paragraph}</p>
-                      ))}
-                    </div>
-                    <a
-                      href="/contact-get-started"
-                      class="mt-7 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
-                    >
-                      Ask about working with {clinician.isPlaceholder ? "our clinicians" : clinician.name.split(" ")[0]}
-                    </a>
+                    <p class="mt-5 text-base leading-relaxed text-muted md:text-lg">{clinician.blurb}</p>
+                    {clinician.isPlaceholder ? (
+                      <a
+                        href="/contact-get-started"
+                        class="mt-6 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
+                      >
+                        Ask about working with our clinicians
+                      </a>
+                    ) : (
+                      <a
+                        href={`/clinicians/${clinician.slug}`}
+                        class="mt-6 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
+                      >
+                        Meet {clinician.name.split(" ")[0]}
+                      </a>
+                    )}
                   </div>
                 </div>
               </article>
@@ -134,7 +148,7 @@ const structuredData = [
           How matching works
         </h2>
         <p class="mb-14 max-w-[760px] text-lg leading-relaxed text-paper/90 md:text-xl">
-          You do not have to sort through clinician fit alone. The right fit is more than credentials — it includes
+          You do not have to sort through clinician fit alone. The right fit is more than credentials. It includes
           clinical focus, communication style, scheduling, and whether you feel understood enough to begin the work. When
           you reach out, we help clarify what you are looking for and identify the best available next step.
         </p>

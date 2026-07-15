@@ -32,7 +32,13 @@ export interface Clinician {
    */
   specialties: string[];
   /**
-   * Bio paragraphs. This is the heart of the profile — write it warm and
+   * Short intro shown on the /clinicians list page (1-2 sentences).
+   * The full bio lives on the clinician's own page.
+   */
+  blurb: string;
+  /**
+   * Full bio paragraphs, shown on the clinician's individual page at
+   * /clinicians/<slug>. This is the heart of the profile. Write it warm and
    * personal (who they are, how therapy with them feels, who they love
    * working with) rather than a list of credentials.
    */
@@ -57,9 +63,11 @@ export const CLINICIANS: Clinician[] = [
       "Hormonal and identity shifts",
       "Relationship concerns",
     ],
+    blurb:
+      "Jade supports women through grief, perinatal and infant loss, infertility, and postpartum transitions, along with the hormonal and identity shifts that can leave us feeling unlike ourselves.",
     bio: [
-      "Jade specializes in supporting women through grief, perinatal and infant loss, infertility, and postpartum transitions — as well as the hormonal and identity shifts that can leave us feeling unlike ourselves.",
-      "As a licensed marriage and family therapist, she brings a warm, relational lens to individual work, holding space for the losses and changes that so often go unseen while helping you find your footing in what comes next.",
+      "Jade specializes in supporting women through grief, perinatal and infant loss, infertility, and postpartum transitions, as well as the hormonal and identity shifts that can leave us feeling unlike ourselves.",
+      "As a licensed marriage and family therapist, she brings a warm, relational lens to individual work. She holds space for the losses and changes that so often go unseen, and helps you find your footing in what comes next.",
     ],
   },
 ];
