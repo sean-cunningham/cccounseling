@@ -5,7 +5,6 @@
  * story doesn't need its own section.
  */
 import PathStrip from "@/components/patterns/PathStrip.astro";
-import { FREE_CONSULT_LINE, TRUST_LINE } from "@/constants/site";
 
 interface Props {
   heading: string;
@@ -36,7 +35,5 @@ const { heading, headingId, body, buttonLabel = "Get Started", href = "/contact-
     >
       {buttonLabel}
     </a>
-    <p class="mt-4 text-sm text-paper/85">{FREE_CONSULT_LINE}</p>
-    <p class="mt-7 text-xs font-semibold uppercase tracking-wider text-paper/60">{TRUST_LINE}</p>
   </div>
 </section>
