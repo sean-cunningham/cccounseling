@@ -207,7 +207,7 @@ export const SPECIALTIES: Specialty[] = [
       "Therapy for adults across North Carolina carrying painful experiences that still shape daily life through triggers, hypervigilance, numbness, or relationship patterns. Most sessions are online through secure telehealth.",
     heroImage: "/images/trauma-therapy-hero.jpg",
     heroImageAlt:
-      "A woman wrapped in a soft knit blanket sits in an armchair by a window, looking out with a calm, grounded expression.",
+      "A wooden footbridge crosses a small creek on a quiet forest trail, early morning light coming through the trees.",
     signsHeading: "How trauma can keep showing up",
     signsIntro:
       "Trauma is not only about what happened. It is also about how your mind and body adapted, and how those adaptations continue long after the events themselves.",
@@ -356,7 +356,7 @@ export const SPECIALTIES: Specialty[] = [
       "Support for women across North Carolina moving through perinatal and infant loss, infertility, postpartum changes, and the hormonal and identity shifts that can leave you feeling unlike yourself. Most sessions are online through secure telehealth.",
     heroImage: "/images/perinatal-postpartum-therapy-hero.jpg",
     heroImageAlt:
-      "A woman sits on a window seat in soft light with a hand resting gently over her heart, looking out the window with a tender, hopeful expression.",
+      "Two women's hands gently clasped across an outdoor wooden table, next to a cup of tea and a small jar of wildflowers.",
     signsHeading: "What this season can hold",
     signsIntro:
       "These experiences are common, deeply personal, and often invisible to the people around you. You do not have to carry them quietly to be strong.",
