@@ -9,6 +9,7 @@ const description =
 const bodyClass = "mb-5 text-base leading-relaxed text-muted md:text-lg";
 const listClass = "mb-5 list-disc space-y-2 pl-6 text-base leading-relaxed text-muted md:text-lg";
 const headingClass = "mb-4 mt-12 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl";
+const firstHeadingClass = "mb-4 mt-0 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl";
 const linkClass =
   "font-medium text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-clay hover:decoration-clay";
 const addressBlockClass = "mb-5 space-y-1 text-base leading-relaxed text-muted md:text-lg";
@@ -36,7 +37,7 @@ const addressBlockClass = "mb-5 space-y-1 text-base leading-relaxed text-muted m
           <strong class="text-ink">Effective Date:</strong> 18 July 2026
         </p>
 
-        <h2 class:list={[headingClass, "mt-0"]}>Introduction</h2>
+        <h2 class={firstHeadingClass}>Introduction</h2>
         <p class={bodyClass}>
           This Notice of Privacy Practices (&ldquo;Notice&rdquo;) describes how CC Counseling PLLC d/b/a TrueBridge Therapy
           (&ldquo;TrueBridge Therapy,&rdquo; &ldquo;the practice,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or
