@@ -1,210 +1,338 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { PUBLIC_EMAIL, PUBLIC_PHONE_DISPLAY } from "@/constants/site";
+import { PUBLIC_EMAIL, PUBLIC_PHONE_DISPLAY, PUBLIC_PHONE_E164 } from "@/constants/site";
 
-const pageTitle = "Notice of Privacy Practices | TrueBridge";
+const pageTitle = "Notice of Privacy Practices | TrueBridge Therapy";
 const description =
-  "Review TrueBridge’s Notice of Privacy Practices describing how health information may be used, disclosed, and accessed.";
+  "Read the Notice of Privacy Practices for CC Counseling PLLC d/b/a TrueBridge Therapy, including how protected health information may be used, disclosed, and accessed.";
+
+const bodyClass = "mb-5 text-base leading-relaxed text-muted md:text-lg";
+const listClass = "mb-5 list-disc space-y-2 pl-6 text-base leading-relaxed text-muted md:text-lg";
+const headingClass = "mb-4 mt-12 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl";
+const firstHeadingClass = "mb-4 mt-0 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl";
+const linkClass =
+  "font-medium text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-clay hover:decoration-clay";
+const addressBlockClass = "mb-5 space-y-1 text-base leading-relaxed text-muted md:text-lg";
 ---
 
 <BaseLayout title={pageTitle} {description}>
   <main id="main">
-    <section class="bg-smoke border-b border-line py-14 lg:py-20" aria-labelledby="npp-hero-heading">
-      <div class="mx-auto max-w-[900px] px-5 text-left sm:px-6 lg:px-10">
+    <article class="border-b border-line bg-paper py-14 lg:py-20" aria-labelledby="npp-heading">
+      <div class="mx-auto max-w-[720px] px-5 sm:px-6 lg:px-10 print:max-w-none">
         <h1
-          id="npp-hero-heading"
-          class="mb-6 font-display text-5xl leading-[1.05] tracking-tight text-ink md:text-6xl"
+          id="npp-heading"
+          class="mb-6 font-display text-4xl leading-[1.1] tracking-tight text-ink sm:text-5xl md:text-6xl"
         >
-          Notice of Privacy Practices
+          NOTICE OF PRIVACY PRACTICES
         </h1>
-        <p class="max-w-[760px] text-lg leading-relaxed text-muted md:text-xl">
-          This notice describes how medical information about you may be used and disclosed and how you can get access to this
-          information.
-        </p>
-      </div>
-    </section>
 
-    <section class="border-t border-line bg-paper py-14 lg:py-20" aria-label="Notice of Privacy Practices full text">
-      <div class="mx-auto max-w-[900px] px-5 sm:px-6 lg:px-10">
-        <p class="mb-1 text-lg font-semibold leading-snug tracking-tight text-ink">NOTICE OF PRIVACY PRACTICES</p>
-        <p class="mb-6 text-lg leading-relaxed text-muted">(HIPAA Privacy Policy)</p>
-        <p class="mb-6 text-base leading-relaxed text-muted md:text-lg">
-          <strong class="text-ink">Effective Date:</strong> May 12, 2026
-        </p>
-        <p class="mb-8 text-sm font-semibold uppercase leading-relaxed text-ink md:text-base">
-          THIS NOTICE DESCRIBES HOW MEDICAL INFORMATION ABOUT YOU MAY BE USED AND DISCLOSED AND HOW YOU CAN GET ACCESS TO THIS
-          INFORMATION. PLEASE REVIEW IT CAREFULLY.
-        </p>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
-          This Notice of Privacy Practices (&ldquo;Notice&rdquo;) describes how TrueBridge (&ldquo;Practice,&rdquo;
-          &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) may use and disclose your protected health information
-          (&ldquo;PHI&rdquo;) and how you can access this information.
+        <p
+          class="mb-6 max-w-[40rem] text-sm font-semibold uppercase leading-relaxed tracking-wide text-ink md:text-base"
+        >
+          THIS NOTICE DESCRIBES HOW MEDICAL INFORMATION ABOUT YOU MAY BE USED AND DISCLOSED AND HOW YOU CAN GET ACCESS TO
+          THIS INFORMATION. PLEASE REVIEW IT CAREFULLY.
         </p>
 
-        <h2 class="mb-4 mt-12 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl">
-          1. Our Responsibilities
-        </h2>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">We are required by law to:</p>
-        <ul class="mb-5 list-disc space-y-2 pl-6 text-base leading-relaxed text-muted md:text-lg">
-          <li>Maintain the privacy and security of your PHI</li>
-          <li>Provide you with this Notice of our legal duties and privacy practices</li>
-          <li>Follow the terms of this Notice currently in effect</li>
-        </ul>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
-          PHI includes information that identifies you and relates to your mental health care, payment for care, or related services.
+        <p class="mb-10 text-base leading-relaxed text-muted md:text-lg">
+          <strong class="text-ink">Effective Date:</strong> 18 July 2026
         </p>
 
-        <h2 class="mb-4 mt-12 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl">
-          2. How We May Use and Disclose Your PHI
-        </h2>
-
-        <h3 class="mb-3 mt-8 text-xl font-semibold text-ink">A. Treatment</h3>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
-          We may use and disclose your PHI to provide, coordinate, or manage your mental health treatment. This includes sharing
-          information with other healthcare providers involved in your care, as appropriate.
+        <h2 class={firstHeadingClass}>Introduction</h2>
+        <p class={bodyClass}>
+          This Notice of Privacy Practices (&ldquo;Notice&rdquo;) describes how CC Counseling PLLC d/b/a TrueBridge Therapy
+          (&ldquo;TrueBridge Therapy,&rdquo; &ldquo;the practice,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or
+          &ldquo;our&rdquo;) may use and disclose your protected health information (&ldquo;PHI&rdquo;), explains your
+          privacy rights, and describes our responsibilities for protecting your information.
+        </p>
+        <p class={bodyClass}>
+          This Notice applies to protected health information maintained by the practice in connection with your mental
+          health care, care coordination, billing, insurance, telehealth services, communications, and related practice
+          operations.
+        </p>
+        <p class={bodyClass}>
+          PHI generally includes information that identifies you and relates to your past, present, or future physical or
+          mental health, health care services, or payment for health care services.
         </p>
 
-        <h3 class="mb-3 mt-8 text-xl font-semibold text-ink">B. Payment</h3>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
-          We may use and disclose your PHI to obtain payment for services provided to you. This may include billing insurance
-          companies, verifying coverage, obtaining authorizations, coordination of benefits, and collection activities.
-        </p>
-
-        <h3 class="mb-3 mt-8 text-xl font-semibold text-ink">C. Health Care Operations</h3>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
-          We may use and disclose your PHI for practice operations, including:
-        </p>
-        <ul class="mb-5 list-disc space-y-2 pl-6 text-base leading-relaxed text-muted md:text-lg">
-          <li>Quality assessment and improvement</li>
-          <li>Administrative and business functions</li>
-          <li>Compliance, auditing, and credentialing activities</li>
+        <h2 class={headingClass}>Our Responsibilities</h2>
+        <p class={bodyClass}>We are required by law to:</p>
+        <ul class={listClass}>
+          <li>Maintain the privacy and security of your PHI.</li>
+          <li>Provide you with this Notice of our legal duties and privacy practices.</li>
+          <li>Follow the terms of the Notice currently in effect.</li>
+          <li>
+            Notify you if a breach occurs that may have compromised the privacy or security of your PHI, as required by
+            law.
+          </li>
+          <li>Not retaliate against you for filing a privacy complaint or exercising your rights.</li>
         </ul>
 
-        <h2 class="mb-4 mt-12 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl">
-          3. Other Permitted Uses and Disclosures
-        </h2>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
-          We may use or disclose your PHI as permitted or required by law, including:
+        <h2 class={headingClass}>Your Rights Regarding Your PHI</h2>
+        <p class={bodyClass}>
+          You may exercise the rights below by contacting the practice using the contact information listed in this Notice.
+          We may ask you to submit certain requests in writing so that we can verify, document, and respond to them
+          properly.
         </p>
-        <ul class="mb-5 list-disc space-y-2 pl-6 text-base leading-relaxed text-muted md:text-lg">
-          <li>As required by federal, state, or local law</li>
-          <li>To avert a serious threat to your health or safety or the safety of others</li>
-          <li>For public health activities, including mandatory reporting of abuse or neglect</li>
-          <li>For health oversight activities such as audits or investigations</li>
-          <li>For law enforcement purposes when legally required</li>
+        <p class={bodyClass}>
+          <strong class="text-ink">Access your record.</strong> You may request to inspect or receive a copy of your health
+          and billing records. We will generally provide a copy or summary within the timeframe required by law and may
+          charge a reasonable, cost-based fee when permitted by law.
+        </p>
+        <p class={bodyClass}>
+          <strong class="text-ink">Request an amendment.</strong> You may ask us to correct health information that you
+          believe is inaccurate or incomplete. We may deny the request, but we will explain the reason in writing within
+          the timeframe required by law.
+        </p>
+        <p class={bodyClass}>
+          <strong class="text-ink">Request confidential communications.</strong> You may ask us to contact you in a
+          specific way or at a specific location. We will accommodate reasonable requests and will follow applicable rules
+          when disclosure could endanger you.
+        </p>
+        <p class={bodyClass}>
+          <strong class="text-ink">Request restrictions.</strong> You may ask us not to use or disclose certain information
+          for treatment, payment, or health care operations. We are not always required to agree. If you pay out of pocket
+          in full for a service and ask us not to disclose that service to your health plan, we will honor that request
+          unless disclosure is required by law.
+        </p>
+        <p class={bodyClass}>
+          <strong class="text-ink">Request an accounting.</strong> You may request a list of certain disclosures of your
+          PHI. The accounting does not include every disclosure, such as disclosures for treatment, payment, health care
+          operations, or disclosures you authorized.
+        </p>
+        <p class={bodyClass}>
+          <strong class="text-ink">Receive this Notice.</strong> You may request a paper or electronic copy of this Notice
+          at any time, even if you previously agreed to receive it electronically.
+        </p>
+        <p class={bodyClass}>
+          <strong class="text-ink">Choose a personal representative.</strong> If another person has legal authority to act
+          for you, such as a legal guardian or health care power of attorney, that person may exercise your privacy rights
+          as permitted by law.
+        </p>
+        <p class={bodyClass}>
+          <strong class="text-ink">File a complaint.</strong> You may file a complaint with the practice or with the U.S.
+          Department of Health and Human Services Office for Civil Rights. We will not retaliate against you for filing a
+          complaint.
+        </p>
+
+        <h2 class={headingClass}>Your Choices About Certain Uses and Disclosures</h2>
+        <p class={bodyClass}>
+          For certain health information, you may tell us your choices about what we share. If you have a clear preference,
+          tell us what you want us to do, and we will follow your instructions when required or permitted by law.
+        </p>
+        <p class={bodyClass}>You may generally tell us your choice about whether to:</p>
+        <ul class={listClass}>
+          <li>
+            Share information with family members, close friends, caregivers, or others involved in your care or payment for
+            your care.
+          </li>
+          <li>Share information in a disaster relief situation.</li>
+          <li>Communicate with a personal representative or another person legally authorized to act for you.</li>
+        </ul>
+        <p class={bodyClass}>
+          If you are unable to tell us your preference, we may share information when we believe it is in your best interest
+          or when needed to lessen a serious and imminent threat to health or safety.
+        </p>
+        <p class={bodyClass}>
+          We will not use or disclose your PHI for marketing purposes, sell your PHI, or disclose most psychotherapy notes
+          without your written authorization, except where HIPAA or other applicable law permits or requires the use or
+          disclosure.
+        </p>
+
+        <h2 class={headingClass}>
+          How We May Use and Disclose Your PHI for Treatment, Payment, and Health Care Operations
+        </h2>
+        <p class={bodyClass}>
+          We may use and disclose your PHI without your written authorization for treatment, payment, and health care
+          operations as permitted by HIPAA and other applicable law.
+        </p>
+        <p class={bodyClass}>
+          <strong class="text-ink">Treatment.</strong> We may use and disclose PHI to provide, coordinate, or manage your
+          care. This may include communicating with clinicians, other health care providers, emergency providers, or others
+          involved in your treatment when appropriate.
+        </p>
+        <p class={bodyClass}>
+          <strong class="text-ink">Payment.</strong> We may use and disclose PHI to bill and collect payment for services.
+          This may include eligibility checks, benefits verification, authorizations, claims, coordination of benefits,
+          appeals, collections, and communications with health plans.
+        </p>
+        <p class={bodyClass}>
+          <strong class="text-ink">Health care operations.</strong> We may use and disclose PHI for practice operations,
+          including quality review, clinical documentation review, compliance, credentialing, auditing, training, care
+          coordination, business planning, and administrative functions.
+        </p>
+
+        <h2 class={headingClass}>Other Uses and Disclosures Permitted or Required by Law</h2>
+        <p class={bodyClass}>
+          We may also use or disclose your PHI without your written authorization when permitted or required by law,
+          including in the following situations:
+        </p>
+        <ul class={listClass}>
+          <li>When required by federal, state, or local law.</li>
+          <li>
+            To report abuse, neglect, exploitation, domestic violence, or other mandatory-reporting matters when required or
+            permitted by law.
+          </li>
+          <li>
+            To avert a serious and imminent threat to your health or safety or the health or safety of another person.
+          </li>
+          <li>
+            For health oversight activities, such as audits, investigations, inspections, licensure, credentialing, or
+            disciplinary activities.
+          </li>
+          <li>
+            For judicial, administrative, or law enforcement purposes when legally authorized, such as in response to a
+            valid court order, subpoena, warrant, or other lawful process.
+          </li>
+          <li>For workers&rsquo; compensation or similar programs when applicable and authorized by law.</li>
+          <li>
+            For public health activities, when applicable, such as reporting certain diseases, injuries, or threats to
+            public health.
+          </li>
+          <li>For health research when permitted by law.</li>
+          <li>To organ procurement organizations for organ or tissue donation when applicable.</li>
+          <li>To coroners, medical examiners, or funeral directors when permitted by law.</li>
+          <li>
+            To business associates and vendors who support the practice, but only under appropriate privacy and security
+            requirements.
+          </li>
+          <li>For specialized government functions or other legally permitted purposes when applicable.</li>
         </ul>
 
-        <h2 class="mb-4 mt-12 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl">
-          4. Uses and Disclosures Requiring Your Authorization
+        <h2 class={headingClass}>
+          Mental Health Information, Psychotherapy Notes, and Specially Protected Records
         </h2>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
-          We will obtain your written authorization before using or disclosing your PHI for purposes other than those described in
-          this Notice, including:
+        <p class={bodyClass}>
+          Mental health treatment records are PHI and are protected under HIPAA and applicable state law. We use and
+          disclose mental health information as described in this Notice and as otherwise permitted or required by law.
         </p>
-        <ul class="mb-5 list-disc space-y-2 pl-6 text-base leading-relaxed text-muted md:text-lg">
-          <li>Marketing communications, except where permitted by law</li>
-          <li>Sale of your PHI</li>
-          <li>Psychotherapy notes, if maintained separately from your medical record</li>
+        <p class={bodyClass}>
+          Psychotherapy notes are notes recorded by a mental health professional documenting or analyzing the contents of a
+          counseling session and kept separate from the rest of the medical record. If the practice maintains psychotherapy
+          notes, most uses and disclosures of those notes require your separate written authorization unless a HIPAA
+          exception applies.
+        </p>
+        <p class={bodyClass}>
+          To the extent that we maintain substance use disorder patient records subject to 42 CFR Part 2, we will not use or
+          disclose information in those records in civil, criminal, administrative, or legislative investigations or
+          proceedings against you without your written consent or a court order and subpoena, as required by law. We will
+          follow any additional consent, notice, and disclosure restrictions that apply to those records or to other
+          specially protected information.
+        </p>
+        <p class={bodyClass}>
+          For minors, guardians, personal representatives, and family members, the practice will handle access, consent, and
+          disclosure questions under applicable federal and North Carolina law, including circumstances where disclosure may
+          be limited because of safety, legal, or clinical considerations.
+        </p>
+
+        <h2 class={headingClass}>Telehealth, Client Portal, and Electronic Communications</h2>
+        <p class={bodyClass}>
+          The practice may provide services and communicate with you through secure electronic tools, including telehealth
+          platforms, the client portal, electronic health record systems, secure messaging, email, phone, or text messaging
+          when appropriate.
+        </p>
+        <p class={bodyClass}>
+          We take reasonable steps to protect electronic communications, but electronic communication may carry privacy and
+          security risks. The practice may limit the type of information sent by email or text and may direct you to use the
+          client portal or another approved secure method for sensitive information.
+        </p>
+        <p class={bodyClass}>
+          Electronic messages are not appropriate for emergencies. If you are experiencing a life-threatening emergency,
+          call 911 or go to the nearest emergency department. If you are in mental health crisis, call or text 988 for the
+          Suicide &amp; Crisis Lifeline.
+        </p>
+
+        <h2 class={headingClass}>Business Associates, Vendors, and Practice Workforce</h2>
+        <p class={bodyClass}>
+          We may disclose PHI to business associates and vendors that perform services for the practice, such as electronic
+          health record systems, billing and clearinghouse services, telehealth platforms, secure communication tools, cloud
+          storage, IT/security support, document management, legal counsel and compliance support, or other approved
+          services.
+        </p>
+        <p class={bodyClass}>
+          Business associates are required by law and contract to protect PHI and use or disclose it only as permitted.
+        </p>
+        <p class={bodyClass}>
+          Members of the practice workforce, including clinicians and administrative staff, may access PHI only as needed to
+          perform assigned duties and must follow the practice&rsquo;s privacy, security, documentation, and confidentiality
+          requirements.
+        </p>
+
+        <h2 class={headingClass}>Uses and Disclosures Requiring Written Authorization</h2>
+        <p class={bodyClass}>
+          We will obtain your written authorization before using or disclosing your PHI for purposes not described in this
+          Notice or otherwise permitted or required by law.
+        </p>
+        <p class={bodyClass}>Uses and disclosures requiring authorization generally include:</p>
+        <ul class={listClass}>
+          <li>Marketing communications where authorization is required by HIPAA.</li>
+          <li>Sale of PHI.</li>
+          <li>Most uses and disclosures of psychotherapy notes.</li>
+          <li>Other uses or disclosures not permitted by this Notice or by applicable law.</li>
         </ul>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
-          Psychotherapy notes are notes recorded by a mental health professional documenting or analyzing counseling sessions and are
-          kept separate from the medical record. We will not disclose psychotherapy notes without your specific authorization except
-          in limited circumstances permitted by law.
-        </p>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
-          You may revoke an authorization in writing at any time, except to the extent we have already relied on it.
+        <p class={bodyClass}>
+          You may revoke an authorization in writing at any time. A revocation will not affect actions we already took in
+          reliance on your authorization before receiving the revocation.
         </p>
 
-        <h2 class="mb-4 mt-12 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl">
-          5. Your Rights Regarding Your PHI
-        </h2>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">You have the right to:</p>
-
-        <h3 class="mb-3 mt-8 text-xl font-semibold text-ink">A. Access</h3>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">Request to inspect or obtain a copy of your PHI.</p>
-
-        <h3 class="mb-3 mt-8 text-xl font-semibold text-ink">B. Amendment</h3>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
-          Request correction of your PHI if you believe it is inaccurate or incomplete.
+        <h2 class={headingClass}>Breach Notification</h2>
+        <p class={bodyClass}>
+          If a breach of unsecured PHI occurs that compromises the privacy or security of your information, the practice will
+          notify you without unreasonable delay and within the timeframe required by law. The practice will also make any
+          required reports to the U.S. Department of Health and Human Services and, when applicable, other required parties.
         </p>
 
-        <h3 class="mb-3 mt-8 text-xl font-semibold text-ink">C. Accounting of Disclosures</h3>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
-          Request a list of certain disclosures we have made of your PHI.
+        <h2 class={headingClass}>Complaints and Privacy Questions</h2>
+        <p class={bodyClass}>
+          If you have questions about this Notice, our privacy practices, or believe your privacy rights have been violated,
+          you may contact the practice:
         </p>
-
-        <h3 class="mb-3 mt-8 text-xl font-semibold text-ink">D. Request Restrictions</h3>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
-          Request restrictions on certain uses or disclosures of your PHI.
-        </p>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
-          If you pay for a service out of pocket and in full, you have the right to request that we not disclose information about
-          that service to your health plan, and we are required to honor that request.
-        </p>
-
-        <h3 class="mb-3 mt-8 text-xl font-semibold text-ink">E. Confidential Communications</h3>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
-          Request that we communicate with you in a specific way or at a specific location, for example, by mail instead of email,
-          particularly if you believe disclosure could endanger you.
-        </p>
-
-        <h3 class="mb-3 mt-8 text-xl font-semibold text-ink">F. Copy of This Notice</h3>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">Request a paper or electronic copy of this Notice at any time.</p>
-
-        <h2 class="mb-4 mt-12 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl">
-          6. Telehealth and Electronic Communications
-        </h2>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
-          We may provide services through secure electronic platforms. While we take reasonable steps to protect your information,
-          electronic communications may involve inherent risks. By participating in telehealth services, you acknowledge and accept
-          these risks.
-        </p>
-
-        <h2 class="mb-4 mt-12 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl">7. Breach Notification</h2>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
-          We will notify you without unreasonable delay and no later than 60 days after discovery if a breach occurs that compromises
-          the privacy or security of your PHI, as required by law.
-        </p>
-
-        <h2 class="mb-4 mt-12 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl">8. Business Associates</h2>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
-          We may disclose your PHI to individuals or entities who support care delivery or practice operations, such as billing
-          services, electronic health record providers, administrative vendors, and clinicians involved in your care, as permitted
-          or required by law.
-        </p>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
-          Business associates and other service providers are required to protect the privacy and security of your PHI as required
-          by law and applicable agreements.
-        </p>
-
-        <h2 class="mb-4 mt-12 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl">9. Complaints</h2>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
-          If you believe your privacy rights have been violated, you may file a complaint with:
-        </p>
-        <div class="mb-5 space-y-1 text-base leading-relaxed text-muted md:text-lg">
-          <p class="text-muted">TrueBridge</p>
-          <p class="text-muted">Privacy contact: TrueBridge (use the email or phone number below)</p>
-          <p class="text-muted">Email: {PUBLIC_EMAIL}</p>
-          <p class="text-muted">Phone: {PUBLIC_PHONE_DISPLAY}</p>
+        <div class={addressBlockClass}>
+          <p>Privacy Officer</p>
+          <p>TrueBridge Therapy</p>
+          <p>CC Counseling PLLC d/b/a TrueBridge Therapy</p>
+          <p>120 Iowa Lane, Suite 201</p>
+          <p>Cary, NC 27511</p>
+          <p>
+            <a href={`tel:${PUBLIC_PHONE_E164}`} class={linkClass}>{PUBLIC_PHONE_DISPLAY}</a>
+          </p>
+          <p>
+            <a href={`mailto:${PUBLIC_EMAIL}`} class={linkClass}>{PUBLIC_EMAIL}</a>
+          </p>
         </div>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
-          You may also file a complaint with the U.S. Department of Health and Human Services. We will not retaliate against you for
-          filing a complaint.
+        <p class={bodyClass}>
+          You may also file a complaint with the U.S. Department of Health and Human Services Office for Civil Rights by
+          sending a letter to:
+        </p>
+        <div class={addressBlockClass}>
+          <p>U.S. Department of Health and Human Services</p>
+          <p>Office for Civil Rights</p>
+          <p>200 Independence Avenue, S.W.</p>
+          <p>Washington, D.C. 20201</p>
+        </div>
+        <p class={bodyClass}>
+          You may also call 1-877-696-6775 or use the
+          <a
+            href="https://ocrportal.hhs.gov/ocr/smartscreen/main.jsf"
+            class={linkClass}
+            target="_blank"
+            rel="noopener noreferrer"
+            >HHS Office for Civil Rights online complaint portal</a
+          >.
+        </p>
+        <p class={bodyClass}>
+          The practice will not retaliate against you for filing a complaint, cooperating in an investigation, or exercising
+          your privacy rights.
         </p>
 
-        <h2 class="mb-4 mt-12 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl">10. Changes to This Notice</h2>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
-          We reserve the right to change this Notice and make the revised Notice effective for all PHI we maintain. The current
-          version will be available upon request and on our website.
+        <h2 class={headingClass}>Changes to This Notice</h2>
+        <p class={bodyClass}>
+          We reserve the right to change the terms of this Notice and to make the revised Notice effective for all PHI we
+          maintain, including PHI created or received before the Notice was revised.
         </p>
-
-        <h2 class="mb-4 mt-12 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl">
-          11. Acknowledgment of Receipt
-        </h2>
-        <p class="mb-5 text-base leading-relaxed text-muted md:text-lg">
-          You will be asked to acknowledge receipt of this Notice. Your acknowledgment confirms receipt, not agreement.
+        <p class={bodyClass}>
+          The current version of this Notice will be available upon request and prominently posted on the practice website.
         </p>
       </div>
-    </section>
+    </article>
   </main>
 </BaseLayout>
