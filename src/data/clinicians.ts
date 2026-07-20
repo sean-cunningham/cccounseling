@@ -53,21 +53,30 @@ export const CLINICIANS: Clinician[] = [
     name: "Jade Spielman",
     credentials: "LMFT",
     title: "Licensed Marriage and Family Therapist",
-    // TODO: add headshot to /public/images/clinicians/jade-spielman.jpg and
-    // replace this adapted bio with Jade's final copy when it arrives.
+    // TODO: save Jade's approved headshot to
+    // /public/images/clinicians/jade-spielman.jpg (square-ish crop,
+    // head-and-shoulders, ~600x600+, <200KB) and uncomment the line below.
+    // photo: "/images/clinicians/jade-spielman.jpg",
     specialties: [
       "Grief and loss",
       "Perinatal and infant loss",
       "Infertility",
       "Postpartum transitions",
+      "Perimenopause and menopause",
       "Hormonal and identity shifts",
       "Relationship concerns",
     ],
     blurb:
-      "Jade supports women through grief, perinatal and infant loss, infertility, and postpartum transitions, along with the hormonal and identity shifts that can leave us feeling unlike ourselves.",
+      "Jade supports women through grief, perinatal and infant loss, infertility, postpartum transitions, and the hormonal and identity shifts that can leave us feeling unlike ourselves. Her work is warm, relational, and shaped by lived experience.",
+    // First-person bio adapted from Jade's own site, following the practice's
+    // profile guidelines. Pending Jade's review and approval before launch.
     bio: [
-      "Jade specializes in supporting women through grief, perinatal and infant loss, infertility, and postpartum transitions, as well as the hormonal and identity shifts that can leave us feeling unlike ourselves.",
-      "As a licensed marriage and family therapist, she brings a warm, relational lens to individual work. She holds space for the losses and changes that so often go unseen, and helps you find your footing in what comes next.",
+      "I work with women moving through seasons that change everything: the tender, disorienting months after becoming a mother, the grief of losing a pregnancy, an infant, or someone deeply loved, the long uncertainty of infertility, and the hormonal and identity shifts of perimenopause and menopause that can leave you feeling unlike yourself.",
+      "I began my career as a grief counselor in hospice care, supporting people at the end of their lives and families facing the heartbreak of losing someone they love. Sitting with people in those sacred, vulnerable moments shaped the heart of my work: healing is not about getting over it, but about honoring love, memory, identity, and the many ways grief reshapes us. From there I provided in-school therapy for children and families, then moved into private practice, where I worked with clients across the lifespan.",
+      "This work is also deeply personal to me. I lost my mom when I was 18, and years later I endured the late second-trimester loss of my daughter, Selah. These losses are part of my story, and they shape the way I sit with others. I will not rush your pain or search for silver linings. I believe in walking alongside you, honoring your pace, your truth, and your lived experience.",
+      "In our sessions, you will find a calm, nurturing space where you do not have to be strong or hold everything together. We slow down, make room for what you are carrying, and begin the process of healing with compassion and intention. Grief deserves gentle attention, and healing begins when we can share our stories without judgment or pressure to move on.",
+      "My approach is warm, relational, and evidence-informed, blending mindfulness with practical support and always centered on your unique needs and pace. I also work with couples navigating these seasons together, helping partners strengthen understanding and closeness through change and grief.",
+      "I earned my Master's degree in Marriage and Family Therapy from Kansas State University and am a Licensed Marriage and Family Therapist. Whether this is your first experience with therapy or you are returning after time away, I know reaching out can feel like a big step. If you are looking for a therapist who will honor your story and walk with you at your own pace, I would be honored to be part of your healing.",
     ],
   },
 ];
