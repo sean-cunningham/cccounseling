@@ -53,10 +53,7 @@ export const CLINICIANS: Clinician[] = [
     name: "Jade Spielman",
     credentials: "LMFT",
     title: "Licensed Marriage and Family Therapist",
-    // TODO: save Jade's approved headshot to
-    // /public/images/clinicians/jade-spielman.jpg (square-ish crop,
-    // head-and-shoulders, ~600x600+, <200KB) and uncomment the line below.
-    // photo: "/images/clinicians/jade-spielman.jpg",
+    photo: "/images/clinicians/jade-spielman.jpg",
     specialties: [
       "Grief and loss",
       "Perinatal and infant loss",
