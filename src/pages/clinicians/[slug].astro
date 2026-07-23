@@ -22,8 +22,9 @@ const firstName = clinician.name.split(" ")[0];
 const pageUrl = `${SITE_URL}/clinicians/${clinician.slug}/`;
 const orgId = `${SITE_URL}/#organization`;
 
-const pageTitle = `${clinician.name}, ${clinician.credentials} | TrueBridge`;
-const pageDescription = clinician.blurb;
+const pageTitle =
+  clinician.seoTitle ?? `${clinician.name}, ${clinician.credentials} | TrueBridge`;
+const pageDescription = clinician.seoDescription ?? clinician.blurb;
 
 function initials(name: string): string {
   return name
@@ -50,6 +51,7 @@ const structuredData = [
     "@id": `${pageUrl}#person`,
     name: `${clinician.name}, ${clinician.credentials}`,
     jobTitle: clinician.title,
+    description: pageDescription,
     worksFor: { "@id": orgId },
     knowsAbout: clinician.specialties,
     ...(clinician.photo ? { image: new URL(clinician.photo, SITE_URL).href } : {}),

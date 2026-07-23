@@ -36,10 +36,11 @@ const structuredData = [
     "@id": `${pageUrl}#${c.slug}`,
     name: `${c.name}, ${c.credentials}`,
     jobTitle: c.title,
+    description: c.seoDescription ?? c.blurb,
     worksFor: { "@id": orgId },
     knowsAbout: c.specialties,
     ...(c.photo ? { image: new URL(c.photo, SITE_URL).href } : {}),
-    url: `${pageUrl}#${c.slug}`,
+    url: `${SITE_URL}/clinicians/${c.slug}/`,
   })),
 ];
 ---
