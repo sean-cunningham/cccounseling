@@ -17,6 +17,14 @@
     @apply font-display text-ink;
   }
 
+  /* Page-scoped display font experiment (see BaseLayout displayFont="lora"). */
+  html.display-font-lora .font-display,
+  html.display-font-lora h1,
+  html.display-font-lora h2,
+  html.display-font-lora h3 {
+    font-family: "Lora", Georgia, serif;
+  }
+
   h1 {
     @apply text-5xl font-semibold tracking-tight leading-[1.1] sm:text-6xl lg:text-7xl;
   }
