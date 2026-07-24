@@ -79,9 +79,9 @@ export const CLINICIANS: Clinician[] = [
     seoTitle:
       "Jade Spielman, LMFT | Anxiety, Depression & Relationship Therapy | TrueBridge",
     seoDescription:
-      "Jade Spielman, LMFT offers warm, collaborative therapy for anxiety, depression, stress, life transitions, and relationship concerns, with particular experience in pregnancy, postpartum, infertility, miscarriage, and infant loss. Telehealth across North Carolina.",
+      "Jade Spielman, LMFT offers warm, collaborative therapy for anxiety, depression, stress, life transitions, and relationship concerns, with specialized expertise in pregnancy, postpartum, infertility, miscarriage, and infant loss. Telehealth across North Carolina.",
     blurb:
-      "Jade works with individuals and couples facing everyday stressors, anxiety, depression, relationship concerns, career changes, and identity questions. She also has particular experience supporting people through pregnancy, postpartum, infertility, miscarriage, infant loss, and parenting. Her style is warm, down-to-earth, and collaborative, shaped by lived experience.",
+      "Jade works with individuals and couples facing everyday stressors, anxiety, depression, relationship concerns, career changes, and identity questions. She also brings specialized expertise supporting people through pregnancy, postpartum, infertility, miscarriage, infant loss, and parenting. Her style is warm, down-to-earth, and collaborative, shaped by lived experience.",
     // First-person bio drawn from Jade's practice site and her onboarding notes.
     // Pending Jade's final review and approval before production launch.
     bio: [
