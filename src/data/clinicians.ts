@@ -59,31 +59,33 @@ export const CLINICIANS: Clinician[] = [
     credentials: "LMFT",
     title: "Licensed Marriage and Family Therapist",
     photo: "/images/clinicians/jade-spielman.jpg",
+    // Lead with high-volume presenting concerns, then niche specialties.
     specialties: [
+      "Anxiety",
+      "Depression",
+      "Stress and life transitions",
+      "Self-esteem",
+      "Identity concerns",
+      "Relationship concerns",
+      "Couples therapy",
+      "Parenting challenges",
       "Grief and loss",
       "Perinatal and infant loss",
       "Infertility",
       "Postpartum mental health",
       "Perimenopause and menopause",
       "Hormonal and identity shifts",
-      "Anxiety",
-      "Depression",
-      "Stress and life transitions",
-      "Self-esteem",
-      "Parenting challenges",
-      "Relationship concerns",
-      "Couples therapy",
     ],
     seoTitle:
-      "Jade Spielman, LMFT | Grief, Postpartum & Relationship Therapy | TrueBridge",
+      "Jade Spielman, LMFT | Anxiety, Depression & Relationship Therapy | TrueBridge",
     seoDescription:
-      "Jade Spielman, LMFT offers warm, collaborative therapy for grief, infertility, pregnancy and infant loss, postpartum mental health, anxiety, depression, life transitions, and couples. Telehealth across North Carolina.",
+      "Jade Spielman, LMFT offers warm, collaborative therapy for anxiety, depression, stress, life transitions, and relationship concerns, with particular experience in pregnancy, postpartum, infertility, miscarriage, and infant loss. Telehealth across North Carolina.",
     blurb:
-      "Jade works with individuals and couples through grief, infertility, pregnancy and infant loss, postpartum transitions, and relationship challenges, as well as anxiety, depression, stress, parenting, and other life transitions. Her style is warm, down-to-earth, and collaborative, shaped by lived experience.",
+      "Jade works with individuals and couples facing everyday stressors, anxiety, depression, relationship concerns, career changes, and identity questions. She also has particular experience supporting people through pregnancy, postpartum, infertility, miscarriage, infant loss, and parenting. Her style is warm, down-to-earth, and collaborative, shaped by lived experience.",
     // First-person bio drawn from Jade's practice site and her onboarding notes.
     // Pending Jade's final review and approval before production launch.
     bio: [
-      "I specialize in supporting individuals and couples navigating grief, infertility, pregnancy and infant loss, postpartum mental health, and relationship challenges. I also work with clients facing many of life's everyday struggles: anxiety, depression, stress, life transitions, self-esteem, relationship conflict, and parenting. That includes women moving through perinatal and hormonal seasons of life, and it also includes men and partners who want a steady place to sort through what they are carrying.",
+      "I work with individuals and couples facing many of life's everyday struggles: anxiety, depression, stress, career and life transitions, self-esteem, identity questions, relationship conflict, and parenting. Men and partners are welcome here too. Alongside that broader work, I have particular experience supporting people through pregnancy, postpartum transitions, infertility, miscarriage, pregnancy and infant loss, grief, and the hormonal and identity shifts of perimenopause and menopause.",
       "I began my career as a grief counselor in hospice care, supporting people at the end of their lives and families facing the heartbreak of losing someone they love. Sitting with people in those sacred, vulnerable moments shaped the heart of my work: healing is not about getting over it, but about honoring love, memory, identity, and the many ways grief reshapes us. From there I provided in-school therapy for children and families, then moved into private practice, where I worked with clients across the lifespan.",
       "This work is also deeply personal to me. I lost my mom when I was 18, and years later I endured the late second-trimester loss of my daughter, Selah. These losses are part of my story, and they shape the way I sit with others. I will not rush your pain or search for silver linings. I believe in walking alongside you, honoring your pace, your truth, and your lived experience.",
       "I believe therapy works best when you feel comfortable enough to be yourself. My style is warm, down-to-earth, and collaborative. Clients often tell me they appreciate a space where they do not feel judged or pressured to have it all figured out. I primarily work from an attachment and family systems perspective, helping you understand how relationships, life experiences, and the stories we carry shape the way we see ourselves and connect with others. I may also incorporate evidence-based approaches like Cognitive Behavioral Therapy (CBT), mindfulness, and psychoeducation, always tailored to your needs rather than a one-size-fits-all plan.",

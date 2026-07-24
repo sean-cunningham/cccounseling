@@ -14,11 +14,6 @@ interface Props {
   /** When true, asks search engines not to index (e.g. 404). */
   noindex?: boolean;
   structuredData?: StructuredDataProp;
-  /**
-   * Optional display-font experiment. `"lora"` swaps Fraunces for Lora on
-   * this page only so we can compare headings side by side.
-   */
-  displayFont?: "fraunces" | "lora";
 }
 
 const {
@@ -27,13 +22,10 @@ const {
   ogImage = "/images/og-default.jpg",
   noindex = false,
   structuredData,
-  displayFont = "fraunces",
 } = Astro.props;
 
 const googleFontsHref =
-  displayFont === "lora"
-    ? "https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
-    : "https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&display=swap";
+  "https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap";
 
 const site = Astro.site ?? new URL("https://truebridgetherapy.com");
 const canonical = new URL(Astro.url.pathname, site);
@@ -66,7 +58,7 @@ if (structuredData !== undefined && structuredData !== null) {
 ---
 
 <!doctype html>
-<html lang="en" class:list={["font-sans", displayFont === "lora" && "display-font-lora"]}>
+<html lang="en" class="font-sans">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
