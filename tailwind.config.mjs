@@ -25,7 +25,7 @@ export default {
       },
       fontFamily: {
         sans: ['"DM Sans"', "system-ui", "sans-serif"],
-        display: ['"Fraunces"', "Georgia", "serif"],
+        display: ['"Lora"', "Georgia", "serif"],
       },
       maxWidth: {
         site: "1200px",

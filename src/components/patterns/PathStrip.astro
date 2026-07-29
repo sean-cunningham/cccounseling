@@ -1,0 +1,45 @@
+---
+/**
+ * Path Strip — the 3-step matching story told once per page, small.
+ * Replaces the full-height "How to begin" / "What to expect" sections.
+ */
+interface Step {
+  title: string;
+  body: string;
+}
+
+interface Props {
+  tone?: "light" | "dark";
+  steps?: readonly Step[] | Step[];
+  class?: string;
+}
+
+const DEFAULT_STEPS: Step[] = [
+  { title: "Tell us what you need", body: "Share what brings you to therapy and any preferences that matter." },
+  { title: "We review fit", body: "We match you on focus area, style, scheduling, and payment options." },
+  { title: "Begin with clarity", body: "You start knowing who you'll see, what it costs, and what to expect." },
+];
+
+const { tone = "light", steps = DEFAULT_STEPS, class: className } = Astro.props;
+
+const numClass = tone === "dark" ? "font-display text-3xl leading-none text-paper/70" : "font-display text-3xl leading-none text-sageDark";
+const titleClass =
+  tone === "dark" ? "font-display text-lg font-semibold leading-snug text-paper" : "font-display text-lg font-semibold leading-snug text-ink";
+const bodyClass = tone === "dark" ? "mt-1 text-sm leading-relaxed text-paper/85" : "mt-1 text-sm leading-relaxed text-muted";
+---
+
+<div class:list={["grid grid-cols-1 gap-6 text-left md:grid-cols-3 md:gap-10", className]}>
+  {
+    steps.map((step, index) => (
+      <div class="flex gap-4 md:block">
+        <p class={numClass} aria-hidden="true">
+          {index + 1}
+        </p>
+        <div class="md:mt-3">
+          <h3 class={titleClass}>{step.title}</h3>
+          <p class={bodyClass}>{step.body}</p>
+        </div>
+      </div>
+    ))
+  }
+</div>

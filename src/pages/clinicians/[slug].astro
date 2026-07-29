@@ -1,0 +1,145 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import CtaBand from "@/components/patterns/CtaBand.astro";
+import { SITE_URL } from "@/constants/site";
+import { PUBLISHED_CLINICIANS, type Clinician } from "@/data/clinicians";
+
+export function getStaticPaths() {
+  // Placeholder profiles never get their own page.
+  return PUBLISHED_CLINICIANS.map((clinician) => ({
+    params: { slug: clinician.slug },
+    props: { clinician },
+  }));
+}
+
+interface Props {
+  clinician: Clinician;
+}
+
+const { clinician } = Astro.props;
+
+const firstName = clinician.name.split(" ")[0];
+const pageUrl = `${SITE_URL}/clinicians/${clinician.slug}/`;
+const orgId = `${SITE_URL}/#organization`;
+
+const pageTitle =
+  clinician.seoTitle ?? `${clinician.name}, ${clinician.credentials} | TrueBridge`;
+const pageDescription = clinician.seoDescription ?? clinician.blurb;
+
+function initials(name: string): string {
+  return name
+    .split(/\s+/)
+    .map((part) => part[0])
+    .filter(Boolean)
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+}
+
+const structuredData = [
+  {
+    "@type": "ProfilePage",
+    "@id": `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: pageTitle,
+    description: pageDescription,
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    mainEntity: { "@id": `${pageUrl}#person` },
+  },
+  {
+    "@type": "Person",
+    "@id": `${pageUrl}#person`,
+    name: `${clinician.name}, ${clinician.credentials}`,
+    jobTitle: clinician.title,
+    description: pageDescription,
+    worksFor: { "@id": orgId },
+    knowsAbout: clinician.specialties,
+    ...(clinician.photo ? { image: new URL(clinician.photo, SITE_URL).href } : {}),
+    url: pageUrl,
+  },
+  {
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+      { "@type": "ListItem", position: 2, name: "Our Clinicians", item: `${SITE_URL}/clinicians/` },
+      { "@type": "ListItem", position: 3, name: clinician.name, item: pageUrl },
+    ],
+  },
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} structuredData={structuredData}>
+  <main id="main">
+    <section class="border-b border-line bg-smoke py-12 lg:py-20" aria-labelledby="clinician-heading">
+      <div class="mx-auto max-w-[1000px] px-5 sm:px-6 lg:px-10">
+        <nav aria-label="Breadcrumb" class="mb-8 text-sm text-muted">
+          <ol class="flex flex-wrap items-center gap-2">
+            <li>
+              <a href="/" class="no-underline transition-colors hover:text-sageDark hover:underline">Home</a>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li>
+              <a href="/clinicians" class="no-underline transition-colors hover:text-sageDark hover:underline">Our Clinicians</a>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page" class="font-medium text-ink">{clinician.name}</li>
+          </ol>
+        </nav>
+        <div class="flex flex-col gap-8 sm:flex-row sm:items-center sm:gap-10 lg:gap-14">
+          {
+            clinician.photo ? (
+              <img
+                src={clinician.photo}
+                alt={`${clinician.name}, ${clinician.credentials}`}
+                width="256"
+                height="256"
+                class="h-44 w-44 shrink-0 rounded-full border border-line object-cover object-[50%_30%] lg:h-56 lg:w-56"
+                loading="eager"
+              />
+            ) : (
+              <div
+                class="flex h-44 w-44 shrink-0 items-center justify-center rounded-full border border-line bg-mist font-display text-6xl font-semibold text-sageDark lg:h-56 lg:w-56"
+                aria-hidden="true"
+              >
+                {initials(clinician.name)}
+              </div>
+            )
+          }
+          <div class="min-w-0">
+            <h1 id="clinician-heading" class="font-display text-4xl leading-[1.08] tracking-tight text-ink md:text-5xl">
+              {clinician.name}, {clinician.credentials}
+            </h1>
+            <p class="mt-3 text-lg text-muted md:text-xl">{clinician.title}</p>
+            <a
+              href="/contact-get-started"
+              class="mt-7 inline-flex items-center justify-center rounded-full bg-sageDark px-7 py-3.5 text-base font-semibold text-paper no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-smoke"
+            >
+              Ask About Working With {firstName}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-line bg-paper py-14 lg:py-20" aria-labelledby="clinician-bio-heading">
+      <div class="mx-auto max-w-[760px] px-5 sm:px-6 lg:px-10">
+        <h2 id="clinician-bio-heading" class="mb-8 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl">
+          About {firstName}
+        </h2>
+        <div class="space-y-5">
+          {clinician.bio.map((paragraph) => <p class="text-lg leading-relaxed text-muted">{paragraph}</p>)}
+        </div>
+        <p class="mt-8 border-t border-line pt-6 text-base leading-relaxed text-muted">
+          {firstName} often works with: {clinician.specialties.join(", ").toLowerCase()}.
+        </p>
+      </div>
+    </section>
+
+    <CtaBand
+      heading={`Wondering if ${firstName} is the right fit?`}
+      headingId="clinician-cta-heading"
+      body="Reach out and tell us a little about what you're looking for. We'll talk through fit, availability, and costs before anything is scheduled."
+    />
+  </main>
+</BaseLayout>

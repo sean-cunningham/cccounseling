@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import CtaBand from "@/components/patterns/CtaBand.astro";
 import { SITE_URL, SITE_NAME, PUBLIC_PHONE_E164, PUBLIC_EMAIL } from "@/constants/site";
 
 /** Full-bleed hero image — replace in one place when updating photography. */
@@ -8,7 +9,7 @@ const LAPTOP_IMG = "/images/online-therapy-laptop.jpg";
 
 const homeTitle = "Online Therapy in North Carolina | TrueBridge";
 const homeDescription =
-  "TrueBridge provides online therapy for adults and couples across North Carolina, with support for anxiety, depression, stress, trauma, relationships, and life transitions.";
+  "TrueBridge provides online therapy for adults across North Carolina, with support for anxiety, depression, stress, trauma, grief, relationships, and life transitions.";
 
 const orgId = `${SITE_URL}/#organization`;
 const websiteId = `${SITE_URL}/#website`;
@@ -22,7 +23,7 @@ const structuredData = {
       "@id": orgId,
       name: SITE_NAME,
       url: SITE_URL,
-      description: "Online therapy for adults and couples across North Carolina.",
+      description: "Online therapy for adults across North Carolina.",
       areaServed: { "@type": "State", name: "North Carolina" },
       medicalSpecialty: ["MentalHealth", "Psychotherapy"],
       telephone: PUBLIC_PHONE_E164,
@@ -78,10 +79,17 @@ const focusAreas = [
   },
   {
     href: "/services/grief-life-transitions-therapy",
-    title: "Life transitions",
+    title: "Grief & life transitions",
     description:
-      "A steady place to process change, including career shifts, parenting, grief, moves, identity questions, and new seasons of life.",
+      "Support after loss, and through major life changes like career shifts, parenting, moves, identity questions, and new seasons.",
     linkLabel: "Explore grief & life transitions therapy",
+  },
+  {
+    href: "/services/perinatal-postpartum-therapy",
+    title: "Perinatal & postpartum",
+    description:
+      "Support through pregnancy, trying to conceive, infertility, loss, postpartum changes, early parenting, and the physical, emotional, and identity shifts of this season.",
+    linkLabel: "Explore perinatal & postpartum therapy",
   },
   {
     href: "/services/trauma-therapy",
@@ -122,7 +130,7 @@ const focusAreas = [
             Therapy for meaningful, lasting change
           </h1>
           <p class="mb-8 max-w-[600px] text-lg leading-relaxed text-paper [text-shadow:0_1px_2px_rgba(31,42,48,0.26),0_0_16px_rgba(31,42,48,0.14)] md:text-xl">
-            Thoughtful, grounded therapy for individuals and couples across North Carolina, designed to help you better understand
+            Thoughtful, grounded therapy for adults across North Carolina, designed to help you better understand
             yourself, navigate challenges with clarity, and create positive lasting change.
           </p>
           <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
@@ -199,7 +207,7 @@ const focusAreas = [
 
     <section class="border-t border-line bg-sageDark py-20 text-paper lg:py-28" aria-labelledby="focus-heading">
       <div class="mx-auto max-w-site px-5 sm:px-6 lg:px-10">
-        <div class="mb-16 max-w-[860px] text-left">
+        <div class="mb-10 max-w-[860px] text-left">
           <h2
             id="focus-heading"
             class="mb-6 font-display text-4xl leading-[1.12] tracking-tight text-paper md:text-5xl"
@@ -207,27 +215,37 @@ const focusAreas = [
             Areas of clinical focus
           </h2>
           <p class="max-w-[760px] text-lg leading-relaxed text-paper/90 md:text-xl">
-            We support adults and couples navigating anxiety, depression, relationship concerns, stress, trauma, and major
+            We support adults navigating anxiety, depression, relationship concerns, stress, trauma, and major
             life transitions through thoughtful, evidence-informed therapy.
           </p>
         </div>
-        <div class="grid grid-cols-1 gap-y-0 md:grid-cols-2 md:gap-x-16 md:gap-y-0">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
           {
             focusAreas.map((area) => (
-              <div class="border-t border-paper/25 py-8 text-left">
-                <h3 class="mb-4 font-display text-3xl leading-[1.08] tracking-tight text-paper md:text-4xl">
+              <a
+                href={area.href}
+                class="group block rounded-[24px] border border-paper/20 bg-paper/10 p-6 text-left no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:border-paper/40 hover:bg-paper/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-sageDark"
+              >
+                <span class="flex items-baseline justify-between gap-3 font-display text-xl font-semibold leading-snug tracking-tight text-paper">
                   {area.title}
-                </h3>
-                <p class="max-w-[500px] text-base leading-relaxed text-paper/90 md:text-lg">{area.description}</p>
-                <a
-                  href={area.href}
-                  class="mt-4 inline-flex text-base font-semibold text-paper underline decoration-sage underline-offset-4 transition-colors hover:decoration-mist"
-                >
-                  {area.linkLabel}
-                </a>
-              </div>
+                  <span aria-hidden="true" class="text-lg transition-transform group-hover:translate-x-1">→</span>
+                </span>
+                <span class="mt-2 block text-sm leading-relaxed text-paper/85">{area.description}</span>
+              </a>
             ))
           }
+          <a
+            href="/services"
+            class="group flex flex-col justify-between rounded-[24px] border border-dashed border-paper/40 p-6 text-left no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:border-paper/70 hover:bg-paper/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-sageDark"
+          >
+            <span class="flex items-baseline justify-between gap-3 font-display text-xl font-semibold leading-snug tracking-tight text-paper">
+              Something else?
+              <span aria-hidden="true" class="text-lg transition-transform group-hover:translate-x-1">→</span>
+            </span>
+            <span class="mt-2 block text-sm leading-relaxed text-paper/85">
+              Explore everything we help with, or just reach out and ask.
+            </span>
+          </a>
         </div>
         <p class="mt-10 max-w-[820px] border-t border-paper/25 pt-8 text-base leading-relaxed text-paper/90 md:text-lg">
           We also support clients with grief, self-esteem, anger, OCD, body image concerns, addiction, and other challenges.
@@ -246,9 +264,9 @@ const focusAreas = [
               Using insurance for therapy
             </h2>
             <p class="mb-8 max-w-[620px] text-lg leading-relaxed text-muted md:text-xl">
-              Navigating insurance shouldn’t be a barrier to beginning therapy. When you reach out, we can help you understand
-              whether your plan may apply based on the clinician you work with, along with expected out-of-pocket costs before
-              your first session, so you can start with more clarity and fewer surprises.
+              Cost shouldn't be a mystery. TrueBridge is completing insurance credentialing, and participation varies by
+              clinician. When you reach out, we'll tell you plainly what your plan can and can't cover, and exactly what
+              your out-of-pocket cost would be, before your first session.
             </p>
             <a
               href="/insurance-rates"
@@ -263,7 +281,7 @@ const focusAreas = [
               alt="Laptop on a desk, suggesting flexible therapy including online sessions"
               width="1200"
               height="800"
-              class="aspect-[4/3] w-full rounded-[32px] border border-line object-cover shadow-[0_12px_32px_rgba(31,42,48,0.06)]"
+              class="aspect-[4/3] w-full rounded-[32px] border border-line object-cover object-[50%_30%] shadow-[0_12px_32px_rgba(31,42,48,0.06)]"
               loading="lazy"
             />
           </div>
@@ -271,22 +289,10 @@ const focusAreas = [
       </div>
     </section>
 
-    <section class="relative border-t border-paper/15 bg-sageDeep py-16 text-paper sm:py-20" aria-labelledby="cta-title">
-      <div class="section-px relative mx-auto max-w-site text-center">
-        <h2 id="cta-title" class="font-display text-3xl font-semibold tracking-tight text-paper sm:text-4xl">
-          Ready to get started?
-        </h2>
-        <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-paper/90 sm:text-lg">
-          Reach out today to begin. We can help you understand how insurance may apply with your clinician match, then connect
-          you with someone who fits your needs and schedule across North Carolina.
-        </p>
-        <a
-          href="/contact-get-started"
-          class="no-underline mt-10 inline-flex items-center justify-center rounded-full border-0 bg-paper px-7 py-3.5 text-base font-semibold text-sageDark transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-smoke hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-sageDeep"
-        >
-          Get Started
-        </a>
-      </div>
-    </section>
+    <CtaBand
+      heading="Ready to get started?"
+      headingId="cta-title"
+      body="Reach out today to begin. We'll help you understand how insurance may apply with your clinician match, then connect you with someone who fits your needs and schedule across North Carolina."
+    />
   </main>
 </BaseLayout>

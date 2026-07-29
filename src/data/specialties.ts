@@ -28,6 +28,9 @@ export interface Specialty {
   metaDescription: string;
   heroHeading: string;
   heroIntro: string;
+  /** Hero photo path under /public (3:4 portrait orientation). */
+  heroImage: string;
+  heroImageAlt: string;
   signsHeading: string;
   signsIntro: string;
   signs: SpecialtySection[];
@@ -48,29 +51,32 @@ export const SPECIALTIES: Specialty[] = [
     serviceType: "Anxiety therapy",
     pageTitle: "Anxiety Therapy in North Carolina | TrueBridge",
     metaDescription:
-      "Online anxiety therapy for adults in North Carolina. Support for worry, overthinking, panic, social anxiety, and avoidance, with licensed clinicians matched to your needs.",
+      "Online anxiety therapy for adults in North Carolina. Support for worry, overthinking, restlessness, trouble sleeping, panic, social anxiety, and avoidance, with licensed clinicians matched to your needs.",
     heroHeading: "Anxiety therapy for a mind that will not slow down.",
     heroIntro:
-      "Therapy for adults across North Carolina who are tired of constant worry, overthinking, panic, and the pressure to stay in control of everything. Most sessions are online through secure telehealth.",
+      "Therapy for adults across North Carolina who are tired of constant worry, overthinking, restlessness, sleepless nights, panic, and the pressure to stay in control of everything. Most sessions are online through secure telehealth.",
+    heroImage: "/images/anxiety-therapy-hero.jpg",
+    heroImageAlt:
+      "A woman stands by a bright window holding a warm mug with both hands, eyes closed, taking a slow, calming breath.",
     signsHeading: "What anxiety can look like",
     signsIntro:
       "Anxiety is more than feeling nervous. It often shows up in the body, in sleep, in relationships, and in the decisions you avoid making.",
     signs: [
       {
-        title: "Worry that will not switch off",
+        title: "Overthinking and worry that will not switch off",
         body: "Replaying conversations, rehearsing worst-case scenarios, and struggling to be present because your mind is always a few steps ahead.",
       },
       {
-        title: "Physical tension and restlessness",
-        body: "Racing heart, tight chest, trouble sleeping, stomach discomfort, and a body that feels braced for something even on calm days.",
+        title: "Restlessness and a body that will not settle",
+        body: "Racing heart, tight chest, fidgety energy, stomach discomfort, and a sense of being braced for something even on calm days.",
       },
       {
-        title: "Avoidance and over-control",
-        body: "Putting off conversations, decisions, or situations that feel risky, or trying to manage anxiety by controlling every detail around you.",
+        title: "Trouble sleeping because of anxious thoughts",
+        body: "Lying awake replaying the day or worrying about tomorrow, waking up already tense, and feeling exhausted before the day begins.",
       },
       {
-        title: "Panic and overwhelm",
-        body: "Sudden waves of fear or dread, sometimes with a pounding heart or shortness of breath, that feel frightening and hard to explain.",
+        title: "Avoidance, over-control, and panic",
+        body: "Putting off conversations, decisions, or situations that feel risky, trying to control every detail, or facing sudden waves of fear that feel hard to explain.",
       },
     ],
     bandHeading: "Anxiety responds well to therapy.",
@@ -124,6 +130,9 @@ export const SPECIALTIES: Specialty[] = [
     heroHeading: "Depression therapy for when everything feels heavier than it should.",
     heroIntro:
       "Therapy for adults across North Carolina living with low mood, lost motivation, emotional numbness, and disconnection from the people and things that used to matter. Most sessions are online through secure telehealth.",
+    heroImage: "/images/depression-therapy-hero.jpg",
+    heroImageAlt:
+      "A man gently opens linen curtains as warm morning light fills a quiet, calm room.",
     signsHeading: "What depression can look like",
     signsIntro:
       "Depression is not always sadness. It often looks like exhaustion, irritability, going through the motions, or quietly withdrawing from your own life.",
@@ -145,7 +154,7 @@ export const SPECIALTIES: Specialty[] = [
         body: "An internal voice that says you are failing, falling behind, or a burden, which makes reaching out for support feel harder.",
       },
     ],
-    bandHeading: "Depression is treatable, and you do not have to earn your way to help.",
+    bandHeading: "Depression is treatable, and you do not have to face it alone.",
     bandBody:
       "Many people wait, hoping the fog will lift on its own or believing they should push through. Therapy offers a steady place to be honest about how you are actually doing, understand what is underneath the heaviness, and rebuild momentum step by step.",
     helpHeading: "What depression therapy can help you do",
@@ -154,7 +163,7 @@ export const SPECIALTIES: Specialty[] = [
     helps: [
       {
         title: "Understand what is underneath",
-        body: "Explore how loss, stress, self-criticism, relationships, and life circumstances feed low mood, so the heaviness starts to make sense.",
+        body: "Explore how loss, stress, self-criticism, relationships, life circumstances, and earlier experiences contribute to feelings of depression over time, so the heaviness starts to make sense.",
       },
       {
         title: "Rebuild momentum gently",
@@ -181,7 +190,7 @@ export const SPECIALTIES: Specialty[] = [
       },
       {
         q: "What if I am having thoughts of hurting myself?",
-        a: "This website and the therapy request process are not for emergencies. If you are in crisis or thinking about harming yourself, call or text 988 (Suicide and Crisis Lifeline), call 911, or go to the nearest emergency room. Once you are safe, therapy can be an important part of ongoing support.",
+        a: "If you are in crisis or thinking about harming yourself, call or text 988 (Suicide and Crisis Lifeline), call 911, or go to the nearest emergency room. Once you are safe, therapy can be an important part of ongoing support. Please note that this website and the therapy request process are not crisis services.",
       },
     ],
   },
@@ -195,7 +204,10 @@ export const SPECIALTIES: Specialty[] = [
       "Online trauma therapy for adults in North Carolina. Support for PTSD, painful past experiences, triggers, and nervous system overwhelm, at a pace that feels safe.",
     heroHeading: "Trauma therapy that moves at a pace you can trust.",
     heroIntro:
-      "Therapy for adults across North Carolina carrying painful experiences that still shape daily life through triggers, hypervigilance, numbness, or relationship patterns. Most sessions are online through secure telehealth.",
+      "Therapy for adults across North Carolina carrying painful experiences that still shape daily life through triggers, feeling on high alert, numbness, avoidance, or relationship patterns. Most sessions are online through secure telehealth.",
+    heroImage: "/images/trauma-therapy-hero.jpg",
+    heroImageAlt:
+      "A woman wrapped in a soft knit blanket sits in an armchair by a window, looking out with a calm, grounded expression.",
     signsHeading: "How trauma can keep showing up",
     signsIntro:
       "Trauma is not only about what happened. It is also about how your mind and body adapted, and how those adaptations continue long after the events themselves.",
@@ -205,16 +217,16 @@ export const SPECIALTIES: Specialty[] = [
         body: "Certain places, sounds, dates, or interactions bring back intense feelings or memories, sometimes without an obvious reason.",
       },
       {
-        title: "A body on high alert",
-        body: "Feeling jumpy, tense, or unsafe even in calm situations, with trouble sleeping or relaxing enough to feel at ease.",
+        title: "On high alert",
+        body: "An easy startle response, scanning for threats or harm, feeling tense or unsafe even in calm situations, and trouble sleeping or relaxing enough to feel at ease.",
       },
       {
-        title: "Numbness and distance",
-        body: "Feeling shut down, detached from your emotions, or like you are watching your life from the outside.",
+        title: "Avoiding reminders of what happened",
+        body: "Steering clear of triggers, places, people, conversations, or reminders of the event, even when that avoidance starts to shrink daily life.",
       },
       {
-        title: "Patterns in relationships and trust",
-        body: "Difficulty trusting others, staying close, or setting boundaries, often shaped by earlier experiences you may not connect to the present.",
+        title: "Numbness, distance, and trust",
+        body: "Feeling shut down or detached from your emotions, or finding it hard to trust others, stay close, or set boundaries shaped by earlier experiences.",
       },
     ],
     bandHeading: "Healing does not require reliving everything.",
@@ -268,6 +280,9 @@ export const SPECIALTIES: Specialty[] = [
     heroHeading: "Therapy for stress and burnout, before running on empty becomes normal.",
     heroIntro:
       "Therapy for adults across North Carolina dealing with chronic pressure, work stress, caregiving strain, and the exhaustion of holding everything together. Most sessions are online through secure telehealth.",
+    heroImage: "/images/stress-burnout-therapy-hero.jpg",
+    heroImageAlt:
+      "A man rests on a porch step with his eyes closed and a closed laptop beside him, shoulders relaxed among green trees.",
     signsHeading: "What chronic stress and burnout can look like",
     signsIntro:
       "Burnout rarely arrives all at once. It builds through months of over-functioning, until rest stops helping and things that used to feel manageable no longer do.",
@@ -329,54 +344,133 @@ export const SPECIALTIES: Specialty[] = [
     ],
   },
   {
+    slug: "perinatal-postpartum-therapy",
+    shortLabel: "Perinatal & postpartum",
+    name: "Perinatal & Postpartum Therapy",
+    serviceType: "Perinatal and postpartum therapy",
+    pageTitle: "Perinatal & Postpartum Therapy in North Carolina | TrueBridge",
+    metaDescription:
+      "Online therapy for women in North Carolina navigating pregnancy, trying to conceive, infertility, postpartum anxiety and depression, early parenting, loss, and the physical, emotional, and identity shifts of this season.",
+    heroHeading: "Therapy for the seasons of womanhood no one prepares you for.",
+    heroIntro:
+      "Support for women across North Carolina moving through pregnancy, trying to conceive, infertility, loss, postpartum changes, and the physical, emotional, and identity shifts that can leave you feeling unlike yourself. Most sessions are online through secure telehealth.",
+    heroImage: "/images/perinatal-postpartum-therapy-hero.jpg",
+    heroImageAlt:
+      "A woman sits on a window seat in soft light with a hand resting gently over her heart, looking out the window with a tender, hopeful expression.",
+    signsHeading: "What this season can hold",
+    signsIntro:
+      "These experiences are common, deeply personal, and often invisible to the people around you. You do not have to carry them quietly to be strong.",
+    signs: [
+      {
+        title: "Postpartum anxiety, depression, and rage",
+        body: "Feeling anxious, flat, tearful, irritable, or unlike yourself after birth, including thoughts and feelings that are hard to say out loud.",
+      },
+      {
+        title: "Infertility and trying to conceive",
+        body: "The monthly cycle of hope and grief, the strain on your relationship and identity, and the exhaustion of decisions no one else can see.",
+      },
+      {
+        title: "Pregnancy, early parenting, and feeling unlike yourself",
+        body: "Support for pregnancy health and wellness, the early stages of parenting, and the physical, emotional, and identity shifts of the perinatal and postpartum periods that can leave you wondering where you went.",
+      },
+      {
+        title: "Grief after loss",
+        body: "Space for miscarriage, stillbirth, infant loss, and other reproductive losses, held gently and without a timeline, whether the loss was recent or years ago.",
+      },
+    ],
+    bandHeading: "You are not failing. You are carrying something enormous.",
+    bandBody:
+      "So much of this is endured silently, in bathrooms and waiting rooms and the middle of the night. Therapy offers a place where the whole story is welcome: the joy and the fear, the grief and the guilt, the anger and the love, all at once.",
+    helpHeading: "What this therapy can help you do",
+    helpIntro:
+      "Our clinicians who focus on women's mental health work gently and specifically with these seasons of life.",
+    helps: [
+      {
+        title: "Steady the postpartum and early parenting season",
+        body: "Build real support for mood, sleep, overwhelm, and the early stages of parenting, with care for both what is changing in your body and what is happening in your life.",
+      },
+      {
+        title: "Come back to yourself",
+        body: "Work through the physical, emotional, and identity shifts of pregnancy, infertility, postpartum, and early motherhood, and reconnect with who you are now.",
+      },
+      {
+        title: "Grieve without a timeline",
+        body: "Make room for loss that others may not recognize, at your own pace, with someone who understands perinatal grief specifically.",
+      },
+    ],
+    faqHeading: "Perinatal and postpartum therapy questions",
+    faqs: [
+      {
+        q: "Do I need a diagnosis of postpartum depression to start?",
+        a: "No. You do not need a diagnosis, and you do not need to be in crisis. If this season feels heavier, lonelier, or more confusing than you expected, that is reason enough to reach out.",
+      },
+      {
+        q: "Can I start therapy while pregnant or while trying to conceive?",
+        a: "Yes. Many women begin therapy during pregnancy, while navigating infertility, in the early stages of parenting, or while deciding what comes next. Support before a crisis often makes the hardest moments more bearable.",
+      },
+      {
+        q: "Is this kind of therapy covered by insurance?",
+        a: "Individual therapy for concerns like postpartum depression, anxiety, and grief is generally eligible for insurance coverage where your clinician is in-network. We help you verify your benefits and understand expected costs before your first session.",
+      },
+      {
+        q: "My loss was early, or a long time ago. Does it still count?",
+        a: "Yes. Grief after miscarriage and other perinatal losses does not follow a schedule and is not measured by how far along you were. If it still weighs on you, it deserves care, whether it happened last month or years ago.",
+      },
+    ],
+  },
+  {
     slug: "grief-life-transitions-therapy",
     shortLabel: "Grief & life transitions",
     name: "Grief & Life Transitions Therapy",
     serviceType: "Grief and life transitions therapy",
     pageTitle: "Grief & Life Transitions Therapy in North Carolina | TrueBridge",
     metaDescription:
-      "Online therapy for grief and life transitions for adults in North Carolina. Support after loss, and through divorce, career change, parenthood, moves, and new seasons of life.",
-    heroHeading: "Therapy for grief and the seasons that change everything.",
+      "Online therapy for grief and for life transitions for adults in North Carolina. Support after loss, and separate support through divorce, career change, parenthood, moves, and new seasons of life.",
+    heroHeading: "Therapy for grief, and for the seasons that change everything.",
     heroIntro:
-      "Therapy for adults across North Carolina navigating loss, divorce, career change, parenthood, retirement, moves, and other transitions that reshape daily life and identity. Most sessions are online through secure telehealth.",
-    signsHeading: "When grief and change are hard to carry",
+      "Therapy for adults across North Carolina who need support after a loss, or who are navigating a major life transition such as divorce, career change, parenthood, retirement, or a move. These are different reasons to come to therapy, and both are welcome here. Most sessions are online through secure telehealth.",
+    heroImage: "/images/grief-life-transitions-therapy-hero.jpg",
+    heroImageAlt:
+      "An older woman walks slowly along a quiet tree-lined path in soft golden light, looking peacefully toward the trees.",
+    signsHeading: "Two common reasons people reach out",
     signsIntro:
-      "Loss and major transitions affect more than mood. They can unsettle identity, routines, relationships, and your sense of what comes next.",
+      "Grief after loss and the strain of a major life transition can look different. Both can unsettle identity, routines, relationships, and your sense of what comes next.",
     signs: [
       {
-        title: "Grief that comes in waves",
-        body: "Sadness, longing, anger, guilt, or numbness after a death or loss, sometimes surfacing months later or at unexpected moments.",
+        title: "Grief after a death or loss",
+        body: "Sadness, longing, anger, guilt, or numbness after someone dies, sometimes surfacing months later or at unexpected moments.",
       },
       {
         title: "Losses others may not see",
-        body: "The end of a relationship, a miscarriage, estrangement, the loss of health, or a future you had planned on, grief that is real even when it goes unrecognized.",
+        body: "The end of a relationship, estrangement, the loss of health, or a future you had planned on. Grief that is real even when it goes unrecognized.",
       },
       {
-        title: "Identity in transition",
-        body: "Becoming a parent, ending a career, retiring, or moving can leave you unsure who you are now and what matters next.",
+        title: "Life transitions and identity shifts",
+        body: "Becoming a parent, changing careers, retiring, relocating, or stepping into a new chapter can leave you unsure who you are now and what matters next.",
       },
       {
         title: "Feeling stuck between chapters",
-        body: "The old life is gone, the new one has not taken shape, and everyone around you seems to expect you to have moved on already.",
+        body: "The old life is gone, the new one has not taken shape, and everyone around you seems to expect you to have adjusted already.",
       },
     ],
-    bandHeading: "Grief does not follow a schedule, and therapy does not rush it.",
+    bandHeading: "Grief and life transitions both deserve unhurried care.",
     bandBody:
-      "There is no correct timeline for grief and no single right way to handle a major life change. Therapy offers steady, unhurried support, a place to feel what you actually feel, make sense of what has changed, and find your footing in what comes next.",
-    helpHeading: "What grief and transition therapy can help you do",
-    helpIntro: "Your therapist offers a consistent place to process, remember, and rebuild.",
+      "There is no correct timeline for grief, and no single right way to handle a major life change. Therapy offers steady support either way: a place to feel what you actually feel, make sense of what has changed, and find your footing in what comes next.",
+    helpHeading: "What therapy can help you do",
+    helpIntro:
+      "Whether you are grieving a loss or navigating a transition, your therapist offers a consistent place to process and rebuild.",
     helps: [
       {
-        title: "Make room for the grief",
-        body: "Express what you are carrying, including the complicated parts like relief, anger, and guilt, without judgment or pressure to be over it.",
+        title: "Make room for grief",
+        body: "Express what you are carrying after a loss, including the complicated parts like relief, anger, and guilt, without judgment or pressure to be over it.",
       },
       {
-        title: "Navigate the practical and relational shifts",
-        body: "Work through the changes in roles, relationships, and daily life that loss and transition bring.",
+        title: "Navigate a life transition",
+        body: "Work through the practical, relational, and identity shifts that come with divorce, career change, parenthood, relocation, and other new seasons.",
       },
       {
         title: "Rebuild meaning and direction",
-        body: "Reconnect with your values and begin shaping the next chapter at a pace that respects what you have lost.",
+        body: "Reconnect with your values and begin shaping the next chapter at a pace that respects what has changed.",
       },
     ],
     faqHeading: "Grief and life transitions questions",
@@ -391,7 +485,7 @@ export const SPECIALTIES: Specialty[] = [
       },
       {
         q: "Can therapy help with a change I chose, like a new job or becoming a parent?",
-        a: "Yes. Even welcome changes involve loss, of routines, identity, and familiar ground, and it is common to struggle with a transition you wanted. Therapy can help you sort through the mixed feelings without minimizing either side.",
+        a: "Yes. Life transitions are a distinct reason people seek therapy, even when the change was wanted. Welcome changes still involve loss of routines, identity, and familiar ground. Therapy can help you sort through the mixed feelings without minimizing either side.",
       },
       {
         q: "What if I mostly need support through a divorce or breakup?",

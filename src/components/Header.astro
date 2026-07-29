@@ -8,25 +8,27 @@ interface Props {
 
 const { currentPath } = Astro.props;
 
-const serviceItems = [
+const menuGroups = [
   {
-    href: "/services/individual-therapy",
-    title: "Individual Therapy",
-    description: "Support for anxiety, stress, depression, life transitions, and personal growth.",
+    label: "What brings you here",
+    items: [
+      { href: "/services/anxiety-therapy", label: "Anxiety" },
+      { href: "/services/depression-therapy", label: "Depression" },
+      { href: "/services/trauma-therapy", label: "Trauma & PTSD" },
+      { href: "/services/stress-burnout-therapy", label: "Stress & Burnout" },
+      { href: "/services/grief-life-transitions-therapy", label: "Grief & Life Transitions" },
+      { href: "/services/perinatal-postpartum-therapy", label: "Perinatal & Postpartum" },
+      { href: "/services/couples-therapy", label: "Couples & Relationships" },
+    ],
   },
   {
-    href: "/services/couples-therapy",
-    title: "Couples Therapy",
-    description: "Help for communication, disconnection, conflict, and rebuilding closeness.",
+    label: "How we help",
+    items: [
+      { href: "/services/individual-therapy", label: "Individual Therapy" },
+      { href: "/services/couples-therapy", label: "Couples Therapy" },
+      { href: "/approaches", label: "Our Approach" },
+    ],
   },
-] as const;
-
-const focusItems = [
-  { href: "/services/anxiety-therapy", label: "Anxiety" },
-  { href: "/services/depression-therapy", label: "Depression" },
-  { href: "/services/trauma-therapy", label: "Trauma & PTSD" },
-  { href: "/services/stress-burnout-therapy", label: "Stress & Burnout" },
-  { href: "/services/grief-life-transitions-therapy", label: "Grief & Life Transitions" },
 ] as const;
 
 const navRest = [
@@ -52,18 +54,25 @@ const servicesActive = isActive("/services");
     <a href="/" class="shrink-0 transition-opacity hover:opacity-90" aria-label="TrueBridge Therapy home">
       <img
         src={LOGO}
-        width="964"
-        height="478"
+        width="258"
+        height="128"
         alt="TrueBridge Therapy"
         class="h-12 w-auto max-w-[min(100%,320px)] lg:h-14"
         decoding="async"
       />
     </a>
 
+    <a
+      href="/contact-get-started"
+      class="ml-auto inline-flex shrink-0 items-center justify-center rounded-full bg-sageDark px-4 py-2 text-sm font-semibold text-paper no-underline transition duration-200 ease-out hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper lg:hidden"
+    >
+      Get Started
+    </a>
+
     <button
       type="button"
       id="header-nav-toggle"
-      class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-line bg-paper text-ink transition-colors hover:bg-smoke focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper lg:ml-auto lg:hidden"
+      class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-line bg-paper text-ink transition-colors hover:bg-smoke focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper lg:hidden"
       aria-controls="header-mobile-drawer"
       aria-expanded="false"
       aria-label="Open menu"
@@ -120,39 +129,29 @@ const servicesActive = isActive("/services");
           >
             <div class="rounded-2xl border border-line bg-smoke p-3.5 shadow-[0_18px_45px_rgba(31,42,48,0.10)]">
               {
-                serviceItems.map((item) => (
-                  <a
-                    href={item.href}
-                    role="menuitem"
-                    class:list={[
-                      "group/svcitem mb-1.5 block rounded-xl border border-transparent px-3 py-3 no-underline transition-all duration-200 ease-out last:mb-0 hover:-translate-y-0.5 hover:border-line hover:bg-paper hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-smoke",
-                      isActive(item.href) && "border-line bg-paper shadow-sm",
-                    ]}
-                  >
-                    <span class="block text-[0.95rem] font-semibold text-sageDark transition-colors duration-200 group-hover/svcitem:text-ink">
-                      {item.title}
-                    </span>
-                    <span class="mt-0.5 block text-xs font-normal leading-snug text-muted transition-colors duration-200 group-hover/svcitem:text-ink/75">
-                      {item.description}
-                    </span>
-                  </a>
-                ))
-              }
-              <p class="mb-1 mt-3 border-t border-line px-3 pt-3 text-[0.7rem] font-semibold uppercase tracking-wider text-muted">
-                Areas of focus
-              </p>
-              {
-                focusItems.map((item) => (
-                  <a
-                    href={item.href}
-                    role="menuitem"
-                    class:list={[
-                      "block rounded-lg px-3 py-1.5 text-[0.9rem] font-medium text-ink/85 no-underline transition-colors hover:bg-paper hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-smoke",
-                      isActive(item.href) && "bg-paper text-sageDark",
-                    ]}
-                  >
-                    {item.label}
-                  </a>
+                menuGroups.map((group, groupIndex) => (
+                  <>
+                    <p
+                      class:list={[
+                        "mb-1 px-3 text-[0.7rem] font-semibold uppercase tracking-wider text-muted",
+                        groupIndex > 0 && "mt-3 border-t border-line pt-3",
+                      ]}
+                    >
+                      {group.label}
+                    </p>
+                    {group.items.map((item) => (
+                      <a
+                        href={item.href}
+                        role="menuitem"
+                        class:list={[
+                          "block rounded-lg px-3 py-1.5 text-[0.9rem] font-medium text-ink/85 no-underline transition-colors hover:bg-paper hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-smoke",
+                          isActive(item.href) && "bg-paper text-sageDark",
+                        ]}
+                      >
+                        {item.label}
+                      </a>
+                    ))}
+                  </>
                 ))
               }
             </div>
@@ -211,25 +210,21 @@ const servicesActive = isActive("/services");
         </a>
         <div class="mt-2 flex flex-col gap-1 border-l border-line pl-4">
           {
-            serviceItems.map((item) => (
-              <a
-                href={item.href}
-                class="rounded-lg py-2 pl-2 text-base font-medium text-ink/90 no-underline transition-colors hover:bg-smoke hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2"
-                aria-current={isActive(item.href) ? "page" : undefined}
-              >
-                {item.title}
-              </a>
-            ))
-          }
-          {
-            focusItems.map((item) => (
-              <a
-                href={item.href}
-                class="rounded-lg py-1.5 pl-2 text-sm font-medium text-ink/75 no-underline transition-colors hover:bg-smoke hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2"
-                aria-current={isActive(item.href) ? "page" : undefined}
-              >
-                {item.label}
-              </a>
+            menuGroups.map((group) => (
+              <>
+                <p class="mt-2 text-[0.7rem] font-semibold uppercase tracking-wider text-muted first:mt-0">
+                  {group.label}
+                </p>
+                {group.items.map((item) => (
+                  <a
+                    href={item.href}
+                    class="rounded-lg py-1.5 pl-2 text-sm font-medium text-ink/85 no-underline transition-colors hover:bg-smoke hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2"
+                    aria-current={isActive(item.href) ? "page" : undefined}
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </>
             ))
           }
         </div>

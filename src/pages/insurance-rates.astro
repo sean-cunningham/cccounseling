@@ -1,8 +1,29 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import CtaBand from "@/components/patterns/CtaBand.astro";
+import RecognitionGrid from "@/components/patterns/RecognitionGrid.astro";
 
 const description =
   "Learn about insurance options, private-pay rates, clinician-specific payment details, and cost expectations before beginning therapy with TrueBridge.";
+
+const costItems = [
+  {
+    title: "Clinician-specific insurance options",
+    body: "Insurance participation may vary by clinician. When clinicians are available, we will help you understand whether a particular clinician accepts your insurance or whether another payment option applies.",
+  },
+  {
+    title: "Private-pay rates",
+    body: "Private-pay rates may vary by clinician, service type, and appointment type. Any applicable rate will be reviewed before care begins.",
+  },
+  {
+    title: "Expected out-of-pocket costs",
+    body: "Before scheduling ongoing therapy, we aim to help you understand the expected cost based on the clinician, service type, and payment arrangement.",
+  },
+  {
+    title: "Questions before scheduling",
+    body: "If you are unsure about insurance, private-pay rates, or which clinician may be the right fit, you can contact us before scheduling a consultation.",
+  },
+] as const;
 ---
 
 <BaseLayout title="Insurance & Rates | TrueBridge" {description}>
@@ -20,58 +41,22 @@ const description =
           Insurance options and private-pay rates may vary by clinician and service type. Before care begins, we’ll help you understand
           available options, expected costs, and next steps.
         </p>
+        <a
+          href="/contact-get-started"
+          class="mt-8 inline-flex items-center justify-center rounded-full bg-sageDark px-7 py-3.5 text-base font-semibold text-paper no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
+        >
+          Ask About Your Plan
+        </a>
       </div>
     </section>
 
     <!-- Section 2: How insurance and payment work -->
-    <section class="bg-paper py-16 lg:py-24" aria-labelledby="how-payment-heading">
-      <div class="mx-auto max-w-[1100px] px-5 sm:px-6 lg:px-10">
-        <div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-12 xl:gap-16">
-          <div>
-            <h2
-              id="how-payment-heading"
-              class="mb-6 font-display text-4xl leading-[1.12] tracking-tight text-ink md:text-5xl"
-            >
-              Cost should be clear before care begins.
-            </h2>
-            <p class="text-lg leading-relaxed text-muted">
-              Therapy is a meaningful investment, and cost questions are a normal part of getting started. Our goal is to help you understand
-              your options before scheduling ongoing care.
-            </p>
-          </div>
-          <div class="min-w-0">
-            <article class="border-t border-sand/70 py-7">
-              <h3 class="mb-3 font-display text-2xl leading-snug tracking-tight text-ink">Clinician-specific insurance options</h3>
-              <p class="text-base leading-relaxed text-muted md:text-lg">
-                Insurance participation may vary by clinician. When clinicians are available, we will help you understand whether a particular
-                clinician accepts your insurance or whether another payment option applies.
-              </p>
-            </article>
-            <article class="border-t border-sand/70 py-7">
-              <h3 class="mb-3 font-display text-2xl leading-snug tracking-tight text-ink">Private-pay rates</h3>
-              <p class="text-base leading-relaxed text-muted md:text-lg">
-                Private-pay rates may vary by clinician, service type, and appointment type. Any applicable rate will be reviewed before care
-                begins.
-              </p>
-            </article>
-            <article class="border-t border-sand/70 py-7">
-              <h3 class="mb-3 font-display text-2xl leading-snug tracking-tight text-ink">Expected out-of-pocket costs</h3>
-              <p class="text-base leading-relaxed text-muted md:text-lg">
-                Before scheduling ongoing therapy, we aim to help you understand the expected cost based on the clinician, service type, and
-                payment arrangement.
-              </p>
-            </article>
-            <article class="border-t border-sand/70 py-7">
-              <h3 class="mb-3 font-display text-2xl leading-snug tracking-tight text-ink">Questions before scheduling</h3>
-              <p class="text-base leading-relaxed text-muted md:text-lg">
-                If you are unsure about insurance, private-pay rates, or which clinician may be the right fit, you can contact us before
-                scheduling a consultation.
-              </p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
+    <RecognitionGrid
+      heading="Cost should be clear before care begins."
+      headingId="how-payment-heading"
+      intro="Therapy is a meaningful investment, and cost questions are a normal part of getting started. Our goal is to help you understand your options before scheduling ongoing care."
+      items={costItems}
+    />
 
     <!-- Section 3: Insurance participation by clinician -->
     <section class="bg-mist py-16 lg:py-24" aria-labelledby="participation-heading">
@@ -107,8 +92,8 @@ const description =
           Private-pay rates
         </h2>
         <p class="mb-12 text-lg leading-relaxed text-muted md:text-xl">
-          Private-pay rates may vary by clinician and service type. Rates are confirmed before scheduling ongoing therapy so there are fewer
-          surprises.
+          If you are paying out of pocket, these are our standard session rates. If insurance applies to your care, your
+          out-of-pocket cost depends on your plan, and we will confirm it with you before your first session.
         </p>
 
         <div
@@ -117,25 +102,30 @@ const description =
           <div
             class="grid grid-cols-1 items-center gap-2 px-8 py-6 md:grid-cols-[1fr_auto]"
           >
-            <p class="font-display text-2xl leading-snug tracking-tight text-ink">Free consultation</p>
-            <p class="text-lg font-semibold text-ink md:text-xl">No cost</p>
+            <p class="font-display text-2xl leading-snug tracking-tight text-ink">Consultation</p>
+            <p class="text-lg font-semibold text-ink md:text-xl">Free</p>
           </div>
           <div
             class="grid grid-cols-1 items-center gap-2 border-t border-sand/70 px-8 py-6 md:grid-cols-[1fr_auto]"
           >
             <p class="font-display text-2xl leading-snug tracking-tight text-ink">Individual therapy</p>
-            <p class="text-lg font-semibold text-ink md:text-xl">Confirmed before care begins</p>
+            <p class="text-lg font-semibold text-ink md:text-xl">$175 per hour</p>
           </div>
           <div
             class="grid grid-cols-1 items-center gap-2 border-t border-sand/70 px-8 py-6 md:grid-cols-[1fr_auto]"
           >
             <p class="font-display text-2xl leading-snug tracking-tight text-ink">Couples therapy</p>
-            <p class="text-lg font-semibold text-ink md:text-xl">Confirmed before care begins</p>
+            <p class="text-lg font-semibold text-ink md:text-xl">$200 per hour</p>
           </div>
         </div>
 
         <p class="mt-6 text-base leading-relaxed text-muted">
-          Rates may vary by clinician, service type, and payment arrangement. Please confirm current rates before beginning care.
+          You will always know your cost before committing to ongoing care. Questions about your specific situation?
+          <a
+            href="/contact-get-started"
+            class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
+            >Ask us</a
+          >, the consultation is free.
         </p>
       </div>
     </section>
@@ -160,24 +150,11 @@ const description =
     </section>
 
     <!-- Section 6: Final CTA -->
-    <section class="bg-sageDark py-16 text-center lg:py-24" aria-labelledby="insurance-cta-heading">
-      <div class="mx-auto max-w-[760px] px-5 text-center sm:px-6 lg:px-10">
-        <h2
-          id="insurance-cta-heading"
-          class="mb-5 font-display text-4xl leading-[1.12] tracking-tight text-paper md:text-5xl"
-        >
-          Questions about insurance, rates, or next steps?
-        </h2>
-        <p class="mb-8 text-lg leading-relaxed text-paper/92 md:text-xl">
-          Reach out and we’ll help you understand available payment options, clinician fit, and what to expect before beginning care.
-        </p>
-        <a
-          href="/contact-get-started"
-          class="inline-flex items-center justify-center rounded-full bg-paper px-7 py-3.5 text-base font-semibold text-sageDark no-underline transition hover:-translate-y-0.5 hover:bg-smoke focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-paper focus-visible:ring-offset-2 focus-visible:ring-offset-sageDark"
-        >
-          Contact Us
-        </a>
-      </div>
-    </section>
+    <CtaBand
+      heading="Questions about insurance, rates, or next steps?"
+      headingId="insurance-cta-heading"
+      body="Reach out and we'll help you understand available payment options, clinician fit, and what to expect before beginning care."
+      buttonLabel="Contact Us"
+    />
   </main>
 </BaseLayout>

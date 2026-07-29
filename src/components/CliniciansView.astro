@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import CtaBand from "@/components/patterns/CtaBand.astro";
 import { SITE_URL } from "@/constants/site";
 import { CLINICIANS, PUBLISHED_CLINICIANS } from "@/data/clinicians";
 
@@ -35,17 +36,18 @@ const structuredData = [
     "@id": `${pageUrl}#${c.slug}`,
     name: `${c.name}, ${c.credentials}`,
     jobTitle: c.title,
+    description: c.seoDescription ?? c.blurb,
     worksFor: { "@id": orgId },
     knowsAbout: c.specialties,
     ...(c.photo ? { image: new URL(c.photo, SITE_URL).href } : {}),
-    url: `${pageUrl}#${c.slug}`,
+    url: `${SITE_URL}/clinicians/${c.slug}/`,
   })),
 ];
 ---
 
 <BaseLayout title="Our Clinicians | TrueBridge" {description} structuredData={structuredData}>
   <main id="main">
-    <section class="border-b border-line bg-smoke py-16 lg:py-24" aria-labelledby="clinicians-hero-heading">
+    <section class="border-b border-line bg-smoke py-14 lg:py-20" aria-labelledby="clinicians-hero-heading">
       <div class="mx-auto max-w-[900px] px-5 text-left sm:px-6 lg:px-10">
         <h1
           id="clinicians-hero-heading"
@@ -60,150 +62,124 @@ const structuredData = [
       </div>
     </section>
 
-    <section class="border-t border-line bg-paper py-16 lg:py-24" aria-labelledby="clinician-fit-heading">
+    {
+      CLINICIANS.length > 0 && (
+        <section class="border-t border-line bg-paper py-14 lg:py-20" aria-labelledby="profiles-heading">
+          <div class="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-10">
+            <h2 id="profiles-heading" class="sr-only">Clinician profiles</h2>
+            <div class="mx-auto max-w-[880px] space-y-14 lg:space-y-16">
+              {CLINICIANS.map((clinician, index) => (
+                <article
+                  id={clinician.slug}
+                  class:list={["text-left", index > 0 && "border-t border-line pt-14 lg:pt-16"]}
+                >
+                  {clinician.isPlaceholder && (
+                    <p class="mb-7 inline-flex rounded-full border border-clay/30 bg-claySoft px-3 py-1 text-xs font-semibold uppercase tracking-wider text-clay">
+                      Sample profile. Real clinician profiles coming soon
+                    </p>
+                  )}
+                  <div class="flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-10 lg:gap-12">
+                    {clinician.photo ? (
+                      <img
+                        src={clinician.photo}
+                        alt={`${clinician.name}, ${clinician.credentials}`}
+                        width="208"
+                        height="208"
+                        class="h-40 w-40 shrink-0 rounded-full border border-line object-cover object-[50%_30%] sm:h-44 sm:w-44 lg:h-52 lg:w-52"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div
+                        class="flex h-40 w-40 shrink-0 items-center justify-center rounded-full border border-line bg-mist font-display text-5xl font-semibold text-sageDark sm:h-44 sm:w-44 lg:h-52 lg:w-52"
+                        aria-hidden="true"
+                      >
+                        {initials(clinician.name)}
+                      </div>
+                    )}
+                    <div class="min-w-0">
+                      <h3 class="font-display text-3xl leading-snug tracking-tight text-ink lg:text-4xl">
+                        {clinician.isPlaceholder ? (
+                          <>
+                            {clinician.name}, {clinician.credentials}
+                          </>
+                        ) : (
+                          <a
+                            href={`/clinicians/${clinician.slug}`}
+                            class="no-underline transition-colors hover:text-sageDark"
+                          >
+                            {clinician.name}, {clinician.credentials}
+                          </a>
+                        )}
+                      </h3>
+                      <p class="mt-2 text-base text-muted md:text-lg">{clinician.title}</p>
+                      <p class="mt-5 text-base leading-relaxed text-muted md:text-lg">{clinician.blurb}</p>
+                      {clinician.isPlaceholder ? (
+                        <a
+                          href="/contact-get-started"
+                          class="mt-6 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
+                        >
+                          Ask about working with our clinicians
+                        </a>
+                      ) : (
+                        <a
+                          href={`/clinicians/${clinician.slug}`}
+                          class="mt-6 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
+                        >
+                          Meet {clinician.name.split(" ")[0]}
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )
+    }
+
+    <section class="border-t border-line bg-sageDark py-16 text-paper lg:py-24" aria-labelledby="matching-heading">
       <div class="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-10">
-        <div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-          <div>
-            <h2
-              id="clinician-fit-heading"
-              class="font-display text-4xl leading-[1.12] tracking-tight text-ink md:text-5xl"
-            >
-              Therapy works best when the fit feels right.
-            </h2>
-            <p class="mt-6 max-w-[480px] text-lg leading-relaxed text-muted">
-              The right fit is not just about credentials. It also includes communication style, clinical focus, scheduling, and whether
-              you feel understood enough to begin the work.
+        <h2
+          id="matching-heading"
+          class="mb-6 max-w-[760px] font-display text-4xl leading-[1.12] tracking-tight text-paper md:text-5xl"
+        >
+          How matching works
+        </h2>
+        <p class="mb-14 max-w-[760px] text-lg leading-relaxed text-paper/90 md:text-xl">
+          You do not have to sort through clinician fit alone. The right fit is more than credentials. It includes
+          clinical focus, communication style, scheduling, and whether you feel understood enough to begin the work. When
+          you reach out, we help clarify what you are looking for and identify the best available next step.
+        </p>
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div class="border-t border-paper/25 pt-6">
+            <h3 class="mb-3 font-display text-2xl leading-snug text-paper">Tell us what you need</h3>
+            <p class="text-base leading-relaxed text-paper/90 md:text-lg">
+              Share what brings you to therapy, whether you are looking for individual or couples therapy, and any preferences that matter.
             </p>
           </div>
-          <div>
-            <div class="border-t border-line py-7">
-              <h3 class="mb-3 font-display text-2xl leading-snug tracking-tight text-ink">Clinical focus</h3>
-              <p class="max-w-[680px] text-base leading-relaxed text-muted md:text-lg">
-                We consider whether a clinician’s areas of focus align with what you are looking for, including individual therapy,
-                couples therapy, anxiety, depression, stress, trauma, relationship concerns, and life transitions.
-              </p>
-            </div>
-            <div class="border-t border-line py-7">
-              <h3 class="mb-3 font-display text-2xl leading-snug tracking-tight text-ink">Style and approach</h3>
-              <p class="max-w-[680px] text-base leading-relaxed text-muted md:text-lg">
-                Some clients want a therapist who is more reflective and exploratory. Others want more structure, feedback, and practical
-                tools. Fit includes how therapy feels in the room.
-              </p>
-            </div>
-            <div class="border-t border-line py-7">
-              <h3 class="mb-3 font-display text-2xl leading-snug tracking-tight text-ink">Availability</h3>
-              <p class="max-w-[680px] text-base leading-relaxed text-muted md:text-lg">
-                Scheduling matters. We consider clinician availability and your preferences so the first step feels realistic and
-                sustainable.
-              </p>
-            </div>
-            <div class="border-t border-line py-7">
-              <h3 class="mb-3 font-display text-2xl leading-snug tracking-tight text-ink">Service type</h3>
-              <p class="max-w-[680px] text-base leading-relaxed text-muted md:text-lg">
-                We help determine whether individual therapy, couples therapy, or another path is the better place to begin.
-              </p>
-            </div>
+          <div class="border-t border-paper/25 pt-6">
+            <h3 class="mb-3 font-display text-2xl leading-snug text-paper">We review fit</h3>
+            <p class="text-base leading-relaxed text-paper/90 md:text-lg">
+              We consider availability, focus area, style, scheduling, and whether a clinician may be a good match.
+            </p>
+          </div>
+          <div class="border-t border-paper/25 pt-6">
+            <h3 class="mb-3 font-display text-2xl leading-snug text-paper">Begin with clarity</h3>
+            <p class="text-base leading-relaxed text-paper/90 md:text-lg">
+              If there is a good fit, we help you understand next steps before beginning care.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="border-t border-line bg-smoke py-16 lg:py-24" aria-labelledby="profiles-heading">
-      <div class="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-10">
-        <h2
-          id="profiles-heading"
-          class="mb-6 max-w-[760px] font-display text-4xl leading-[1.12] tracking-tight text-ink md:text-5xl"
-        >
-          A clinical team built with care
-        </h2>
-        <p class="mb-12 max-w-[760px] text-lg leading-relaxed text-muted md:text-xl">
-          TrueBridge is growing intentionally, adding clinicians whose training, style, and availability align with the care we want clients
-          to receive. Profiles are added here as the team expands. When you reach out, we can talk through who is accepting clients,
-          scheduling options, and whether TrueBridge feels like the right next step.
-        </p>
-        <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
-          {
-            CLINICIANS.map((clinician) => (
-              <article
-                id={clinician.slug}
-                class="rounded-[36px] border border-line bg-paper p-6 text-left shadow-[0_12px_32px_rgba(31,42,48,0.06)] lg:p-8"
-              >
-                {clinician.isPlaceholder && (
-                  <p class="mb-5 inline-flex rounded-full border border-clay/30 bg-claySoft px-3 py-1 text-xs font-semibold uppercase tracking-wider text-clay">
-                    Sample profile — real clinician profiles coming soon
-                  </p>
-                )}
-                <div class="flex items-start gap-5">
-                  {clinician.photo ? (
-                    <img
-                      src={clinician.photo}
-                      alt={`${clinician.name}, ${clinician.credentials}`}
-                      width="112"
-                      height="112"
-                      class="h-24 w-24 shrink-0 rounded-full border border-line object-cover lg:h-28 lg:w-28"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div
-                      class="flex h-24 w-24 shrink-0 items-center justify-center rounded-full border border-line bg-smoke font-display text-3xl font-semibold text-sageDark lg:h-28 lg:w-28"
-                      aria-hidden="true"
-                    >
-                      {initials(clinician.name)}
-                    </div>
-                  )}
-                  <div class="min-w-0 pt-1">
-                    <h3 class="font-display text-2xl font-semibold leading-snug text-ink lg:text-3xl">
-                      {clinician.name}, {clinician.credentials}
-                    </h3>
-                    <p class="mt-1 text-base text-muted">{clinician.title}</p>
-                    <p
-                      class:list={[
-                        "mt-2 inline-flex items-center gap-2 text-sm font-semibold",
-                        clinician.acceptingClients ? "text-sageDark" : "text-muted",
-                      ]}
-                    >
-                      <span
-                        class:list={[
-                          "h-2 w-2 rounded-full",
-                          clinician.acceptingClients ? "bg-sageDark" : "bg-sand",
-                        ]}
-                        aria-hidden="true"
-                      />
-                      {clinician.acceptingClients ? "Accepting new clients" : "Not currently accepting new clients"}
-                    </p>
-                  </div>
-                </div>
-                <div class="mt-6 border-t border-line pt-5">
-                  <p class="mb-2 text-sm font-semibold uppercase tracking-wider text-muted">Services</p>
-                  <p class="text-base leading-relaxed text-ink">{clinician.services.join(" · ")}</p>
-                </div>
-                <div class="mt-5">
-                  <p class="mb-2 text-sm font-semibold uppercase tracking-wider text-muted">Focus areas</p>
-                  <ul class="flex flex-wrap gap-2">
-                    {clinician.specialties.map((specialty) => (
-                      <li class="rounded-full border border-line bg-smoke px-3.5 py-1.5 text-sm font-medium text-ink">
-                        {specialty}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div class="mt-5 space-y-3">
-                  {clinician.bio.map((paragraph) => (
-                    <p class="text-base leading-relaxed text-muted">{paragraph}</p>
-                  ))}
-                </div>
-                <a
-                  href="/contact-get-started"
-                  class="mt-6 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
-                >
-                  Ask about working with our clinicians
-                </a>
-              </article>
-            ))
-          }
-        </div>
-      </div>
-    </section>
+    <CtaBand
+      heading="Ready to find the right fit?"
+      headingId="clinicians-cta-heading"
+      body="Reach out today and we'll help you understand available clinicians, service fit, and the best next step."
+      buttonLabel="Contact Us"
+    />
 
     <section class="border-t border-line bg-claySoft/60 py-14 lg:py-20" aria-labelledby="hiring-heading">
       <div class="mx-auto max-w-[1100px] px-5 sm:px-6 lg:px-10">
@@ -230,80 +206,6 @@ const structuredData = [
             </a>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="border-t border-line bg-sageDark py-16 text-paper lg:py-24" aria-labelledby="matching-heading">
-      <div class="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-10">
-        <h2
-          id="matching-heading"
-          class="mb-6 max-w-[760px] font-display text-4xl leading-[1.12] tracking-tight text-paper md:text-5xl"
-        >
-          How matching works
-        </h2>
-        <p class="mb-14 max-w-[760px] text-lg leading-relaxed text-paper/90 md:text-xl">
-          You do not have to sort through clinician fit alone. When you reach out, we help clarify what you are looking for and identify
-          the best available next step.
-        </p>
-        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
-          <div class="border-t border-paper/25 pt-6">
-            <h3 class="mb-3 font-display text-2xl leading-snug text-paper">Tell us what you need</h3>
-            <p class="text-base leading-relaxed text-paper/90 md:text-lg">
-              Share what brings you to therapy, whether you are looking for individual or couples therapy, and any preferences that matter.
-            </p>
-          </div>
-          <div class="border-t border-paper/25 pt-6">
-            <h3 class="mb-3 font-display text-2xl leading-snug text-paper">We review fit</h3>
-            <p class="text-base leading-relaxed text-paper/90 md:text-lg">
-              We consider availability, focus area, scheduling, service type, and whether a clinician may be a good match.
-            </p>
-          </div>
-          <div class="border-t border-paper/25 pt-6">
-            <h3 class="mb-3 font-display text-2xl leading-snug text-paper">Begin with clarity</h3>
-            <p class="text-base leading-relaxed text-paper/90 md:text-lg">
-              If there is a good fit, we help you understand next steps before beginning care.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="border-t border-line bg-mist py-14 lg:py-20" aria-labelledby="licensure-heading">
-      <div class="mx-auto max-w-[900px] px-5 sm:px-6 lg:px-10">
-        <h2
-          id="licensure-heading"
-          class="mb-5 font-display text-3xl leading-tight tracking-tight text-ink md:text-4xl"
-        >
-          About clinicians who work with TrueBridge
-        </h2>
-        <p class="text-base leading-relaxed text-muted md:text-lg">
-          Clinicians who provide therapy through TrueBridge are part of our clinical team and are expected to hold appropriate professional
-          licensure or authorization to provide therapy services in North Carolina.
-        </p>
-        <p class="mt-5 text-base leading-relaxed text-muted md:text-lg">
-          Before beginning care, we help clients understand who they will be working with, what service is being provided, and the next
-          steps for scheduling and payment.
-        </p>
-      </div>
-    </section>
-
-    <section class="relative border-t border-paper/15 bg-sageDeep py-16 text-center text-paper lg:py-24" aria-labelledby="clinicians-cta-heading">
-      <div class="mx-auto max-w-[860px] px-5 sm:px-6 lg:px-10">
-        <h2
-          id="clinicians-cta-heading"
-          class="mb-5 font-display text-4xl leading-[1.12] tracking-tight md:text-5xl"
-        >
-          Ready to find the right fit?
-        </h2>
-        <p class="mb-8 text-lg leading-relaxed text-paper/90 md:text-xl">
-          Reach out today and we’ll help you understand available clinicians, service fit, and the best next step.
-        </p>
-        <a
-          href="/contact-get-started"
-          class="inline-flex items-center justify-center rounded-full bg-paper px-7 py-3.5 text-base font-semibold text-sageDark no-underline transition hover:-translate-y-0.5 hover:bg-smoke hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-sageDeep"
-        >
-          Contact Us
-        </a>
       </div>
     </section>
   </main>

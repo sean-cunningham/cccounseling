@@ -30,38 +30,25 @@ const structuredData = {
 <BaseLayout title={pageTitle} {description} structuredData={structuredData}>
   <main id="main">
     <section
-      class="bg-smoke border-b border-line py-16 lg:py-24"
+      class="bg-smoke border-b border-line py-12 lg:py-16"
       aria-labelledby="contact-heading"
     >
       <div class="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-10">
-        <div class="flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-12 xl:gap-16">
-          <div class="w-full shrink-0 lg:w-[40%] lg:max-w-[480px]">
+        <div class="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,440px)_minmax(0,1fr)] lg:items-start lg:gap-12">
+          <div class="order-1 w-full min-w-0">
             <h1
               id="contact-heading"
-              class="mb-6 font-display text-5xl leading-[1.05] tracking-tight text-ink md:text-6xl"
+              class="mb-4 font-display text-4xl leading-[1.08] tracking-tight text-ink md:text-5xl"
             >
               Contact us today
             </h1>
-            <p class="mb-10 max-w-[620px] text-lg leading-relaxed text-muted md:text-xl">
-              Reach out with questions about fit, availability, insurance, or next steps—or use the secure form to request an appointment.
+            <p class="max-w-[620px] text-lg leading-relaxed text-muted">
+              Tell us a little about what you're looking for. No need to have it all figured out. We usually reply within
+              one business day, and the first consultation is free.
             </p>
-
-            <div class="rounded-[28px] border border-line bg-paper p-6 shadow-[0_12px_32px_rgba(31,42,48,0.06)]">
-              <h2 class="mb-5 font-display text-2xl leading-tight tracking-tight text-ink md:text-3xl">
-                Prefer to call or email?
-              </h2>
-              <div class="border-t border-line py-4">
-                <span class="mb-1 block font-semibold text-ink">Phone</span>
-                <a href={`tel:${PUBLIC_PHONE_E164}`} class={contactLinkClass}>{PUBLIC_PHONE_DISPLAY}</a>
-              </div>
-              <div class="border-t border-line py-4">
-                <span class="mb-1 block font-semibold text-ink">Email</span>
-                <a href={`mailto:${PUBLIC_EMAIL}`} class={contactLinkClass}>{PUBLIC_EMAIL}</a>
-              </div>
-            </div>
           </div>
 
-          <div class="w-full min-w-0 lg:w-[55%] lg:flex-1 lg:max-w-[660px]">
+          <div class="order-2 w-full min-w-0 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:max-w-[660px]">
             <iframe
               id="tb-intake-iframe"
               src={iframeSrc}
@@ -69,6 +56,26 @@ const structuredData = {
               class="block w-full border-0"
               style="width: 100%; min-height: 760px; height: 760px; border: 0; display: block;"
               loading="lazy"></iframe>
+          </div>
+
+          <div class="order-3 w-full min-w-0 lg:col-start-1">
+            <div class="rounded-[28px] border border-line bg-paper p-5 shadow-[0_12px_32px_rgba(31,42,48,0.06)] lg:p-6">
+              <h2 class="mb-4 font-display text-2xl leading-tight tracking-tight text-ink">
+                Prefer to call or email?
+              </h2>
+              <div class="border-t border-line py-3">
+                <span class="mb-1 block font-semibold text-ink">Phone</span>
+                <a href={`tel:${PUBLIC_PHONE_E164}`} class={contactLinkClass}>{PUBLIC_PHONE_DISPLAY}</a>
+              </div>
+              <div class="border-t border-line py-3">
+                <span class="mb-1 block font-semibold text-ink">Email</span>
+                <a href={`mailto:${PUBLIC_EMAIL}`} class={contactLinkClass}>{PUBLIC_EMAIL}</a>
+              </div>
+              <p class="border-t border-line pt-3 text-sm leading-relaxed text-muted">
+                We read every message, reply to talk through fit and availability, and help you understand costs before
+                anything is scheduled.
+              </p>
+            </div>
           </div>
         </div>
       </div>

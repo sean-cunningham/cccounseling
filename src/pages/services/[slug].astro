@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import CtaBand from "@/components/patterns/CtaBand.astro";
+import RecognitionGrid from "@/components/patterns/RecognitionGrid.astro";
 import { SITE_URL } from "@/constants/site";
 import { SPECIALTIES, type Specialty } from "@/data/specialties";
 
@@ -20,6 +22,9 @@ const orgId = `${SITE_URL}/#organization`;
 const pageUrl = `${SITE_URL}/services/${specialty.slug}/`;
 
 const related = SPECIALTIES.filter((s) => s.slug !== specialty.slug).slice(0, 3);
+
+const relatedPillClass =
+  "inline-flex rounded-full border border-line bg-smoke px-4 py-2 text-sm font-semibold text-sageDark no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:text-ink hover:shadow-sm";
 
 const structuredData = [
   {
@@ -64,8 +69,8 @@ const structuredData = [
   structuredData={structuredData}
 >
   <main id="main">
-    <section class="border-b border-line bg-smoke py-14 lg:py-20" aria-labelledby="specialty-hero-heading">
-      <div class="mx-auto max-w-[1100px] px-5 sm:px-6 lg:px-10">
+    <section class="border-b border-line bg-smoke py-12 lg:py-20" aria-labelledby="specialty-hero-heading">
+      <div class="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-10">
         <nav aria-label="Breadcrumb" class="mb-6 text-sm text-muted">
           <ol class="flex flex-wrap items-center gap-2">
             <li>
@@ -79,57 +84,52 @@ const structuredData = [
             <li aria-current="page" class="font-medium text-ink">{specialty.name}</li>
           </ol>
         </nav>
-        <h1
-          id="specialty-hero-heading"
-          class="mb-6 max-w-[820px] font-display text-5xl font-semibold leading-[1.05] tracking-tight text-ink md:text-6xl"
-        >
-          {specialty.heroHeading}
-        </h1>
-        <p class="mb-8 max-w-[720px] text-lg leading-relaxed text-muted md:text-xl">
-          {specialty.heroIntro}
-        </p>
-        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
-          <a
-            href="/contact-get-started"
-            class="inline-flex w-fit items-center justify-center rounded-full bg-sageDark px-7 py-3.5 text-center text-base font-semibold text-paper no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-smoke"
-          >
-            Start Therapy
-          </a>
-          <a
-            href="/insurance-rates"
-            class="text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
-          >
-            View Insurance &amp; Rates
-          </a>
+        <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+          <div class="min-w-0">
+            <h1
+              id="specialty-hero-heading"
+              class="mb-6 max-w-[720px] font-display text-4xl font-semibold leading-[1.08] tracking-tight text-ink md:text-6xl md:leading-[1.05]"
+            >
+              {specialty.heroHeading}
+            </h1>
+            <p class="mb-8 max-w-[660px] text-lg leading-relaxed text-muted md:text-xl">
+              {specialty.heroIntro}
+            </p>
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
+              <a
+                href="/contact-get-started"
+                class="inline-flex w-fit items-center justify-center rounded-full bg-sageDark px-7 py-3.5 text-center text-base font-semibold text-paper no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-smoke"
+              >
+                Start Therapy
+              </a>
+              <a
+                href="/insurance-rates"
+                class="text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
+              >
+                View Insurance &amp; Rates
+              </a>
+            </div>
+          </div>
+          <div class="min-w-0">
+            <img
+              src={specialty.heroImage}
+              alt={specialty.heroImageAlt}
+              width="1024"
+              height="1536"
+              class="h-[260px] w-full max-h-[500px] rounded-[32px] border border-line object-cover object-[50%_22%] shadow-[0_12px_32px_rgba(31,42,48,0.06)] sm:h-[320px] md:h-[420px] lg:h-[460px]"
+              loading="eager"
+            />
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="border-t border-line bg-paper py-14 lg:py-20" aria-labelledby="specialty-signs-heading">
-      <div class="mx-auto max-w-[1100px] px-5 sm:px-6 lg:px-10">
-        <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-          <div class="min-w-0">
-            <h2
-              id="specialty-signs-heading"
-              class="mb-6 font-display text-4xl font-semibold leading-[1.12] tracking-tight text-ink md:text-5xl"
-            >
-              {specialty.signsHeading}
-            </h2>
-            <p class="text-lg leading-relaxed text-muted">{specialty.signsIntro}</p>
-          </div>
-          <div class="min-w-0">
-            {
-              specialty.signs.map((item) => (
-                <article class="border-t border-line py-7">
-                  <h3 class="mb-3 font-display text-2xl font-semibold text-ink">{item.title}</h3>
-                  <p class="text-base leading-relaxed text-muted md:text-lg">{item.body}</p>
-                </article>
-              ))
-            }
-          </div>
-        </div>
-      </div>
-    </section>
+    <RecognitionGrid
+      heading={specialty.signsHeading}
+      headingId="specialty-signs-heading"
+      intro={specialty.signsIntro}
+      items={specialty.signs}
+    />
 
     <section class="border-t border-line bg-sageDark py-14 text-paper lg:py-20" aria-labelledby="specialty-band-heading">
       <div class="mx-auto max-w-[1100px] px-5 sm:px-6 lg:px-10">
@@ -165,41 +165,6 @@ const structuredData = [
       </div>
     </section>
 
-    <section class="border-t border-line bg-paper py-14 lg:py-20" aria-labelledby="specialty-how-heading">
-      <div class="mx-auto max-w-[1100px] px-5 sm:px-6 lg:px-10">
-        <div class="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
-          <div class="min-w-0">
-            <h2
-              id="specialty-how-heading"
-              class="mb-6 font-display text-3xl font-semibold leading-[1.12] tracking-tight text-ink md:text-4xl"
-            >
-              How to begin
-            </h2>
-            <p class="text-lg leading-relaxed text-muted md:text-xl">
-              Reach out through our <a
-                href="/contact-get-started"
-                class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
-                >Get Started</a
-              > page and tell us what you are looking for. We help match you with a <a
-                href="/clinicians"
-                class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
-                >clinician</a
-              > whose focus areas, style, and availability fit your needs, and we help you understand how <a
-                href="/insurance-rates"
-                class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
-                >insurance and rates</a
-              > may apply before your first session.
-            </p>
-          </div>
-          <div class="min-w-0">
-            <p class="border-t border-line py-5 text-lg font-semibold text-ink">Share what you are looking for</p>
-            <p class="border-t border-line py-5 text-lg font-semibold text-ink">Review fit, availability, and insurance</p>
-            <p class="border-t border-line py-5 text-lg font-semibold text-ink">Begin therapy with a clear next step</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="border-t border-line bg-paper py-14 lg:py-20" aria-labelledby="specialty-faq-heading">
       <div class="mx-auto max-w-[900px] px-5 sm:px-6 lg:px-10">
         <h2
@@ -220,61 +185,42 @@ const structuredData = [
             ))
           }
         </div>
-      </div>
-    </section>
-
-    <section class="border-t border-line bg-mist py-14 lg:py-20" aria-labelledby="specialty-related-heading">
-      <div class="mx-auto max-w-[1100px] px-5 sm:px-6 lg:px-10">
-        <h2
-          id="specialty-related-heading"
-          class="mb-8 font-display text-3xl font-semibold leading-tight tracking-tight text-ink md:text-4xl"
-        >
-          Related support
-        </h2>
-        <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <li>
-            <a
-              href="/services/individual-therapy"
-              class="block rounded-2xl border border-line bg-paper px-5 py-4 text-base font-semibold text-sageDark no-underline shadow-card transition duration-200 ease-out hover:-translate-y-0.5 hover:text-ink hover:shadow-soft"
-            >
-              Individual Therapy
-            </a>
-          </li>
-          {
-            related.map((s) => (
-              <li>
-                <a
-                  href={`/services/${s.slug}`}
-                  class="block rounded-2xl border border-line bg-paper px-5 py-4 text-base font-semibold text-sageDark no-underline shadow-card transition duration-200 ease-out hover:-translate-y-0.5 hover:text-ink hover:shadow-soft"
-                >
+        <div class="mt-8">
+          <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-muted">Related support</p>
+          <div class="flex flex-wrap items-center gap-3">
+            <a href="/services/individual-therapy" class={relatedPillClass}>Individual Therapy</a>
+            {
+              related.map((s) => (
+                <a href={`/services/${s.slug}`} class={relatedPillClass}>
                   {s.name}
                 </a>
-              </li>
-            ))
-          }
-        </ul>
+              ))
+            }
+          </div>
+          <p class="mt-6 max-w-[760px] text-base leading-relaxed text-muted">
+            Curious how sessions actually work? Read about <a
+              href="/approaches"
+              class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
+              >the approaches our clinicians use</a
+            >, meet <a
+              href="/clinicians"
+              class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
+              >our clinicians</a
+            >, or <a
+              href="/contact-get-started"
+              class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
+              >ask us directly</a
+            > if you're not sure where to begin.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section
-      class="relative border-t border-paper/15 bg-sageDeep py-14 text-center text-paper lg:py-20"
-      aria-labelledby="specialty-cta-heading"
-    >
-      <div class="mx-auto max-w-[760px] px-5 sm:px-6 lg:px-10">
-        <h2 id="specialty-cta-heading" class="font-display text-3xl font-semibold tracking-tight text-paper sm:text-4xl">
-          Ready to take the first step?
-        </h2>
-        <p class="mx-auto mt-5 text-base leading-relaxed text-paper/90 sm:text-lg">
-          Reach out today and we'll help you understand clinician fit, availability, and how insurance may apply before your
-          first appointment.
-        </p>
-        <a
-          href="/contact-get-started"
-          class="mt-10 inline-flex items-center justify-center rounded-full bg-paper px-7 py-3.5 text-base font-semibold text-sageDark no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-smoke hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-sageDeep"
-        >
-          Get Started
-        </a>
-      </div>
-    </section>
+    <CtaBand
+      heading="Ready to take the first step?"
+      headingId="specialty-cta-heading"
+      body="Reach out today and we'll help you understand clinician fit, availability, and how insurance may apply before your first appointment."
+      showPath
+    />
   </main>
 </BaseLayout>

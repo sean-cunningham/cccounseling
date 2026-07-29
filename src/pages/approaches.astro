@@ -1,0 +1,217 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { SITE_URL } from "@/constants/site";
+
+const pageTitle = "How We Work: Therapy Approaches | TrueBridge";
+const pageDescription =
+  "The therapy approaches TrueBridge clinicians draw on, explained in plain language: CBT, behavioral activation, acceptance and mindfulness-based therapy, and psychodynamic and interpersonal work.";
+
+const pageUrl = `${SITE_URL}/approaches/`;
+const orgId = `${SITE_URL}/#organization`;
+
+const approaches = [
+  {
+    id: "cbt",
+    name: "Cognitive behavioral therapy (CBT)",
+    what: "CBT looks at the relationship between your thoughts, feelings, and actions, and at how certain patterns, like catastrophizing or harsh self-judgment, keep distress going.",
+    feels:
+      "Sessions are collaborative and practical. You and your therapist notice the patterns together, test them against reality, and practice new responses between sessions.",
+    helpsWith: "Anxiety, depression, stress, and the thought spirals that keep you stuck.",
+    links: [
+      { href: "/services/anxiety-therapy", label: "Anxiety therapy" },
+      { href: "/services/depression-therapy", label: "Depression therapy" },
+    ],
+  },
+  {
+    id: "behavioral-activation",
+    name: "Behavioral activation",
+    what: "When depression drains motivation, waiting to feel better before re-engaging with life rarely works. Behavioral activation gently reverses the order: small, meaningful actions come first, and mood follows.",
+    feels:
+      "You and your therapist identify small, realistic steps that reconnect you with people and activities that matter, sized to the energy you actually have.",
+    helpsWith: "Depression, low motivation, withdrawal, and feeling stuck in survival mode.",
+    links: [{ href: "/services/depression-therapy", label: "Depression therapy" }],
+  },
+  {
+    id: "acceptance-mindfulness",
+    name: "Acceptance and mindfulness-based approaches",
+    what: "Drawing on acceptance and commitment therapy (ACT) and mindfulness practices, these approaches help you relate differently to difficult thoughts and feelings instead of fighting them, so you can act on your values even when discomfort is present.",
+    feels:
+      "Less about disputing thoughts, more about loosening their grip. Expect practical exercises in awareness, grounding, and clarifying what matters to you.",
+    helpsWith: "Anxiety, chronic stress, perfectionism, and the exhaustion of trying to control everything.",
+    links: [
+      { href: "/services/anxiety-therapy", label: "Anxiety therapy" },
+      { href: "/services/stress-burnout-therapy", label: "Stress & burnout therapy" },
+    ],
+  },
+  {
+    id: "trauma-informed",
+    name: "Trauma-informed care and nervous system regulation",
+    what: "Trauma work begins with safety and stability, not retelling. Your therapist helps you understand how your nervous system adapted to what happened, and builds grounding skills before any deeper processing. The pace is always yours to control.",
+    feels:
+      "Steady and collaborative. You stay in charge of what you share and when, and many approaches do not require detailed retelling at all.",
+    helpsWith: "PTSD, painful past experiences, triggers, feeling on high alert, and feeling unsafe in calm moments.",
+    links: [{ href: "/services/trauma-therapy", label: "Trauma therapy" }],
+  },
+  {
+    id: "psychodynamic-interpersonal",
+    name: "Psychodynamic and interpersonal therapy",
+    what: "These approaches explore how earlier experiences and relationship patterns shape how you feel and connect today. They work with the themes underneath the immediate problem.",
+    feels:
+      "More reflective and exploratory. Your therapist helps you notice recurring patterns in relationships, including the one that develops in therapy itself, and understand where they come from.",
+    helpsWith: "Long-standing patterns, relationship difficulties, grief, identity questions, and depression with deeper roots.",
+    links: [
+      { href: "/services/grief-life-transitions-therapy", label: "Grief & life transitions therapy" },
+      { href: "/services/individual-therapy", label: "Individual therapy" },
+    ],
+  },
+] as const;
+
+const structuredData = [
+  {
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: pageTitle,
+    description: pageDescription,
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    about: { "@id": orgId },
+  },
+  {
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+      { "@type": "ListItem", position: 2, name: "How We Work", item: pageUrl },
+    ],
+  },
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} structuredData={structuredData}>
+  <main id="main">
+    <section class="border-b border-line bg-smoke py-14 lg:py-20" aria-labelledby="approaches-hero-heading">
+      <div class="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-10">
+        <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+          <div class="min-w-0 text-left">
+            <h1
+              id="approaches-hero-heading"
+              class="mb-6 font-display text-5xl leading-[1.05] tracking-tight text-ink md:text-6xl"
+            >
+              How we work
+            </h1>
+            <p class="max-w-[660px] text-lg leading-relaxed text-muted md:text-xl">
+              Therapy is not one-size-fits-all. TrueBridge clinicians draw on well-researched approaches and tailor them
+              to your goals, your pace, and how challenges actually show up in your life. Here is what those approaches
+              mean in plain language.
+            </p>
+            <a
+              href="/contact-get-started"
+              class="mt-8 inline-flex items-center justify-center rounded-full bg-sageDark px-7 py-3.5 text-base font-semibold text-paper no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-smoke"
+            >
+              Start Therapy
+            </a>
+          </div>
+          <div class="min-w-0">
+            <img
+              src="/images/clinicians-connection.jpg"
+              alt="Two people talk warmly over tea at a sunlit kitchen table, one listening attentively as the other speaks."
+              width="1400"
+              height="933"
+              class="h-[280px] w-full rounded-[32px] border border-line object-cover object-[50%_30%] shadow-[0_12px_32px_rgba(31,42,48,0.06)] sm:h-[320px] md:h-[380px] lg:h-[420px]"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-line bg-paper py-14 lg:py-20" aria-labelledby="approaches-list-heading">
+      <div class="mx-auto max-w-[1100px] px-5 sm:px-6 lg:px-10">
+        <h2
+          id="approaches-list-heading"
+          class="mb-6 max-w-[760px] font-display text-4xl font-semibold leading-[1.12] tracking-tight text-ink md:text-5xl"
+        >
+          The approaches our clinicians draw on
+        </h2>
+        <nav aria-label="Jump to an approach" class="mb-10 flex flex-wrap gap-3">
+          {
+            approaches.map((approach) => (
+              <a
+                href={`#${approach.id}`}
+                class="inline-flex rounded-full border border-line bg-smoke px-4 py-2 text-sm font-semibold text-sageDark no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:text-ink hover:shadow-sm"
+              >
+                {approach.name.replace(/ \(.*\)$/, "")}
+              </a>
+            ))
+          }
+        </nav>
+        <div class="space-y-0">
+          {
+            approaches.map((approach) => (
+              <article id={approach.id} class="scroll-mt-24 border-t border-line py-8 lg:py-10">
+                <div class="grid grid-cols-1 gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+                  <h3 class="font-display text-3xl font-semibold leading-snug tracking-tight text-ink">
+                    {approach.name}
+                  </h3>
+                  <div class="min-w-0">
+                    <p class="text-base leading-relaxed text-muted md:text-lg">{approach.what}</p>
+                    <p class="mt-4 text-base leading-relaxed text-muted md:text-lg">{approach.feels}</p>
+                    <p class="mt-4 text-base leading-relaxed text-ink md:text-lg">
+                      <span class="font-semibold">Often helpful for:</span> {approach.helpsWith}
+                    </p>
+                    <p class="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+                      {approach.links.map((link) => (
+                        <a
+                          href={link.href}
+                          class="text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
+                        >
+                          {link.label}
+                        </a>
+                      ))}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-line bg-sageDark py-14 text-paper lg:py-20" aria-labelledby="approaches-band-heading">
+      <div class="mx-auto max-w-[1100px] px-5 sm:px-6 lg:px-10">
+        <h2
+          id="approaches-band-heading"
+          class="mb-8 font-display text-4xl font-semibold leading-[1.12] tracking-tight text-paper md:text-5xl"
+        >
+          You don't need to choose an approach before you start.
+        </h2>
+        <p class="text-lg leading-relaxed text-paper/90 md:text-xl">
+          Most therapy blends more than one approach, and the strongest predictor of progress is the relationship between
+          you and your therapist. When you reach out, we match you with a <a
+            href="/clinicians"
+            class="font-semibold text-paper underline decoration-sage underline-offset-4 transition-colors hover:decoration-mist"
+            >clinician</a
+          > whose style and focus fit what you are looking for, and your therapist tailors the how from there.
+        </p>
+      </div>
+    </section>
+
+    <section class="relative border-t border-paper/15 bg-sageDeep py-14 text-center text-paper lg:py-20" aria-labelledby="approaches-cta-heading">
+      <div class="mx-auto max-w-[760px] px-5 sm:px-6 lg:px-10">
+        <h2 id="approaches-cta-heading" class="font-display text-3xl font-semibold tracking-tight text-paper sm:text-4xl">
+          Curious what would fit you?
+        </h2>
+        <p class="mx-auto mt-5 text-base leading-relaxed text-paper/90 sm:text-lg">
+          Tell us what you are navigating and we'll help you find a clinician whose approach and style feel right.
+        </p>
+        <a
+          href="/contact-get-started"
+          class="mt-10 inline-flex items-center justify-center rounded-full bg-paper px-7 py-3.5 text-base font-semibold text-sageDark no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-smoke hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-sageDeep"
+        >
+          Get Started
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

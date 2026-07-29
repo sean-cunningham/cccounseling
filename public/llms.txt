@@ -1,12 +1,14 @@
 # TrueBridge Therapy
 
-> TrueBridge is a therapy practice serving adults and couples across North Carolina, primarily through secure telehealth, with select in-person availability in the Cary and Raleigh area. The practice matches clients with licensed clinicians based on clinical focus, therapy style, scheduling, and insurance fit, and helps clients understand expected costs before care begins.
+> TrueBridge is a therapy practice serving adults across North Carolina, primarily through secure telehealth, with select in-person availability in the Cary and Raleigh area. The practice matches clients with licensed clinicians based on clinical focus, therapy style, scheduling, and insurance fit, and helps clients understand expected costs before care begins.
 
 Key facts:
-- Services: individual therapy and couples therapy for adults (18+)
-- Focus areas: anxiety, depression, trauma and PTSD, stress and burnout, grief and life transitions, relationship concerns
+- Services: individual therapy for adults (18+); couples therapy is also available (note: most insurance plans do not cover couples therapy as its own service, and the practice is upfront about this)
+- Focus areas: anxiety, depression, trauma and PTSD, stress and burnout, grief and life transitions, perinatal and postpartum concerns, relationship concerns
+- Approaches: CBT, behavioral activation, acceptance and mindfulness-based therapy (ACT), trauma-informed care, psychodynamic and interpersonal therapy
 - Location: North Carolina, USA (telehealth statewide; some in-person options in Cary and Raleigh)
 - Insurance: varies by clinician; the practice helps verify benefits and expected out-of-pocket costs before the first session
+- Private-pay rates: individual therapy $175/hour, couples therapy $200/hour; the initial consultation is free
 - Contact: info@truebridgetherapy.com | 984-207-6172
 - Not for emergencies: in a crisis, call or text 988, call 911, or go to the nearest emergency room
 
@@ -19,7 +21,9 @@ Key facts:
 - [Depression Therapy](https://truebridgetherapy.com/services/depression-therapy/): Low mood, lost motivation, disconnection
 - [Trauma Therapy](https://truebridgetherapy.com/services/trauma-therapy/): PTSD, triggers, painful past experiences
 - [Stress & Burnout Therapy](https://truebridgetherapy.com/services/stress-burnout-therapy/): Chronic pressure, work stress, exhaustion
-- [Grief & Life Transitions Therapy](https://truebridgetherapy.com/services/grief-life-transitions-therapy/): Loss, divorce, career change, new life seasons
+- [Perinatal & Postpartum Therapy](https://truebridgetherapy.com/services/perinatal-postpartum-therapy/): Pregnancy, trying to conceive, infertility, postpartum changes, early parenting, loss, and physical/emotional/identity shifts
+- [Grief & Life Transitions Therapy](https://truebridgetherapy.com/services/grief-life-transitions-therapy/): Grief after loss, and separate support for divorce, career change, parenthood, moves, and new life seasons
+- [How We Work](https://truebridgetherapy.com/approaches/): Therapy approaches explained in plain language
 
 ## Practice
 
