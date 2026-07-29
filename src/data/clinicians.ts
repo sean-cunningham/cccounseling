@@ -2,16 +2,19 @@
  * Clinician profiles rendered on /clinicians.
  *
  * TO ADD A REAL CLINICIAN:
- * 1. Copy the demo entry below and fill in real details.
- * 2. Set `isPlaceholder: false` (or remove the field) so the profile is
- *    included in the page's Person JSON-LD for search engines.
+ * 1. Copy an entry from DRAFT_CLINICIANS (or create a new one) into CLINICIANS.
+ * 2. Set `isPlaceholder: false` (or omit it) so the profile is included in
+ *    Person JSON-LD for search engines.
  * 3. Add a headshot to /public/images/clinicians/ and set `photo`
  *    (e.g. "/images/clinicians/jane-doe.jpg"). Leave `photo` undefined to
  *    show an initials avatar instead.
- * 4. Once at least one real profile exists, delete the demo entry.
+ * 4. Remove any leftover sample/placeholder entries once real profiles exist.
  *
- * Placeholder entries render with a "Sample profile" badge and are excluded
- * from structured data so search engines never index a fictional clinician.
+ * Profiles in DRAFT_CLINICIANS are kept ready in the repo but are not shown
+ * on the site or included in structured data until moved into CLINICIANS.
+ *
+ * Placeholder entries (isPlaceholder: true) render with a "Sample profile"
+ * badge and are excluded from structured data.
  */
 
 export interface Clinician {
@@ -52,7 +55,14 @@ export interface Clinician {
   isPlaceholder?: boolean;
 }
 
-export const CLINICIANS: Clinician[] = [
+/** Live clinician profiles shown on /clinicians and individual pages. */
+export const CLINICIANS: Clinician[] = [];
+
+/**
+ * Profiles drafted in the repo but not yet approved for public publish.
+ * Move an entry into CLINICIANS when ready to go live.
+ */
+export const DRAFT_CLINICIANS: Clinician[] = [
   {
     slug: "jade-spielman",
     name: "Jade Spielman",
@@ -83,7 +93,7 @@ export const CLINICIANS: Clinician[] = [
     blurb:
       "Jade works with individuals and couples facing everyday stressors, anxiety, depression, relationship concerns, career changes, and identity questions. She also brings specialized expertise supporting people through pregnancy, postpartum, infertility, miscarriage, infant loss, and parenting. Her style is warm, down-to-earth, and collaborative, shaped by lived experience.",
     // First-person bio drawn from Jade's practice site and her onboarding notes.
-    // Pending Jade's final review and approval before production launch.
+    // Pending Jade's final review and approval before publish.
     bio: [
       "I work with individuals and couples facing many of life's everyday struggles: anxiety, depression, stress, career and life transitions, self-esteem, identity questions, relationship conflict, and parenting. Alongside that broader work, I have particular experience supporting people through pregnancy, postpartum transitions, infertility, miscarriage, pregnancy and infant loss, grief, and the hormonal and identity shifts of perimenopause and menopause.",
       "I began my career as a grief counselor in hospice care, supporting people at the end of their lives and families facing the heartbreak of losing someone they love. Sitting with people in those sacred, vulnerable moments shaped the heart of my work: healing is not about getting over it, but about honoring love, memory, identity, and the many ways grief reshapes us. From there I provided in-school therapy for children and families, then moved into private practice, where I worked with clients across the lifespan.",

@@ -65,72 +65,89 @@ const structuredData = [
     <section class="border-t border-line bg-paper py-14 lg:py-20" aria-labelledby="profiles-heading">
       <div class="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-10">
         <h2 id="profiles-heading" class="sr-only">Clinician profiles</h2>
-        <div class="mx-auto max-w-[880px] space-y-14 lg:space-y-16">
-          {
-            CLINICIANS.map((clinician, index) => (
-              <article
-                id={clinician.slug}
-                class:list={["text-left", index > 0 && "border-t border-line pt-14 lg:pt-16"]}
+        {
+          CLINICIANS.length === 0 ? (
+            <div class="mx-auto max-w-[760px] text-left">
+              <p class="text-lg leading-relaxed text-muted md:text-xl">
+                Clinician profiles will appear here as our team grows. In the meantime, reach out and we will help match
+                you with a licensed clinician based on fit, focus area, and availability.
+              </p>
+              <a
+                href="/contact-get-started"
+                class="mt-6 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
               >
-                {clinician.isPlaceholder && (
-                  <p class="mb-7 inline-flex rounded-full border border-clay/30 bg-claySoft px-3 py-1 text-xs font-semibold uppercase tracking-wider text-clay">
-                    Sample profile. Real clinician profiles coming soon
-                  </p>
-                )}
-                <div class="flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-10 lg:gap-12">
-                  {clinician.photo ? (
-                    <img
-                      src={clinician.photo}
-                      alt={`${clinician.name}, ${clinician.credentials}`}
-                      width="208"
-                      height="208"
-                      class="h-40 w-40 shrink-0 rounded-full border border-line object-cover object-[50%_30%] sm:h-44 sm:w-44 lg:h-52 lg:w-52"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div
-                      class="flex h-40 w-40 shrink-0 items-center justify-center rounded-full border border-line bg-mist font-display text-5xl font-semibold text-sageDark sm:h-44 sm:w-44 lg:h-52 lg:w-52"
-                      aria-hidden="true"
-                    >
-                      {initials(clinician.name)}
-                    </div>
+                Get matched with a clinician
+              </a>
+            </div>
+          ) : (
+            <div class="mx-auto max-w-[880px] space-y-14 lg:space-y-16">
+              {CLINICIANS.map((clinician, index) => (
+                <article
+                  id={clinician.slug}
+                  class:list={["text-left", index > 0 && "border-t border-line pt-14 lg:pt-16"]}
+                >
+                  {clinician.isPlaceholder && (
+                    <p class="mb-7 inline-flex rounded-full border border-clay/30 bg-claySoft px-3 py-1 text-xs font-semibold uppercase tracking-wider text-clay">
+                      Sample profile. Real clinician profiles coming soon
+                    </p>
                   )}
-                  <div class="min-w-0">
-                    <h3 class="font-display text-3xl leading-snug tracking-tight text-ink lg:text-4xl">
+                  <div class="flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-10 lg:gap-12">
+                    {clinician.photo ? (
+                      <img
+                        src={clinician.photo}
+                        alt={`${clinician.name}, ${clinician.credentials}`}
+                        width="208"
+                        height="208"
+                        class="h-40 w-40 shrink-0 rounded-full border border-line object-cover object-[50%_30%] sm:h-44 sm:w-44 lg:h-52 lg:w-52"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div
+                        class="flex h-40 w-40 shrink-0 items-center justify-center rounded-full border border-line bg-mist font-display text-5xl font-semibold text-sageDark sm:h-44 sm:w-44 lg:h-52 lg:w-52"
+                        aria-hidden="true"
+                      >
+                        {initials(clinician.name)}
+                      </div>
+                    )}
+                    <div class="min-w-0">
+                      <h3 class="font-display text-3xl leading-snug tracking-tight text-ink lg:text-4xl">
+                        {clinician.isPlaceholder ? (
+                          <>
+                            {clinician.name}, {clinician.credentials}
+                          </>
+                        ) : (
+                          <a
+                            href={`/clinicians/${clinician.slug}`}
+                            class="no-underline transition-colors hover:text-sageDark"
+                          >
+                            {clinician.name}, {clinician.credentials}
+                          </a>
+                        )}
+                      </h3>
+                      <p class="mt-2 text-base text-muted md:text-lg">{clinician.title}</p>
+                      <p class="mt-5 text-base leading-relaxed text-muted md:text-lg">{clinician.blurb}</p>
                       {clinician.isPlaceholder ? (
-                        <>{clinician.name}, {clinician.credentials}</>
+                        <a
+                          href="/contact-get-started"
+                          class="mt-6 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
+                        >
+                          Ask about working with our clinicians
+                        </a>
                       ) : (
                         <a
                           href={`/clinicians/${clinician.slug}`}
-                          class="no-underline transition-colors hover:text-sageDark"
+                          class="mt-6 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
                         >
-                          {clinician.name}, {clinician.credentials}
+                          Meet {clinician.name.split(" ")[0]}
                         </a>
                       )}
-                    </h3>
-                    <p class="mt-2 text-base text-muted md:text-lg">{clinician.title}</p>
-                    <p class="mt-5 text-base leading-relaxed text-muted md:text-lg">{clinician.blurb}</p>
-                    {clinician.isPlaceholder ? (
-                      <a
-                        href="/contact-get-started"
-                        class="mt-6 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
-                      >
-                        Ask about working with our clinicians
-                      </a>
-                    ) : (
-                      <a
-                        href={`/clinicians/${clinician.slug}`}
-                        class="mt-6 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
-                      >
-                        Meet {clinician.name.split(" ")[0]}
-                      </a>
-                    )}
+                    </div>
                   </div>
-                </div>
-              </article>
-            ))
-          }
-        </div>
+                </article>
+              ))}
+            </div>
+          )
+        }
       </div>
     </section>
 
