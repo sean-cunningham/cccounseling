@@ -62,24 +62,11 @@ const structuredData = [
       </div>
     </section>
 
-    <section class="border-t border-line bg-paper py-14 lg:py-20" aria-labelledby="profiles-heading">
-      <div class="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-10">
-        <h2 id="profiles-heading" class="sr-only">Clinician profiles</h2>
-        {
-          CLINICIANS.length === 0 ? (
-            <div class="mx-auto max-w-[760px] text-left">
-              <p class="text-lg leading-relaxed text-muted md:text-xl">
-                Clinician profiles will appear here as our team grows. In the meantime, reach out and we will help match
-                you with a licensed clinician based on fit, focus area, and availability.
-              </p>
-              <a
-                href="/contact-get-started"
-                class="mt-6 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
-              >
-                Get matched with a clinician
-              </a>
-            </div>
-          ) : (
+    {
+      CLINICIANS.length > 0 && (
+        <section class="border-t border-line bg-paper py-14 lg:py-20" aria-labelledby="profiles-heading">
+          <div class="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-10">
+            <h2 id="profiles-heading" class="sr-only">Clinician profiles</h2>
             <div class="mx-auto max-w-[880px] space-y-14 lg:space-y-16">
               {CLINICIANS.map((clinician, index) => (
                 <article
@@ -146,10 +133,10 @@ const structuredData = [
                 </article>
               ))}
             </div>
-          )
-        }
-      </div>
-    </section>
+          </div>
+        </section>
+      )
+    }
 
     <section class="border-t border-line bg-sageDark py-16 text-paper lg:py-24" aria-labelledby="matching-heading">
       <div class="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-10">
