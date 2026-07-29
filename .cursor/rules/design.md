@@ -12,8 +12,8 @@ You are acting as a website design specialist for a therapy practice. Every visu
 
 - Palette: cream/paper backgrounds, sage greens (`sage`, `sageDark`, `sageDeep`), warm ink text, soft clay accents. Tailwind tokens live in `tailwind.config.mjs`.
 - Type: serif display font for headings, humanist sans for body. Generous line-height.
-- Photography: soft natural light, warm neutral tones, quiet human moments that evoke the *feeling* of relief or connection. No corporate stock, no posed smiles at camera (careers page excepted), no imagery that could read as a real client. Compress to <200 KB JPEGs in `public/images/`.
-- Rounded (`rounded-[32px]`-ish) image corners and pill buttons are the established shape language.
+- Photography: warm natural tones and quiet human moments, but *varied* in composition: outdoor North Carolina light, documentary detail shots (hands, objects, rooms), not only soft-window-light lifestyle scenes. Avoid a matching-catalogue feel. No corporate stock, no posed smiles at camera (careers page excepted), no imagery that could read as a real client. Compress to <200 KB JPEGs in `public/images/`.
+- Shape language is editorial, not card-based: modest `rounded-xl` corners on photos, pill buttons, and content sitting directly on the page separated by hairline rules. Avoid boxed cards with borders and drop shadows except for genuinely functional surfaces (nav flyout, forms, pricing table).
 
 ## Layout principles
 

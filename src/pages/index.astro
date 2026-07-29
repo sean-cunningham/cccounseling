@@ -153,23 +153,21 @@ const focusAreas = [
 
     <section class="border-t border-line bg-paper py-20 lg:py-28" aria-labelledby="steps-heading">
       <div class="mx-auto max-w-site px-5 sm:px-6 lg:px-10">
-        <div class="mx-auto mb-10 max-w-[760px] text-center lg:mb-14">
+        <div class="mb-10 max-w-[760px] text-left lg:mb-14">
           <h2
             id="steps-heading"
             class="mb-[18px] font-display text-4xl font-semibold leading-[1.12] tracking-tight text-ink md:text-5xl"
           >
             Starting therapy should feel straightforward.
           </h2>
-          <p class="mx-auto max-w-[680px] text-lg leading-relaxed text-muted md:text-xl">
+          <p class="max-w-[680px] text-lg leading-relaxed text-muted md:text-xl">
             We keep the first steps simple so you can understand fit, availability, and how insurance may apply before beginning care.
           </p>
         </div>
-        <div class="grid grid-cols-1 gap-5 lg:grid-cols-3 lg:gap-6">
-          <article
-            class="flex min-h-[260px] flex-col rounded-[28px] border border-line bg-smoke p-6 text-left shadow-[0_12px_32px_rgba(31,42,48,0.06)] transition duration-200 ease-out hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-soft lg:p-8"
-          >
-            <p class="mb-4 font-sans text-lg font-semibold tabular-nums tracking-[0.06em] text-sageDark">1</p>
-            <h3 class="mb-4 font-display text-2xl font-semibold leading-snug tracking-tight text-ink">
+        <div class="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-12">
+          <article class="border-t-2 border-sageDark pt-6 text-left">
+            <p class="mb-3 font-display text-3xl leading-none text-sageDark">1</p>
+            <h3 class="mb-3 font-display text-2xl font-semibold leading-snug tracking-tight text-ink">
               Tell us what you’re looking for.
             </h3>
             <p class="text-base leading-relaxed text-muted">
@@ -177,11 +175,9 @@ const focusAreas = [
               or clinician fit.
             </p>
           </article>
-          <article
-            class="flex min-h-[260px] flex-col rounded-[28px] border border-line bg-smoke p-6 text-left shadow-[0_12px_32px_rgba(31,42,48,0.06)] transition duration-200 ease-out hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-soft lg:p-8"
-          >
-            <p class="mb-4 font-sans text-lg font-semibold tabular-nums tracking-[0.06em] text-sageDark">2</p>
-            <h3 class="mb-4 font-display text-2xl font-semibold leading-snug tracking-tight text-ink">
+          <article class="border-t-2 border-sageDark pt-6 text-left">
+            <p class="mb-3 font-display text-3xl leading-none text-sageDark">2</p>
+            <h3 class="mb-3 font-display text-2xl font-semibold leading-snug tracking-tight text-ink">
               We help match you with the right clinician.
             </h3>
             <p class="text-base leading-relaxed text-muted">
@@ -189,11 +185,9 @@ const focusAreas = [
               begin.
             </p>
           </article>
-          <article
-            class="flex min-h-[260px] flex-col rounded-[28px] border border-line bg-smoke p-6 text-left shadow-[0_12px_32px_rgba(31,42,48,0.06)] transition duration-200 ease-out hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-soft lg:p-8"
-          >
-            <p class="mb-4 font-sans text-lg font-semibold tabular-nums tracking-[0.06em] text-sageDark">3</p>
-            <h3 class="mb-4 font-display text-2xl font-semibold leading-snug tracking-tight text-ink">
+          <article class="border-t-2 border-sageDark pt-6 text-left">
+            <p class="mb-3 font-display text-3xl leading-none text-sageDark">3</p>
+            <h3 class="mb-3 font-display text-2xl font-semibold leading-snug tracking-tight text-ink">
               Begin with a clear next step.
             </h3>
             <p class="text-base leading-relaxed text-muted">
@@ -219,14 +213,14 @@ const focusAreas = [
             life transitions through thoughtful, evidence-informed therapy.
           </p>
         </div>
-        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+        <div class="grid grid-cols-1 gap-x-10 gap-y-2 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-12">
           {
             focusAreas.map((area) => (
               <a
                 href={area.href}
-                class="group block rounded-[24px] border border-paper/20 bg-paper/10 p-6 text-left no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:border-paper/40 hover:bg-paper/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-sageDark"
+                class="group block border-t border-paper/30 pt-5 pb-3 text-left no-underline transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-sageDark"
               >
-                <span class="flex items-baseline justify-between gap-3 font-display text-xl font-semibold leading-snug tracking-tight text-paper">
+                <span class="flex items-baseline justify-between gap-3 font-display text-xl font-semibold leading-snug tracking-tight text-paper transition-colors group-hover:text-mist">
                   {area.title}
                   <span aria-hidden="true" class="text-lg transition-transform group-hover:translate-x-1">→</span>
                 </span>
@@ -236,9 +230,9 @@ const focusAreas = [
           }
           <a
             href="/services"
-            class="group flex flex-col justify-between rounded-[24px] border border-dashed border-paper/40 p-6 text-left no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:border-paper/70 hover:bg-paper/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-sageDark"
+            class="group block border-t border-paper/30 pt-5 pb-3 text-left no-underline transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-sageDark"
           >
-            <span class="flex items-baseline justify-between gap-3 font-display text-xl font-semibold leading-snug tracking-tight text-paper">
+            <span class="flex items-baseline justify-between gap-3 font-display text-xl font-semibold leading-snug tracking-tight text-paper transition-colors group-hover:text-mist">
               Something else?
               <span aria-hidden="true" class="text-lg transition-transform group-hover:translate-x-1">→</span>
             </span>
@@ -281,7 +275,7 @@ const focusAreas = [
               alt="Laptop on a desk, suggesting flexible therapy including online sessions"
               width="1200"
               height="800"
-              class="aspect-[4/3] w-full rounded-[32px] border border-line object-cover object-[50%_30%] shadow-[0_12px_32px_rgba(31,42,48,0.06)]"
+              class="aspect-[4/3] w-full rounded-xl object-cover object-[50%_30%]"
               loading="lazy"
             />
           </div>
