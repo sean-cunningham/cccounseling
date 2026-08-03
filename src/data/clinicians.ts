@@ -55,14 +55,12 @@ export interface Clinician {
   isPlaceholder?: boolean;
 }
 
-/** Live clinician profiles shown on /clinicians and individual pages. */
-export const CLINICIANS: Clinician[] = [];
-
 /**
- * Profiles drafted in the repo but not yet approved for public publish.
- * Move an entry into CLINICIANS when ready to go live.
+ * Preview-only publish of Jade for clinician review on this branch.
+ * Production `main` keeps her in DRAFT_CLINICIANS until she approves.
  */
-export const DRAFT_CLINICIANS: Clinician[] = [
+/** Live clinician profiles shown on /clinicians and individual pages. */
+export const CLINICIANS: Clinician[] = [
   {
     slug: "jade-spielman",
     name: "Jade Spielman",
@@ -93,7 +91,7 @@ export const DRAFT_CLINICIANS: Clinician[] = [
     blurb:
       "Jade works with individuals and couples facing everyday stressors, anxiety, depression, relationship concerns, career changes, and identity questions. She also brings specialized expertise supporting people through pregnancy, postpartum, infertility, miscarriage, infant loss, and parenting. Her style is warm, down-to-earth, and collaborative, shaped by lived experience.",
     // First-person bio drawn from Jade's practice site and her onboarding notes.
-    // Pending Jade's final review and approval before publish.
+    // Pending Jade's final review and approval before production publish.
     bio: [
       "I work with individuals and couples facing many of life's everyday struggles: anxiety, depression, stress, career and life transitions, self-esteem, identity questions, relationship conflict, and parenting. Alongside that broader work, I have particular experience supporting people through pregnancy, postpartum transitions, infertility, miscarriage, pregnancy and infant loss, grief, and the hormonal and identity shifts of perimenopause and menopause.",
       "I began my career as a grief counselor in hospice care, supporting people at the end of their lives and families facing the heartbreak of losing someone they love. Sitting with people in those sacred, vulnerable moments shaped the heart of my work: healing is not about getting over it, but about honoring love, memory, identity, and the many ways grief reshapes us. From there I provided in-school therapy for children and families, then moved into private practice, where I worked with clients across the lifespan.",
@@ -104,6 +102,12 @@ export const DRAFT_CLINICIANS: Clinician[] = [
     ],
   },
 ];
+
+/**
+ * Profiles drafted in the repo but not yet approved for public publish.
+ * Move an entry into CLINICIANS when ready to go live.
+ */
+export const DRAFT_CLINICIANS: Clinician[] = [];
 
 /** Profiles safe to expose in structured data (real clinicians only). */
 export const PUBLISHED_CLINICIANS = CLINICIANS.filter((c) => !c.isPlaceholder);
