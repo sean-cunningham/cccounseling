@@ -23,7 +23,8 @@ const pageUrl = `${SITE_URL}/clinicians/${clinician.slug}/`;
 const orgId = `${SITE_URL}/#organization`;
 
 const pageTitle =
-  clinician.seoTitle ?? `${clinician.name}, ${clinician.credentials} | TrueBridge`;
+  clinician.seoTitle ??
+  `${clinician.name}, ${clinician.credentials} | Online Therapist in North Carolina | TrueBridge`;
 const pageDescription = clinician.seoDescription ?? clinician.blurb;
 
 function initials(name: string): string {

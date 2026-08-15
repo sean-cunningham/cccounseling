@@ -120,6 +120,44 @@
     @apply rounded-sm outline-none ring-2 ring-clay ring-offset-2 ring-offset-sageDark;
   }
 
+  /* Markdown article body (blog). Scoped so legal pages keep hand-tuned markup. */
+  .blog-prose h2 {
+    @apply mb-4 mt-12 font-display text-3xl font-semibold leading-tight tracking-tight text-ink md:text-4xl;
+  }
+
+  .blog-prose h3 {
+    @apply mb-3 mt-8 font-display text-2xl font-semibold leading-snug tracking-tight text-ink md:text-3xl;
+  }
+
+  .blog-prose p {
+    @apply mb-5 text-base leading-relaxed text-muted md:text-lg;
+  }
+
+  .blog-prose ul,
+  .blog-prose ol {
+    @apply mb-5 list-outside space-y-2 pl-6 text-base leading-relaxed text-muted md:text-lg;
+  }
+
+  .blog-prose ul {
+    @apply list-disc;
+  }
+
+  .blog-prose ol {
+    @apply list-decimal;
+  }
+
+  .blog-prose li {
+    @apply leading-relaxed;
+  }
+
+  .blog-prose strong {
+    @apply font-semibold text-ink;
+  }
+
+  .blog-prose a {
+    @apply font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage;
+  }
+
   @media (min-width: 1024px) {
     .header-svc-flyout {
       visibility: hidden;
