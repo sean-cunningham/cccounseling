@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# Blog exists for internal review but is not ready for search discovery yet.
+Disallow: /blog/
+
 Sitemap: https://truebridgetherapy.com/sitemap-index.xml

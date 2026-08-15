@@ -3,8 +3,9 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import CtaBand from "@/components/patterns/CtaBand.astro";
 import RecognitionGrid from "@/components/patterns/RecognitionGrid.astro";
 
+const pageTitle = "Insurance & Rates for Therapy in North Carolina | TrueBridge";
 const description =
-  "Learn about insurance options, private-pay rates, clinician-specific payment details, and cost expectations before beginning therapy with TrueBridge.";
+  "Learn how insurance may apply to online therapy in North Carolina, private-pay rates, clinician-specific participation, and what to expect before your first session with TrueBridge.";
 
 const costItems = [
   {
@@ -26,7 +27,7 @@ const costItems = [
 ] as const;
 ---
 
-<BaseLayout title="Insurance & Rates | TrueBridge" {description}>
+<BaseLayout title={pageTitle} {description}>
   <main id="main">
     <!-- Section 1: Hero -->
     <section class="bg-canvas py-16 lg:py-24" aria-labelledby="insurance-rates-heading">
@@ -38,8 +39,9 @@ const costItems = [
           Insurance & rates
         </h1>
         <p class="text-lg leading-relaxed text-muted md:text-xl">
-          Insurance options and private-pay rates may vary by clinician and service type. Before care begins, we’ll help you understand
-          available options, expected costs, and next steps.
+          Looking for online therapy in North Carolina and wondering how insurance or private-pay may apply? Options can
+          vary by clinician and service type. Before care begins, we’ll help you understand available options, expected
+          costs, and next steps.
         </p>
         <a
           href="/contact-get-started"
@@ -125,7 +127,19 @@ const costItems = [
             href="/contact-get-started"
             class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
             >Ask us</a
-          >, the consultation is free.
+          >, the consultation is free. You can also
+          <a
+            href="/clinicians"
+            class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
+            >meet our clinicians</a
+          >
+          or explore
+          <a
+            href="/services"
+            class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
+            >therapy services</a
+          >
+          across North Carolina.
         </p>
       </div>
     </section>
