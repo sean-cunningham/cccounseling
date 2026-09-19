@@ -121,7 +121,7 @@
   }
 
   @media (min-width: 1024px) {
-    .header-svc-flyout {
+    .header-flyout {
       visibility: hidden;
       opacity: 0;
       transform: translateY(6px);
@@ -132,9 +132,9 @@
         transform 0.2s ease-out;
     }
 
-    .header-svc-wrap:hover .header-svc-flyout,
-    .header-svc-wrap.menu-open .header-svc-flyout,
-    .header-svc-wrap:focus-within .header-svc-flyout {
+    .header-flyout-wrap:hover .header-flyout,
+    .header-flyout-wrap.menu-open .header-flyout,
+    .header-flyout-wrap:focus-within .header-flyout {
       visibility: visible;
       opacity: 1;
       transform: translateY(0);

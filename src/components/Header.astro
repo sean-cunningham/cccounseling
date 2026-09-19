@@ -1,4 +1,6 @@
 ---
+import { CLINICIANS } from "@/data/clinicians";
+
 /** Site logo (PNG with transparent background in /public/images). */
 const LOGO = "/images/logo.png";
 
@@ -32,10 +34,11 @@ const menuGroups = [
 ] as const;
 
 const navRest = [
-  { href: "/clinicians", label: "Our Clinicians" },
   { href: "/insurance-rates", label: "Insurance & Rates" },
   { href: "/faq", label: "FAQ" },
 ] as const;
+
+const teamMembers = CLINICIANS.filter((clinician) => !clinician.isPlaceholder);
 
 function isActive(href: string): boolean {
   if (href === "/") return currentPath === "/" || currentPath === "";
@@ -43,6 +46,7 @@ function isActive(href: string): boolean {
 }
 
 const servicesActive = isActive("/services");
+const teamActive = isActive("/clinicians");
 ---
 
 <header
@@ -97,7 +101,7 @@ const servicesActive = isActive("/services");
           Home
         </a>
 
-        <div class="header-svc-wrap relative flex shrink-0 items-center gap-1.5">
+        <div class="header-flyout-wrap relative flex shrink-0 items-center gap-1.5" data-header-menu>
           <a
             href="/services"
             aria-current={servicesActive ? "page" : undefined}
@@ -110,8 +114,7 @@ const servicesActive = isActive("/services");
           </a>
           <button
             type="button"
-            id="header-svc-btn"
-            class="header-svc-btn -m-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-ink/70 transition-colors hover:bg-smoke hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+            class="header-flyout-btn -m-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-ink/70 transition-colors hover:bg-smoke hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
             aria-expanded="false"
             aria-haspopup="true"
             aria-controls="header-svc-flyout"
@@ -123,7 +126,7 @@ const servicesActive = isActive("/services");
           </button>
           <div
             id="header-svc-flyout"
-            class="header-svc-flyout absolute left-0 top-full z-50 min-w-[17.5rem] w-[min(22rem,calc(100vw-2rem))] max-w-[calc(100vw-2.5rem)] origin-top pt-2.5"
+            class="header-flyout absolute left-0 top-full z-50 min-w-[17.5rem] w-[min(22rem,calc(100vw-2rem))] max-w-[calc(100vw-2.5rem)] origin-top pt-2.5"
             role="menu"
             aria-label="Services"
           >
@@ -156,6 +159,58 @@ const servicesActive = isActive("/services");
               }
             </div>
           </div>
+        </div>
+
+        <div class="header-flyout-wrap relative flex shrink-0 items-center gap-1.5" data-header-menu>
+          <a
+            href="/clinicians"
+            aria-current={teamActive ? "page" : undefined}
+            class:list={[
+              "border-b-2 border-transparent pb-0.5 text-[0.95rem] font-medium no-underline transition-colors",
+              teamActive ? "border-b-2 border-sageDark pb-0.5 text-sageDark" : "border-b-2 border-transparent pb-0.5 text-ink/80 hover:text-sageDark",
+            ]}
+          >
+            Our Team
+          </a>
+          {
+            teamMembers.length > 0 && (
+              <>
+                <button
+                  type="button"
+                  class="header-flyout-btn -m-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-ink/70 transition-colors hover:bg-smoke hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-controls="header-team-flyout"
+                  aria-label="Our Team submenu"
+                >
+                  <svg width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true" class="translate-y-px">
+                    <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </button>
+                <div
+                  id="header-team-flyout"
+                  class="header-flyout absolute left-0 top-full z-50 min-w-[17.5rem] w-[min(22rem,calc(100vw-2rem))] max-w-[calc(100vw-2.5rem)] origin-top pt-2.5"
+                  role="menu"
+                  aria-label="Our Team"
+                >
+                  <div class="rounded-2xl border border-line bg-smoke p-3.5 shadow-[0_18px_45px_rgba(31,42,48,0.10)]">
+                    {teamMembers.map((clinician) => (
+                      <a
+                        href={`/clinicians/${clinician.slug}`}
+                        role="menuitem"
+                        class:list={[
+                          "block rounded-lg px-3 py-1.5 text-[0.9rem] font-medium text-ink/85 no-underline transition-colors hover:bg-paper hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-smoke",
+                          isActive(`/clinicians/${clinician.slug}`) && "bg-paper text-sageDark",
+                        ]}
+                      >
+                        {clinician.name}, {clinician.credentials}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )
+          }
         </div>
 
         {
@@ -229,6 +284,30 @@ const servicesActive = isActive("/services");
           }
         </div>
       </div>
+      <div class="border-b border-line py-3">
+        <a
+          href="/clinicians"
+          class="text-base font-medium text-ink/80 no-underline transition-colors hover:text-sageDark"
+          aria-current={teamActive ? "page" : undefined}
+        >
+          Our Team
+        </a>
+        {
+          teamMembers.length > 0 && (
+            <div class="mt-2 flex flex-col gap-1 border-l border-line pl-4">
+              {teamMembers.map((clinician) => (
+                <a
+                  href={`/clinicians/${clinician.slug}`}
+                  class="rounded-lg py-1.5 pl-2 text-sm font-medium text-ink/85 no-underline transition-colors hover:bg-smoke hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2"
+                  aria-current={isActive(`/clinicians/${clinician.slug}`) ? "page" : undefined}
+                >
+                  {clinician.name}, {clinician.credentials}
+                </a>
+              ))}
+            </div>
+          )
+        }
+      </div>
       {
         navRest.map((item) => (
           <a
@@ -254,9 +333,7 @@ const servicesActive = isActive("/services");
   (function () {
     var toggle = document.getElementById("header-nav-toggle");
     var drawer = document.getElementById("header-mobile-drawer");
-    var wrap = document.querySelector(".header-svc-wrap");
-    var btn = document.getElementById("header-svc-btn");
-    var flyout = document.getElementById("header-svc-flyout");
+    var menus = Array.prototype.slice.call(document.querySelectorAll("[data-header-menu]"));
 
     function setMobileOpen(open) {
       if (!toggle || !drawer) return;
@@ -277,34 +354,44 @@ const servicesActive = isActive("/services");
       });
     }
 
-    function setServicesOpen(open) {
-      if (!wrap || !btn || !flyout) return;
+    function setMenuOpen(wrap, open) {
+      if (!wrap) return;
       wrap.classList.toggle("menu-open", open);
-      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      var btn = wrap.querySelector(".header-flyout-btn");
+      if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
     }
 
-    function closeServices() {
-      setServicesOpen(false);
+    function closeAllMenus(except) {
+      menus.forEach(function (wrap) {
+        if (wrap !== except) setMenuOpen(wrap, false);
+      });
     }
 
-    if (btn && wrap && flyout) {
+    menus.forEach(function (wrap) {
+      var btn = wrap.querySelector(".header-flyout-btn");
+      var flyout = wrap.querySelector(".header-flyout");
+      if (!btn || !flyout) return;
       btn.addEventListener("click", function (e) {
         e.preventDefault();
         e.stopPropagation();
         var open = !wrap.classList.contains("menu-open");
-        setServicesOpen(open);
-      });
-      document.addEventListener("click", function (e) {
-        if (wrap && !wrap.contains(e.target)) closeServices();
-      });
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") closeServices();
+        closeAllMenus(wrap);
+        setMenuOpen(wrap, open);
       });
       flyout.querySelectorAll("a").forEach(function (a) {
         a.addEventListener("click", function () {
-          closeServices();
+          setMenuOpen(wrap, false);
         });
       });
-    }
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!menus.some(function (wrap) { return wrap.contains(e.target); })) {
+        closeAllMenus();
+      }
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeAllMenus();
+    });
   })();
 </script>
