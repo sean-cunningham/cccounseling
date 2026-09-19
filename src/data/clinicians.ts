@@ -56,7 +56,40 @@ export interface Clinician {
 }
 
 /** Live clinician profiles shown on /clinicians and individual pages. */
-export const CLINICIANS: Clinician[] = [];
+export const CLINICIANS: Clinician[] = [
+  {
+    slug: "bridget-williams",
+    name: "Bridget Williams",
+    credentials: "Psy.D.",
+    title: "Licensed Psychologist",
+    photo: "/images/clinicians/bridget-williams.jpg",
+    specialties: [
+      "Trauma",
+      "Maternal mental wellness",
+      "Women's mental health",
+      "Identity concerns",
+      "Stress and life transitions",
+      "Caregiver support",
+      "EMDR",
+      "Perinatal and postpartum",
+    ],
+    seoTitle:
+      "Bridget Williams, Psy.D. | Trauma & Maternal Mental Wellness | TrueBridge",
+    seoDescription:
+      "Bridget Williams, Psy.D. is a licensed psychologist offering compassionate therapy for women, especially moms, navigating trauma, identity, and maternal mental wellness. Telehealth across North Carolina.",
+    blurb:
+      "Bridget works with women, especially moms, who are holding many roles at once and feeling stretched thin. She specializes in trauma and maternal mental wellness, with a compassionate, curious style and room for humor along the way.",
+    bio: [
+      "I enjoy working with women, especially moms, who are navigating the demands of being a caregiver, professional, partner or spouse, and mother, often while trying to hold many different worlds together with little support or community. Many of the women I work with were taught they could have it all and do it all, only to find themselves struggling with their identity, mental health, or overall sense of happiness. Life may not look the way they imagined it would, and they aren't always sure what needs to change or where to begin.",
+      "My approach to therapy is compassionate and curious, with some humor and wit sprinkled in along the way. During our first few sessions, we'll focus on building a trusting relationship, exploring what brings you to therapy, and identifying the goals that are most important to you. From there, we'll work together to recognize and challenge beliefs that may no longer serve you and find ways to bring your choices and actions into greater alignment with who you authentically want to be.",
+      "My work is informed by Adlerian and Constructivist theories, which emphasize understanding each person's unique experience of themselves, others, and the world around them. I also incorporate Acceptance and Commitment Therapy (ACT), Dialectical Behavior Therapy (DBT) skills, and somatic work based on each client's needs. I strive to create a trusting environment where you can feel supported while also being empowered and challenged. Being vulnerable and doing the work of therapy can be hard, but it can also help you create a life that feels more like your own.",
+      "Growing up, I always wanted to be a helper. I explored different paths toward fulfilling that role, but the common thread was seeing the power of human connection. Being truly seen and heard can lead to some of our most profound experiences. That instilled in me a desire to understand the world through my clients' eyes so that we can explore different perspectives and get curious about the beliefs that guide their choices.",
+      "I bring knowledge and training in mental health and wellness to our work, but I don't view myself as the expert on you. I want to help you better understand your experiences, trust yourself, and find answers that allow you to align your actions and beliefs with your authentic self. I'm also a lifelong learner and avid reader who regularly seeks out evidence-based training and current research to continue growing as a psychologist.",
+      "I am a licensed psychologist specializing in trauma and maternal mental wellness. I earned my Master of Science in Counseling Psychology and my doctorate from the APA-accredited Clinical Psychology program at Adler University. Although I trained as a generalist practitioner, I have been particularly drawn to working with survivors of trauma and have pursued additional training in trauma treatment, including EMDR.",
+      "Outside of therapy, I'm a distance runner, mom, and avid reader. I love spending time in nature, going on adventures with my spouse and children, and creating moments of joy in the kitchen through cooking and baking. Spontaneous dance parties tend to shift any mood for the better!",
+    ],
+  },
+];
 
 /**
  * Profiles drafted in the repo but not yet approved for public publish.
