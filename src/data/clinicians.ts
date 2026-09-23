@@ -76,9 +76,9 @@ export const CLINICIANS: Clinician[] = [
     seoTitle:
       "Bridget Williams, Psy.D. | Trauma & Maternal Mental Wellness | TrueBridge",
     seoDescription:
-      "Bridget Williams, Psy.D., Clinical Supervisor, offers compassionate therapy for women, especially moms, navigating trauma, identity, and maternal mental wellness. Telehealth across North Carolina.",
+      "Bridget Williams, Psy.D., Clinical Supervisor, offers compassionate therapy for trauma, identity, and maternal mental wellness. She works with adults across North Carolina via telehealth.",
     blurb:
-      "Bridget works with women, especially moms, who are holding many roles at once and feeling stretched thin. She specializes in trauma and maternal mental wellness, with a compassionate, curious style and room for humor along the way.",
+      "Bridget specializes in trauma and maternal mental wellness. She works with adults who are holding a lot at once and feeling stretched thin, with a compassionate, curious style and room for humor along the way.",
     bio: [
       "I enjoy working with women, especially moms, who are navigating the demands of being a caregiver, professional, partner or spouse, and mother, often while trying to hold many different worlds together with little support or community. Many of the women I work with were taught they could have it all and do it all, only to find themselves struggling with their identity, mental health, or overall sense of happiness. Life may not look the way they imagined it would, and they aren't always sure what needs to change or where to begin.",
       "My approach to therapy is compassionate and curious, with some humor and wit sprinkled in along the way. During our first few sessions, we'll focus on building a trusting relationship, exploring what brings you to therapy, and identifying the goals that are most important to you. From there, we'll work together to recognize and challenge beliefs that may no longer serve you and find ways to bring your choices and actions into greater alignment with who you authentically want to be.",
