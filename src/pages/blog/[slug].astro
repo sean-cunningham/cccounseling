@@ -1,0 +1,61 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import CtaBand from "@/components/patterns/CtaBand.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const pageTitle = `${post.data.title} | TrueBridge`;
+const description = post.data.description;
+---
+
+<BaseLayout title={pageTitle} {description} noindex>
+  <main id="main">
+    <article>
+      <header class="border-b border-line bg-smoke py-14 lg:py-20">
+        <div class="mx-auto max-w-[900px] px-5 text-left sm:px-6 lg:px-10">
+          <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-sageDark">
+            <a href="/blog/" class="text-sageDark no-underline hover:underline">Blog</a>
+            <span class="mx-2 text-muted" aria-hidden="true">·</span>
+            Preview draft
+          </p>
+          <h1 class="mb-6 font-display text-5xl leading-[1.05] tracking-tight text-ink md:text-6xl">
+            {post.data.title}
+          </h1>
+          <p class="max-w-[760px] text-lg leading-relaxed text-muted md:text-xl">{post.data.description}</p>
+          <p class="mt-6 text-sm text-muted">
+            <time datetime={post.data.pubDate.toISOString()}>
+              {post.data.pubDate.toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </time>
+          </p>
+        </div>
+      </header>
+
+      <div class="bg-paper py-14 lg:py-20">
+        <div class="blog-prose mx-auto max-w-[900px] px-5 sm:px-6 lg:px-10">
+          <Content />
+        </div>
+      </div>
+    </article>
+
+    <CtaBand
+      heading="Ready to talk through next steps?"
+      headingId="blog-cta-heading"
+      body="Reach out and we’ll help you understand clinician fit, how insurance may apply, and what to expect before beginning care."
+      buttonLabel="Get Started"
+    />
+  </main>
+</BaseLayout>
