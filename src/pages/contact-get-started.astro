@@ -34,48 +34,53 @@ const structuredData = {
       aria-labelledby="contact-heading"
     >
       <div class="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-10">
-        <div class="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,440px)_minmax(0,1fr)] lg:grid-rows-[auto_1fr] lg:items-stretch lg:gap-12">
-          <div class="order-1 w-full min-w-0">
-            <h1
-              id="contact-heading"
-              class="mb-4 font-display text-4xl leading-[1.08] tracking-tight text-ink md:text-5xl"
-            >
-              Contact us today
-            </h1>
-            <p class="max-w-[620px] text-lg leading-relaxed text-muted">
-              Tell us a little about what you're looking for. No need to have it all figured out. We usually reply within
-              one business day, and the first consultation is free.
-            </p>
+        <div class="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,440px)_minmax(0,1fr)] lg:grid-rows-1 lg:items-stretch lg:gap-12">
+          <div
+            id="contact-copy"
+            class="contents lg:flex lg:h-full lg:min-h-0 lg:flex-col lg:justify-between lg:gap-8"
+          >
+            <div class="order-1 w-full min-w-0">
+              <h1
+                id="contact-heading"
+                class="mb-4 font-display text-4xl leading-[1.08] tracking-tight text-ink md:text-5xl"
+              >
+                Contact us today
+              </h1>
+              <p class="max-w-[620px] text-lg leading-relaxed text-muted">
+                Tell us a little about what you're looking for. No need to have it all figured out. We usually reply within
+                one business day, and the first consultation is free.
+              </p>
+            </div>
+
+            <div class="order-3 w-full min-w-0">
+              <div class="rounded-[28px] border border-line bg-paper p-5 shadow-[0_12px_32px_rgba(31,42,48,0.06)] lg:p-6">
+                <h2 class="mb-4 font-display text-2xl leading-tight tracking-tight text-ink">
+                  Prefer to call or email?
+                </h2>
+                <div class="border-t border-line py-3">
+                  <span class="mb-1 block font-semibold text-ink">Phone</span>
+                  <a href={`tel:${PUBLIC_PHONE_E164}`} class={contactLinkClass}>{PUBLIC_PHONE_DISPLAY}</a>
+                </div>
+                <div class="border-t border-line py-3">
+                  <span class="mb-1 block font-semibold text-ink">Email</span>
+                  <a href={`mailto:${PUBLIC_EMAIL}`} class={contactLinkClass}>{PUBLIC_EMAIL}</a>
+                </div>
+                <p class="border-t border-line pt-3 text-sm leading-relaxed text-muted">
+                  We read every message, reply to talk through fit and availability, and help you understand costs before
+                  anything is scheduled.
+                </p>
+              </div>
+            </div>
           </div>
 
-          <div class="order-2 w-full min-w-0 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:max-w-[660px]">
+          <div class="order-2 w-full min-w-0 lg:max-w-[660px]">
             <iframe
               id="tb-intake-iframe"
               src={iframeSrc}
               title="Request an appointment"
               class="block w-full border-0"
-              style="width: 100%; min-height: 760px; height: 760px; border: 0; display: block;"
+              style="width: 100%; min-height: 560px; height: 560px; border: 0; display: block;"
               loading="lazy"></iframe>
-          </div>
-
-          <div class="order-3 w-full min-w-0 lg:col-start-1 lg:self-end">
-            <div class="rounded-[28px] border border-line bg-paper p-5 shadow-[0_12px_32px_rgba(31,42,48,0.06)] lg:p-6">
-              <h2 class="mb-4 font-display text-2xl leading-tight tracking-tight text-ink">
-                Prefer to call or email?
-              </h2>
-              <div class="border-t border-line py-3">
-                <span class="mb-1 block font-semibold text-ink">Phone</span>
-                <a href={`tel:${PUBLIC_PHONE_E164}`} class={contactLinkClass}>{PUBLIC_PHONE_DISPLAY}</a>
-              </div>
-              <div class="border-t border-line py-3">
-                <span class="mb-1 block font-semibold text-ink">Email</span>
-                <a href={`mailto:${PUBLIC_EMAIL}`} class={contactLinkClass}>{PUBLIC_EMAIL}</a>
-              </div>
-              <p class="border-t border-line pt-3 text-sm leading-relaxed text-muted">
-                We read every message, reply to talk through fit and availability, and help you understand costs before
-                anything is scheduled.
-              </p>
-            </div>
           </div>
         </div>
       </div>
@@ -97,14 +102,29 @@ const structuredData = {
       var iframe = document.getElementById("tb-intake-iframe");
       if (!iframe) return;
 
+      var copy = document.getElementById("contact-copy");
       var trustedOrigin = new URL(iframe.getAttribute("src"), window.location.href).origin;
       var minHeight = 520;
       var maxHeight = 1400;
+
+      function isDesktop() {
+        return window.matchMedia("(min-width: 1024px)").matches;
+      }
+
+      function syncCopyHeight() {
+        if (!copy) return;
+        if (!isDesktop()) {
+          copy.style.height = "";
+          return;
+        }
+        copy.style.height = iframe.offsetHeight + "px";
+      }
 
       function setHeight(px) {
         var h = Math.max(minHeight, Math.min(maxHeight, Math.ceil(px)));
         iframe.style.height = h + "px";
         iframe.style.minHeight = h + "px";
+        syncCopyHeight();
       }
 
       window.addEventListener("message", function (event) {
@@ -119,6 +139,10 @@ const structuredData = {
           setHeight(event.data.height);
         }
       });
+
+      iframe.addEventListener("load", syncCopyHeight);
+      window.addEventListener("resize", syncCopyHeight);
+      syncCopyHeight();
     })();
   </script>
 </BaseLayout>
