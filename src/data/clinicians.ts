@@ -129,6 +129,40 @@ export const CLINICIANS: Clinician[] = [
       "I earned my Master's degree in Marriage and Family Therapy from Kansas State University and am a Licensed Marriage and Family Therapist. Whether this is your first experience with therapy or you are returning after time away, I know reaching out can feel like a big step. If you are looking for a therapist who will honor your story and walk with you at your own pace, I would be honored to be part of your healing.",
     ],
   },
+  {
+    slug: "kelly-freeman-driscoll",
+    name: "Kelly Freeman Driscoll",
+    credentials: "LCMHCA, NCC",
+    title: "Licensed Clinical Mental Health Counselor Associate",
+    photo: "/images/clinicians/kelly-freeman-driscoll.jpg",
+    specialties: [
+      "Anxiety",
+      "Depression",
+      "Relationship and marital concerns",
+      "Couples therapy",
+      "Parenting and family challenges",
+      "Conflict resolution",
+      "Trauma",
+      "Grief and loss",
+      "Substance use",
+      "Life transitions",
+    ],
+    seoTitle:
+      "Kelly Freeman Driscoll, LCMHCA, NCC | Anxiety, Relationships & Trauma Therapy | TrueBridge",
+    seoDescription:
+      "Kelly Freeman Driscoll, LCMHCA, NCC offers warm, practical online therapy in North Carolina for anxiety, depression, relationship concerns, trauma, grief, substance use, and life transitions.",
+    blurb:
+      "Kelly works with individuals and couples navigating anxiety, depression, relationship strain, trauma, grief, substance use, and major life transitions. Her style is warm, collaborative, honest, and practical, shaped by more than 15 years of clinical experience and lived experience with healing.",
+    bio: [
+      "There are seasons when life simply feels harder than it should. Maybe anxiety will not quiet down, a relationship feels stuck, your family is changing, something from the past still weighs on you, or you sense that something needs to be different without knowing exactly what. Counseling can be a place to slow down, tell the truth, and begin sorting that out.",
+      "I know that from personal experience as well as professional training. Living through substance use challenges and generational trauma made healing feel intimate and hard-won for me. Learning how those experiences shape the mind and body is where my own healing began, and it is part of why I believe counseling can help you find footing again too.",
+      "I am a mental health clinician with more than 15 years of experience supporting individuals, couples, and families through difficult seasons. I have worked in outpatient mental health, community-based services, pediatric settings, and intensive in-home care, which means I have sat with people across many ages, systems, and circumstances. No two people arrive with the same story, and I do not believe healing is one-size-fits-all.",
+      "My goal is to meet you where you are. I want counseling to feel honest and free of judgment—a place where your experiences are taken seriously and you can begin to understand yourself and your relationships in new ways. Together we can name what is not working, build practical tools for daily life, and move toward the changes that matter most to you.",
+      "I often work with adults and couples facing anxiety, depression, relationship and marital concerns, parenting and family challenges, conflict, trauma, grief and loss, substance use, and other life transitions. My style is warm, collaborative, honest, and practical. I draw from Cognitive Behavioral Therapy, mindfulness-based interventions, behavioral strategies, and motivational interviewing, always tailored to the person in front of me rather than a rigid protocol.",
+      "I do not see my role as telling you how to live. I see it as walking beside you while you figure out where you want to go. Sometimes that means noticing patterns that have been holding you back. Sometimes it means learning to communicate differently, set healthier boundaries, manage difficult emotions, repair relationships, or simply give yourself permission to heal.",
+      "I earned my Master of Arts in Education in Clinical Mental Health Counseling from the University of North Carolina at Pembroke and am a National Certified Counselor (NCC) and Licensed Clinical Mental Health Counselor Associate (LCMHCA). Counseling is not about becoming someone else. It is about becoming more fully yourself—understanding your story, recognizing your strengths, healing what needs healing, and choosing a life and relationships that feel more like your own. If you are ready to take that first step, I would be honored to walk alongside you.",
+    ],
+  },
 ];
 
 /**
