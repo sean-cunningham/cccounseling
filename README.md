@@ -101,7 +101,7 @@ When you are ready to launch the full site on production, use `npm run deploy:pr
 
 ## Google Analytics 4
 
-The marketing site loads the **gtag.js** snippet from `BaseLayout.astro` when `NEXT_PUBLIC_GA_MEASUREMENT_ID` is set at **build time** (not Google Tag Manager). Copy `.env.example` to `.env` locally or set the variable in your host (e.g. Vercel).
+The marketing site loads the **gtag.js** snippet from `BaseLayout.astro` when `NEXT_PUBLIC_GA_MEASUREMENT_ID` is set at **build time** (not Google Tag Manager). Production builds read it from committed `.env.production` (and the AWS deploy workflow also sets it explicitly). For local or Vercel overrides, copy `.env.example` to `.env` or set the variable in the host.
 
 Generic events (no form fields or message text) are sent via document-level click delegation for `tel:`, `mailto:`, and links to `/contact-get-started`. For future embeds, use `gaContactWidgetOpened()` / `gaScheduleWidgetOpened()` from `src/lib/analytics.ts` from your own code — **do not** inject GA inside third-party widget iframes.
 
