@@ -146,17 +146,19 @@ export const CLINICIANS: Clinician[] = [
       "Grief and loss",
       "Substance use",
       "Life transitions",
+      "Faith-based counseling",
     ],
     seoTitle:
       "Kelly Freeman Driscoll, LCMHCA, NCC | Anxiety, Relationships & Trauma Therapy | TrueBridge",
     seoDescription:
-      "Kelly Freeman Driscoll, LCMHCA, NCC offers warm, practical online therapy in North Carolina for anxiety, depression, relationship concerns, trauma, grief, substance use, and life transitions.",
+      "Kelly Freeman Driscoll, LCMHCA, NCC offers warm, practical online therapy in North Carolina for anxiety, depression, relationship concerns, trauma, grief, substance use, and life transitions, including faith-based counseling for clients who want to integrate their Christian faith.",
     blurb:
-      "Kelly works with individuals and couples facing anxiety, depression, relationship concerns, trauma, grief, substance use, and life transitions. Her style is warm, honest, and practical, shaped by more than 15 years of clinical work and her own lived experience with healing.",
+      "Kelly works with individuals and couples facing anxiety, depression, relationship concerns, trauma, grief, substance use, and life transitions. Her style is warm, honest, and practical, and she also offers faith-based counseling for clients who want to bring their Christian faith into the work.",
     bio: [
       "I work with individuals and couples facing anxiety, depression, relationship and marital concerns, parenting and family challenges, conflict, trauma, grief and loss, substance use, and other life transitions. My style is warm, collaborative, honest, and practical. I am direct when it helps, and I keep the work grounded in what is actually getting in the way day to day.",
       "I have more than 15 years of clinical experience across outpatient mental health, community-based services, pediatric settings, and intensive in-home care. That background means I have worked with people of many ages and in many systems, and I do not take a one-size-fits-all approach. We start with what brought you in, clarify what you want to change, and build from there.",
       "This work is also personal for me. Substance use and generational trauma have been part of the landscape of my own life, and that shapes how I sit with clients. I understand how hard it can be to ask for help, and I take seriously the trust it takes to talk about what you have been carrying.",
+      "Faith is an important part of who I am, personally and professionally. I believe healing involves the whole person—mind, body, and spirit—and that Christian faith can be a real source of strength and hope in hard seasons. For clients who want that integrated into therapy, I offer faith-based counseling. For every client, I aim to provide a compassionate, safe space where you feel heard and taken seriously.",
       "In session, you can expect me to be engaged, clear, and collaborative. We will look at patterns that keep you stuck, practice tools you can use between sessions, and work on communication, boundaries, emotion regulation, and relationship repair when those are part of the picture. I draw from Cognitive Behavioral Therapy, mindfulness-based interventions, behavioral strategies, and motivational interviewing, always tailored to the person in front of me.",
       "I do not see my job as telling you how to live. I see it as helping you understand what is happening, decide what matters most, and make changes that hold up in real life. Therapy with me is practical and respectful. There is room for hard conversations, and there is also room for honesty without judgment.",
       "I earned my Master of Arts in Education in Clinical Mental Health Counseling from the University of North Carolina at Pembroke and am a National Certified Counselor (NCC) and Licensed Clinical Mental Health Counselor Associate (LCMHCA). Whether this is your first time in therapy or you are returning after time away, I would be glad to work with you.",
