@@ -99,9 +99,9 @@ npm run build:coming-soon
 
 When you are ready to launch the full site on production, use `npm run deploy:prod` instead (after reviewing on Vercel).
 
-## Google Analytics 4
+## Google Tag Manager
 
-The marketing site loads the **gtag.js** snippet from `BaseLayout.astro` when `NEXT_PUBLIC_GA_MEASUREMENT_ID` is set at **build time** (not Google Tag Manager). Production builds read it from committed `.env.production` (and the AWS deploy workflow also sets it explicitly). For local or Vercel overrides, copy `.env.example` to `.env` or set the variable in the host.
+The marketing site loads the **Google Tag Manager** container from `BaseLayout.astro` (`PUBLIC_GTM_CONTAINER_ID`, default `GTM-5GTPR59L`). Google Analytics, Google Ads conversions, and related tags are configured inside Tag Manager, not hardcoded on the site. Production builds also read the ID from committed `.env.production` (and the AWS deploy workflow sets it explicitly). Site click helpers push generic events to `dataLayer` for GTM triggers.
 
 Generic events (no form fields or message text) are sent via document-level click delegation for `tel:`, `mailto:`, and links to `/contact-get-started`. For future embeds, use `gaContactWidgetOpened()` / `gaScheduleWidgetOpened()` from `src/lib/analytics.ts` from your own code — **do not** inject GA inside third-party widget iframes.
 
