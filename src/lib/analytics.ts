@@ -36,3 +36,8 @@ export function gaContactWidgetOpened(): void {
 export function gaScheduleWidgetOpened(): void {
   dataLayerEvent("schedule_widget_opened");
 }
+
+/** Successful intake form submit from the parent page (iframe posts submit; no form fields). */
+export function gaIntakeFormSubmit(): void {
+  dataLayerEvent("intake_form_submit");
+}

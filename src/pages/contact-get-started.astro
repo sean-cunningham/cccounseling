@@ -127,6 +127,11 @@ const structuredData = {
         syncCopyHeight();
       }
 
+      function pushIntakeSubmitEvent() {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: "intake_form_submit" });
+      }
+
       window.addEventListener("message", function (event) {
         if (event.origin !== trustedOrigin || !event.data || event.data.source !== "tb-intake-form") {
           return;
@@ -137,6 +142,12 @@ const structuredData = {
             return;
           }
           setHeight(event.data.height);
+          return;
+        }
+
+        // Successful intake submit from the iframe widget (no form field data).
+        if (event.data.type === "submit") {
+          pushIntakeSubmitEvent();
         }
       });
 
