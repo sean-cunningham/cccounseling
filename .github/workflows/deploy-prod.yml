@@ -64,6 +64,10 @@ jobs:
         run: npm ci
 
       - name: Build site
+        env:
+          # Public GTM container ID (also in .env.production). Analytics and
+          # Ads tags are managed inside Tag Manager, not hardcoded on the site.
+          PUBLIC_GTM_CONTAINER_ID: GTM-5GTPR59L
         run: npm run build
 
       - name: Configure AWS credentials

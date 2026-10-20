@@ -33,8 +33,10 @@ const pathname = Astro.url.pathname;
 const canonicalPath =
   pathname === "/" ? "/" : pathname.endsWith("/") ? pathname : `${pathname}/`;
 const canonical = new URL(canonicalPath, site);
-const gaMeasurementId = import.meta.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim() ?? "";
-const gaEnabled = Boolean(gaMeasurementId);
+/** Public GTM container ID. Analytics and Ads tags are managed inside Tag Manager. */
+const gtmContainerId =
+  import.meta.env.PUBLIC_GTM_CONTAINER_ID?.trim() || "GTM-5GTPR59L";
+const gtmEnabled = Boolean(gtmContainerId);
 /**
  * Full-site deploys on Vercel default to noindex (preview + production *.vercel.app)
  * while the public domain may be coming-soon on AWS.
@@ -83,31 +85,43 @@ if (structuredData !== undefined && structuredData !== null) {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageAbsolute} />
+    {
+      gtmEnabled && (
+        <script is:inline define:vars={{ gtmContainerId }}>
+          (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+            var f = d.getElementsByTagName(s)[0],
+              j = d.createElement(s),
+              dl = l != "dataLayer" ? "&l=" + l : "";
+            j.async = true;
+            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+            f.parentNode.insertBefore(j, f);
+          })(window, document, "script", "dataLayer", gtmContainerId);
+        </script>
+      )
+    }
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href={googleFontsHref} rel="stylesheet" />
     <link rel="icon" href="/images/favicon.png" type="image/png" sizes="any" />
     <link rel="apple-touch-icon" href="/images/favicon.png" />
     {structuredDataJson && <script type="application/ld+json" set:html={structuredDataJson} />}
-    {
-      gaEnabled && (
-        <>
-          <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}></script>
-          <script is:inline define:vars={{ gaMeasurementId }}>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-              dataLayer.push(arguments);
-            }
-            gtag("js", new Date());
-            gtag("config", gaMeasurementId, {
-              send_page_view: true,
-            });
-          </script>
-        </>
-      )
-    }
   </head>
   <body class="flex min-h-dvh flex-col bg-canvas">
+    {
+      gtmEnabled && (
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${gtmContainerId}`}
+            height="0"
+            width="0"
+            style="display:none;visibility:hidden"
+            title="Google Tag Manager"
+          />
+        </noscript>
+      )
+    }
     <a
       href="#main"
       class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[200] focus:rounded-md focus:bg-paper focus:px-4 focus:py-2 focus:text-ink focus:shadow-soft focus:outline-none focus:ring-2 focus:ring-sageDark focus:ring-offset-2 focus:ring-offset-canvas"
@@ -119,9 +133,10 @@ if (structuredData !== undefined && structuredData !== null) {
     </div>
     <Footer />
     {
-      gaEnabled && (
+      gtmEnabled && (
         <script is:inline>
           (function () {
+            window.dataLayer = window.dataLayer || [];
             document.addEventListener(
               "click",
               function (e) {
@@ -132,11 +147,11 @@ if (structuredData !== undefined && structuredData !== null) {
                 var href = el.getAttribute("href");
                 if (!href) return;
                 if (href.indexOf("tel:") === 0) {
-                  gtag("event", "phone_click");
+                  window.dataLayer.push({ event: "phone_click" });
                   return;
                 }
                 if (href.indexOf("mailto:") === 0) {
-                  gtag("event", "email_click");
+                  window.dataLayer.push({ event: "email_click" });
                   return;
                 }
                 try {
@@ -145,7 +160,7 @@ if (structuredData !== undefined && structuredData !== null) {
                     u.pathname === "/contact-get-started" ||
                     u.pathname.indexOf("/contact-get-started/") === 0
                   ) {
-                    gtag("event", "get_started_click");
+                    window.dataLayer.push({ event: "get_started_click" });
                   }
                 } catch (err) {
                   void err;
