@@ -146,7 +146,8 @@ const structuredData = {
         }
 
         // Successful intake submit from the iframe widget (no form field data).
-        if (event.data.type === "submit") {
+        // Admin widget posts type "intake_form_submitted"; older local builds used "submit".
+        if (event.data.type === "intake_form_submitted" || event.data.type === "submit") {
           pushIntakeSubmitEvent();
         }
       });
