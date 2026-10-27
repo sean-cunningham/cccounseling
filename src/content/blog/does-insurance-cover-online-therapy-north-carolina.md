@@ -44,10 +44,9 @@ People often search for a “therapist that accepts [insurance] in NC.” That u
 Important nuances:
 
 - **Participation can vary by clinician**, even inside the same practice.
-- **Credentialing takes time.** A practice may be preparing to join networks before any clinician is officially live with a given insurer.
 - **Being in network does not erase your deductible, copay, or visit limits.**
 
-TrueBridge is completing insurance credentialing. We do **not** list specific insurers as accepted on this site until participation is confirmed. When you contact us, we will tell you what is actually available for the clinician you may work with—not what we hope will be true later.
+TrueBridge is in-network with Aetna. When you contact us, we will confirm whether Aetna (or another plan) applies with the clinician you may work with, and what your expected out-of-pocket cost looks like before care begins.
 
 ## Couples therapy and insurance
 
@@ -77,7 +76,7 @@ If your plan does not cover the clinician or service you need, private-pay keeps
 
 TrueBridge offers [online therapy for adults across North Carolina](/services/), including [individual therapy](/services/individual-therapy/) and specialty areas such as [anxiety](/services/anxiety-therapy/), [depression](/services/depression-therapy/), and [trauma](/services/trauma-therapy/). You can [meet our clinicians](/clinicians/) and [request a consultation](/contact-get-started/) when you are ready.
 
-We will not invent network status to win a search. When an insurer relationship is confirmed, we can speak about it clearly—including, over time, more detailed insurance guidance on the site.
+We will not invent network status to win a search. TrueBridge is in-network with Aetna, and we will keep insurance guidance on the site current as participation grows.
 
 ## Frequently asked questions
 

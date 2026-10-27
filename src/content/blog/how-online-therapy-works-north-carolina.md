@@ -56,7 +56,7 @@ In-person care can still be a better fit for some people or situations. TrueBrid
 
 Whether insurance applies to online therapy depends on your plan, the clinician’s participation, the service type, and medical-necessity rules set by the insurer. Coverage is not automatic for every clinician or every service (for example, couples therapy is often private-pay).
 
-TrueBridge is completing insurance credentialing, and participation can vary by clinician. Before you start, we aim to help you understand what may and may not apply and what your out-of-pocket cost would look like. See [Insurance & Rates](/insurance-rates/) for an overview, then ask us about your specific plan.
+TrueBridge is in-network with Aetna, and participation can still vary by clinician and plan. Before you start, we aim to help you understand what may and may not apply and what your out-of-pocket cost would look like. See [Insurance & Rates](/insurance-rates/) for an overview, then ask us about your specific plan.
 
 ## Getting started with TrueBridge
 
