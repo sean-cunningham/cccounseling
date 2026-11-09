@@ -43,10 +43,9 @@ People often search for a “therapist that accepts [insurance] in NC.” That u
 
 Important nuances:
 
-- **Participation can vary by clinician**, even inside the same practice.
 - **Being in network does not erase your deductible, copay, or visit limits.**
 
-TrueBridge is in-network with Aetna. When you contact us, we will confirm whether Aetna (or another plan) applies with the clinician you may work with, and what your expected out-of-pocket cost looks like before care begins.
+TrueBridge is in-network with Aetna. When you contact us, we will confirm your specific plan, clinician match, and expected out-of-pocket cost before care begins.
 
 ## Couples therapy and insurance
 

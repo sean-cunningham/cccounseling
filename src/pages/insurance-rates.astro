@@ -10,15 +10,15 @@ const description =
 const costItems = [
   {
     title: "In-network with Aetna",
-    body: "TrueBridge is in-network with Aetna. When you reach out, we will confirm whether Aetna applies with your clinician match and what your expected out-of-pocket cost looks like.",
+    body: "TrueBridge is in-network with Aetna. When you reach out, we will confirm your specific plan, clinician match, and expected out-of-pocket cost before the first session.",
   },
   {
-    title: "Clinician-specific details",
-    body: "Insurance participation can still vary by clinician and plan. We will help you understand whether your coverage applies with the clinician you are matched with, or whether another payment option is a better fit.",
+    title: "Confirmed before you begin",
+    body: "We review your plan details and clinician match before care starts, so you know what applies and what your expected out-of-pocket cost looks like.",
   },
   {
     title: "Private-pay rates",
-    body: "Private-pay rates may vary by clinician, service type, and appointment type. Any applicable rate will be reviewed before care begins.",
+    body: "TrueBridge has one private-pay fee schedule for evaluations and sessions. Insurance out-of-pocket costs are separate and are confirmed before the first session.",
   },
   {
     title: "Questions before scheduling",
@@ -60,7 +60,7 @@ const costItems = [
       items={costItems}
     />
 
-    <!-- Section 3: Insurance participation by clinician -->
+    <!-- Section 3: In-network with Aetna -->
     <section class="bg-mist py-16 lg:py-24" aria-labelledby="participation-heading">
       <div class="mx-auto max-w-[900px] px-5 sm:px-6 lg:px-10">
         <div
@@ -73,9 +73,8 @@ const costItems = [
             In-network with Aetna.
           </h2>
           <p class="mb-5 text-lg leading-relaxed text-muted md:text-xl">
-            TrueBridge is in-network with Aetna. That means many clients with Aetna plans can use insurance for therapy
-            when their clinician match participates. We will still verify your specific plan benefits and expected
-            out-of-pocket costs before your first session.
+            TrueBridge is in-network with Aetna. Before your first session, we will confirm your specific plan benefits
+            and expected out-of-pocket costs with your clinician match.
           </p>
           <p class="text-lg leading-relaxed text-muted md:text-xl">
             If you have a different plan, reach out anyway. We can explain what options apply, including private-pay
@@ -105,20 +104,32 @@ const costItems = [
           <div
             class="grid grid-cols-1 items-center gap-2 px-8 py-6 md:grid-cols-[1fr_auto]"
           >
-            <p class="font-display text-2xl leading-snug tracking-tight text-ink">Consultation</p>
-            <p class="text-lg font-semibold text-ink md:text-xl">Free</p>
+            <p class="font-display text-2xl leading-snug tracking-tight text-ink">Phone consultation</p>
+            <p class="text-lg font-semibold text-ink md:text-xl">No charge</p>
           </div>
           <div
             class="grid grid-cols-1 items-center gap-2 border-t border-sand/70 px-8 py-6 md:grid-cols-[1fr_auto]"
           >
-            <p class="font-display text-2xl leading-snug tracking-tight text-ink">Individual therapy</p>
-            <p class="text-lg font-semibold text-ink md:text-xl">$175 per hour</p>
+            <p class="font-display text-2xl leading-snug tracking-tight text-ink">Individual evaluation, 90 minutes</p>
+            <p class="text-lg font-semibold text-ink md:text-xl">$225</p>
           </div>
           <div
             class="grid grid-cols-1 items-center gap-2 border-t border-sand/70 px-8 py-6 md:grid-cols-[1fr_auto]"
           >
-            <p class="font-display text-2xl leading-snug tracking-tight text-ink">Couples therapy</p>
-            <p class="text-lg font-semibold text-ink md:text-xl">$225 per hour</p>
+            <p class="font-display text-2xl leading-snug tracking-tight text-ink">Individual therapy, 50 minutes</p>
+            <p class="text-lg font-semibold text-ink md:text-xl">$175</p>
+          </div>
+          <div
+            class="grid grid-cols-1 items-center gap-2 border-t border-sand/70 px-8 py-6 md:grid-cols-[1fr_auto]"
+          >
+            <p class="font-display text-2xl leading-snug tracking-tight text-ink">Couples evaluation, 90 minutes</p>
+            <p class="text-lg font-semibold text-ink md:text-xl">$275</p>
+          </div>
+          <div
+            class="grid grid-cols-1 items-center gap-2 border-t border-sand/70 px-8 py-6 md:grid-cols-[1fr_auto]"
+          >
+            <p class="font-display text-2xl leading-snug tracking-tight text-ink">Couples therapy, 50 minutes</p>
+            <p class="text-lg font-semibold text-ink md:text-xl">$225</p>
           </div>
         </div>
 
@@ -128,7 +139,7 @@ const costItems = [
             href="/contact-get-started"
             class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
             >Ask us</a
-          >, the consultation is free. You can also
+          >, the phone consultation is no charge. You can also
           <a
             href="/clinicians"
             class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
