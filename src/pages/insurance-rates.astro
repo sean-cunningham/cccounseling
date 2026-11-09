@@ -5,20 +5,20 @@ import RecognitionGrid from "@/components/patterns/RecognitionGrid.astro";
 
 const pageTitle = "Insurance & Rates for Therapy in North Carolina | TrueBridge";
 const description =
-  "Learn how insurance may apply to online therapy in North Carolina, private-pay rates, clinician-specific participation, and what to expect before your first session with TrueBridge.";
+  "TrueBridge is in-network with Aetna for therapy in North Carolina. Learn about insurance options, private-pay rates, and what to expect before your first session.";
 
 const costItems = [
   {
-    title: "Clinician-specific insurance options",
-    body: "Insurance participation may vary by clinician. When clinicians are available, we will help you understand whether a particular clinician accepts your insurance or whether another payment option applies.",
+    title: "In-network with Aetna",
+    body: "TrueBridge is in-network with Aetna. When you reach out, we will confirm your specific plan, clinician match, and expected out-of-pocket cost before the first session.",
+  },
+  {
+    title: "Confirmed before you begin",
+    body: "We review your plan details and clinician match before care starts, so you know what applies and what your expected out-of-pocket cost looks like.",
   },
   {
     title: "Private-pay rates",
-    body: "Private-pay rates may vary by clinician, service type, and appointment type. Any applicable rate will be reviewed before care begins.",
-  },
-  {
-    title: "Expected out-of-pocket costs",
-    body: "Before scheduling ongoing therapy, we aim to help you understand the expected cost based on the clinician, service type, and payment arrangement.",
+    body: "TrueBridge has one private-pay fee schedule for evaluations and sessions. Insurance out-of-pocket costs are separate and are confirmed before the first session.",
   },
   {
     title: "Questions before scheduling",
@@ -39,9 +39,9 @@ const costItems = [
           Insurance & rates
         </h1>
         <p class="text-lg leading-relaxed text-muted md:text-xl">
-          Looking for online therapy in North Carolina and wondering how insurance or private-pay may apply? Options can
-          vary by clinician and service type. Before care begins, we’ll help you understand available options, expected
-          costs, and next steps.
+          Looking for online therapy in North Carolina and wondering how insurance or private-pay may apply? TrueBridge
+          is in-network with Aetna. Before care begins, we will help you confirm coverage for your clinician match,
+          expected costs, and next steps.
         </p>
         <a
           href="/contact-get-started"
@@ -60,7 +60,7 @@ const costItems = [
       items={costItems}
     />
 
-    <!-- Section 3: Insurance participation by clinician -->
+    <!-- Section 3: In-network with Aetna -->
     <section class="bg-mist py-16 lg:py-24" aria-labelledby="participation-heading">
       <div class="mx-auto max-w-[900px] px-5 sm:px-6 lg:px-10">
         <div
@@ -70,15 +70,15 @@ const costItems = [
             id="participation-heading"
             class="mb-6 font-display text-4xl leading-[1.12] tracking-tight text-ink md:text-5xl"
           >
-            Insurance participation may vary by clinician.
+            In-network with Aetna.
           </h2>
           <p class="mb-5 text-lg leading-relaxed text-muted md:text-xl">
-            TrueBridge plans to offer insurance-based options as clinician participation and credentialing become available. Because
-            insurance participation can vary by clinician, coverage details may depend on the provider you work with.
+            TrueBridge is in-network with Aetna. Before your first session, we will confirm your specific plan benefits
+            and expected out-of-pocket costs with your clinician match.
           </p>
           <p class="text-lg leading-relaxed text-muted md:text-xl">
-            Before beginning care, we will help clarify available insurance options, expected out-of-pocket costs, and any next steps needed
-            to confirm coverage.
+            If you have a different plan, reach out anyway. We can explain what options apply, including private-pay
+            rates, so you can make a clear decision before beginning care.
           </p>
         </div>
       </div>
@@ -104,20 +104,32 @@ const costItems = [
           <div
             class="grid grid-cols-1 items-center gap-2 px-8 py-6 md:grid-cols-[1fr_auto]"
           >
-            <p class="font-display text-2xl leading-snug tracking-tight text-ink">Consultation</p>
-            <p class="text-lg font-semibold text-ink md:text-xl">Free</p>
+            <p class="font-display text-2xl leading-snug tracking-tight text-ink">Phone consultation</p>
+            <p class="text-lg font-semibold text-ink md:text-xl">No charge</p>
+          </div>
+          <div
+            class="grid grid-cols-1 items-center gap-2 border-t border-sand/70 px-8 py-6 md:grid-cols-[1fr_auto]"
+          >
+            <p class="font-display text-2xl leading-snug tracking-tight text-ink">Individual evaluation</p>
+            <p class="text-lg font-semibold text-ink md:text-xl">$225 per session</p>
           </div>
           <div
             class="grid grid-cols-1 items-center gap-2 border-t border-sand/70 px-8 py-6 md:grid-cols-[1fr_auto]"
           >
             <p class="font-display text-2xl leading-snug tracking-tight text-ink">Individual therapy</p>
-            <p class="text-lg font-semibold text-ink md:text-xl">$175 per hour</p>
+            <p class="text-lg font-semibold text-ink md:text-xl">$175 per session</p>
+          </div>
+          <div
+            class="grid grid-cols-1 items-center gap-2 border-t border-sand/70 px-8 py-6 md:grid-cols-[1fr_auto]"
+          >
+            <p class="font-display text-2xl leading-snug tracking-tight text-ink">Couples evaluation</p>
+            <p class="text-lg font-semibold text-ink md:text-xl">$275 per session</p>
           </div>
           <div
             class="grid grid-cols-1 items-center gap-2 border-t border-sand/70 px-8 py-6 md:grid-cols-[1fr_auto]"
           >
             <p class="font-display text-2xl leading-snug tracking-tight text-ink">Couples therapy</p>
-            <p class="text-lg font-semibold text-ink md:text-xl">$225 per hour</p>
+            <p class="text-lg font-semibold text-ink md:text-xl">$225 per session</p>
           </div>
         </div>
 
@@ -127,7 +139,7 @@ const costItems = [
             href="/contact-get-started"
             class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
             >Ask us</a
-          >, the consultation is free. You can also
+          >, the phone consultation is no charge. You can also
           <a
             href="/clinicians"
             class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
