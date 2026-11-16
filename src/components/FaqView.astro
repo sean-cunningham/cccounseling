@@ -33,6 +33,14 @@ const groups: { title: string; items: FaqItem[] }[] = [
         q: "How do you match clients with clinicians?",
         a: "We consider your concerns, preferences, schedule, availability, and the clinician’s focus areas. The goal is to help you begin with a clearer sense of fit rather than leaving you to sort through everything alone.",
       },
+      {
+        q: "How soon can I start?",
+        a: "We usually have immediate availability. Once you reach out, we match you based on your schedule and the clinician’s openings so you can begin as soon as both work.",
+      },
+      {
+        q: "What happens in the first session?",
+        a: "The first appointment is usually an evaluation. We talk about what brought you in, relevant history, what you want to change, and whether TrueBridge and your clinician feel like a good fit. From there, we map next steps together.",
+      },
     ],
   },
   {
@@ -59,20 +67,20 @@ const groups: { title: string; items: FaqItem[] }[] = [
     items: [
       {
         q: "Do you accept insurance?",
-        a: '<p>Yes. TrueBridge is in-network with Aetna. Before you begin, we confirm your specific plan, clinician match, and expected out-of-pocket costs. See <a href="/insurance-rates" class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage">Insurance &amp; Rates</a> for details.</p>',
+        a: '<p>Yes. TrueBridge clinicians are in-network with Aetna. Before you begin, we confirm your specific plan benefits and expected out-of-pocket costs. See <a href="/insurance-rates" class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage">Insurance &amp; Rates</a> for details.</p>',
         aHtml: true,
       },
       {
         q: "Will you verify my insurance benefits?",
-        a: "Yes. Before the first session, we help you understand benefits and expected out-of-pocket costs for your plan and clinician match whenever possible.",
+        a: "Yes. Before the first session, we help you understand benefits and expected out-of-pocket costs for your plan whenever possible.",
       },
       {
         q: "What if my insurance is not accepted?",
-        a: "If your insurance does not apply to your care, we will explain payment options and expected costs before you begin so you can make an informed decision.",
+        a: "If your plan is not one we are in-network with, we will explain private-pay options and expected costs before you begin so you can make an informed decision.",
       },
       {
         q: "Where can I find rates and insurance information?",
-        a: '<p>You can visit the <a href="/insurance-rates" class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage">Insurance &amp; Rates</a> page for the practice fee schedule and insurance overview. Ask when you reach out and we can confirm what applies to your plan and clinician match.</p>',
+        a: '<p>You can visit the <a href="/insurance-rates" class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage">Insurance &amp; Rates</a> page for the practice fee schedule and insurance overview. Ask when you reach out and we can confirm what applies to your plan.</p>',
         aHtml: true,
       },
     ],
@@ -81,12 +89,20 @@ const groups: { title: string; items: FaqItem[] }[] = [
     title: "Sessions and format",
     items: [
       {
+        q: "How long is a therapy session?",
+        a: "Ongoing individual and couples therapy sessions are typically 50 minutes. Initial evaluations are typically 60 minutes. Exact timing is confirmed when you schedule.",
+      },
+      {
         q: "How are therapy sessions usually held?",
         a: "Most sessions take place online through a secure telehealth platform. Depending on scheduling and clinician availability, in-person sessions may be possible in the Cary and Raleigh area. We can talk through what fits when you reach out.",
       },
       {
         q: "Can therapy be effective online?",
-        a: "Many clients find online therapy helpful, convenient, and easier to fit into their lives. Much of what makes therapy useful like rapport, consistency, and a setting that feels private matters whether you meet online or in person. Fit depends on your needs, preferences, and the type of support you are looking for.",
+        a: "Many clients find online therapy helpful, convenient, and easier to fit into their lives. Much of what makes therapy useful, like rapport, consistency, and a setting that feels private, matters whether you meet online or in person. Fit depends on your needs, preferences, and the type of support you are looking for.",
+      },
+      {
+        q: "Do you offer evening appointments?",
+        a: "Yes. Tell us what times work best when you reach out, and we will match you with openings that fit.",
       },
       {
         q: "Do I need to be in North Carolina?",
@@ -99,16 +115,16 @@ const groups: { title: string; items: FaqItem[] }[] = [
     items: [
       {
         q: "Who will I work with?",
-        a: '<p>We match you with a clinician who works with TrueBridge based on fit, focus area, schedule, and availability. You can meet the team on our <a href="/clinicians" class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage">Clinicians</a> page.</p>',
+        a: '<p>We match you with a TrueBridge clinician based on fit, focus area, schedule, and availability. You can meet the team on our <a href="/clinicians" class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage">Clinicians</a> page.</p>',
         aHtml: true,
       },
       {
         q: "Are clinicians licensed?",
-        a: "Clinicians providing therapy through TrueBridge are expected to hold appropriate professional licensure or authorization to provide therapy services in North Carolina.",
+        a: "Yes. TrueBridge clinicians are licensed to provide therapy in North Carolina.",
       },
       {
         q: "Can I choose my clinician?",
-        a: "You can share preferences when you reach out. Availability may vary, but we will do our best to consider fit, clinical needs, schedule, and preferences.",
+        a: "Yes. You can request a specific clinician when you reach out. If that person is not available, we will help you find another strong fit based on your needs and schedule.",
       },
     ],
   },
