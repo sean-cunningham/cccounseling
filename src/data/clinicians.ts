@@ -61,7 +61,7 @@ export const CLINICIANS: Clinician[] = [
     slug: "bridget-williams",
     name: "Bridget Williams",
     credentials: "Psy.D.",
-    title: "Clinical Supervisor",
+    title: "Licensed Psychologist and Clinical Director",
     photo: "/images/clinicians/bridget-williams.jpg",
     specialties: [
       "Trauma",
@@ -76,7 +76,7 @@ export const CLINICIANS: Clinician[] = [
     seoTitle:
       "Bridget Williams, Psy.D. | Trauma & Maternal Mental Wellness | TrueBridge",
     seoDescription:
-      "Bridget Williams, Psy.D., Clinical Supervisor, offers compassionate therapy for trauma, identity, and maternal mental wellness. She works with adults across North Carolina via telehealth.",
+      "Bridget Williams, Psy.D., Licensed Psychologist and Clinical Director, offers compassionate therapy for trauma, identity, and maternal mental wellness. She works with adults across North Carolina via telehealth.",
     blurb:
       "Bridget specializes in trauma and maternal mental wellness. She works with adults who are holding a lot at once and feeling stretched thin, with a compassionate, curious style and room for humor along the way.",
     bio: [
@@ -123,7 +123,7 @@ export const CLINICIANS: Clinician[] = [
     bio: [
       "I work with individuals and couples facing many of life's everyday struggles: anxiety, depression, stress, career and life transitions, self-esteem, identity questions, relationship conflict, and parenting. Alongside that broader work, I have particular experience supporting people through pregnancy, postpartum transitions, infertility, miscarriage, pregnancy and infant loss, grief, and the hormonal and identity shifts of perimenopause and menopause.",
       "I began my career as a grief counselor in hospice care, supporting people at the end of their lives and families facing the heartbreak of losing someone they love. Sitting with people in those sacred, vulnerable moments shaped the heart of my work: healing is not about getting over it, but about honoring love, memory, identity, and the many ways grief reshapes us. From there I provided in-school therapy for children and families, then moved into private practice, where I worked with clients across the lifespan.",
-      "This work is also deeply personal to me. I lost my mom when I was 18, and years later I endured the late second-trimester loss of my daughter, Selah. These losses are part of my story, and they shape the way I sit with others. I will not rush your pain or search for silver linings. I believe in walking alongside you, honoring your pace, your truth, and your lived experience.",
+      "This work is also deeply personal to me. I lost my mom when I was 18, and years later I endured a late second-trimester pregnancy loss. These losses are part of my story, and they shape the way I sit with others. I will not rush your pain or search for silver linings. I believe in walking alongside you, honoring your pace, your truth, and your lived experience.",
       "I believe therapy works best when you feel comfortable enough to be yourself. My style is warm, down-to-earth, and collaborative. Clients often tell me they appreciate a space where they do not feel judged or pressured to have it all figured out. I primarily work from an attachment and family systems perspective, helping you understand how relationships, life experiences, and the stories we carry shape the way we see ourselves and connect with others. I may also incorporate evidence-based approaches like Cognitive Behavioral Therapy (CBT), mindfulness, and psychoeducation, always tailored to your needs rather than a one-size-fits-all plan.",
       "In our sessions, you can expect me to be engaged, curious, and supportive. I will ask thoughtful questions, help you notice patterns, gently challenge beliefs that may be keeping you stuck, and offer practical tools you can use outside of therapy. My goal is not to fix you. It is to help you better understand yourself, strengthen your relationships, and feel more confident navigating whatever season of life you are in. We do meaningful work together, and there is also room for laughter, humor, and celebrating the small victories along the way.",
       "I earned my Master's degree in Marriage and Family Therapy from Kansas State University and am a Licensed Marriage and Family Therapist. Whether this is your first experience with therapy or you are returning after time away, I know reaching out can feel like a big step. If you are looking for a therapist who will honor your story and walk with you at your own pace, I would be honored to be part of your healing.",

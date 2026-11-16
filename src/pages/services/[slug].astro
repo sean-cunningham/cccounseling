@@ -100,7 +100,7 @@ const structuredData = [
                 href="/contact-get-started"
                 class="inline-flex w-fit items-center justify-center rounded-full bg-sageDark px-7 py-3.5 text-center text-base font-semibold text-paper no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-smoke"
               >
-                Start Therapy
+                Get Started
               </a>
               <a
                 href="/insurance-rates"
@@ -186,6 +186,22 @@ const structuredData = [
           }
         </div>
         <div class="mt-8">
+          <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-muted">Clinicians who do this work</p>
+          <p class="mb-8 max-w-[760px] text-base leading-relaxed text-muted md:text-lg">
+            {
+              specialty.relatedClinicians.map((c, i) => (
+                <>
+                  {i > 0 && (i === specialty.relatedClinicians.length - 1 ? ", and " : ", ")}
+                  <a
+                    href={`/clinicians/${c.slug}`}
+                    class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
+                  >
+                    {c.label}
+                  </a>
+                </>
+              ))
+            }. Matching still depends on fit and availability.
+          </p>
           <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-muted">Related support</p>
           <div class="flex flex-wrap items-center gap-3">
             <a href="/services/individual-therapy" class={relatedPillClass}>Individual Therapy</a>
@@ -223,7 +239,7 @@ const structuredData = [
     <CtaBand
       heading="Ready to take the first step?"
       headingId="specialty-cta-heading"
-      body="Reach out today and we'll help you understand clinician fit, availability, and how insurance may apply before your first appointment."
+      body="Reach out today and we'll help you understand clinician fit, availability, and how insurance may apply before your first appointment. Our clinicians are in-network with Aetna."
       showPath
     />
   </main>
