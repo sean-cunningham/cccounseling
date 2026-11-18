@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import CtaBand from "@/components/patterns/CtaBand.astro";
+import { SITE_URL } from "@/constants/site";
+import { ORG_ID, WEBSITE_ID, breadcrumbNode } from "@/lib/schema";
 
 const description =
   "Answers about online therapy in North Carolina, insurance, rates, clinician matching, individual therapy, and couples therapy at TrueBridge.";
@@ -22,7 +24,7 @@ const groups: { title: string; items: FaqItem[] }[] = [
     items: [
       {
         q: "How do I start therapy with TrueBridge?",
-        a: '<p>You can start by submitting a request through our <a href="/contact-get-started" class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage">Get Started</a> page. The first consultation is free, and we’ll review what you are looking for, discuss fit and availability, and help you understand the next step before scheduling your first appointment.</p>',
+        a: '<p>You can start by submitting a request through our <a href="/contact-get-started/" class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage">Get Started</a> page. The first consultation is free, and we’ll review what you are looking for, discuss fit and availability, and help you understand the next step before scheduling your first appointment.</p>',
         aHtml: true,
       },
       {
@@ -48,12 +50,12 @@ const groups: { title: string; items: FaqItem[] }[] = [
     items: [
       {
         q: "Do you offer individual therapy?",
-        a: '<p>Yes. TrueBridge offers <a href="/services/individual-therapy" class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage">individual therapy</a> for adults across North Carolina, primarily through telehealth. Individual therapy may be a good fit for anxiety, depression, stress, trauma, grief, life transitions, relationship patterns, self-esteem, and personal growth. Depending on scheduling and clinician availability, in-person sessions may sometimes be possible in the Cary and Raleigh area.</p>',
+        a: '<p>Yes. TrueBridge offers <a href="/services/individual-therapy/" class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage">individual therapy</a> for adults across North Carolina, primarily through telehealth. Individual therapy may be a good fit for anxiety, depression, stress, trauma, grief, life transitions, relationship patterns, self-esteem, and personal growth. Depending on scheduling and clinician availability, in-person sessions may sometimes be possible in the Cary and Raleigh area.</p>',
         aHtml: true,
       },
       {
         q: "Do you offer couples therapy?",
-        a: '<p>Yes. <a href="/services/couples-therapy" class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage">Couples therapy</a> can help partners work through communication issues, recurring conflict, emotional distance, trust concerns, life transitions, and rebuilding connection. Most sessions are online. One honest note: most insurance plans do not cover couples therapy as its own service, so sessions are usually private-pay. We’ll explain your options and costs before you begin.</p>',
+        a: '<p>Yes. <a href="/services/couples-therapy/" class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage">Couples therapy</a> can help partners work through communication issues, recurring conflict, emotional distance, trust concerns, life transitions, and rebuilding connection. Most sessions are online. One honest note: most insurance plans do not cover couples therapy as its own service, so sessions are usually private-pay. We’ll explain your options and costs before you begin.</p>',
         aHtml: true,
       },
       {
@@ -67,7 +69,7 @@ const groups: { title: string; items: FaqItem[] }[] = [
     items: [
       {
         q: "Do you accept insurance?",
-        a: '<p>Yes. TrueBridge clinicians are in-network with Aetna. Before you begin, we confirm your specific plan benefits and expected out-of-pocket costs. See <a href="/insurance-rates" class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage">Insurance &amp; Rates</a> for details.</p>',
+        a: '<p>Yes. TrueBridge clinicians are in-network with Aetna. Before you begin, we confirm your specific plan benefits and expected out-of-pocket costs. See <a href="/insurance-rates/" class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage">Insurance &amp; Rates</a> for details.</p>',
         aHtml: true,
       },
       {
@@ -80,7 +82,7 @@ const groups: { title: string; items: FaqItem[] }[] = [
       },
       {
         q: "Where can I find rates and insurance information?",
-        a: '<p>You can visit the <a href="/insurance-rates" class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage">Insurance &amp; Rates</a> page for the practice fee schedule and insurance overview. Ask when you reach out and we can confirm what applies to your plan.</p>',
+        a: '<p>You can visit the <a href="/insurance-rates/" class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage">Insurance &amp; Rates</a> page for the practice fee schedule and insurance overview. Ask when you reach out and we can confirm what applies to your plan.</p>',
         aHtml: true,
       },
     ],
@@ -115,7 +117,7 @@ const groups: { title: string; items: FaqItem[] }[] = [
     items: [
       {
         q: "Who will I work with?",
-        a: '<p>We match you with a TrueBridge clinician based on fit, focus area, schedule, and availability. You can meet the team on our <a href="/clinicians" class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage">Clinicians</a> page.</p>',
+        a: '<p>We match you with a TrueBridge clinician based on fit, focus area, schedule, and availability. You can meet the team on our <a href="/clinicians/" class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage">Clinicians</a> page.</p>',
         aHtml: true,
       },
       {
@@ -141,11 +143,23 @@ const faqMainEntity = groups.flatMap((group) =>
   })),
 );
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqMainEntity,
-};
+const pageUrl = `${SITE_URL}/faq/`;
+const structuredData = [
+  {
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    url: pageUrl,
+    name: "FAQ: Online Therapy in North Carolina | TrueBridge",
+    description,
+    isPartOf: { "@id": WEBSITE_ID },
+    about: { "@id": ORG_ID },
+    mainEntity: faqMainEntity,
+  },
+  breadcrumbNode(pageUrl, [
+    { name: "Home", url: `${SITE_URL}/` },
+    { name: "FAQ", url: pageUrl },
+  ]),
+];
 ---
 
 <BaseLayout title="FAQ: Online Therapy in North Carolina | TrueBridge" {description} structuredData={structuredData}>

@@ -2,8 +2,11 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import CtaBand from "@/components/patterns/CtaBand.astro";
 import RecognitionGrid from "@/components/patterns/RecognitionGrid.astro";
+import { SITE_URL } from "@/constants/site";
+import { PRACTICE_FEES } from "@/data/fees";
+import { ORG_ID, WEBSITE_ID, breadcrumbNode } from "@/lib/schema";
 
-const pageTitle = "Insurance & Rates for Therapy in North Carolina | TrueBridge";
+const pageTitle = "Aetna In-Network Therapy and Rates in North Carolina | TrueBridge";
 const description =
   "TrueBridge is in-network with Aetna for therapy in North Carolina. Learn about insurance options, private-pay rates, and what to expect before your first session.";
 
@@ -25,9 +28,26 @@ const costItems = [
     body: "If you are unsure about insurance, private-pay rates, or which clinician may be the right fit, you can contact us before scheduling a consultation.",
   },
 ] as const;
+
+const pageUrl = `${SITE_URL}/insurance-rates/`;
+const structuredData = [
+  {
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: pageTitle,
+    description,
+    isPartOf: { "@id": WEBSITE_ID },
+    about: { "@id": ORG_ID },
+  },
+  breadcrumbNode(pageUrl, [
+    { name: "Home", url: `${SITE_URL}/` },
+    { name: "Insurance & Rates", url: pageUrl },
+  ]),
+];
 ---
 
-<BaseLayout title={pageTitle} {description}>
+<BaseLayout title={pageTitle} {description} structuredData={structuredData}>
   <main id="main">
     <!-- Section 1: Hero -->
     <section class="bg-canvas py-16 lg:py-24" aria-labelledby="insurance-rates-heading">
@@ -44,7 +64,7 @@ const costItems = [
           expected costs, and next steps.
         </p>
         <a
-          href="/contact-get-started"
+          href="/contact-get-started/"
           class="mt-8 inline-flex items-center justify-center rounded-full bg-sageDark px-7 py-3.5 text-base font-semibold text-paper no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
         >
           Get Started
@@ -101,53 +121,38 @@ const costItems = [
         <div
           class="overflow-hidden rounded-[32px] border border-sand bg-smoke shadow-card"
         >
-          <div
-            class="grid grid-cols-1 items-center gap-2 px-8 py-6 md:grid-cols-[1fr_auto]"
-          >
-            <p class="font-display text-2xl leading-snug tracking-tight text-ink">Phone consultation</p>
-            <p class="text-lg font-semibold text-ink md:text-xl">No charge</p>
-          </div>
-          <div
-            class="grid grid-cols-1 items-center gap-2 border-t border-sand/70 px-8 py-6 md:grid-cols-[1fr_auto]"
-          >
-            <p class="font-display text-2xl leading-snug tracking-tight text-ink">Individual evaluation, 60 minutes</p>
-            <p class="text-lg font-semibold text-ink md:text-xl">$225</p>
-          </div>
-          <div
-            class="grid grid-cols-1 items-center gap-2 border-t border-sand/70 px-8 py-6 md:grid-cols-[1fr_auto]"
-          >
-            <p class="font-display text-2xl leading-snug tracking-tight text-ink">Individual therapy, 50 minutes</p>
-            <p class="text-lg font-semibold text-ink md:text-xl">$175</p>
-          </div>
-          <div
-            class="grid grid-cols-1 items-center gap-2 border-t border-sand/70 px-8 py-6 md:grid-cols-[1fr_auto]"
-          >
-            <p class="font-display text-2xl leading-snug tracking-tight text-ink">Couples evaluation, 60 minutes</p>
-            <p class="text-lg font-semibold text-ink md:text-xl">$275</p>
-          </div>
-          <div
-            class="grid grid-cols-1 items-center gap-2 border-t border-sand/70 px-8 py-6 md:grid-cols-[1fr_auto]"
-          >
-            <p class="font-display text-2xl leading-snug tracking-tight text-ink">Couples therapy, 50 minutes</p>
-            <p class="text-lg font-semibold text-ink md:text-xl">$225</p>
-          </div>
+          {
+            PRACTICE_FEES.map((fee, index) => (
+              <div
+                class:list={[
+                  "grid grid-cols-1 items-center gap-2 px-8 py-6 md:grid-cols-[1fr_auto]",
+                  index > 0 && "border-t border-sand/70",
+                ]}
+              >
+                <p class="font-display text-2xl leading-snug tracking-tight text-ink">
+                  {fee.duration ? `${fee.label}, ${fee.duration}` : fee.label}
+                </p>
+                <p class="text-lg font-semibold text-ink md:text-xl">{fee.amount}</p>
+              </div>
+            ))
+          }
         </div>
 
         <p class="mt-6 text-base leading-relaxed text-muted">
           You will always know your cost before committing to ongoing care. Questions about your specific situation?
           <a
-            href="/contact-get-started"
+            href="/contact-get-started/"
             class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
             >Ask us</a
           >, the phone consultation is no charge. You can also
           <a
-            href="/clinicians"
+            href="/clinicians/"
             class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
             >meet our clinicians</a
           >
           or explore
           <a
-            href="/services"
+            href="/services/"
             class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
             >therapy services</a
           >
@@ -167,7 +172,7 @@ const costItems = [
           before beginning care.
         </p>
         <a
-          href="/good-faith-estimate"
+          href="/good-faith-estimate/"
           class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-clay hover:decoration-clay focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sageDark focus-visible:ring-offset-2 focus-visible:ring-offset-smoke"
         >
           Learn more about Good Faith Estimates

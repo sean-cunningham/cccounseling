@@ -29,7 +29,7 @@ export interface Clinician {
   /** Optional headshot path under /public. Falls back to an initials avatar. */
   photo?: string;
   /**
-   * Clinical focus areas. Not shown on the page — used only in the page's
+   * Clinical focus areas. Not shown on the page, used only in the page's
    * Person JSON-LD (`knowsAbout`) so search engines understand each
    * clinician's specialties.
    */
@@ -73,21 +73,18 @@ export const CLINICIANS: Clinician[] = [
       "EMDR",
       "Perinatal and postpartum",
     ],
-    seoTitle:
-      "Bridget Williams, Psy.D. | Trauma & Maternal Mental Wellness | TrueBridge",
+    seoTitle: "Bridget Williams, Psy.D. | Trauma & Maternal Wellness | TrueBridge",
     seoDescription:
-      "Bridget Williams, Psy.D., Licensed Psychologist and Clinical Director, offers compassionate therapy for trauma, identity, and maternal mental wellness. She works with adults across North Carolina via telehealth.",
+      "Bridget Williams, Psy.D., licensed psychologist and Clinical Director, offers therapy for trauma, EMDR, and maternal mental wellness for adults across North Carolina.",
     blurb:
-      "Bridget specializes in trauma and maternal mental wellness. She works with adults who are holding a lot at once and feeling stretched thin, with a compassionate, curious style and room for humor along the way.",
+      "Bridget is TrueBridge's Clinical Director and a licensed psychologist who specializes in trauma, EMDR, and maternal mental wellness. She works with adults, especially women and moms, who are carrying a lot and want care that is thoughtful without being stiff.",
     bio: [
-      "I work with adults who are holding many different worlds together and still feeling like they have little support. Life may not look the way they imagined it would, and they aren't always sure what needs to change or where to begin. My approach is compassionate and curious, with some humor and wit sprinkled in along the way.",
-      "I especially enjoy working with women, including moms, who are navigating the demands of being a caregiver, professional, partner or spouse, and mother. Many of the people I work with were taught they could have it all and do it all, only to find themselves struggling with their identity, mental health, or overall sense of happiness.",
-      "During our first few sessions, we'll focus on building a trusting relationship, exploring what brings you to therapy, and identifying the goals that are most important to you. From there, we'll work together to recognize and challenge beliefs that may no longer serve you and find ways to bring your choices and actions into greater alignment with who you authentically want to be.",
-      "My work is informed by Adlerian and Constructivist theories, which emphasize understanding each person's unique experience of themselves, others, and the world around them. I also incorporate Acceptance and Commitment Therapy (ACT), Dialectical Behavior Therapy (DBT) skills, and somatic work based on each client's needs. I strive to create a trusting environment where you can feel supported while also being empowered and challenged. Being vulnerable and doing the work of therapy can be hard, but it can also help you create a life that feels more like your own.",
-      "Growing up, I always wanted to be a helper. I explored different paths toward fulfilling that role, but the common thread was seeing the power of human connection. Being truly seen and heard can lead to some of our most profound experiences. That instilled in me a desire to understand the world through my clients' eyes so that we can explore different perspectives and get curious about the beliefs that guide their choices.",
-      "I bring knowledge and training in mental health and wellness to our work, but I don't view myself as the expert on you. I want to help you better understand your experiences, trust yourself, and find answers that allow you to align your actions and beliefs with your authentic self. I'm also a lifelong learner and avid reader who regularly seeks out evidence-based training and current research to continue growing as a psychologist.",
-      "I am a licensed psychologist specializing in trauma and maternal mental wellness. I earned my Master of Science in Counseling Psychology and my doctorate from the APA-accredited Clinical Psychology program at Adler University. Although I trained as a generalist practitioner, I have been particularly drawn to working with survivors of trauma and have pursued additional training in trauma treatment, including EMDR.",
-      "Outside of therapy, I'm a distance runner, mom, and avid reader. I love spending time in nature, going on adventures with my spouse and children, and creating moments of joy in the kitchen through cooking and baking. Spontaneous dance parties tend to shift any mood for the better!",
+      "I am a licensed psychologist and Clinical Director at TrueBridge, and most of the people I work with are adults who have been holding a lot together for a long time with very little support. From the outside it can look like they are managing, even when they are tired, stretched thin, and not quite sure where they went in the process.",
+      "I especially enjoy working with women and moms who were taught they could have it all and do it all, then found the cost of that showing up in their identity, their mental health, or a quieter sense that life no longer feels like their own. Trauma is a regular part of this work too, including experiences that still live in the body long after they were supposed to be over, along with pregnancy, postpartum, and the longer stretch of becoming a parent.",
+      "In the beginning we take time to build trust, talk through what brought you in, and get clear on what actually matters to you. From there we look at the beliefs and patterns you have been living by, and whether they still fit, using Adlerian and constructivist ideas along with ACT, DBT skills, somatic work, and EMDR when trauma is part of the picture. I will support you, and I will also be honest with you, with room for humor when it helps the work feel more human.",
+      "I do not see myself as the expert on your life. I bring training and clinical experience, and you bring the knowledge of your own story, and together we try to make the work useful in a way that holds up outside the room.",
+      "I earned my Master of Science in Counseling Psychology and my Psy.D. from the APA-accredited Clinical Psychology program at Adler University. I trained as a generalist and later completed additional trauma training, including EMDR, because that is where so much of the work kept leading.",
+      "Outside of therapy I am a distance runner, a mom, and an avid reader. I love time outdoors, adventures with my spouse and children, and cooking and baking at home, and I still believe a spontaneous dance party can change the temperature of a day.",
     ],
   },
   {
@@ -113,20 +110,17 @@ export const CLINICIANS: Clinician[] = [
       "Perimenopause and menopause",
       "Hormonal and identity shifts",
     ],
-    seoTitle:
-      "Jade Spielman, LMFT | Anxiety, Depression & Relationship Therapy | TrueBridge",
+    seoTitle: "Jade Spielman, LMFT | Grief, Relationships & Perinatal Therapy | TrueBridge",
     seoDescription:
-      "Jade Spielman, LMFT offers warm, collaborative therapy for anxiety, depression, stress, life transitions, and relationship concerns, with specialized expertise in pregnancy, postpartum, infertility, miscarriage, and infant loss. Telehealth across North Carolina.",
+      "Jade Spielman, LMFT, offers therapy for individuals and couples in North Carolina, including anxiety, relationship concerns, pregnancy loss, infertility, postpartum, and perimenopause.",
     blurb:
-      "Jade works with individuals and couples facing everyday stressors, anxiety, depression, relationship concerns, career changes, and identity questions. She also brings specialized expertise supporting people through pregnancy, postpartum, infertility, miscarriage, infant loss, and parenting. Her style is warm, down-to-earth, and collaborative, shaped by lived experience.",
-    // First-person bio drawn from Jade's practice site and her onboarding notes.
+      "Jade is a licensed marriage and family therapist who started as a hospice grief counselor. She works with individuals and couples, and has particular depth around pregnancy loss, infertility, postpartum, and perimenopause.",
     bio: [
-      "I work with individuals and couples facing many of life's everyday struggles: anxiety, depression, stress, career and life transitions, self-esteem, identity questions, relationship conflict, and parenting. Alongside that broader work, I have particular experience supporting people through pregnancy, postpartum transitions, infertility, miscarriage, pregnancy and infant loss, grief, and the hormonal and identity shifts of perimenopause and menopause.",
-      "I began my career as a grief counselor in hospice care, supporting people at the end of their lives and families facing the heartbreak of losing someone they love. Sitting with people in those sacred, vulnerable moments shaped the heart of my work: healing is not about getting over it, but about honoring love, memory, identity, and the many ways grief reshapes us. From there I provided in-school therapy for children and families, then moved into private practice, where I worked with clients across the lifespan.",
-      "This work is also deeply personal to me. I lost my mom when I was 18, and years later I endured a late second-trimester pregnancy loss. These losses are part of my story, and they shape the way I sit with others. I will not rush your pain or search for silver linings. I believe in walking alongside you, honoring your pace, your truth, and your lived experience.",
-      "I believe therapy works best when you feel comfortable enough to be yourself. My style is warm, down-to-earth, and collaborative. Clients often tell me they appreciate a space where they do not feel judged or pressured to have it all figured out. I primarily work from an attachment and family systems perspective, helping you understand how relationships, life experiences, and the stories we carry shape the way we see ourselves and connect with others. I may also incorporate evidence-based approaches like Cognitive Behavioral Therapy (CBT), mindfulness, and psychoeducation, always tailored to your needs rather than a one-size-fits-all plan.",
-      "In our sessions, you can expect me to be engaged, curious, and supportive. I will ask thoughtful questions, help you notice patterns, gently challenge beliefs that may be keeping you stuck, and offer practical tools you can use outside of therapy. My goal is not to fix you. It is to help you better understand yourself, strengthen your relationships, and feel more confident navigating whatever season of life you are in. We do meaningful work together, and there is also room for laughter, humor, and celebrating the small victories along the way.",
-      "I earned my Master's degree in Marriage and Family Therapy from Kansas State University and am a Licensed Marriage and Family Therapist. Whether this is your first experience with therapy or you are returning after time away, I know reaching out can feel like a big step. If you are looking for a therapist who will honor your story and walk with you at your own pace, I would be honored to be part of your healing.",
+      "I started my career as a grief counselor in hospice, sitting with people at the end of life and with families who were losing someone they loved, and that work still shapes how I practice. Grief is not something you get over so much as something you learn to live with, including the love, the memory, and the way it changes who you are. From there I provided therapy in schools, then moved into private practice with individuals and couples.",
+      "A lot of people come in for the everyday heavy things: anxiety, depression, stress, relationship conflict, parenting, identity questions, and stretches of adult life that feel harder than they expected. Alongside that, I have particular experience with infertility, miscarriage, pregnancy and infant loss, postpartum changes, grief, and the hormonal and identity shifts of perimenopause and menopause.",
+      "This work is personal for me. I lost my mom when I was 18, and years later I went through a late second-trimester pregnancy loss, and those experiences are part of why I will not rush your pain or look for a silver lining. We go at your pace, and you do not have to be further along than you are.",
+      "I am warm, down-to-earth, and collaborative, and I work from an attachment and family systems lens, looking at how earlier relationships shape the way you love, fight, and cope. I may also use CBT, mindfulness, or psychoeducation when they fit. With couples, I am less interested in deciding who is right and more interested in the pattern you keep landing in, and what each of you is protecting underneath it.",
+      "I earned my master's in Marriage and Family Therapy from Kansas State University and am a Licensed Marriage and Family Therapist. If reaching out feels like a lot, you can start with one piece of the story and we will go from there.",
     ],
   },
   {
@@ -148,20 +142,18 @@ export const CLINICIANS: Clinician[] = [
       "Life transitions",
       "Faith-based counseling",
     ],
-    seoTitle:
-      "Kelly Freeman Driscoll, LCMHCA, NCC | Anxiety, Relationships & Trauma Therapy | TrueBridge",
+    seoTitle: "Kelly Freeman Driscoll, LCMHCA, NCC | Relationships & Practical Therapy | TrueBridge",
     seoDescription:
-      "Kelly Freeman Driscoll, LCMHCA, NCC offers warm, practical online therapy in North Carolina for anxiety, depression, relationship concerns, trauma, grief, substance use, and life transitions, including faith-based counseling for clients who want to integrate their Christian faith.",
+      "Kelly Freeman Driscoll, LCMHCA, NCC, offers practical online therapy in North Carolina for anxiety, relationships, trauma, grief, and substance use, including faith-based counseling when clients want it.",
     blurb:
-      "Kelly works with individuals and couples facing anxiety, depression, relationship concerns, trauma, grief, substance use, and life transitions. Her style is warm, honest, and practical, and she also offers faith-based counseling for clients who want to bring their Christian faith into the work.",
+      "Kelly has more than 15 years of practical counseling experience with individuals and couples. She is warm and direct, and she offers Christian faith-based counseling when someone wants that included.",
     bio: [
-      "I work with individuals and couples facing anxiety, depression, relationship and marital concerns, parenting and family challenges, conflict, trauma, grief and loss, substance use, and other life transitions. My style is warm, collaborative, honest, and practical. I am direct when it helps, and I keep the work grounded in what is actually getting in the way day to day.",
-      "I have more than 15 years of clinical experience across outpatient mental health, community-based services, pediatric settings, and intensive in-home care. That background means I have worked with people of many ages and in many systems, and I do not take a one-size-fits-all approach. We start with what brought you in, clarify what you want to change, and build from there.",
-      "This work is also personal for me. Substance use and generational trauma have been part of the landscape of my own life, and that shapes how I sit with clients. I understand how hard it can be to ask for help, and I take seriously the trust it takes to talk about what you have been carrying.",
-      "Faith is an important part of who I am, personally and professionally. I believe healing involves the whole person: mind, body, and spirit. Christian faith can be a real source of strength and hope in hard seasons. For clients who want that integrated into therapy, I offer faith-based counseling. For every client, I aim to provide a compassionate, safe space where you feel heard and taken seriously.",
-      "In session, you can expect me to be engaged, clear, and collaborative. We will look at patterns that keep you stuck, practice tools you can use between sessions, and work on communication, boundaries, emotion regulation, and relationship repair when those are part of the picture. I draw from Cognitive Behavioral Therapy, mindfulness-based interventions, behavioral strategies, and motivational interviewing, always tailored to the person in front of me.",
-      "I do not see my job as telling you how to live. I see it as helping you understand what is happening, decide what matters most, and make changes that hold up in real life. Therapy with me is practical and respectful. There is room for hard conversations, and there is also room for honesty without judgment.",
-      "I earned my Master of Arts in Education in Clinical Mental Health Counseling from the University of North Carolina at Pembroke and am a National Certified Counselor (NCC) and Licensed Clinical Mental Health Counselor Associate (LCMHCA). Whether this is your first time in therapy or you are returning after time away, I would be glad to work with you.",
+      "I have spent more than 15 years in outpatient clinics, community programs, pediatric settings, and intensive in-home care with families. That mix taught me that therapy has to be useful on the messy weeks, not only when everyone is sitting still. I tend to be warm and practical, and I would rather name what is getting in the way than talk around it.",
+      "I work with individuals and couples around anxiety, depression, relationship and marital concerns, parenting, trauma, grief, substance use, and other transitions. We usually start with whatever brought you in, get specific about what you want to change, and build from there in a way that can hold up on a regular weeknight, not just in session.",
+      "This work is also personal for me. Substance use and generational trauma have been part of the landscape of my life, which does not make your story about mine. It means I know how hard it can be to ask for help, and I will not lecture you for needing it.",
+      "With couples and parents, we get into the details that actually change the temperature at home: how you talk to each other, where the boundaries are, how to cool down in the middle of an argument, and how to repair afterward. I draw from CBT, mindfulness, behavioral strategies, and motivational interviewing, and we practice in the room so you have something to use the same week.",
+      "Faith is an important part of who I am, personally and professionally, and I am glad to include Christian faith in therapy when that is what you want. If you would rather leave it out, or if faith is not part of your life, I will not bring it up, and you still get the same care.",
+      "I earned my Master of Arts in Education in Clinical Mental Health Counseling from the University of North Carolina at Pembroke, and I am a National Certified Counselor and Licensed Clinical Mental Health Counselor Associate. My job is not to tell you how to live. It is to help you see what is happening, decide what matters, and make changes that still work when the week gets busy again.",
     ],
   },
 ];

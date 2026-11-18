@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import { SITE_NAME } from "@/constants/site";
+import { serializeJsonLd } from "@/lib/schema";
 
 /** JSON-LD: single document, @graph object, or array of nodes (wrapped with @context + @graph). */
 export type StructuredDataProp = Record<string, unknown> | Record<string, unknown>[] | undefined;
@@ -56,10 +57,7 @@ const ogImageAbsolute =
 
 let structuredDataJson: string | null = null;
 if (structuredData !== undefined && structuredData !== null) {
-  const payload = Array.isArray(structuredData)
-    ? { "@context": "https://schema.org", "@graph": structuredData }
-    : structuredData;
-  structuredDataJson = JSON.stringify(payload);
+  structuredDataJson = serializeJsonLd(structuredData);
 }
 ---
 

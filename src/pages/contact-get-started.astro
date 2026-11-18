@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { SITE_URL, PUBLIC_EMAIL, PUBLIC_PHONE_DISPLAY, PUBLIC_PHONE_E164 } from "@/constants/site";
+import { ORG_ID, WEBSITE_ID, breadcrumbNode } from "@/lib/schema";
 
 const description =
   "Contact TrueBridge to schedule a free consultation or ask questions about therapy services, availability, insurance, rates, and next steps.";
@@ -9,22 +10,26 @@ const contactLinkClass =
   "font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage";
 
 const pageTitle = "Contact TrueBridge | Start Therapy in North Carolina";
-const orgId = `${SITE_URL}/#organization`;
-const websiteId = `${SITE_URL}/#website`;
+const pageUrl = `${SITE_URL}/contact-get-started/`;
 
 const iframeSrc =
   "https://admin.truebridgetherapy.com/intake-widget/widgets/intake-form-truebridge.html";
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "ContactPage",
-  "@id": `${SITE_URL}/contact-get-started/#webpage`,
-  url: `${SITE_URL}/contact-get-started/`,
-  name: pageTitle,
-  description,
-  isPartOf: { "@id": websiteId },
-  about: { "@id": orgId },
-};
+const structuredData = [
+  {
+    "@type": "ContactPage",
+    "@id": `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: pageTitle,
+    description,
+    isPartOf: { "@id": WEBSITE_ID },
+    about: { "@id": ORG_ID },
+  },
+  breadcrumbNode(pageUrl, [
+    { name: "Home", url: `${SITE_URL}/` },
+    { name: "Get Started", url: pageUrl },
+  ]),
+];
 ---
 
 <BaseLayout title={pageTitle} {description} structuredData={structuredData}>

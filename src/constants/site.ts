@@ -6,7 +6,11 @@
  * `PUBLIC_PHONE_E164` / `PUBLIC_EMAIL` match the footer and are safe for JSON-LD.
  */
 export const SITE_URL = "https://truebridgetherapy.com" as const;
+/** Short brand used in titles and visible UI. */
 export const SITE_NAME = "TrueBridge" as const;
+/** Public practice name for schema and crawler summaries. */
+export const SITE_LEGAL_NAME = "TrueBridge Therapy" as const;
+export const SITE_LOGO_PATH = "/images/logo.png" as const;
 
 /** Public contact values (same as site footer). Used in JSON-LD where appropriate. */
 export const PUBLIC_PHONE_E164 = "+19842076172" as const;

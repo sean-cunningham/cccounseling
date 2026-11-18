@@ -3,6 +3,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import CtaBand from "@/components/patterns/CtaBand.astro";
 import RecognitionGrid from "@/components/patterns/RecognitionGrid.astro";
 import { SITE_URL } from "@/constants/site";
+import { ORG_ID, WEBSITE_ID, breadcrumbNode } from "@/lib/schema";
 
 /** Editorial hero photography — local asset in /public/images */
 const HERO_IMAGE = "/images/individual-therapy-hero.jpg";
@@ -11,37 +12,37 @@ const helpItems = [
   {
     title: "Anxiety and overthinking",
     body: "Therapy can help you understand worry, panic, avoidance, racing thoughts, and the pressure to stay constantly in control.",
-    href: "/services/anxiety-therapy",
+    href: "/services/anxiety-therapy/",
     linkLabel: "Explore anxiety therapy",
   },
   {
     title: "Depression and disconnection",
     body: "Support for low motivation, emotional heaviness, isolation, numbness, and feeling distant from yourself or the people around you.",
-    href: "/services/depression-therapy",
+    href: "/services/depression-therapy/",
     linkLabel: "Explore depression therapy",
   },
   {
     title: "Stress and burnout",
     body: "A steady place to process chronic pressure, work stress, caregiving strain, and the exhaustion of holding everything together.",
-    href: "/services/stress-burnout-therapy",
+    href: "/services/stress-burnout-therapy/",
     linkLabel: "Explore stress & burnout therapy",
   },
   {
     title: "Grief and life transitions",
     body: "Support through loss, major changes, parenting stress, career shifts, and seasons that feel difficult to navigate.",
-    href: "/services/grief-life-transitions-therapy",
+    href: "/services/grief-life-transitions-therapy/",
     linkLabel: "Explore grief & life transitions therapy",
   },
   {
     title: "Trauma and painful experiences",
     body: "Therapy can help you work with triggers, nervous system overwhelm, painful memories, and patterns that continue to affect daily life.",
-    href: "/services/trauma-therapy",
+    href: "/services/trauma-therapy/",
     linkLabel: "Explore trauma therapy",
   },
   {
     title: "Perinatal and postpartum seasons",
     body: "Care for women navigating pregnancy, trying to conceive, infertility, postpartum changes, early parenting, loss, and the physical, emotional, and identity shifts of this season.",
-    href: "/services/perinatal-postpartum-therapy",
+    href: "/services/perinatal-postpartum-therapy/",
     linkLabel: "Explore perinatal & postpartum therapy",
   },
 ] as const;
@@ -50,7 +51,6 @@ const pageTitle = "Individual Therapy in North Carolina | TrueBridge";
 const pageDescription =
   "Online individual therapy for adults in North Carolina seeking support with anxiety, depression, stress, trauma, life transitions, relationship patterns, and personal growth.";
 
-const orgId = `${SITE_URL}/#organization`;
 const pageUrl = `${SITE_URL}/services/individual-therapy/`;
 
 const faqItems = [
@@ -80,28 +80,29 @@ const structuredData = [
     serviceType: "Individual therapy",
     description:
       "Online individual therapy for adults in North Carolina seeking support with anxiety, depression, stress, trauma, life transitions, relationship patterns, and personal growth.",
-    provider: { "@id": orgId },
+    provider: { "@id": ORG_ID },
     areaServed: { "@type": "State", name: "North Carolina" },
     url: pageUrl,
   },
   {
     "@type": "FAQPage",
     "@id": `${pageUrl}#faq`,
+    url: pageUrl,
+    name: pageTitle,
+    description: pageDescription,
+    isPartOf: { "@id": WEBSITE_ID },
+    about: { "@id": ORG_ID },
     mainEntity: faqItems.map((item) => ({
       "@type": "Question",
       name: item.q,
       acceptedAnswer: { "@type": "Answer", text: item.a },
     })),
   },
-  {
-    "@type": "BreadcrumbList",
-    "@id": `${pageUrl}#breadcrumb`,
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
-      { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services/` },
-      { "@type": "ListItem", position: 3, name: "Individual Therapy", item: pageUrl },
-    ],
-  },
+  breadcrumbNode(pageUrl, [
+    { name: "Home", url: `${SITE_URL}/` },
+    { name: "Services", url: `${SITE_URL}/services/` },
+    { name: "Individual Therapy", url: pageUrl },
+  ]),
 ];
 ---
 
@@ -123,13 +124,13 @@ const structuredData = [
             </p>
             <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
               <a
-                href="/contact-get-started"
+                href="/contact-get-started/"
                 class="inline-flex items-center justify-center rounded-full bg-sageDark px-7 py-3.5 text-center text-base font-semibold text-paper no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-smoke"
               >
                 Get Started
               </a>
               <a
-                href="/insurance-rates"
+                href="/insurance-rates/"
                 class="text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
               >
                 View Insurance &amp; Rates
@@ -221,7 +222,7 @@ const structuredData = [
           </div>
           <div class="flex min-w-0 items-start lg:justify-end lg:pt-1">
             <a
-              href="/insurance-rates"
+              href="/insurance-rates/"
               class="inline-flex items-center justify-center rounded-full bg-sageDark px-7 py-3.5 text-base font-semibold text-paper no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-mist"
             >
               Explore Insurance &amp; Rates
