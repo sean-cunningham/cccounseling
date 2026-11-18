@@ -39,9 +39,9 @@ const gtmContainerId =
   import.meta.env.PUBLIC_GTM_CONTAINER_ID?.trim() || "GTM-5GTPR59L";
 const gtmEnabled = Boolean(gtmContainerId);
 /**
- * Full-site deploys on Vercel default to noindex (preview + production *.vercel.app)
- * while the public domain may be coming-soon on AWS.
- * Opt out with PUBLIC_ALLOW_VERCEL_INDEXING=true on Vercel only (rare).
+ * Leftover Vercel builds stay noindex. Vercel is not the review host;
+ * production is AWS. Opt out with PUBLIC_ALLOW_VERCEL_INDEXING=true only
+ * if a *.vercel.app deploy must be indexed (rare).
  */
 const onVercel =
   process.env.VERCEL === "1" ||

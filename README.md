@@ -4,12 +4,12 @@ Static Astro site.
 
 ## Dev / prod workflow
 
-Production (`truebridgetherapy.com`) is served from AWS S3 + CloudFront and **only changes when someone deliberately deploys** — merging to `main` does not touch it. Vercel builds every branch automatically and serves as staging (noindex by default, see below).
+Production (`truebridgetherapy.com`) is served from AWS S3 + CloudFront and **only changes when someone deliberately deploys**. Merging to `main` does not touch production. There is no hosted PR preview: review the branch locally (`npm run dev` or `npm run build` then `npm run preview`) or from screenshots on the PR.
 
 The flow:
 
-1. Work on a feature branch and open a PR. Vercel builds a preview URL for the branch.
-2. Merge to `main` after review. Vercel's main deployment updates — this is the staging copy of what production will become.
+1. Work on a feature branch, open a PR, and review locally or from PR screenshots.
+2. Merge to `main` after review. That still does not publish truebridgetherapy.com.
 3. When ready, deploy `main` to production either:
    - **From GitHub (recommended):** Actions tab → "Deploy production (manual)" → Run workflow → type `deploy`. This always builds committed `main`. Requires the AWS secrets listed in `.github/workflows/deploy-prod.yml` to be configured once.
    - **Locally:** `npm run deploy:prod` (see "Production deploy to AWS" below). Make sure your checkout is on an up-to-date `main` with no local edits, since this ships whatever is on your machine.
@@ -19,24 +19,15 @@ The flow:
 - **Domain:** `astro.config.mjs` sets `site: "https://truebridgetherapy.com"` and includes `@astrojs/sitemap`, which writes `sitemap-index.xml` (and shards like `sitemap-0.xml`) into `dist/` on `npm run build`.
 - **robots.txt:** `public/robots.txt` is copied to `dist/robots.txt` and references `https://truebridgetherapy.com/sitemap-index.xml`.
 
-## Preview `noindex` (PUBLIC_NOINDEX & Vercel)
+## Preview `noindex` (`PUBLIC_NOINDEX`)
 
 `BaseLayout.astro` emits `<meta name="robots" content="noindex, nofollow">` when:
 
-1. A page passes the `noindex` prop (e.g. 404), or  
-2. **`PUBLIC_NOINDEX=true`** at build time (any host), or  
-3. The build runs **on Vercel** (detected via `VERCEL=1` or `VERCEL_ENV`), unless you set **`PUBLIC_ALLOW_VERCEL_INDEXING=true`** on that Vercel project.
+1. A page passes the `noindex` prop (e.g. 404), or
+2. **`PUBLIC_NOINDEX=true`** at build time (any host), or
+3. The build still runs on Vercel (detected via `VERCEL=1` or `VERCEL_ENV`). Vercel is **not** the review host. That guard only keeps leftover `*.vercel.app` deploys out of search if a GitHub integration still fires.
 
-Vercel **no longer** uses `PUBLIC_NOINDEX=false` to allow indexing — that value is only “don’t force noindex everywhere” and is safe in `.env` / `.env.example`. **Do not** rely on unset `VERCEL` locally: local and AWS builds stay indexable unless `PUBLIC_NOINDEX=true`.
-
-To **allow indexing** on a Vercel deployment (rare), set **`PUBLIC_ALLOW_VERCEL_INDEXING=true`** in Vercel’s environment variables.
-
-| Build | Result |
-|-------|--------|
-| **Local / AWS CI** | Indexable unless `PUBLIC_NOINDEX=true` or page `noindex` |
-| **Vercel** (preview & production host) | **noindex** by default |
-| **Vercel** + `PUBLIC_ALLOW_VERCEL_INDEXING=true` | Indexable on that deploy |
-| **Any host** + `PUBLIC_NOINDEX=true` | **noindex** |
+Local and AWS builds stay indexable unless `PUBLIC_NOINDEX=true` or the page itself is marked `noindex`.
 
 See `.env.example`.
 
@@ -69,7 +60,7 @@ Replace `YOUR_DISTRIBUTION_ID` with your real CloudFront distribution ID when yo
 
 ## Temporary Coming Soon Production Deploy
 
-Use this when **truebridgetherapy.com** should show a simple “Coming Soon” page on AWS production while the full Astro site stays available on Vercel for review.
+Use this when **truebridgetherapy.com** should show a simple “Coming Soon” page on AWS production while the full Astro site is reviewed locally.
 
 The `deploy:coming-soon` script:
 
@@ -77,7 +68,7 @@ The `deploy:coming-soon` script:
 2. Syncs `dist-coming-soon/` to `s3://truebridgetherapy.com` with `--delete`, so old production files are removed from the bucket.
 3. Creates a CloudFront invalidation for `/*`.
 
-This does **not** change the full Astro site source or Vercel deployment. Known route paths (for example `/services`, `/faq`, `/contact-get-started`) each get the same coming-soon `index.html` so direct URLs do not serve old full-site content.
+This does **not** change the full Astro site source. Known route paths (for example `/services`, `/faq`, `/contact-get-started`) each get the same coming-soon `index.html` so direct URLs do not serve old full-site content.
 
 **PowerShell**
 
@@ -97,7 +88,7 @@ To build the coming-soon output locally without deploying:
 npm run build:coming-soon
 ```
 
-When you are ready to launch the full site on production, use `npm run deploy:prod` instead (after reviewing on Vercel).
+When you are ready to launch the full site on production, use `npm run deploy:prod` instead (after reviewing locally).
 
 ## Google Tag Manager
 
