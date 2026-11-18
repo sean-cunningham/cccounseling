@@ -41,6 +41,8 @@ export interface Specialty {
   helps: SpecialtySection[];
   faqHeading: string;
   faqs: SpecialtyFaq[];
+  /** Related specialty slugs shown as contextual links, not a ranked list. */
+  relatedSlugs: string[];
 }
 
 export const SPECIALTIES: Specialty[] = [
@@ -118,6 +120,7 @@ export const SPECIALTIES: Specialty[] = [
         a: "It varies with your goals and how long the patterns have been in place. Many clients notice early progress within the first several sessions, while deeper change in long-standing patterns takes longer. Your therapist will check in with you about progress along the way.",
       },
     ],
+    relatedSlugs: ["depression-therapy", "stress-burnout-therapy", "trauma-therapy"],
   },
   {
     slug: "depression-therapy",
@@ -193,6 +196,7 @@ export const SPECIALTIES: Specialty[] = [
         a: "If you are in crisis or thinking about harming yourself, call or text 988 (Suicide and Crisis Lifeline), call 911, or go to the nearest emergency room. Once you are safe, therapy can be an important part of ongoing support. Please note that this website and the therapy request process are not crisis services.",
       },
     ],
+    relatedSlugs: ["anxiety-therapy", "stress-burnout-therapy", "grief-life-transitions-therapy"],
   },
   {
     slug: "trauma-therapy",
@@ -268,6 +272,7 @@ export const SPECIALTIES: Specialty[] = [
         a: "Comparing pain is rarely useful. If something from your past still affects your sleep, relationships, sense of safety, or how you see yourself, therapy can help, regardless of how it compares to anyone else's story.",
       },
     ],
+    relatedSlugs: ["anxiety-therapy", "grief-life-transitions-therapy", "perinatal-postpartum-therapy"],
   },
   {
     slug: "stress-burnout-therapy",
@@ -342,6 +347,7 @@ export const SPECIALTIES: Specialty[] = [
         a: "Support from friends and time off help, but they rarely change the underlying patterns. Therapy offers a consistent, confidential space with someone trained to help you understand why the pressure keeps rebuilding and what will actually shift it.",
       },
     ],
+    relatedSlugs: ["anxiety-therapy", "depression-therapy", "perinatal-postpartum-therapy"],
   },
   {
     slug: "perinatal-postpartum-therapy",
@@ -351,7 +357,7 @@ export const SPECIALTIES: Specialty[] = [
     pageTitle: "Perinatal & Postpartum Therapy in North Carolina | TrueBridge",
     metaDescription:
       "Online therapy for women in North Carolina navigating pregnancy, trying to conceive, infertility, postpartum anxiety and depression, early parenting, loss, and the physical, emotional, and identity shifts of this season.",
-    heroHeading: "Therapy for the seasons of womanhood no one prepares you for.",
+    heroHeading: "Perinatal and postpartum therapy for the parts of womanhood no one prepares you for.",
     heroIntro:
       "Support for women across North Carolina moving through pregnancy, trying to conceive, infertility, loss, postpartum changes, and the physical, emotional, and identity shifts that can leave you feeling unlike yourself. Most sessions are online through secure telehealth.",
     heroImage: "/images/perinatal-postpartum-therapy-hero.jpg",
@@ -417,6 +423,7 @@ export const SPECIALTIES: Specialty[] = [
         a: "Yes. Grief after miscarriage and other perinatal losses does not follow a schedule and is not measured by how far along you were. If it still weighs on you, it deserves care, whether it happened last month or years ago.",
       },
     ],
+    relatedSlugs: ["grief-life-transitions-therapy", "trauma-therapy", "depression-therapy"],
   },
   {
     slug: "grief-life-transitions-therapy",
@@ -492,6 +499,7 @@ export const SPECIALTIES: Specialty[] = [
         a: "The end of a significant relationship is one of the most common reasons adults seek therapy. Individual therapy can help you grieve the relationship, manage the practical stress, and rebuild your sense of self and direction.",
       },
     ],
+    relatedSlugs: ["perinatal-postpartum-therapy", "trauma-therapy", "depression-therapy"],
   },
 ];
 

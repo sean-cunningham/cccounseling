@@ -15,7 +15,7 @@ interface Props {
   showPath?: boolean;
 }
 
-const { heading, headingId, body, buttonLabel = "Get Started", href = "/contact-get-started", showPath = false } = Astro.props;
+const { heading, headingId, body, buttonLabel = "Get Started", href = "/contact-get-started/", showPath = false } = Astro.props;
 ---
 
 <section class="relative border-t border-paper/15 bg-sageDeep py-14 text-center text-paper lg:py-20" aria-labelledby={headingId}>

@@ -4,6 +4,8 @@ import CtaBand from "@/components/patterns/CtaBand.astro";
 import RecognitionGrid from "@/components/patterns/RecognitionGrid.astro";
 import { SITE_URL } from "@/constants/site";
 import { SPECIALTIES } from "@/data/specialties";
+import { withTrailingSlash } from "@/lib/paths";
+import { ORG_ID, WEBSITE_ID, breadcrumbNode } from "@/lib/schema";
 
 const IMG_INDIVIDUAL = "/images/services-overview-individual.jpg";
 const IMG_COUPLES = "/images/services-overview-couples.jpg";
@@ -31,24 +33,36 @@ const whyItems = [
   },
 ] as const;
 
-const orgId = `${SITE_URL}/#organization`;
-const websiteId = `${SITE_URL}/#website`;
+const servicePages = [
+  { name: "Individual Therapy", url: `${SITE_URL}/services/individual-therapy/` },
+  { name: "Couples Therapy", url: `${SITE_URL}/services/couples-therapy/` },
+  ...SPECIALTIES.map((s) => ({ name: s.name, url: `${SITE_URL}/services/${s.slug}/` })),
+];
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "@id": `${SITE_URL}/services#webpage`,
-  url: `${SITE_URL}/services/`,
-  name: servicesTitle,
-  description: servicesDescription,
-  isPartOf: { "@id": websiteId },
-  about: { "@id": orgId },
-  hasPart: [
-    { "@id": `${SITE_URL}/services/individual-therapy/#service` },
-    { "@id": `${SITE_URL}/services/couples-therapy/#service` },
-    ...SPECIALTIES.map((s) => ({ "@id": `${SITE_URL}/services/${s.slug}/#service` })),
-  ],
-};
+const structuredData = [
+  {
+    "@type": "CollectionPage",
+    "@id": `${SITE_URL}/services/#webpage`,
+    url: `${SITE_URL}/services/`,
+    name: servicesTitle,
+    description: servicesDescription,
+    isPartOf: { "@id": WEBSITE_ID },
+    about: { "@id": ORG_ID },
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: servicePages.map((page, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: page.name,
+        url: page.url,
+      })),
+    },
+  },
+  breadcrumbNode(`${SITE_URL}/services/`, [
+    { name: "Home", url: `${SITE_URL}/` },
+    { name: "Services", url: `${SITE_URL}/services/` },
+  ]),
+];
 
 const focusAreas = [
   {
@@ -103,13 +117,13 @@ const focusAreas = [
           </p>
           <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
             <a
-              href="/contact-get-started"
+              href="/contact-get-started/"
               class="inline-flex w-fit items-center justify-center rounded-full bg-sageDark px-7 py-3.5 text-center text-base font-semibold text-paper no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
             >
               Get Started
             </a>
             <a
-              href="/insurance-rates"
+              href="/insurance-rates/"
               class="text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
             >
               View Insurance &amp; Rates
@@ -148,7 +162,7 @@ const focusAreas = [
                 relationships, self-understanding, and personal growth.
               </p>
               <a
-                href="/services/individual-therapy"
+                href="/services/individual-therapy/"
                 class="mt-auto inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors duration-200 ease-out hover:text-sage hover:decoration-sage focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
               >
                 Learn about individual therapy
@@ -177,7 +191,7 @@ const focusAreas = [
                 explain your options before you begin.
               </p>
               <a
-                href="/services/couples-therapy"
+                href="/services/couples-therapy/"
                 class="mt-auto inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors duration-200 ease-out hover:text-sage hover:decoration-sage focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
               >
                 Learn about couples therapy
@@ -187,7 +201,7 @@ const focusAreas = [
         </div>
         <p class="mt-10 text-base leading-relaxed text-muted md:text-lg">
           Not sure which is the right place to begin? <a
-            href="/contact-get-started"
+            href="/contact-get-started/"
             class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
             >Reach out</a
           > and we'll help you sort it out. The first consultation is free.
@@ -218,7 +232,7 @@ const focusAreas = [
           {
             focusAreas.map((area) => (
               <a
-                href={area.href}
+                href={withTrailingSlash(area.href)}
                 class="group block border-t border-paper/25 py-6 no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-sageDark"
               >
                 <span class="flex items-baseline justify-between gap-4 font-display text-2xl font-semibold leading-tight tracking-tight text-paper transition-colors group-hover:text-mist md:text-3xl">

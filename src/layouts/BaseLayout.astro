@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import { SITE_NAME } from "@/constants/site";
+import { serializeJsonLd } from "@/lib/schema";
 
 /** JSON-LD: single document, @graph object, or array of nodes (wrapped with @context + @graph). */
 export type StructuredDataProp = Record<string, unknown> | Record<string, unknown>[] | undefined;
@@ -38,9 +39,9 @@ const gtmContainerId =
   import.meta.env.PUBLIC_GTM_CONTAINER_ID?.trim() || "GTM-5GTPR59L";
 const gtmEnabled = Boolean(gtmContainerId);
 /**
- * Full-site deploys on Vercel default to noindex (preview + production *.vercel.app)
- * while the public domain may be coming-soon on AWS.
- * Opt out with PUBLIC_ALLOW_VERCEL_INDEXING=true on Vercel only (rare).
+ * Leftover Vercel builds stay noindex. Vercel is not the review host;
+ * production is AWS. Opt out with PUBLIC_ALLOW_VERCEL_INDEXING=true only
+ * if a *.vercel.app deploy must be indexed (rare).
  */
 const onVercel =
   process.env.VERCEL === "1" ||
@@ -56,10 +57,7 @@ const ogImageAbsolute =
 
 let structuredDataJson: string | null = null;
 if (structuredData !== undefined && structuredData !== null) {
-  const payload = Array.isArray(structuredData)
-    ? { "@context": "https://schema.org", "@graph": structuredData }
-    : structuredData;
-  structuredDataJson = JSON.stringify(payload);
+  structuredDataJson = serializeJsonLd(structuredData);
 }
 ---
 

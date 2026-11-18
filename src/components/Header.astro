@@ -1,5 +1,6 @@
 ---
 import { CLINICIANS } from "@/data/clinicians";
+import { withTrailingSlash } from "@/lib/paths";
 
 /** Site logo (PNG with transparent background in /public/images). */
 const LOGO = "/images/logo.png";
@@ -40,9 +41,16 @@ const navRest = [
 
 const teamMembers = CLINICIANS.filter((clinician) => !clinician.isPlaceholder);
 
+function stripTrailingSlash(path: string): string {
+  if (!path || path === "/") return "/";
+  return path.endsWith("/") ? path.slice(0, -1) : path;
+}
+
 function isActive(href: string): boolean {
-  if (href === "/") return currentPath === "/" || currentPath === "";
-  return currentPath === href || currentPath.startsWith(href + "/");
+  const current = stripTrailingSlash(currentPath);
+  const target = stripTrailingSlash(href);
+  if (target === "/") return current === "/";
+  return current === target || current.startsWith(`${target}/`);
 }
 
 const servicesActive = isActive("/services");
@@ -67,7 +75,7 @@ const teamActive = isActive("/clinicians");
     </a>
 
     <a
-      href="/contact-get-started"
+      href="/contact-get-started/"
       class="ml-auto inline-flex shrink-0 items-center justify-center rounded-full bg-sageDark px-4 py-2 text-sm font-semibold text-paper no-underline transition duration-200 ease-out hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper lg:hidden"
     >
       Get Started
@@ -103,7 +111,7 @@ const teamActive = isActive("/clinicians");
 
         <div class="header-flyout-wrap relative flex shrink-0 items-center gap-1.5" data-header-menu>
           <a
-            href="/services"
+            href="/services/"
             aria-current={servicesActive ? "page" : undefined}
             class:list={[
               "border-b-2 border-transparent pb-0.5 text-[0.95rem] font-medium no-underline transition-colors",
@@ -144,7 +152,7 @@ const teamActive = isActive("/clinicians");
                     </p>
                     {group.items.map((item) => (
                       <a
-                        href={item.href}
+                        href={withTrailingSlash(item.href)}
                         role="menuitem"
                         class:list={[
                           "block rounded-lg px-3 py-1.5 text-[0.9rem] font-medium text-ink/85 no-underline transition-colors hover:bg-paper hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-smoke",
@@ -163,7 +171,7 @@ const teamActive = isActive("/clinicians");
 
         <div class="header-flyout-wrap relative flex shrink-0 items-center gap-1.5" data-header-menu>
           <a
-            href="/clinicians"
+            href="/clinicians/"
             aria-current={teamActive ? "page" : undefined}
             class:list={[
               "border-b-2 border-transparent pb-0.5 text-[0.95rem] font-medium no-underline transition-colors",
@@ -196,7 +204,7 @@ const teamActive = isActive("/clinicians");
                   <div class="rounded-2xl border border-line bg-smoke p-3.5 shadow-[0_18px_45px_rgba(31,42,48,0.10)]">
                     {teamMembers.map((clinician) => (
                       <a
-                        href={`/clinicians/${clinician.slug}`}
+                        href={withTrailingSlash(`/clinicians/${clinician.slug}`)}
                         role="menuitem"
                         class:list={[
                           "block rounded-lg px-3 py-1.5 text-[0.9rem] font-medium text-ink/85 no-underline transition-colors hover:bg-paper hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-smoke",
@@ -216,7 +224,7 @@ const teamActive = isActive("/clinicians");
         {
           navRest.map((item) => (
             <a
-              href={item.href}
+              href={withTrailingSlash(item.href)}
               aria-current={isActive(item.href) ? "page" : undefined}
               class:list={[
                 "border-b-2 border-transparent pb-0.5 text-[0.95rem] font-medium no-underline transition-colors",
@@ -230,7 +238,7 @@ const teamActive = isActive("/clinicians");
       </nav>
 
       <a
-        href="/contact-get-started"
+        href="/contact-get-started/"
         class="inline-flex shrink-0 items-center justify-center rounded-full bg-sageDark px-7 py-3.5 text-base font-semibold text-paper no-underline transition duration-200 ease-out hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
       >
         Get Started
@@ -257,7 +265,7 @@ const teamActive = isActive("/clinicians");
       </a>
       <div class="border-b border-line py-3">
         <a
-          href="/services"
+          href="/services/"
           class="text-base font-medium text-ink/80 no-underline transition-colors hover:text-sageDark"
           aria-current={servicesActive ? "page" : undefined}
         >
@@ -272,7 +280,7 @@ const teamActive = isActive("/clinicians");
                 </p>
                 {group.items.map((item) => (
                   <a
-                    href={item.href}
+                    href={withTrailingSlash(item.href)}
                     class="rounded-lg py-1.5 pl-2 text-sm font-medium text-ink/85 no-underline transition-colors hover:bg-smoke hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2"
                     aria-current={isActive(item.href) ? "page" : undefined}
                   >
@@ -286,7 +294,7 @@ const teamActive = isActive("/clinicians");
       </div>
       <div class="border-b border-line py-3">
         <a
-          href="/clinicians"
+          href="/clinicians/"
           class="text-base font-medium text-ink/80 no-underline transition-colors hover:text-sageDark"
           aria-current={teamActive ? "page" : undefined}
         >
@@ -297,7 +305,7 @@ const teamActive = isActive("/clinicians");
             <div class="mt-2 flex flex-col gap-1 border-l border-line pl-4">
               {teamMembers.map((clinician) => (
                 <a
-                  href={`/clinicians/${clinician.slug}`}
+                  href={withTrailingSlash(`/clinicians/${clinician.slug}`)}
                   class="rounded-lg py-1.5 pl-2 text-sm font-medium text-ink/85 no-underline transition-colors hover:bg-smoke hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2"
                   aria-current={isActive(`/clinicians/${clinician.slug}`) ? "page" : undefined}
                 >
@@ -311,7 +319,7 @@ const teamActive = isActive("/clinicians");
       {
         navRest.map((item) => (
           <a
-            href={item.href}
+                    href={withTrailingSlash(item.href)}
             class="border-b border-line py-3 text-base font-medium text-ink/80 no-underline transition-colors hover:text-sageDark"
             aria-current={isActive(item.href) ? "page" : undefined}
           >
@@ -320,7 +328,7 @@ const teamActive = isActive("/clinicians");
         ))
       }
       <a
-        href="/contact-get-started"
+        href="/contact-get-started/"
         class="mt-4 mb-4 inline-flex w-full items-center justify-center rounded-full bg-sageDark px-7 py-3.5 text-base font-semibold text-paper no-underline transition duration-200 ease-out hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
       >
         Get Started

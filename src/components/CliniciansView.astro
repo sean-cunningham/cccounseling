@@ -3,12 +3,12 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import CtaBand from "@/components/patterns/CtaBand.astro";
 import { SITE_URL } from "@/constants/site";
 import { CLINICIANS, PUBLISHED_CLINICIANS } from "@/data/clinicians";
+import { ORG_ID, WEBSITE_ID, breadcrumbNode, personId, personNode } from "@/lib/schema";
 
 const description =
-  "Meet licensed North Carolina therapists at TrueBridge and learn how we match clients with clinicians based on fit, focus area, availability, and the support they need—primarily through online therapy.";
+  "Meet licensed North Carolina therapists at TrueBridge and learn how we match clients with clinicians based on fit, focus area, availability, and the support they need, primarily through online therapy.";
 
 const pageUrl = `${SITE_URL}/clinicians/`;
-const orgId = `${SITE_URL}/#organization`;
 
 function initials(name: string): string {
   return name
@@ -27,21 +27,23 @@ const structuredData = [
     url: pageUrl,
     name: "Our Clinicians | TrueBridge",
     description,
-    isPartOf: { "@id": `${SITE_URL}/#website` },
-    about: { "@id": orgId },
+    isPartOf: { "@id": WEBSITE_ID },
+    about: { "@id": ORG_ID },
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: PUBLISHED_CLINICIANS.map((c, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: `${SITE_URL}/clinicians/${c.slug}/`,
+        item: { "@id": personId(c.slug) },
+      })),
+    },
   },
-  // Only real (non-placeholder) clinicians are exposed to search engines.
-  ...PUBLISHED_CLINICIANS.map((c) => ({
-    "@type": "Person",
-    "@id": `${pageUrl}#${c.slug}`,
-    name: `${c.name}, ${c.credentials}`,
-    jobTitle: c.title,
-    description: c.seoDescription ?? c.blurb,
-    worksFor: { "@id": orgId },
-    knowsAbout: c.specialties,
-    ...(c.photo ? { image: new URL(c.photo, SITE_URL).href } : {}),
-    url: `${SITE_URL}/clinicians/${c.slug}/`,
-  })),
+  breadcrumbNode(pageUrl, [
+    { name: "Home", url: `${SITE_URL}/` },
+    { name: "Our Clinicians", url: pageUrl },
+  ]),
+  ...PUBLISHED_CLINICIANS.map((c) => personNode(c)),
 ];
 ---
 
@@ -104,7 +106,7 @@ const structuredData = [
                           </>
                         ) : (
                           <a
-                            href={`/clinicians/${clinician.slug}`}
+                            href={`/clinicians/${clinician.slug}/`}
                             class="no-underline transition-colors hover:text-sageDark"
                           >
                             {clinician.name}, {clinician.credentials}
@@ -115,14 +117,14 @@ const structuredData = [
                       <p class="mt-5 text-base leading-relaxed text-muted md:text-lg">{clinician.blurb}</p>
                       {clinician.isPlaceholder ? (
                         <a
-                          href="/contact-get-started"
+                          href="/contact-get-started/"
                           class="mt-6 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
                         >
                           Ask about working with our clinicians
                         </a>
                       ) : (
                         <a
-                          href={`/clinicians/${clinician.slug}`}
+                          href={`/clinicians/${clinician.slug}/`}
                           class="mt-6 inline-flex text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
                         >
                           Meet {clinician.name.split(" ")[0]}

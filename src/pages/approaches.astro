@@ -1,13 +1,14 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { SITE_URL } from "@/constants/site";
+import { withTrailingSlash } from "@/lib/paths";
+import { ORG_ID, WEBSITE_ID, breadcrumbNode } from "@/lib/schema";
 
 const pageTitle = "How We Work: Therapy Approaches | TrueBridge";
 const pageDescription =
   "The therapy approaches TrueBridge clinicians draw on, explained in plain language: CBT, behavioral activation, acceptance and mindfulness-based therapy, and psychodynamic and interpersonal work.";
 
 const pageUrl = `${SITE_URL}/approaches/`;
-const orgId = `${SITE_URL}/#organization`;
 
 const approaches = [
   {
@@ -73,17 +74,13 @@ const structuredData = [
     url: pageUrl,
     name: pageTitle,
     description: pageDescription,
-    isPartOf: { "@id": `${SITE_URL}/#website` },
-    about: { "@id": orgId },
+    isPartOf: { "@id": WEBSITE_ID },
+    about: { "@id": ORG_ID },
   },
-  {
-    "@type": "BreadcrumbList",
-    "@id": `${pageUrl}#breadcrumb`,
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
-      { "@type": "ListItem", position: 2, name: "How We Work", item: pageUrl },
-    ],
-  },
+  breadcrumbNode(pageUrl, [
+    { name: "Home", url: `${SITE_URL}/` },
+    { name: "How We Work", url: pageUrl },
+  ]),
 ];
 ---
 
@@ -105,7 +102,7 @@ const structuredData = [
               mean in plain language.
             </p>
             <a
-              href="/contact-get-started"
+              href="/contact-get-started/"
               class="mt-8 inline-flex items-center justify-center rounded-full bg-sageDark px-7 py-3.5 text-base font-semibold text-paper no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-smoke"
             >
               Get Started
@@ -162,7 +159,7 @@ const structuredData = [
                     <p class="mt-4 flex flex-wrap gap-x-6 gap-y-2">
                       {approach.links.map((link) => (
                         <a
-                          href={link.href}
+                          href={withTrailingSlash(link.href)}
                           class="text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
                         >
                           {link.label}
@@ -189,7 +186,7 @@ const structuredData = [
         <p class="text-lg leading-relaxed text-paper/90 md:text-xl">
           Most therapy blends more than one approach, and the strongest predictor of progress is the relationship between
           you and your therapist. When you reach out, we match you with a <a
-            href="/clinicians"
+            href="/clinicians/"
             class="font-semibold text-paper underline decoration-sage underline-offset-4 transition-colors hover:decoration-mist"
             >clinician</a
           > whose style and focus fit what you are looking for, and your therapist tailors the how from there.
@@ -206,7 +203,7 @@ const structuredData = [
           Tell us what you are navigating and we'll help you find a clinician whose approach and style feel right.
         </p>
         <a
-          href="/contact-get-started"
+          href="/contact-get-started/"
           class="mt-10 inline-flex items-center justify-center rounded-full bg-paper px-7 py-3.5 text-base font-semibold text-sageDark no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-smoke hover:text-sageDark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-sageDeep"
         >
           Get Started

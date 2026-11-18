@@ -1,7 +1,9 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import CtaBand from "@/components/patterns/CtaBand.astro";
-import { SITE_URL, SITE_NAME, PUBLIC_PHONE_E164, PUBLIC_EMAIL } from "@/constants/site";
+import { SITE_URL } from "@/constants/site";
+import { withTrailingSlash } from "@/lib/paths";
+import { ORG_ID, WEBSITE_ID, organizationNode, websiteNode } from "@/lib/schema";
 
 /** Full-bleed hero image — replace in one place when updating photography. */
 const HERO_IMG = "/images/home-hero.jpg";
@@ -11,39 +13,21 @@ const homeTitle = "Online Therapy in North Carolina | TrueBridge";
 const homeDescription =
   "TrueBridge provides online therapy for adults across North Carolina, with support for anxiety, depression, stress, trauma, grief, relationships, and life transitions.";
 
-const orgId = `${SITE_URL}/#organization`;
-const websiteId = `${SITE_URL}/#website`;
 const webpageId = `${SITE_URL}/#webpage`;
 
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
-    {
-      "@type": "MedicalBusiness",
-      "@id": orgId,
-      name: SITE_NAME,
-      url: SITE_URL,
-      description: "Online therapy for adults across North Carolina.",
-      areaServed: { "@type": "State", name: "North Carolina" },
-      medicalSpecialty: ["MentalHealth", "Psychotherapy"],
-      telephone: PUBLIC_PHONE_E164,
-      email: PUBLIC_EMAIL,
-    },
-    {
-      "@type": "WebSite",
-      "@id": websiteId,
-      url: SITE_URL,
-      name: SITE_NAME,
-      publisher: { "@id": orgId },
-    },
+    organizationNode(),
+    websiteNode(),
     {
       "@type": "WebPage",
       "@id": webpageId,
-      url: SITE_URL,
+      url: `${SITE_URL}/`,
       name: homeTitle,
       description: homeDescription,
-      isPartOf: { "@id": websiteId },
-      about: { "@id": orgId },
+      isPartOf: { "@id": WEBSITE_ID },
+      about: { "@id": ORG_ID },
     },
   ],
 };
@@ -114,7 +98,7 @@ const focusAreas = [
           fetchpriority="high"
         />
         <div
-          class="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink/92 via-ink/62 to-ink/18"
+          class="pointer-events-none absolute inset-0 bg-gradient-to-r from-[rgba(31,42,48,0.92)] via-[rgba(31,42,48,0.62)] to-[rgba(31,42,48,0.18)]"
           aria-hidden="true"
         ></div>
       </div>
@@ -135,13 +119,13 @@ const focusAreas = [
           </p>
           <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
             <a
-              href="/contact-get-started"
+              href="/contact-get-started/"
               class="inline-flex w-fit items-center justify-center rounded-full bg-sageDark px-7 py-3.5 text-base font-semibold text-paper no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-ink/75"
             >
               Get Started
             </a>
             <a
-              href="/insurance-rates"
+              href="/insurance-rates/"
               class="text-base font-semibold text-paper underline decoration-sage underline-offset-4 transition-colors duration-200 ease-out hover:text-paper hover:decoration-mist"
             >
               View Insurance &amp; Rates
@@ -187,12 +171,12 @@ const focusAreas = [
             <p class="text-base leading-relaxed text-muted">
             We help review availability, clinical focus areas,
             <a
-              href="/insurance-rates"
+              href="/insurance-rates/"
               class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
               >insurance and payment options</a
             >, and fit so you are not left guessing where to begin. You can also
             <a
-              href="/clinicians"
+              href="/clinicians/"
               class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
               >browse clinician profiles</a
             >.
@@ -232,7 +216,7 @@ const focusAreas = [
           {
             focusAreas.map((area) => (
               <a
-                href={area.href}
+                href={withTrailingSlash(area.href)}
                 class="group block rounded-[24px] border border-paper/20 bg-paper/10 p-6 text-left no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:border-paper/40 hover:bg-paper/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-sageDark"
               >
                 <span class="flex items-baseline justify-between gap-3 font-display text-xl font-semibold leading-snug tracking-tight text-paper">
@@ -244,7 +228,7 @@ const focusAreas = [
             ))
           }
           <a
-            href="/services"
+            href="/services/"
             class="group flex flex-col justify-between rounded-[24px] border border-dashed border-paper/40 p-6 text-left no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:border-paper/70 hover:bg-paper/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-sageDark"
           >
             <span class="flex items-baseline justify-between gap-3 font-display text-xl font-semibold leading-snug tracking-tight text-paper">
@@ -279,13 +263,13 @@ const focusAreas = [
             </p>
             <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
               <a
-                href="/insurance-rates"
+                href="/insurance-rates/"
                 class="inline-flex items-center rounded-full bg-sageDark px-7 py-3.5 font-semibold text-paper no-underline transition hover:-translate-y-0.5 hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-mist"
               >
                 Explore Insurance &amp; Rates
               </a>
               <a
-                href="/clinicians"
+                href="/clinicians/"
                 class="text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
               >
                 Meet our clinicians

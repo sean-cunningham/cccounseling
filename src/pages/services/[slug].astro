@@ -4,6 +4,7 @@ import CtaBand from "@/components/patterns/CtaBand.astro";
 import RecognitionGrid from "@/components/patterns/RecognitionGrid.astro";
 import { SITE_URL } from "@/constants/site";
 import { SPECIALTIES, type Specialty } from "@/data/specialties";
+import { ORG_ID, WEBSITE_ID, breadcrumbNode } from "@/lib/schema";
 
 export function getStaticPaths() {
   return SPECIALTIES.map((specialty) => ({
@@ -18,10 +19,11 @@ interface Props {
 
 const { specialty } = Astro.props;
 
-const orgId = `${SITE_URL}/#organization`;
 const pageUrl = `${SITE_URL}/services/${specialty.slug}/`;
 
-const related = SPECIALTIES.filter((s) => s.slug !== specialty.slug).slice(0, 3);
+const related = specialty.relatedSlugs
+  .map((slug) => SPECIALTIES.find((s) => s.slug === slug))
+  .filter((s): s is Specialty => Boolean(s));
 
 const relatedPillClass =
   "inline-flex rounded-full border border-line bg-smoke px-4 py-2 text-sm font-semibold text-sageDark no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:text-ink hover:shadow-sm";
@@ -33,7 +35,7 @@ const structuredData = [
     name: specialty.name,
     serviceType: specialty.serviceType,
     description: specialty.metaDescription,
-    provider: { "@id": orgId },
+    provider: { "@id": ORG_ID },
     areaServed: { "@type": "State", name: "North Carolina" },
     availableChannel: {
       "@type": "ServiceChannel",
@@ -45,21 +47,22 @@ const structuredData = [
   {
     "@type": "FAQPage",
     "@id": `${pageUrl}#faq`,
+    url: pageUrl,
+    name: specialty.pageTitle,
+    description: specialty.metaDescription,
+    isPartOf: { "@id": WEBSITE_ID },
+    about: { "@id": ORG_ID },
     mainEntity: specialty.faqs.map((item) => ({
       "@type": "Question",
       name: item.q,
       acceptedAnswer: { "@type": "Answer", text: item.a },
     })),
   },
-  {
-    "@type": "BreadcrumbList",
-    "@id": `${pageUrl}#breadcrumb`,
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
-      { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services/` },
-      { "@type": "ListItem", position: 3, name: specialty.name, item: pageUrl },
-    ],
-  },
+  breadcrumbNode(pageUrl, [
+    { name: "Home", url: `${SITE_URL}/` },
+    { name: "Services", url: `${SITE_URL}/services/` },
+    { name: specialty.name, url: pageUrl },
+  ]),
 ];
 ---
 
@@ -78,7 +81,7 @@ const structuredData = [
             </li>
             <li aria-hidden="true">/</li>
             <li>
-              <a href="/services" class="no-underline transition-colors hover:text-sageDark hover:underline">Services</a>
+              <a href="/services/" class="no-underline transition-colors hover:text-sageDark hover:underline">Services</a>
             </li>
             <li aria-hidden="true">/</li>
             <li aria-current="page" class="font-medium text-ink">{specialty.name}</li>
@@ -97,13 +100,13 @@ const structuredData = [
             </p>
             <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
               <a
-                href="/contact-get-started"
+                href="/contact-get-started/"
                 class="inline-flex w-fit items-center justify-center rounded-full bg-sageDark px-7 py-3.5 text-center text-base font-semibold text-paper no-underline transition duration-200 ease-out hover:-translate-y-0.5 hover:brightness-110 hover:text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-smoke"
               >
                 Get Started
               </a>
               <a
-                href="/insurance-rates"
+                href="/insurance-rates/"
                 class="text-base font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
               >
                 View Insurance &amp; Rates
@@ -188,10 +191,10 @@ const structuredData = [
         <div class="mt-8">
           <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-muted">Related support</p>
           <div class="flex flex-wrap items-center gap-3">
-            <a href="/services/individual-therapy" class={relatedPillClass}>Individual Therapy</a>
+            <a href="/services/individual-therapy/" class={relatedPillClass}>Individual Therapy</a>
             {
               related.map((s) => (
-                <a href={`/services/${s.slug}`} class={relatedPillClass}>
+                <a href={`/services/${s.slug}/`} class={relatedPillClass}>
                   {s.name}
                 </a>
               ))
@@ -199,19 +202,19 @@ const structuredData = [
           </div>
           <p class="mt-6 max-w-[760px] text-base leading-relaxed text-muted">
             Curious how sessions actually work? Read about <a
-              href="/approaches"
+              href="/approaches/"
               class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
               >the approaches our clinicians use</a
             >, meet <a
-              href="/clinicians"
+              href="/clinicians/"
               class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
               >our clinicians</a
             >, review <a
-              href="/insurance-rates"
+              href="/insurance-rates/"
               class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
               >insurance and rates</a
             >, or <a
-              href="/contact-get-started"
+              href="/contact-get-started/"
               class="font-semibold text-sageDark underline decoration-sand underline-offset-4 transition-colors hover:text-sage hover:decoration-sage"
               >ask us directly</a
             > if you're not sure where to begin.
